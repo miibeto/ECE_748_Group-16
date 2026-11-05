@@ -1,0 +1,22 @@
+//----------------------------------------------------------------------
+// Created with uvmf_gen version 2026.1
+//----------------------------------------------------------------------
+// pragma uvmf custom header begin
+// pragma uvmf custom header end
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+//
+
+,
+Interface Description, Interface Type, Interface Transaction, Interface Name,
+decode_env_decode_in_agent, decode_in_driver_bfm decode_in_monitor_bfm, decode_in_transaction, decode_in_pkg_decode_env_decode_in_agent_BFM,
+decode_env_decode_out_agent, decode_out_driver_bfm decode_out_monitor_bfm, decode_out_transaction, decode_out_pkg_decode_env_decode_out_agent_BFM,
+writeback_env_writeback_in_agent, writeback_in_driver_bfm writeback_in_monitor_bfm, writeback_in_transaction, writeback_in_pkg_writeback_env_writeback_in_agent_BFM,
+writeback_env_writeback_out_agent, writeback_out_driver_bfm writeback_out_monitor_bfm, writeback_out_transaction, writeback_out_pkg_writeback_env_writeback_out_agent_BFM,
+memaccess_env_memaccess_in_agent, memaccess_in_driver_bfm memaccess_in_monitor_bfm, memaccess_in_transaction, memaccess_in_pkg_memaccess_env_memaccess_in_agent_BFM,
+memaccess_env_memaccess_out_agent, memaccess_out_driver_bfm memaccess_out_monitor_bfm, memaccess_out_transaction, memaccess_out_pkg_memaccess_env_memaccess_out_agent_BFM,
+control_env_control_in_agent, control_in_driver_bfm control_in_monitor_bfm, control_in_transaction, control_in_pkg_control_env_control_in_agent_BFM,
+control_env_control_out_agent, control_out_driver_bfm control_out_monitor_bfm, control_out_transaction, control_out_pkg_control_env_control_out_agent_BFM,
+imem_agent, imem_driver_bfm imem_monitor_bfm, imem_transaction, imem_pkg_imem_agent_BFM,
+dmem_agent, dmem_driver_bfm dmem_monitor_bfm, dmem_transaction, dmem_pkg_dmem_agent_BFM,
+

@@ -1,0 +1,49 @@
+uvmf:
+  interfaces:
+    writeback_out:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: input
+        name: vsr1
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: vsr2
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: psr
+        reset_value: '''b0'
+        width: '16'
+      reset: reset
+      reset_assertion_level: 'False'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: vsr1
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: vsr2
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: psr
+        type: bit [15:0]
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

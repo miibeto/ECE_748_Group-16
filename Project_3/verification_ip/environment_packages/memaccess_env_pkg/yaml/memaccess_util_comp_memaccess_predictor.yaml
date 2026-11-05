@@ -1,0 +1,11 @@
+uvmf:
+  util_components:
+    memaccess_predictor:
+      analysis_exports:
+      - name: memaccess_in_agent_ae
+        type: memaccess_in_transaction
+      analysis_ports:
+      - name: memaccess_sb_ap
+        type: memaccess_out_transaction
+      existing_library_component: 'True'
+      type: predictor

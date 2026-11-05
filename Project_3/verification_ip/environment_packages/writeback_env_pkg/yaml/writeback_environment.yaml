@@ -1,0 +1,38 @@
+uvmf:
+  environments:
+    writeback:
+      agents:
+      - initiator_responder: INITIATOR
+        name: writeback_in_agent
+        type: writeback_in
+      - initiator_responder: RESPONDER
+        name: writeback_out_agent
+        type: writeback_out
+      analysis_components:
+      - name: writeback_pred
+        parameters: []
+        type: writeback_predictor
+      analysis_exports: []
+      analysis_ports: []
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      hvl_pkg_parameters: []
+      non_uvmf_components: []
+      parameters: []
+      qvip_memory_agents: []
+      scoreboards:
+      - name: writeback_sb
+        sb_type: uvmf_in_order_scoreboard
+        trans_type: writeback_out_transaction
+      subenvs: []
+      tlm_connections:
+      - driver: writeback_in_agent.monitored_ap
+        receiver: writeback_pred.writeback_in_agent_ae
+        validate: 'True'
+      - driver: writeback_pred.writeback_sb_ap
+        receiver: writeback_sb.expected_analysis_export
+        validate: 'True'
+      - driver: writeback_out_agent.monitored_ap
+        receiver: writeback_sb.actual_analysis_export
+        validate: 'True'

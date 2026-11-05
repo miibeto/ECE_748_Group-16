@@ -1,0 +1,55 @@
+uvmf:
+  interfaces:
+    decode_in:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: inout
+        name: enable_decode
+        reset_value: '''b0'
+        width: '1'
+      - dir: inout
+        name: dout
+        reset_value: '''b0'
+        width: '16'
+      - dir: inout
+        name: npc_in
+        reset_value: '''b0'
+        width: '16'
+      reset: reset
+      reset_assertion_level: 'False'
+      transaction_constraints:
+      - comment: Ensures only valid instructions are fed in
+        name: valid_instr_c
+        value: '{ !(dout[15:12] inside {4''b1101, 4''b0100, 4''b1000, 4''b1111}); }'
+      - comment: Ensure NOT instruction gets correct operands
+        name: valid_NOT_c
+        value: '{ if (dout[15:12] == 4''b1001) dout[5:0] == 6''b111111; }'
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: enable_decode
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: dout
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: npc_in
+        type: bit [15:0]
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

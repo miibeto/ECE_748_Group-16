@@ -1,0 +1,69 @@
+uvmf:
+  interfaces:
+    imem:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: input
+        name: PC
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: instrmem_rd
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: I_macc
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: Instr_dout
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: complete_instr
+        reset_value: '''b0'
+        width: '1'
+      reset: reset
+      reset_assertion_level: 'False'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: PC
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: instrmem_rd
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: I_macc
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: Instr_dout
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: complete_instr
+        type: bit
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

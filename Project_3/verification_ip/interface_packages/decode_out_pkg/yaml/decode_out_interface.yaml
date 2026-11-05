@@ -1,0 +1,73 @@
+uvmf:
+  interfaces:
+    decode_out:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: inout
+        name: enable_decode
+        reset_value: '''b0'
+        width: '1'
+      - dir: inout
+        name: w_control
+        reset_value: '''b0'
+        width: '2'
+      - dir: inout
+        name: mem_control
+        reset_value: '''b0'
+        width: '1'
+      - dir: inout
+        name: e_control
+        reset_value: '''b0'
+        width: '6'
+      - dir: inout
+        name: ir
+        reset_value: '''b0'
+        width: '16'
+      - dir: inout
+        name: npc_out
+        reset_value: '''b0'
+        width: '16'
+      reset: reset
+      reset_assertion_level: 'False'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: w_control
+        type: bit [1:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: mem_control
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: e_control
+        type: bit [5:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: ir
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: npc_out
+        type: bit [15:0]
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

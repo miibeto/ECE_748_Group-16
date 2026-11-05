@@ -1,0 +1,69 @@
+uvmf:
+  interfaces:
+    memaccess_in:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: output
+        name: mem_state
+        reset_value: '''b0'
+        width: '2'
+      - dir: output
+        name: M_Control
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: M_Data
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: M_addr
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: DMem_dout
+        reset_value: '''b0'
+        width: '16'
+      reset: reset
+      reset_assertion_level: 'False'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: mem_state
+        type: bit [1:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: M_Control
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: M_Data
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: M_addr
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: DMem_dout
+        type: bit [15:0]
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

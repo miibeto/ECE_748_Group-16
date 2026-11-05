@@ -1,0 +1,79 @@
+uvmf:
+  interfaces:
+    dmem:
+      clock: clock
+      config_constraints: []
+      config_vars: []
+      existing_library_component: 'True'
+      gen_inbound_streaming_driver: 'False'
+      hdl_pkg_parameters: []
+      hdl_typedefs: []
+      hvl_pkg_parameters: []
+      hvl_typedefs: []
+      parameters: []
+      ports:
+      - dir: input
+        name: Data_addr
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: Data_din
+        reset_value: '''b0'
+        width: '16'
+      - dir: input
+        name: Data_rd
+        reset_value: '''b0'
+        width: '1'
+      - dir: input
+        name: D_macc
+        reset_value: '''b0'
+        width: '1'
+      - dir: output
+        name: Data_dout
+        reset_value: '''b0'
+        width: '16'
+      - dir: output
+        name: complete_data
+        reset_value: '''b0'
+        width: '1'
+      reset: reset
+      reset_assertion_level: 'False'
+      transaction_constraints: []
+      transaction_vars:
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: Data_addr
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: Data_din
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'False'
+        name: Data_rd
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'False'
+        isrand: 'False'
+        name: D_macc
+        type: bit
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: Data_dout
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: complete_data
+        type: bit
+        unpacked_dimension: ''
+      use_dpi_link: 'False'

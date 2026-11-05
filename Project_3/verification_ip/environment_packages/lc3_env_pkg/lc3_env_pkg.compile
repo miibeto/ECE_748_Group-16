@@ -1,0 +1,22 @@
+needs:
+# pragma uvmf custom needs_additional begin
+# pragma uvmf custom needs_additional end
+  - $UVMF_HOME/uvmf_base_pkg/uvmf_base_pkg.compile
+  - ../../../verification_ip/interface_packages/imem_pkg/imem_hvl.compile
+  - ../../../verification_ip/interface_packages/dmem_pkg/dmem_hvl.compile
+  - ../decode_env_pkg/decode_env_pkg.compile
+  - ../writeback_env_pkg/writeback_env_pkg.compile
+  - ../memaccess_env_pkg/memaccess_env_pkg.compile
+  - ../control_env_pkg/control_env_pkg.compile
+# pragma uvmf custom extra_needs begin
+# pragma uvmf custom extra_needs end
+
+src:
+# pragma uvmf custom src_additional begin
+# pragma uvmf custom src_additional end
+  - lc3_env_pkg.sv
+# pragma uvmf custom extra_src begin
+# pragma uvmf custom extra_src end
+# pragma uvmf custom compile_additional begin
+# pragma uvmf custom compile_additional end
+
