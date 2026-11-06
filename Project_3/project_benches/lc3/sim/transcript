@@ -14,7 +14,7 @@
 # //
 # ** Note: (vsim-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
 # vsim -i -sv_seed random "+UVM_TESTNAME=test_top" -permit_unmatched_virtual_intf "+notimingchecks" -suppress 8887 -solvefaildebug -solvefailtestcase -assertdebug -uvmcontrol=all "+uvm_set_config_int=*,enable_transaction_viewing,1" -classdebug -msgmode tran -do " set NoQuitOnFinish 1; run 0; do wave.do " optimized_debug_top_tb 
-# Start time: 21:17:03 on Nov 04,2026
+# Start time: 09:41:16 on Nov 06,2026
 # Loading sv_std.std
 # Loading work.control_out_driver_bfm(fast)
 # Loading work.control_out_monitor_bfm(fast)
@@ -124,10 +124,8 @@
 # Loading work.Writeback(fast)
 # Loading work.RegFile(fast)
 # Loading work.Controller_Pipeline(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (3) for port 'psr'. The port definition is at: /mnt/ncsudrive/m/madize/MyECE748/uvmf_testing/uvmf_template_output/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/src/writeback_out_if.sv(36).
-#    Time: 0 ns  Iteration: 0  Instance: /hdl_top/writeback_env_writeback_out_agent_bus File: /mnt/ncsudrive/m/madize/MyECE748/uvmf_testing/uvmf_template_output/project_benches/lc3/tb/testbench/hdl_top.sv Line: 155
 # Loading /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
-# Sv_Seed = 1180796466
+# Sv_Seed = 2935540258
 #  set NoQuitOnFinish 1
 # 1
 #  run 0
@@ -2542,3 +2540,5 @@ run -all
 # ** Note: $finish    : /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 4015 ns  Iteration: 60  Instance: /hvl_top
 # Break in Task uvm_pkg/uvm_root::run_test at /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# End time: 09:42:34 on Nov 06,2026, Elapsed time: 0:01:18
+# Errors: 0, Warnings: 0
