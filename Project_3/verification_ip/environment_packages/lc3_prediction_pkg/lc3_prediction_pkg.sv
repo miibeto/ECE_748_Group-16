@@ -8,5 +8,6 @@ package lc3_prediction_pkg;
    `include "src/mem_access_model.svh"
    `include "src/writeback_model.svh"
    `include "src/controller_model.svh"
+   `include "src/lc3_top_golden_model.svh"
 
 endpackage

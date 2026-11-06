@@ -72,7 +72,10 @@ class lc3_predictor #(
   dmem_transaction dmem_agent_ae_debug;
 
 
+
   // pragma uvmf custom class_item_additional begin
+  imem_transaction imem_pending[$];
+  dmem_transaction dmem_pending[$];
   // pragma uvmf custom class_item_additional end
 
   // FUNCTION: new
@@ -93,6 +96,43 @@ class lc3_predictor #(
   // pragma uvmf custom build_phase end
   endfunction
 
+  function void process_pending_transactions();
+    int imem_index;
+    int dmem_index;
+    logic [15:0] tempPC;
+    logic tempinstrmem_rd;
+
+    foreach (imem_pending[imem_index]) begin
+      foreach (dmem_pending[dmem_index]) begin
+        if (imem_pending[imem_index].end_time == dmem_pending[dmem_index].end_time) begin
+          lc3_sb_ap_output_transaction =
+            lc3_sb_ap_output_transaction_t::type_id::create("lc3_sb_ap_output_transaction");
+          if (lc3_top_golden_model(
+              .complete_data(dmem_pending[dmem_index].complete_data),
+              .complete_instr(imem_pending[imem_index].complete_instr),
+              .Instr_dout(imem_pending[imem_index].Instr_dout),
+              .Data_dout(dmem_pending[dmem_index].Data_dout),
+              .PC(tempPC),
+              .instrmem_rd(tempinstrmem_rd),
+              .Data_addr(lc3_sb_ap_output_transaction.Data_addr),
+              .Data_din(lc3_sb_ap_output_transaction.Data_din),
+              .Data_rd(lc3_sb_ap_output_transaction.Data_rd)))
+          begin
+            `uvm_error("LC3_Predictor", "LC3 Golden Model failed.")
+          end
+          lc3_sb_ap_output_transaction.Data_dout =
+            dmem_pending[dmem_index].Data_dout;
+          lc3_sb_ap_output_transaction.complete_data =
+            dmem_pending[dmem_index].complete_data;
+          imem_pending.delete(imem_index);
+          dmem_pending.delete(dmem_index);
+          lc3_sb_ap.write(lc3_sb_ap_output_transaction);
+          return;
+        end
+      end
+    end
+  endfunction
+
   // FUNCTION: write_imem_agent_ae
   // Transactions received through imem_agent_ae initiate the execution of this function.
   // This function performs prediction of DUT output values based on DUT input, configuration and state
@@ -101,19 +141,36 @@ class lc3_predictor #(
     imem_agent_ae_debug = t;
     `uvm_info("PRED", "Transaction Received through imem_agent_ae", UVM_MEDIUM)
     `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
+    imem_pending.push_back(t);
+    process_pending_transactions();
+    /*
     // Construct one of each output transaction type.
     lc3_sb_ap_output_transaction = lc3_sb_ap_output_transaction_t::type_id::create("lc3_sb_ap_output_transaction");
     //  UVMF_CHANGE_ME: Implement predictor model here.  
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The lc3_predictor::write_imem_agent_ae function needs to be completed with DUT prediction model",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
+    // `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
+    // `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The lc3_predictor::write_imem_agent_ae function needs to be completed with DUT prediction model",UVM_NONE)
+    // `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
  
+    if (lc3_top_golden_model(
+        .complete_data(t.complete_data),
+        .complete_instr(t.complete_instr),
+        .Instr_dout(t.Instr_dout),
+        .Data_dout(t.Data_dout),
+        .PC(lc3_sb_ap_output_transaction.PC),
+        .instrmem_rd(lc3_sb_ap_output_transaction.instrmem_rd),
+        .Data_addr(lc3_sb_ap_output_transaction.Data_addr),
+        .Data_din(lc3_sb_ap_output_transaction.Data_din),
+        .Data_rd(lc3_sb_ap_output_transaction.Data_rd)))
+    begin
+      `uvm_error("LC3_Predictor", "LC3 Golden Model failed.");
+    end
     // Code for sending output transaction out through lc3_sb_ap
     // Please note that each broadcasted transaction should be a different object than previously 
     // broadcasted transactions.  Creation of a different object is done by constructing the transaction 
     // using either new() or create().  Broadcasting a transaction object more than once to either the 
     // same subscriber or multiple subscribers will result in unexpected and incorrect behavior.
     lc3_sb_ap.write(lc3_sb_ap_output_transaction);
+    */
     // pragma uvmf custom imem_agent_ae_predictor end
   endfunction
 
@@ -125,6 +182,9 @@ class lc3_predictor #(
     dmem_agent_ae_debug = t;
     `uvm_info("PRED", "Transaction Received through dmem_agent_ae", UVM_MEDIUM)
     `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
+    dmem_pending.push_back(t);
+    process_pending_transactions();
+    /*
     // Construct one of each output transaction type.
     lc3_sb_ap_output_transaction = lc3_sb_ap_output_transaction_t::type_id::create("lc3_sb_ap_output_transaction");
     //  UVMF_CHANGE_ME: Implement predictor model here.  
@@ -138,6 +198,7 @@ class lc3_predictor #(
     // using either new() or create().  Broadcasting a transaction object more than once to either the 
     // same subscriber or multiple subscribers will result in unexpected and incorrect behavior.
     lc3_sb_ap.write(lc3_sb_ap_output_transaction);
+    */
     // pragma uvmf custom dmem_agent_ae_predictor end
   endfunction
 
@@ -146,4 +207,3 @@ endclass
 
 // pragma uvmf custom external begin
 // pragma uvmf custom external end
-

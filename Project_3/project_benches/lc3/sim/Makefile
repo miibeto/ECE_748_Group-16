@@ -89,6 +89,8 @@ include $(UVMF_VIP_LIBRARY_HOME)/interface_packages/dmem_pkg/Makefile
 
 # Include all requisite environment package targets for this bench
 include $(UVMF_VIP_LIBRARY_HOME)/environment_packages/lc3_env_pkg/Makefile
+include $(UVMF_VIP_LIBRARY_HOME)/environment_packages/lc3_prediction_pkg/Makefile
+
 
 
 
@@ -225,5 +227,13 @@ build: $(BUILD_TGT)
 emu_build: libs build link optimize
 
 # pragma uvmf custom additional_targets begin
+.PHONY: p3_debug
+p3_debug:
+	$(MAKE) libs
+	$(MAKE) comp_lc3_prediction_pkg
+	$(MAKE) build
+	$(MAKE) link
+	$(MAKE) optimize
+	$(MAKE) gui_run
 # pragma uvmf custom additional_targets end
 
