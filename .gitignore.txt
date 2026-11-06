@@ -9,6 +9,8 @@ qrun.out/
 covhtmlreport/
 *.ucdb
 *.ucis
+*.qpg
+*.qdb
 
 # General
 *.log
