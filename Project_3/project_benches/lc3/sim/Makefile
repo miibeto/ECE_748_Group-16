@@ -234,6 +234,5 @@ p3_debug:
 	$(MAKE) build
 	$(MAKE) link
 	$(MAKE) optimize
-	$(MAKE) gui_run
+	TEST_NAME=$(TEST_NAME) $(MAKE) gui_run
 # pragma uvmf custom additional_targets end
-

@@ -10,6 +10,9 @@ covhtmlreport/
 *.ucdb
 *.ucis
 *.qpg
+*.qdb
+*.qtl
+*.tfdb
 
 # General
 *.log
