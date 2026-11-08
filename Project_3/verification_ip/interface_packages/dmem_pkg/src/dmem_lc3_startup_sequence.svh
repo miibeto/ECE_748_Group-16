@@ -1,11 +1,8 @@
 //----------------------------------------------------------------------
 // Created with uvmf_gen version 2026.1
-// File: dmem_responder_sequence.svh
+// File: dmem_lc3_startup_sequence.svh
 // Description: Data Memory Responder Sequence with RAM backing model 
 //              for LC-3 loads and stores.
-//----------------------------------------------------------------------
-// pragma uvmf custom header begin
-// pragma uvmf custom header end
 //----------------------------------------------------------------------
 
 class dmem_lc3_startup_sequence extends dmem_responder_sequence;
@@ -17,9 +14,8 @@ class dmem_lc3_startup_sequence extends dmem_responder_sequence;
   // -------------------------------------------------------------------
   protected bit [15:0] ram[bit [15:0]];
 
-  // pragma uvmf custom class_item_additional begin
   // -------------------------------------------------------------------
-  // Optional Helper: Pre-load memory address with initial data
+  // Helper Methods
   // -------------------------------------------------------------------
   function void write_mem(bit [15:0] addr, bit [15:0] data);
     ram[addr] = data;
@@ -29,20 +25,38 @@ class dmem_lc3_startup_sequence extends dmem_responder_sequence;
     if (ram.exists(addr)) return ram[addr];
     return 16'h0000;
   endfunction
-  // pragma uvmf custom class_item_additional end
 
-  function new(string name = "dmem_responder_sequence");
-    super.new(name);
+  // Pre-seed RAM with initial test data matching IMEM program addresses
+  function void initialize_ram();
+    ram[16'h3014] = 16'h0005; // DATA_VAL1
+    ram[16'h3015] = 16'h000A; // DATA_VAL2
+    ram[16'h3016] = 16'h0010; // STORE_TARGET
+    ram[16'h3017] = 16'h3018; // INDIR_PTR (Points to SCRATCHPAD)
+    ram[16'h3018] = 16'h1234; // SCRATCHPAD initial data
   endfunction
+
+  // // Pre-seed RAM with initial test data matching IMEM startup/ROM program
+  // function void initialize_ram();
+  //   // Pre-load data for 'LD R1, 0x3015' (executed at IMEM PC 0x3010)
+  //   ram[16'h3015] = 16'h1234; 
+  //   ram[16'h3069] = 16'h1479;
+  // endfunction
+
+  function new(string name = "dmem_lc3_startup_sequence");
+    super.new(name);
+    initialize_ram();
+  endfunction
+
+  int unsigned insn_count = 0;
+
 
   task body();
     req = dmem_transaction::type_id::create("req");
 
     forever begin
-      // 1. Block until Driver BFM detects a data memory access from DUT
+      // 1. Retrieve the incoming memory request sampled from DUT pins by Driver BFM
       start_item(req);
 
-      // pragma uvmf custom body begin
       // 2. Process Memory Transaction based on Data_rd (1 = Read, 0 = Write)
       if (req.Data_rd == 1'b1) begin
         // -------------------------------------------------------------
@@ -58,7 +72,7 @@ class dmem_lc3_startup_sequence extends dmem_responder_sequence;
         `uvm_info("DMEM_RESP", 
           $sformatf("READ  @ Addr 0x%04h -> Dout 0x%04h", req.Data_addr, req.Data_dout), UVM_MEDIUM)
       end 
-      else if (req.Data_rd == 1'b0) begin
+      else begin
         // -------------------------------------------------------------
         // WRITE OPERATION (ST, STR, STI)
         // -------------------------------------------------------------
@@ -68,16 +82,13 @@ class dmem_lc3_startup_sequence extends dmem_responder_sequence;
           $sformatf("WRITE @ Addr 0x%04h <- Din 0x%04h", req.Data_addr, req.Data_din), UVM_MEDIUM)
       end
 
-      // 3. Handshake Handlers: Assert completion signal to LC-3 Controller
+      // 3. Assert completion signal to LC-3 Controller
       req.complete_data = 1'b1;
+      insn_count++;
 
-      // 4. Send response payload back to Driver BFM to drive onto pins
+      // 4. Complete handshake and return updated payload to Driver BFM
       finish_item(req);
-      // pragma uvmf custom body end
     end
   endtask
 
 endclass
-
-// pragma uvmf custom external begin
-// pragma uvmf custom external end

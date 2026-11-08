@@ -116,18 +116,29 @@ interface dmem_driver_bfm
       Data_dout_o     <= dmem_responder_struct.Data_dout;
       complete_data_o <= dmem_responder_struct.complete_data;
 
-      @(posedge clock_i);
+      //@(posedge clock_i);
+      do begin
+        @(posedge clock_i);
+      end while (Data_rd_i !== 1'bz && !$isunknown(Data_rd_i));
 
       // De-assert completion signal after 1 clock cycle handshake
       complete_data_o <= 1'b0;
       Data_dout_o     <= 16'h0000;
+
+      // Step B1: Wait for DUT to DE-ASSERT Data_rd back to 'bz (idle)
+      // This prevents re-triggering on the current transaction's clock edge
+      // while (Data_rd_i !== 1'bz && !$isunknown(Data_rd_i)) begin
+      //   @(posedge clock_i);
+      // end
     end
 
-    // Step B: Wait for DUT to issue the next Data Memory request
-    // MemAccess block activates Data_rd_i (0 for Write, 1 for Read)
+    // Step B2: Wait for DUT to issue the NEXT Data Memory request
+    // Active request occurs when Data_rd_i is 0 (Store) or 1 (Load)
     while (Data_rd_i === 1'bz || $isunknown(Data_rd_i)) begin
       @(posedge clock_i);
     end
+
+    #1
 
     // Step C: Sample request variables driven by DUT
     dmem_initiator_struct.Data_addr     = Data_addr_i;

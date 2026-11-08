@@ -103,7 +103,7 @@ interface imem_driver_bfm
     output imem_initiator_s imem_initiator_struct, 
     input  imem_responder_s imem_responder_struct 
   );
-    wait (reset_i === 1'b0);
+    while (reset_i === 1'b1) @(posedge clock_i);
 
     // Step A: Complete current fetch transfer if not the first call
     if (!first_transfer) begin
@@ -122,6 +122,8 @@ interface imem_driver_bfm
     while (instrmem_rd_i !== 1'b1) begin
       @(posedge clock_i);
     end
+
+    #1
 
     // Step C: Sample PC address and control signals driven by DUT
     imem_initiator_struct.PC             = PC_i;
