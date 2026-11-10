@@ -29,12 +29,24 @@ class dmem_transaction_coverage  extends uvm_subscriber #(.T(dmem_transaction ))
     // UVMF_CHANGE_ME : Add coverage bins, crosses, exclusions, etc. according to coverage needs.
     option.auto_bin_max=1024;
     option.per_instance=1;
-    Data_addr: coverpoint coverage_trans.Data_addr;
-    Data_din: coverpoint coverage_trans.Data_din;
-    Data_rd: coverpoint coverage_trans.Data_rd;
-    D_macc: coverpoint coverage_trans.D_macc;
-    Data_dout: coverpoint coverage_trans.Data_dout;
-    complete_data: coverpoint coverage_trans.complete_data;
+    // didn't bother adding a coverpoint for D_macc/complete_data since the
+    // monitor only ever sends us a txn once both of those are already 1
+    // anyway. Data_rd is the one that actually tells us read vs write
+    cp_rd: coverpoint coverage_trans.Data_rd {
+      bins write = {0};
+      bins read  = {1};
+    }
+    // default auto binning was going to make 1024 bins for a 16 bit address,
+    // which would basically never close with how many txns our test runs.
+    // split it into a few address ranges instead so it's actually hittable
+    cp_addr: coverpoint coverage_trans.Data_addr {
+      bins min_addr = {16'h0000};
+      bins low      = {[16'h0001:16'h3FFF]};
+      bins mid      = {[16'h4000:16'hBFFF]};
+      bins high     = {[16'hC000:16'hFFFE]};
+      bins max_addr = {16'hFFFF};
+    }
+    cross_rd_addr: cross cp_rd, cp_addr;
     // pragma uvmf custom covergroup end
   endgroup
 
@@ -45,7 +57,6 @@ class dmem_transaction_coverage  extends uvm_subscriber #(.T(dmem_transaction ))
   function new(string name="", uvm_component parent=null);
     super.new(name,parent);
     dmem_transaction_cg=new;
-    `uvm_warning("COVERAGE_MODEL_REVIEW", "A covergroup has been constructed which may need review because of either generation or re-generation with merging.  Please note that transaction variables added as a result of re-generation and merging are not automatically added to the covergroup.  Remove this warning after the covergroup has been reviewed.")
   endfunction
 
   // ****************************************************************************

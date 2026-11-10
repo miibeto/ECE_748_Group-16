@@ -260,14 +260,14 @@ bit first_transfer=1;
 // UVMF_CHANGE_ME
 // This task is used by a responder.  The task first completes the current 
 // transfer in progress then waits for the initiator to start the next transfer.
-  task respond_and_wait_for_next_transfer( 
+  task respond_and_wait_for_next_transfer(
        // This argument is used to send data received from the initiator
        // back to the sequence item.  The sequence determines how to respond.
-       output dmem_initiator_s dmem_initiator_struct, 
+       output dmem_initiator_s dmem_initiator_struct,
        // This argument passes transaction variables used by a responder
-       // to complete a protocol transfer.  The values come from a sequence item.       
-       input dmem_responder_s dmem_responder_struct 
-       );// pragma tbx xtf   
+       // to complete a protocol transfer.  The values come from a sequence item.
+       input dmem_responder_s dmem_responder_struct
+       );// pragma tbx xtf
   // Variables within the dmem_initiator_struct:
   //   bit [15:0] Data_addr ;
   //   bit [15:0] Data_din ;
@@ -282,38 +282,21 @@ bit first_transfer=1;
   //   bit D_macc ;
   //   bit [15:0] Data_dout ;
   //   bit complete_data ;
-       // Reference code;
-       //    How to wait for signal value
-       //      while (control_signal == 1'b1) @(posedge clock_i);
-       //    
-       //    How to assign a initiator struct member, named xyz, from a signal.   
-       //    All available responder input and inout signals listed.
-       //    Responder input signals
-       //      dmem_initiator_struct.xyz = Data_dout_i;  //    [15:0] 
-       //      dmem_initiator_struct.xyz = complete_data_i;  //     
-       //    Responder inout signals
-       //    How to assign a signal, named xyz, from an responder struct member.   
-       //    All available responder output and inout signals listed.
-       //    Notice the _o.  Those are storage variables that allow for procedural assignment.
-       //    Responder output signals
-       //      Data_addr_o <= dmem_responder_struct.xyz;  //    [15:0] 
-       //      Data_din_o <= dmem_responder_struct.xyz;  //    [15:0] 
-       //      Data_rd_o <= dmem_responder_struct.xyz;  //     
-       //      D_macc_o <= dmem_responder_struct.xyz;  //     
-       //    Responder inout signals
-    
-  @(posedge clock_i);
-  if (!first_transfer) begin
-    // Perform transfer response here.   
-    // Reply using data recieved in the dmem_responder_struct.
-    @(posedge clock_i);
-    // Reply using data recieved in the transaction handle.
-    @(posedge clock_i);
-  end
-    // Wait for next transfer then gather info from intiator about the transfer.
-    // Place the data into the dmem_initiator_struct.
-    @(posedge clock_i);
-    @(posedge clock_i);
+    if (!first_transfer) begin
+      // drive out the response for the last request we got (the sequence
+      // already computed this and put it in dmem_responder_struct), hold it
+      // for one cycle then drop complete_data again
+      Data_dout_o     <= dmem_responder_struct.Data_dout;
+      complete_data_o <= dmem_responder_struct.complete_data;
+      @(posedge clock_i);
+      complete_data_o <= 1'b0;
+    end
+    // now wait for the DUT to actually make a new request and grab it
+    while (D_macc_i !== 1'b1) @(posedge clock_i);
+    dmem_initiator_struct.Data_addr = Data_addr_i;
+    dmem_initiator_struct.Data_din  = Data_din_i;
+    dmem_initiator_struct.Data_rd   = Data_rd_i;
+    dmem_initiator_struct.D_macc    = D_macc_i;
     first_transfer = 0;
   endtask
 // pragma uvmf custom respond_and_wait_for_next_transfer end

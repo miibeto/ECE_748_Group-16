@@ -98,8 +98,9 @@ end
   // ****************************************************************************              
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
-    @(posedge clock_i) ;                                                                    
+    // reset is active high, so wait for it to go back to 0 before we start
+    wait ( reset_i === 1'b0 ) ;
+    @(posedge clock_i) ;
   // pragma uvmf custom reset_condition end                                                                
   endtask    
 
