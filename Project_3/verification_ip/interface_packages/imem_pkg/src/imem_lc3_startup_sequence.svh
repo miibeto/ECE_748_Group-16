@@ -59,7 +59,7 @@ class imem_lc3_startup_sequence extends imem_responder_sequence;
 
   virtual task body();
     req = imem_transaction::type_id::create("req");
-
+    
     forever begin
       // Retrieve fetch request from Driver (captures incoming DUT req.PC)
       start_item(req);

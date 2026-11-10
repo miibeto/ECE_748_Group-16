@@ -109,6 +109,36 @@ interface imem_driver_bfm
     output imem_initiator_s imem_initiator_struct, 
     input  imem_responder_s imem_responder_struct 
   );
+  // // Step A: Respond to previous request if not reset / first call
+  //   if (!first_transfer) begin
+  //     @(posedge clock_i);
+  //     // If DUT is actively requesting a read, drive instruction & keep complete_instr HIGH
+  //     if (reset_i === 1'b0 && instrmem_rd_i === 1'b1) begin
+  //       Instr_dout_o     <= imem_responder_struct.Instr_dout;
+  //       complete_instr_o <= 1'b1;
+  //     end else begin
+  //       // If instrmem_rd dropped (pipeline stalled downstream), drop complete_instr
+  //       complete_instr_o <= 1'b0;
+  //       // Instr_dout_o     <= 16'h0000;
+  //     end
+  //   end
+
+  //   // Step B: Wait for reset to drop AND for instrmem_rd to be active (1'b1)
+  //   while (reset_i === 1'b1 || instrmem_rd_i !== 1'b1) begin
+  //     complete_instr_o <= 1'b0; // Memory idle while fetch is disabled
+  //     // Instr_dout_o     <= 16'h0000;
+  //     @(posedge clock_i);
+  //   end
+
+
+  //   // Step C: Sample requested PC address driven by DUT
+  //   imem_initiator_struct.PC             = PC_i;
+  //   imem_initiator_struct.instrmem_rd    = instrmem_rd_i;
+  //   imem_initiator_struct.I_macc         = I_macc_i;
+  //   imem_initiator_struct.Instr_dout     = Instr_dout_i;
+  //   imem_initiator_struct.complete_instr = complete_instr_i;
+
+  //   first_transfer = 0;
     // while (reset_i === 1'b1) @(posedge clock_i);
     @(posedge clock_i);
     // Step A: Complete current fetch transfer if not the first call
@@ -117,7 +147,7 @@ interface imem_driver_bfm
       Instr_dout_o     <= imem_responder_struct.Instr_dout;
       complete_instr_o <= imem_responder_struct.complete_instr;
 
-      // @(posedge clock_i);
+      @(posedge clock_i);
 
       // Reset handshake pulse after 1 clock cycle
       complete_instr_o <= 1'b0;
