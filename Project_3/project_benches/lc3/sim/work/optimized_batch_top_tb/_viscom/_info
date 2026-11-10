@@ -1,6 +1,6 @@
 __design_bin_path=/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim
 __design_bin_name_path=/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/design.bin
-incr_run_version=16401
-incr_partial_run_stats=17:17
-incr_no_change_stats=1:0
+incr_run_version=16441
+incr_partial_run_stats=57:57
+incr_no_change_stats=3:0
 opt_data_elab=/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/work/optimized_batch_top_tb

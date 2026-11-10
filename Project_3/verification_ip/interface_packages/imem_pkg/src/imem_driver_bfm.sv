@@ -10,13 +10,19 @@ import imem_pkg_hdl::*;
 `include "src/imem_macros.svh"
 
 interface imem_driver_bfm 
-  (imem_if bus);
+  (
+    imem_if bus,
+    input tri enable_decode
+  );
 
   // Config value to determine if this is an initiator or a responder 
   uvmf_initiator_responder_t initiator_responder;
 
   tri clock_i;
   tri reset_i;
+  tri enable_decode_i;
+
+  assign enable_decode_i = enable_decode;
 
   // Signal list
   // INITIATOR mode input signals (Sampled from DUT in RESPONDER mode)
@@ -103,27 +109,28 @@ interface imem_driver_bfm
     output imem_initiator_s imem_initiator_struct, 
     input  imem_responder_s imem_responder_struct 
   );
-    while (reset_i === 1'b1) @(posedge clock_i);
-
+    // while (reset_i === 1'b1) @(posedge clock_i);
+    @(posedge clock_i);
     // Step A: Complete current fetch transfer if not the first call
     if (!first_transfer) begin
       // Drive requested instruction word and complete_instr handshake to DUT
       Instr_dout_o     <= imem_responder_struct.Instr_dout;
       complete_instr_o <= imem_responder_struct.complete_instr;
 
-      @(posedge clock_i);
+      // @(posedge clock_i);
 
       // Reset handshake pulse after 1 clock cycle
       complete_instr_o <= 1'b0;
-      Instr_dout_o     <= 16'h0000;
+      //Instr_dout_o     <= 16'h0000;
+
     end
 
     // Step B: Wait for DUT Fetch Unit to assert instrmem_rd = 1
-    while (instrmem_rd_i !== 1'b1) begin
+    while (reset_i === 1'b1 || instrmem_rd_i !== 1'b1) begin
       @(posedge clock_i);
     end
 
-    #1
+    //#1
 
     // Step C: Sample PC address and control signals driven by DUT
     imem_initiator_struct.PC             = PC_i;

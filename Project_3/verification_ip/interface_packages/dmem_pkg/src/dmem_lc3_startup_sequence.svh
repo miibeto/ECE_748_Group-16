@@ -33,6 +33,8 @@ class dmem_lc3_startup_sequence extends dmem_responder_sequence;
     ram[16'h3016] = 16'h0010; // STORE_TARGET
     ram[16'h3017] = 16'h3018; // INDIR_PTR (Points to SCRATCHPAD)
     ram[16'h3018] = 16'h1234; // SCRATCHPAD initial data
+    ram[16'h3019] = 16'h6942;
+    ram[16'h301a] = 16'h8008;
   endfunction
 
   // // Pre-seed RAM with initial test data matching IMEM startup/ROM program
@@ -54,37 +56,45 @@ class dmem_lc3_startup_sequence extends dmem_responder_sequence;
     req = dmem_transaction::type_id::create("req");
 
     forever begin
-      // 1. Retrieve the incoming memory request sampled from DUT pins by Driver BFM
+      // Retrieve the incoming memory request sampled from DUT pins by Driver BFM
       start_item(req);
 
-      // 2. Process Memory Transaction based on Data_rd (1 = Read, 0 = Write)
-      if (req.Data_rd == 1'b1) begin
+      // Process Memory Transaction based on Data_rd (1 = Read, 0 = Write, z = ALU Operation)
+      if (req.Data_rd === 1'b1) begin
         // -------------------------------------------------------------
         // READ OPERATION (LD, LDR, LDI)
         // -------------------------------------------------------------
         if (ram.exists(req.Data_addr)) begin
           req.Data_dout = ram[req.Data_addr];
+          req.complete_data = 1'b1;
+          `uvm_info("DMEM_RESP", 
+          $sformatf("READ  @ Addr 0x%04h -> Dout 0x%04h", req.Data_addr, req.Data_dout), UVM_MEDIUM)
         end else begin
           // Default uninitialized read returning 16'h0000
           req.Data_dout = 16'h0000;
+          req.complete_data = 1'b1;
         end
-
-        `uvm_info("DMEM_RESP", 
-          $sformatf("READ  @ Addr 0x%04h -> Dout 0x%04h", req.Data_addr, req.Data_dout), UVM_MEDIUM)
       end 
-      else begin
+      else if (req.Data_rd === 1'b0) begin
         // -------------------------------------------------------------
         // WRITE OPERATION (ST, STR, STI)
         // -------------------------------------------------------------
-        ram[req.Data_addr] = req.Data_din;
+        if (ram.exists(req.Data_addr)) begin
+          ram[req.Data_addr] = req.Data_din;
+          req.complete_data = 1'b1;
 
+          `uvm_info("DMEM_RESP", 
+            $sformatf("WRITE @ Addr 0x%04h <- Din 0x%04h", req.Data_addr, req.Data_din), UVM_MEDIUM)
+        end else begin
+          `uvm_warning("DMEM_RESP", 
+            $sformatf("Invalid Memory Location @ Addr 0x%04h", req.Data_addr))
+        end
+      end 
+      else begin
+        // ALU Operation
         `uvm_info("DMEM_RESP", 
-          $sformatf("WRITE @ Addr 0x%04h <- Din 0x%04h", req.Data_addr, req.Data_din), UVM_MEDIUM)
+          $sformatf("ALU Operation @ Addr 0x%04h", req.Data_addr), UVM_MEDIUM)
       end
-
-      // 3. Assert completion signal to LC-3 Controller
-      req.complete_data = 1'b1;
-      insn_count++;
 
       // 4. Complete handshake and return updated payload to Driver BFM
       finish_item(req);

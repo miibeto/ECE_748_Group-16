@@ -162,6 +162,7 @@ import uvmf_base_pkg_hdl::*;
    assign enable_updatePC  = dut.Ctrl.enable_updatePC;
    assign enable_fetch     = dut.Ctrl.enable_fetch;
    assign enable_execute   = dut.Ctrl.enable_execute;
+
   // pragma uvmf custom module_item_additional end
 
   // Instantiate the signal bundle, monitor bfm and driver bfm for each interface.
@@ -297,7 +298,10 @@ import uvmf_base_pkg_hdl::*;
   control_out_monitor_bfm  control_env_control_out_agent_mon_bfm(control_env_control_out_agent_bus);
   imem_monitor_bfm  imem_agent_mon_bfm(imem_agent_bus);
   dmem_monitor_bfm  dmem_agent_mon_bfm(dmem_agent_bus);
-  imem_driver_bfm  imem_agent_drv_bfm(imem_agent_bus);
+  imem_driver_bfm  imem_agent_drv_bfm(
+      .bus          (imem_agent_bus),
+      .enable_decode(enable_decode)
+  );
   dmem_driver_bfm  dmem_agent_drv_bfm(dmem_agent_bus);
 
   // pragma uvmf custom dut_instantiation begin
@@ -343,4 +347,3 @@ endmodule
 
 // pragma uvmf custom external begin
 // pragma uvmf custom external end
-

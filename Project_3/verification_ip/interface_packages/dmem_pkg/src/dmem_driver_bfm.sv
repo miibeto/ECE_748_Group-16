@@ -75,6 +75,13 @@ interface dmem_driver_bfm
   // -------------------------------------------------------------------
   bit first_transfer = 1;
 
+  function bit request_is_valid();
+    return (Data_addr_i !== 16'h0000 &&
+            Data_addr_i !== 16'hzzzz &&
+            !$isunknown(Data_addr_i) &&
+            (Data_rd_i === 1'b0 || Data_rd_i === 1'b1));
+  endfunction
+
   always @(negedge reset_i) begin
     Data_addr_o     <= 'b0;
     Data_din_o      <= 'b0;
@@ -108,37 +115,42 @@ interface dmem_driver_bfm
     output dmem_initiator_s dmem_initiator_struct, 
     input  dmem_responder_s dmem_responder_struct 
   );
-    wait (reset_i === 1'b0);
-
+    // wait (reset_i === 1'b0);
+    //@(posedge clock_i);
     // Step A: Complete current transfer if not the first call
     if (!first_transfer) begin
       // Drive response payload and handshake signal onto DUT input pins
       Data_dout_o     <= dmem_responder_struct.Data_dout;
       complete_data_o <= dmem_responder_struct.complete_data;
 
-      //@(posedge clock_i);
-      do begin
-        @(posedge clock_i);
-      end while (Data_rd_i !== 1'bz && !$isunknown(Data_rd_i));
+      @(posedge clock_i);
+      // do begin
+      //   @(posedge clock_i);
+      // end while (Data_rd_i !== 1'bz && !$isunknown(Data_rd_i));
 
       // De-assert completion signal after 1 clock cycle handshake
       complete_data_o <= 1'b0;
-      Data_dout_o     <= 16'h0000;
+      //Data_dout_o     <= 16'h0000;
 
-      // Step B1: Wait for DUT to DE-ASSERT Data_rd back to 'bz (idle)
-      // This prevents re-triggering on the current transaction's clock edge
-      // while (Data_rd_i !== 1'bz && !$isunknown(Data_rd_i)) begin
-      //   @(posedge clock_i);
-      // end
+      // The DUT samples complete_data at the clock edge above. Do not accept
+      // the still-active request as a new transaction; wait for the DUT to
+      // return its memory outputs to the idle value first.
+      while (request_is_valid()) begin
+        @(posedge clock_i);
+      end
     end
 
-    // Step B2: Wait for DUT to issue the NEXT Data Memory request
-    // Active request occurs when Data_rd_i is 0 (Store) or 1 (Load)
-    while (Data_rd_i === 1'bz || $isunknown(Data_rd_i)) begin
+    // Step B: Wait for DUT to issue the NEXT Data Memory request. Data_rd=0
+    // is also the DUT's idle value, so it cannot identify a request by itself.
+    // The DUT's idle address is 0; real accesses have a known, non-zero
+    // address.
+    while (!request_is_valid()) begin
       @(posedge clock_i);
     end
 
-    #1
+    // Avoid sampling in the same time slot in which the DUT updates its
+    // request outputs.
+    //#1;
 
     // Step C: Sample request variables driven by DUT
     dmem_initiator_struct.Data_addr     = Data_addr_i;
