@@ -20,15 +20,31 @@ class imem_lc3_startup_sequence extends imem_responder_sequence;
 
   // Pre-seed ROM with instruction test sequence starting at PC 0x3000
   function void initialize_rom();
+    imem_rom[16'h3000] = 16'h5020;
+    imem_rom[16'h3001] = 16'h5260;
+    imem_rom[16'h3002] = 16'h54A0;
+    imem_rom[16'h3003] = 16'h56E0;
+    imem_rom[16'h3004] = 16'h5920;
+    imem_rom[16'h3005] = 16'h5B60;
+    imem_rom[16'h3006] = 16'h5DA0;
+    imem_rom[16'h3007] = 16'h5FE0;
+    imem_rom[16'h3008] = 16'h1266;
+    imem_rom[16'h3009] = 16'h320B;
+    imem_rom[16'h300A] = 16'h240A;
+    imem_rom[16'h300B] = 16'h5842;
+    imem_rom[16'h300C] = 16'h56E0;
+    imem_rom[16'h300D] = 16'h1D6A;
+    imem_rom[16'h300E] = 16'h17B1;
+    imem_rom[16'h300f] = 16'hA7FA;
     // Phase 1: Dual Load Constraint
-    imem_rom[16'h3000] = 16'h2213; // LD  R1, 0x3014 (Loads DATA_VAL1 = 0x0005)
-    imem_rom[16'h3001] = 16'h2413; // LD  R2, 0x3015 (Loads DATA_VAL2 = 0x000A)
-    imem_rom[16'h3002] = 16'h2613; // LD  R3, 0x3016
-    imem_rom[16'h3003] = 16'h2813; // LD  R4, 0x3017
-    imem_rom[16'h3004] = 16'h2a13; // LD  R5, 0x3018
-    imem_rom[16'h3005] = 16'h2c13; // LD  R6, 0x3019
-    imem_rom[16'h3006] = 16'h2e13; // LD  R7, 0x301a
-    imem_rom[16'h3007] = 16'hF025; // TRAP 0x25        (HALT)
+    // imem_rom[16'h3001] = 16'h3A0B; // ST  R5, 0x3016   (Store R5=-16 to STORE_TARGET)
+    // imem_rom[16'h3002] = 16'h2613; // LD  R1, 0x3016 (Loads DATA_VAL1 = 0x0005)
+    // imem_rom[16'h3001] = 16'h2413; // LD  R2, 0x3015 (Loads DATA_VAL2 = 0x000A)
+    // imem_rom[16'h3002] = 16'h2613; // LD  R3, 0x3016
+    // imem_rom[16'h3003] = 16'h2813; // LD  R4, 0x3017
+    // imem_rom[16'h3004] = 16'h2a13; // LD  R5, 0x3018
+    // imem_rom[16'h3005] = 16'h2c13; // LD  R6, 0x3019
+    // imem_rom[16'h3006] = 16'h2e13; // LD  R7, 0x301a
 
     // // Phase 2: ALU & Condition Code Verification
     // imem_rom[16'h3002] = 16'h1642; // ADD R3, R1, R2   (R3 = 5 + 10 = 15, sets 'P')
@@ -88,7 +104,7 @@ class imem_lc3_startup_sequence extends imem_responder_sequence;
       // Stop sequence when HALT (TRAP 0x25 / 0xF025) instruction completes
       if (req.Instr_dout == 16'hF025) begin
         `uvm_info("ROM_IMEM", "HALT instruction (0xF025) executed. Sequence complete.", UVM_LOW)
-        break; // Stop sequence execution
+        //break; // Stop sequence execution
       end
     end
   endtask

@@ -115,7 +115,6 @@ interface dmem_driver_bfm
 // The first_transfer variable is used to prevent completing a transfer in the 
 // first call to this task.  For the first call to this task, there is not
 // current transfer to complete.
-bit first_transfer=1;
 
 // UVMF_CHANGE_ME
 // This task is used by a responder.  The task first completes the current 

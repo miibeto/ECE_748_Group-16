@@ -140,7 +140,7 @@ interface imem_driver_bfm
 
   //   first_transfer = 0;
     // while (reset_i === 1'b1) @(posedge clock_i);
-    @(posedge clock_i);
+    //@(posedge clock_i);
     // Step A: Complete current fetch transfer if not the first call
     if (!first_transfer) begin
       // Drive requested instruction word and complete_instr handshake to DUT
@@ -156,9 +156,10 @@ interface imem_driver_bfm
     end
 
     // Step B: Wait for DUT Fetch Unit to assert instrmem_rd = 1
-    while (reset_i === 1'b1 || instrmem_rd_i !== 1'b1) begin
-      @(posedge clock_i);
-    end
+    // while (reset_i === 1'b1 || instrmem_rd_i !== 1'b1) begin
+    //   @(posedge clock_i);
+    // end
+    while (I_macc_i !== 1'b1) @(posedge clock_i);
 
     //#1
 

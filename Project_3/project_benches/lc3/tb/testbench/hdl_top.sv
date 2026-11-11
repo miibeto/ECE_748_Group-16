@@ -114,8 +114,7 @@ import uvmf_base_pkg_hdl::*;
 
    // ------------------------------------------------------------------
    // DUT Internal Hierarchical Signal Taps
-   // NOTE: Verify sub-module instance names (e.g. Fetch_inst, Decode_inst) 
-   // match your top-level LC3 RTL design file.
+   // Used for waveform debugging
    // ------------------------------------------------------------------
    // Decode Sub-block Tap[cite: 12]
    // assign enable_decode    = dut.Ctrl.enable_decode;
@@ -140,7 +139,7 @@ import uvmf_base_pkg_hdl::*;
    // assign psr              = dut.WB.psr;
 
    // // MemAccess Sub-block Tap[cite: 23, 25]
-   // assign mem_state        = dut.Ctrl.mem_state;
+   //assign mem_state        = dut.Ctrl.mem_state;
    // assign M_Control        = dut.Ex.Mem_Control_out;
    // assign M_Data           = dut.Ex.M_Data;
    // assign M_addr           = dut.Ex.pcout;
@@ -148,6 +147,8 @@ import uvmf_base_pkg_hdl::*;
    // assign DMem_addr        = Data_addr;
    // assign DMem_rd          = Data_rd;
    // assign DMem_din         = Data_din;
+   assign D_macc           = (dut.Ctrl.mem_state != 2'b11); // mem_state = 0, 1, 2 (Memory is being accessed)
+   assign I_macc           = (dut.Ctrl.enable_fetch); // Mimic what enable_fetch is showing
 
    // // Control Sub-block Tap[cite: 25]
    // assign IR               = dut.Dec.IR;
