@@ -260,11 +260,14 @@ p3_cli_run_test: # Run test on CLI (without .wlf generation)
 # Merge all individual .ucdb coverage files into one database (merged_tests.ucdb)
 merge_coverage:
 	@echo "Merging coverage files from $(UCDB_DIR)..."
-	vcover merge -stats=none -strip 0 -totals merged_tests.ucdb *.ucdb 
+	vcover merge -stats=none -strip 0 -totals merged_coverage.ucdb *.ucdb 
 
 view_coverage:
-	vsim -gui -cvgdb merged_tests.ucdb \
-	     -do "view coverage; coverage open merged_tests.ucdb;"
+	vsim -gui -cvgdb merged_coverage.ucdb \
+	     -do "view coverage; coverage open merged_coverage.ucdb;"
+
+report_coverage:
+	vcover report -details -codeAll -cvg -option coverage_report.txt merged_coverage.ucdb
 
 regress: 
 	./regress.sh
