@@ -106,60 +106,57 @@ interface dmem_driver_bfm
   );
     wait (reset_i === 1'b0);
     @(posedge clock_i);
-  endtask
+    responder_struct = dmem_responder_struct;
+  endtask        
+// pragma uvmf custom initiate_and_get_response end
 
-  // -------------------------------------------------------------------
-  // RESPONDER Task: Responds to DUT memory requests and captures next access
-  // -------------------------------------------------------------------
-  task respond_and_wait_for_next_transfer( 
-    output dmem_initiator_s dmem_initiator_struct, 
-    input  dmem_responder_s dmem_responder_struct 
-  );
-    // wait (reset_i === 1'b0);
-    //@(posedge clock_i);
-    // Step A: Complete current transfer if not the first call
+// pragma uvmf custom respond_and_wait_for_next_transfer begin
+// ****************************************************************************
+// The first_transfer variable is used to prevent completing a transfer in the 
+// first call to this task.  For the first call to this task, there is not
+// current transfer to complete.
+bit first_transfer=1;
+
+// UVMF_CHANGE_ME
+// This task is used by a responder.  The task first completes the current 
+// transfer in progress then waits for the initiator to start the next transfer.
+  task respond_and_wait_for_next_transfer(
+       // This argument is used to send data received from the initiator
+       // back to the sequence item.  The sequence determines how to respond.
+       output dmem_initiator_s dmem_initiator_struct,
+       // This argument passes transaction variables used by a responder
+       // to complete a protocol transfer.  The values come from a sequence item.
+       input dmem_responder_s dmem_responder_struct
+       );// pragma tbx xtf
+  // Variables within the dmem_initiator_struct:
+  //   bit [15:0] Data_addr ;
+  //   bit [15:0] Data_din ;
+  //   bit Data_rd ;
+  //   bit D_macc ;
+  //   bit [15:0] Data_dout ;
+  //   bit complete_data ;
+  // Variables within the dmem_responder_struct:
+  //   bit [15:0] Data_addr ;
+  //   bit [15:0] Data_din ;
+  //   bit Data_rd ;
+  //   bit D_macc ;
+  //   bit [15:0] Data_dout ;
+  //   bit complete_data ;
     if (!first_transfer) begin
-      // Drive response payload and handshake signal onto DUT input pins
+      // drive out the response for the last request we got (the sequence
+      // already computed this and put it in dmem_responder_struct), hold it
+      // for one cycle then drop complete_data again
       Data_dout_o     <= dmem_responder_struct.Data_dout;
       complete_data_o <= dmem_responder_struct.complete_data;
-
       @(posedge clock_i);
-      // do begin
-      //   @(posedge clock_i);
-      // end while (Data_rd_i !== 1'bz && !$isunknown(Data_rd_i));
-
-      // De-assert completion signal after 1 clock cycle handshake
       complete_data_o <= 1'b0;
-      //Data_dout_o     <= 16'h0000;
-
-      // The DUT samples complete_data at the clock edge above. Do not accept
-      // the still-active request as a new transaction; wait for the DUT to
-      // return its memory outputs to the idle value first.
-      while (request_is_valid()) begin
-        @(posedge clock_i);
-      end
     end
-
-    // Step B: Wait for DUT to issue the NEXT Data Memory request. Data_rd=0
-    // is also the DUT's idle value, so it cannot identify a request by itself.
-    // The DUT's idle address is 0; real accesses have a known, non-zero
-    // address.
-    while (!request_is_valid()) begin
-      @(posedge clock_i);
-    end
-
-    // Avoid sampling in the same time slot in which the DUT updates its
-    // request outputs.
-    //#1;
-
-    // Step C: Sample request variables driven by DUT
-    dmem_initiator_struct.Data_addr     = Data_addr_i;
-    dmem_initiator_struct.Data_din      = Data_din_i;
-    dmem_initiator_struct.Data_rd       = Data_rd_i;
-    dmem_initiator_struct.D_macc        = D_macc_i;
-    dmem_initiator_struct.Data_dout     = Data_dout_i;
-    dmem_initiator_struct.complete_data = complete_data_i;
-
+    // now wait for the DUT to actually make a new request and grab it
+    while (D_macc_i !== 1'b1) @(posedge clock_i);
+    dmem_initiator_struct.Data_addr = Data_addr_i;
+    dmem_initiator_struct.Data_din  = Data_din_i;
+    dmem_initiator_struct.Data_rd   = Data_rd_i;
+    dmem_initiator_struct.D_macc    = D_macc_i;
     first_transfer = 0;
   endtask
 

@@ -51,9 +51,12 @@ end
   endtask
 
   task do_wait_for_reset(); 
-    wait ( reset_i === 0 );
-    @(posedge clock_i);
-  endtask
+  // pragma uvmf custom reset_condition begin
+    // reset is active high, so wait for it to go back to 0 before we start
+    wait ( reset_i === 1'b0 ) ;
+    @(posedge clock_i) ;
+  // pragma uvmf custom reset_condition end                                                                
+  endtask    
 
   task wait_for_num_clocks(input int unsigned count);
     @(posedge clock_i);
@@ -80,18 +83,44 @@ end
 
   // Synchronize on valid data memory completion
   task do_monitor(output dmem_monitor_s dmem_monitor_struct);
-    // Block until reset is inactive and data memory signals transaction complete
-    do begin
-      @(posedge clock_i);
-    end while (reset_i === 1'b1 || complete_data_i === 1'b0 || (Data_rd_i === 1'b0 && D_macc_i === 1'b0));
+    //
+    // Available struct members:
+    //     //    dmem_monitor_struct.Data_addr
+    //     //    dmem_monitor_struct.Data_din
+    //     //    dmem_monitor_struct.Data_rd
+    //     //    dmem_monitor_struct.D_macc
+    //     //    dmem_monitor_struct.Data_dout
+    //     //    dmem_monitor_struct.complete_data
+    //     //
+    // Reference code;
+    //    How to wait for signal value
+    //      while (control_signal === 1'b1) @(posedge clock_i);
+    //    
+    //    How to assign a struct member, named xyz, from a signal.   
+    //    All available input signals listed.
+    //      dmem_monitor_struct.xyz = Data_addr_i;  //    [15:0] 
+    //      dmem_monitor_struct.xyz = Data_din_i;  //    [15:0] 
+    //      dmem_monitor_struct.xyz = Data_rd_i;  //     
+    //      dmem_monitor_struct.xyz = D_macc_i;  //     
+    //      dmem_monitor_struct.xyz = Data_dout_i;  //    [15:0] 
+    //      dmem_monitor_struct.xyz = complete_data_i;  //     
+    // pragma uvmf custom do_monitor begin
+    // wait until the DUT actually asserts a request, then grab the fields
+    while (D_macc_i !== 1'b1) @(posedge clock_i);
+    dmem_monitor_struct.Data_addr = Data_addr_i;
+    dmem_monitor_struct.Data_din  = Data_din_i;
+    dmem_monitor_struct.Data_rd   = Data_rd_i;
+    dmem_monitor_struct.D_macc    = D_macc_i;
 
-    // Capture valid data transaction bus values
-    dmem_monitor_struct.Data_addr     = Data_addr_i;
-    dmem_monitor_struct.Data_din      = Data_din_i;
+    // the driver bfm doesn't respond until one cycle later (that's just how
+    // we set up the memory model), so we need to wait a cycle and then grab
+    // the response so this shows up as one full request+response txn
+    @(posedge clock_i);
+    while (complete_data_i !== 1'b1) @(posedge clock_i);
     dmem_monitor_struct.Data_dout     = Data_dout_i;
-    dmem_monitor_struct.Data_rd       = Data_rd_i;
-    dmem_monitor_struct.D_macc        = D_macc_i;
     dmem_monitor_struct.complete_data = complete_data_i;
-  endtask
-
+    // pragma uvmf custom do_monitor end
+  endtask         
+  
+ 
 endinterface

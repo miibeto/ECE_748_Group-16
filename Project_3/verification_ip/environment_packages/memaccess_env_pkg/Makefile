@@ -5,6 +5,9 @@
 
 # Include all requisite sub-environment package targets for this bench
 
+# need lc3_prediction_pkg compiled before this since the predictor uses it
+include $(UVMF_VIP_LIBRARY_HOME)/environment_packages/lc3_prediction_pkg/Makefile
+
 memaccess_ENV_PKG ?=\
 		 $(UVMF_VIP_LIBRARY_HOME)/environment_packages/memaccess_env_pkg/memaccess_env_pkg.sv
 
@@ -12,9 +15,9 @@ COMP_memaccess_PKG_TGT_0 = q_comp_memaccess_env_pkg
 COMP_memaccess_PKG_TGT_1 = v_comp_memaccess_env_pkg
 COMP_memaccess_PKG_TGT = $(COMP_memaccess_PKG_TGT_$(USE_VELOCE))
 
-comp_memaccess_env_pkg: $(COMP_memaccess_PKG_TGT) 
+comp_memaccess_env_pkg: $(COMP_memaccess_PKG_TGT)
 
-q_comp_memaccess_env_pkg:   
+q_comp_memaccess_env_pkg:   comp_lc3_prediction_pkg
 		$(HVL_COMP_CMD) +incdir+$(UVMF_VIP_LIBRARY_HOME)/environment_packages/memaccess_env_pkg $(memaccess_ENV_PKG)
 
 v_comp_memaccess_env_pkg: q_comp_memaccess_env_pkg
