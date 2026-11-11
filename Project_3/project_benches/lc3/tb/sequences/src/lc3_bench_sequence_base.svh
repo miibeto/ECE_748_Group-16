@@ -38,10 +38,17 @@ class lc3_bench_sequence_base extends uvmf_sequence_base #(uvm_sequence_item);
 
   // UVMF_CHANGE_ME : Instantiate, construct, and start sequences as needed to create stimulus scenarios.
   // Instantiate sequences here
-  typedef imem_responder_sequence  imem_agent_responder_seq_t;
+  // typedef imem_responder_sequence  imem_agent_responder_seq_t;
+  // imem_agent_responder_seq_t imem_agent_responder_seq;
+  //   typedef dmem_responder_sequence  dmem_agent_responder_seq_t;
+  // dmem_agent_responder_seq_t dmem_agent_responder_seq;
+
+  // Replace standard responder sequence with custom startup responder sequence
+  typedef imem_lc3_startup_sequence imem_agent_responder_seq_t;
   imem_agent_responder_seq_t imem_agent_responder_seq;
-  typedef dmem_responder_sequence  dmem_agent_responder_seq_t;
+  typedef dmem_lc3_startup_sequence  dmem_agent_responder_seq_t;
   dmem_agent_responder_seq_t dmem_agent_responder_seq;
+
   // pragma uvmf custom sequences end
 
   // Sequencer handles for each active interface in the environment
@@ -124,14 +131,14 @@ class lc3_bench_sequence_base extends uvmf_sequence_base #(uvm_sequence_item);
     imem_agent_responder_seq  = imem_agent_responder_seq_t::type_id::create("imem_agent_responder_seq");
     dmem_agent_responder_seq  = dmem_agent_responder_seq_t::type_id::create("dmem_agent_responder_seq");
     fork
-      decode_env_decode_in_agent_config.wait_for_reset();
-      decode_env_decode_out_agent_config.wait_for_reset();
-      writeback_env_writeback_in_agent_config.wait_for_reset();
-      writeback_env_writeback_out_agent_config.wait_for_reset();
-      memaccess_env_memaccess_in_agent_config.wait_for_reset();
-      memaccess_env_memaccess_out_agent_config.wait_for_reset();
-      control_env_control_in_agent_config.wait_for_reset();
-      control_env_control_out_agent_config.wait_for_reset();
+      // decode_env_decode_in_agent_config.wait_for_reset();
+      // decode_env_decode_out_agent_config.wait_for_reset();
+      // writeback_env_writeback_in_agent_config.wait_for_reset();
+      // writeback_env_writeback_out_agent_config.wait_for_reset();
+      // memaccess_env_memaccess_in_agent_config.wait_for_reset();
+      // memaccess_env_memaccess_out_agent_config.wait_for_reset();
+      // control_env_control_in_agent_config.wait_for_reset();
+      // control_env_control_out_agent_config.wait_for_reset();
       imem_agent_config.wait_for_reset();
       dmem_agent_config.wait_for_reset();
     join

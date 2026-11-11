@@ -111,6 +111,58 @@ import uvmf_base_pkg_hdl::*;
    // Unused Signals
    tri enable_fetch;
    tri enable_execute;
+
+   // ------------------------------------------------------------------
+   // DUT Internal Hierarchical Signal Taps
+   // NOTE: Verify sub-module instance names (e.g. Fetch_inst, Decode_inst) 
+   // match your top-level LC3 RTL design file.
+   // ------------------------------------------------------------------
+   // Decode Sub-block Tap[cite: 12]
+   // assign enable_decode    = dut.Ctrl.enable_decode;
+   // assign dout             = Instr_dout;
+   // assign npc_in           = dut.Fetch.npc_out;
+   // assign w_control        = dut.Dec.W_Control;
+   // assign mem_control      = dut.Dec.Mem_Control;
+   // assign e_control        = dut.Dec.E_Control;
+   // assign ir               = dut.Dec.IR;
+   // assign npc_out          = dut.Dec.npc_out;
+
+   // // Writeback Sub-block Tap[cite: 21]
+   // assign enable_writeback = dut.Ctrl.enable_writeback;
+   // assign aluout           = dut.Ex.aluout;
+   // assign memout           = dut.MemAccess.memout;
+   // assign pcout            = dut.Ex.pcout;
+   // assign dr               = dut.Ex.dr;
+   // assign sr1              = dut.Ex.sr1;
+   // assign sr2              = dut.Ex.sr2;
+   // assign vsr1             = dut.WB.d1;
+   // assign vsr2             = dut.WB.d2;
+   // assign psr              = dut.WB.psr;
+
+   // // MemAccess Sub-block Tap[cite: 23, 25]
+   // assign mem_state        = dut.Ctrl.mem_state;
+   // assign M_Control        = dut.Ex.Mem_Control_out;
+   // assign M_Data           = dut.Ex.M_Data;
+   // assign M_addr           = dut.Ex.pcout;
+   // assign DMem_dout        = Data_dout;
+   // assign DMem_addr        = Data_addr;
+   // assign DMem_rd          = Data_rd;
+   // assign DMem_din         = Data_din;
+
+   // // Control Sub-block Tap[cite: 25]
+   // assign IR               = dut.Dec.IR;
+   // assign IR_Exec          = dut.Ex.IR_Exec;
+   // assign IMem_dout        = Instr_dout;
+   // assign NZP              = dut.Ex.NZP;
+   // assign br_taken         = dut.Ctrl.br_taken;
+   // assign bypass_alu_1     = dut.Ctrl.bypass_alu_1;
+   // assign bypass_alu_2     = dut.Ctrl.bypass_alu_2;
+   // assign bypass_mem_1     = dut.Ctrl.bypass_mem_1;
+   // assign bypass_mem_2     = dut.Ctrl.bypass_mem_2;
+   // assign enable_updatePC  = dut.Ctrl.enable_updatePC;
+   // assign enable_fetch     = dut.Ctrl.enable_fetch;
+   // assign enable_execute   = dut.Ctrl.enable_execute;
+
   // pragma uvmf custom module_item_additional end
 
   // Instantiate the signal bundle, monitor bfm and driver bfm for each interface.
@@ -246,7 +298,10 @@ import uvmf_base_pkg_hdl::*;
   control_out_monitor_bfm  control_env_control_out_agent_mon_bfm(control_env_control_out_agent_bus);
   imem_monitor_bfm  imem_agent_mon_bfm(imem_agent_bus);
   dmem_monitor_bfm  dmem_agent_mon_bfm(dmem_agent_bus);
-  imem_driver_bfm  imem_agent_drv_bfm(imem_agent_bus);
+  imem_driver_bfm  imem_agent_drv_bfm(
+      .bus          (imem_agent_bus),
+      .enable_decode(enable_decode)
+  );
   dmem_driver_bfm  dmem_agent_drv_bfm(dmem_agent_bus);
 
   // pragma uvmf custom dut_instantiation begin
@@ -292,4 +347,3 @@ endmodule
 
 // pragma uvmf custom external begin
 // pragma uvmf custom external end
-

@@ -11,6 +11,8 @@ covhtmlreport/
 *.ucis
 *.qpg
 *.qdb
+*.qtl
+*.tfdb
 
 # General
 *.log
