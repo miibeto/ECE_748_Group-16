@@ -57,10 +57,11 @@ package lc3_tests_pkg;
    `include "src/example_derived_test.svh"
 
   // pragma uvmf custom package_item_additional begin
-  // UVMF_CHANGE_ME : When adding new tests to the src directory
-  //    be sure to add the test file here so that it will be
-  //    compiled as part of the test package.  Be sure to place
-  //    the new test after any base tests of the new test.
+   // Instruction-coverage stimulus: constrained imem transactions + per-opcode tests.
+   `include "src/imem_constrained_transaction.svh"
+   `include "src/imem_single_opcode_transaction.svh"
+   `include "src/random_instr_test.svh"
+   `include "src/directed_opcode_tests.svh"
   // pragma uvmf custom package_item_additional end
 
 endpackage
