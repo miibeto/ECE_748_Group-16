@@ -93,18 +93,24 @@ class decode_predictor #(
     decode_in_agent_ae_debug = t;
     `uvm_info("PRED", "Transaction Received through decode_in_agent_ae", UVM_MEDIUM)
     `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
-    // Construct one of each output transaction type.
+
     decode_sb_ap_output_transaction = decode_sb_ap_output_transaction_t::type_id::create("decode_sb_ap_output_transaction");
-    //  UVMF_CHANGE_ME: Implement predictor model here.  
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The decode_predictor::write_decode_in_agent_ae function needs to be completed with DUT prediction model",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
- 
-    // Code for sending output transaction out through decode_sb_ap
-    // Please note that each broadcasted transaction should be a different object than previously 
-    // broadcasted transactions.  Creation of a different object is done by constructing the transaction 
-    // using either new() or create().  Broadcasting a transaction object more than once to either the 
-    // same subscriber or multiple subscribers will result in unexpected and incorrect behavior.
+
+    // Call the shared LC3 decode reference model (lc3_prediction_pkg::decode_model)
+    // to compute the expected decode-stage outputs from the fetched instruction
+    // and the incremented PC.
+    void'(decode_model(
+      .instr_dout (t.dout),
+      .npc_in     (t.npc_in),
+      .ir         (decode_sb_ap_output_transaction.ir),
+      .npc_out    (decode_sb_ap_output_transaction.npc_out),
+      .e_control  (decode_sb_ap_output_transaction.e_control),
+      .w_control  (decode_sb_ap_output_transaction.w_control),
+      .mem_control(decode_sb_ap_output_transaction.mem_control)
+    ));
+
+    `uvm_info("PRED", {"   Predicted: ", decode_sb_ap_output_transaction.convert2string()}, UVM_FULL)
+
     decode_sb_ap.write(decode_sb_ap_output_transaction);
     // pragma uvmf custom decode_in_agent_ae_predictor end
   endfunction

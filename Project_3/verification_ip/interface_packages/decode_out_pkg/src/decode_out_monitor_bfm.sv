@@ -98,12 +98,13 @@ end
   endtask                                                                                   
 
   // ****************************************************************************              
-  task do_wait_for_reset(); 
+  task do_wait_for_reset();
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
-    @(posedge clock_i) ;                                                                    
-  // pragma uvmf custom reset_condition end                                                                
-  endtask    
+    // LC3 reset is active-high; wait for its de-assertion before monitoring.
+    wait ( reset_i === 1'b0 ) ;
+    @(posedge clock_i) ;
+  // pragma uvmf custom reset_condition end
+  endtask
 
   //******************************************************************                         
  
@@ -171,17 +172,15 @@ end
     //      decode_out_monitor_struct.xyz = ir_i;  //    [15:0] 
     //      decode_out_monitor_struct.xyz = npc_out_i;  //    [15:0] 
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    // Decode-output monitor: wait for enable_decode, then sample the decoded
+    // instruction register and the control signals the decode stage drives to
+    // the downstream pipeline on the same cycle.
+    while (enable_decode_i !== 1'b1) @(posedge clock_i);
+    decode_out_monitor_struct.w_control   = w_control_i;
+    decode_out_monitor_struct.mem_control = mem_control_i;
+    decode_out_monitor_struct.e_control   = e_control_i;
+    decode_out_monitor_struct.ir          = ir_i;
+    decode_out_monitor_struct.npc_out     = npc_out_i;
     // pragma uvmf custom do_monitor end
   endtask         
   
