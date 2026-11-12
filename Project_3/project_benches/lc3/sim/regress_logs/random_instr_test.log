@@ -1,0 +1,16 @@
+Reading pref.tcl
+
+# 2026.1
+
+# ** Note: (vsim-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# vsim -c -coverage -sv_seed random "+UVM_TESTNAME=random_instr_test" "+UVM_VERBOSITY=UVM_MEDIUM" -permit_unmatched_virtual_intf "+notimingchecks" -suppress 8887 -do "coverage save -onexit regress_ucdb/random_instr_test.ucdb; run -all; quit -f" optimized_cov_top_tb 
+# Start time: 10:28:25 on Nov 12,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# ** Error: (vopt-11) Could not find work.optimized_cov_top_tb. Make sure the top design unit is compiled into the correct library or that the correct library is being referenced.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+Error loading design
+# End time: 10:28:25 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0

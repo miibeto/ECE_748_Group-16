@@ -1,0 +1,989 @@
+Reading pref.tcl
+
+# 2026.1
+
+# do compile.do
+# UVMF_VIP_LIBRARY_HOME = /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip
+# UVMF_PROJECT_DIR = /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:14 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/verilog_dut.v 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling module verilog_dut
+# 
+# Top level modules:
+# 	verilog_dut
+# End time: 10:40:14 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vcom 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:14 on Nov 12,2026
+# vcom /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/vhdl/vhdl_dut.vhd 
+# ** Note: (vcom-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity vhdl_dut
+# -- Compiling architecture rtl of vhdl_dut
+# End time: 10:40:15 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:15 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223 -suppress 2286 "+incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg" -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:15 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:15 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223 -suppress 2286 "+incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg" -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package uvmf_base_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:16 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:16 on Nov 12,2026
+# vlog /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package lc3_prediction_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:16 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:16 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_in_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:16 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:16 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_in_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package decode_in_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:17 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:17 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_in_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package decode_in_pkg_hdl
+# -- Compiling interface decode_in_if
+# -- Compiling package decode_in_monitor_bfm_sv_unit
+# -- Compiling interface decode_in_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package decode_in_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package decode_in_driver_bfm_sv_unit
+# -- Compiling interface decode_in_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:18 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:18 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_in_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:18 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:18 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_in_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package decode_in_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:19 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:19 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_in_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package decode_in_pkg_hdl
+# -- Compiling interface decode_in_if
+# -- Compiling package decode_in_monitor_bfm_sv_unit
+# -- Compiling interface decode_in_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package decode_in_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package decode_in_driver_bfm_sv_unit
+# -- Compiling interface decode_in_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:19 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:19 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_out_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:20 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:20 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_out_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package decode_out_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:20 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:20 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_out_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package decode_out_pkg_hdl
+# -- Compiling interface decode_out_if
+# -- Compiling package decode_out_monitor_bfm_sv_unit
+# -- Compiling interface decode_out_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package decode_out_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package decode_out_driver_bfm_sv_unit
+# -- Compiling interface decode_out_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:21 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:21 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package writeback_in_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:21 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:21 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package writeback_in_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package writeback_in_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:22 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:22 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package writeback_in_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package writeback_in_pkg_hdl
+# -- Compiling interface writeback_in_if
+# -- Compiling package writeback_in_monitor_bfm_sv_unit
+# -- Compiling interface writeback_in_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package writeback_in_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package writeback_in_driver_bfm_sv_unit
+# -- Compiling interface writeback_in_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:23 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:23 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package writeback_out_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:23 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:23 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package writeback_out_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package writeback_out_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:24 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:24 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package writeback_out_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package writeback_out_pkg_hdl
+# -- Compiling interface writeback_out_if
+# -- Compiling package writeback_out_monitor_bfm_sv_unit
+# -- Compiling interface writeback_out_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package writeback_out_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package writeback_out_driver_bfm_sv_unit
+# -- Compiling interface writeback_out_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:24 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:24 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package memaccess_in_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:25 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:25 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package memaccess_in_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package memaccess_in_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:25 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:25 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package memaccess_in_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package memaccess_in_pkg_hdl
+# -- Compiling interface memaccess_in_if
+# -- Compiling package memaccess_in_monitor_bfm_sv_unit
+# -- Compiling interface memaccess_in_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package memaccess_in_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package memaccess_in_driver_bfm_sv_unit
+# -- Compiling interface memaccess_in_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:26 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:26 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package memaccess_out_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:26 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:26 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package memaccess_out_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package memaccess_out_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:27 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:27 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package memaccess_out_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package memaccess_out_pkg_hdl
+# -- Compiling interface memaccess_out_if
+# -- Compiling package memaccess_out_monitor_bfm_sv_unit
+# -- Compiling interface memaccess_out_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package memaccess_out_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package memaccess_out_driver_bfm_sv_unit
+# -- Compiling interface memaccess_out_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:28 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:28 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_in_pkg/control_in_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package control_in_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:28 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:28 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_in_pkg/control_in_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package control_in_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package control_in_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:28 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:28 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_in_pkg/control_in_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package control_in_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package control_in_pkg_hdl
+# -- Compiling interface control_in_if
+# -- Compiling package control_in_monitor_bfm_sv_unit
+# -- Compiling interface control_in_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package control_in_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package control_in_driver_bfm_sv_unit
+# -- Compiling interface control_in_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:29 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:29 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_out_pkg/control_out_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package control_out_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:30 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:30 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_out_pkg/control_out_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package control_out_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package control_out_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:30 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:30 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/control_out_pkg/control_out_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package control_out_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package control_out_pkg_hdl
+# -- Compiling interface control_out_if
+# -- Compiling package control_out_monitor_bfm_sv_unit
+# -- Compiling interface control_out_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package control_out_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package control_out_driver_bfm_sv_unit
+# -- Compiling interface control_out_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:31 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:31 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/imem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/imem_pkg/imem_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package imem_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:31 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:31 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/imem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/imem_pkg/imem_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package imem_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package imem_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:32 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:32 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/imem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/imem_pkg/imem_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package imem_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package imem_pkg_hdl
+# -- Compiling interface imem_if
+# -- Compiling package imem_monitor_bfm_sv_unit
+# -- Compiling interface imem_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package imem_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package imem_driver_bfm_sv_unit
+# -- Compiling interface imem_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:33 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:33 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/dmem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/dmem_pkg/dmem_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package dmem_pkg_hdl
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:33 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:33 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/dmem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/dmem_pkg/dmem_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package dmem_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package uvmf_base_pkg
+# -- Importing package dmem_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:33 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:34 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223,2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/dmem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/interface_packages/dmem_pkg/dmem_filelist_xrtl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package dmem_if_sv_unit
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package dmem_pkg_hdl
+# -- Compiling interface dmem_if
+# -- Compiling package dmem_monitor_bfm_sv_unit
+# -- Compiling interface dmem_monitor_bfm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package dmem_pkg
+# -- Importing package uvmf_base_pkg
+# -- Compiling package dmem_driver_bfm_sv_unit
+# -- Compiling interface dmem_driver_bfm
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:34 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:34 on Nov 12,2026
+# vlog -timescale 1ps/1ps "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/decode_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/decode_env_pkg/decode_env_pkg.sv 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package decode_env_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/decode_env_pkg/decode_env_pkg.sv(24): Using implicit +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Importing package uvmf_base_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package decode_in_pkg
+# -- Importing package decode_in_pkg_hdl
+# -- Importing package decode_out_pkg
+# -- Importing package decode_out_pkg_hdl
+# -- Importing package lc3_prediction_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:35 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:35 on Nov 12,2026
+# vlog -timescale 1ps/1ps "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/writeback_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/writeback_env_pkg/writeback_env_pkg.sv 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package writeback_env_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/writeback_env_pkg/writeback_env_pkg.sv(24): Using implicit +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Importing package uvmf_base_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package writeback_in_pkg
+# -- Importing package writeback_in_pkg_hdl
+# -- Importing package writeback_out_pkg
+# -- Importing package writeback_out_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:35 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:35 on Nov 12,2026
+# vlog -timescale 1ps/1ps "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/memaccess_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/memaccess_env_pkg/memaccess_env_pkg.sv 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package memaccess_env_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/memaccess_env_pkg/memaccess_env_pkg.sv(24): Using implicit +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Importing package uvmf_base_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package memaccess_in_pkg
+# -- Importing package memaccess_in_pkg_hdl
+# -- Importing package memaccess_out_pkg
+# -- Importing package memaccess_out_pkg_hdl
+# -- Importing package lc3_prediction_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:36 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:36 on Nov 12,2026
+# vlog -timescale 1ps/1ps "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/control_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/control_env_pkg/control_env_pkg.sv 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package control_env_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/control_env_pkg/control_env_pkg.sv(24): Using implicit +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Importing package uvmf_base_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package control_in_pkg
+# -- Importing package control_in_pkg_hdl
+# -- Importing package control_out_pkg
+# -- Importing package control_out_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:37 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:37 on Nov 12,2026
+# vlog -timescale 1ps/1ps "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/lc3_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/lc3_env_pkg/lc3_env_pkg.sv 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package lc3_env_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/verification_ip/environment_packages/lc3_env_pkg/lc3_env_pkg.sv(24): Using implicit +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Importing package uvmf_base_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package imem_pkg
+# -- Importing package imem_pkg_hdl
+# -- Importing package dmem_pkg
+# -- Importing package dmem_pkg_hdl
+# -- Importing package decode_env_pkg
+# -- Importing package decode_in_pkg
+# -- Importing package decode_in_pkg_hdl
+# -- Importing package decode_out_pkg
+# -- Importing package decode_out_pkg_hdl
+# -- Importing package lc3_prediction_pkg
+# -- Importing package writeback_env_pkg
+# -- Importing package writeback_in_pkg
+# -- Importing package writeback_in_pkg_hdl
+# -- Importing package writeback_out_pkg
+# -- Importing package writeback_out_pkg_hdl
+# -- Importing package memaccess_env_pkg
+# -- Importing package memaccess_in_pkg
+# -- Importing package memaccess_in_pkg_hdl
+# -- Importing package memaccess_out_pkg
+# -- Importing package memaccess_out_pkg_hdl
+# -- Importing package control_env_pkg
+# -- Importing package control_in_pkg
+# -- Importing package control_in_pkg_hdl
+# -- Importing package control_out_pkg
+# -- Importing package control_out_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:37 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:37 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223 -suppress 2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/parameters" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/parameters/lc3_parameters_pkg.sv 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package lc3_parameters_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:38 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:38 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223 -suppress 2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/sequences" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/sequences/lc3_sequences_pkg.sv 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package lc3_sequences_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package decode_in_pkg
+# -- Importing package decode_in_pkg_hdl
+# -- Importing package decode_out_pkg
+# -- Importing package decode_out_pkg_hdl
+# -- Importing package writeback_in_pkg
+# -- Importing package writeback_in_pkg_hdl
+# -- Importing package writeback_out_pkg
+# -- Importing package writeback_out_pkg_hdl
+# -- Importing package memaccess_in_pkg
+# -- Importing package memaccess_in_pkg_hdl
+# -- Importing package memaccess_out_pkg
+# -- Importing package memaccess_out_pkg_hdl
+# -- Importing package control_in_pkg
+# -- Importing package control_in_pkg_hdl
+# -- Importing package control_out_pkg
+# -- Importing package control_out_pkg_hdl
+# -- Importing package imem_pkg
+# -- Importing package imem_pkg_hdl
+# -- Importing package dmem_pkg
+# -- Importing package dmem_pkg_hdl
+# -- Importing package lc3_parameters_pkg
+# -- Importing package lc3_env_pkg
+# -- Importing package decode_env_pkg
+# -- Importing package lc3_prediction_pkg
+# -- Importing package writeback_env_pkg
+# -- Importing package memaccess_env_pkg
+# -- Importing package control_env_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:38 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:38 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223 -suppress 2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/tests" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/tests/lc3_tests_pkg.sv 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling package lc3_tests_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package uvmf_base_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package lc3_parameters_pkg
+# -- Importing package lc3_env_pkg
+# -- Importing package imem_pkg
+# -- Importing package imem_pkg_hdl
+# -- Importing package dmem_pkg
+# -- Importing package dmem_pkg_hdl
+# -- Importing package decode_env_pkg
+# -- Importing package decode_in_pkg
+# -- Importing package decode_in_pkg_hdl
+# -- Importing package decode_out_pkg
+# -- Importing package decode_out_pkg_hdl
+# -- Importing package lc3_prediction_pkg
+# -- Importing package writeback_env_pkg
+# -- Importing package writeback_in_pkg
+# -- Importing package writeback_in_pkg_hdl
+# -- Importing package writeback_out_pkg
+# -- Importing package writeback_out_pkg_hdl
+# -- Importing package memaccess_env_pkg
+# -- Importing package memaccess_in_pkg
+# -- Importing package memaccess_in_pkg_hdl
+# -- Importing package memaccess_out_pkg
+# -- Importing package memaccess_out_pkg_hdl
+# -- Importing package control_env_pkg
+# -- Importing package control_in_pkg
+# -- Importing package control_in_pkg_hdl
+# -- Importing package control_out_pkg
+# -- Importing package control_out_pkg_hdl
+# -- Importing package lc3_sequences_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 10:40:39 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:39 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223 -suppress 2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench/top_filelist_hdl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling module hdl_top
+# -- Importing package lc3_parameters_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# 
+# Top level modules:
+# 	hdl_top
+# End time: 10:40:40 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:40 on Nov 12,2026
+# vlog -sv -timescale 1ps/1ps -suppress 2223 -suppress 2286 "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench/top_filelist_hvl.f 
+# ** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# -- Compiling module hvl_top
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package lc3_tests_pkg
+# -- Importing package uvmf_base_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package lc3_parameters_pkg
+# -- Importing package lc3_env_pkg
+# -- Importing package imem_pkg
+# -- Importing package imem_pkg_hdl
+# -- Importing package dmem_pkg
+# -- Importing package dmem_pkg_hdl
+# -- Importing package decode_env_pkg
+# -- Importing package decode_in_pkg
+# -- Importing package decode_in_pkg_hdl
+# -- Importing package decode_out_pkg
+# -- Importing package decode_out_pkg_hdl
+# -- Importing package lc3_prediction_pkg
+# -- Importing package writeback_env_pkg
+# -- Importing package writeback_in_pkg
+# -- Importing package writeback_in_pkg_hdl
+# -- Importing package writeback_out_pkg
+# -- Importing package writeback_out_pkg_hdl
+# -- Importing package memaccess_env_pkg
+# -- Importing package memaccess_in_pkg
+# -- Importing package memaccess_in_pkg_hdl
+# -- Importing package memaccess_out_pkg
+# -- Importing package memaccess_out_pkg_hdl
+# -- Importing package control_env_pkg
+# -- Importing package control_in_pkg
+# -- Importing package control_in_pkg_hdl
+# -- Importing package control_out_pkg
+# -- Importing package control_out_pkg_hdl
+# -- Importing package lc3_sequences_pkg
+# 
+# Top level modules:
+# 	hvl_top
+# End time: 10:40:40 on Nov 12,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vopt 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 10:40:40 on Nov 12,2026
+# vopt hvl_top hdl_top -o optimized_batch_top_tb 
+# ** Note: (vopt-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+# 
+# Top level modules:
+# 	hvl_top
+# 	hdl_top
+# 
+# Analyzing design...
+# -- Loading module hvl_top
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package lc3_tests_pkg
+# -- Importing package uvmf_base_pkg
+# -- Importing package uvmf_base_pkg_hdl
+# -- Importing package lc3_parameters_pkg
+# -- Importing package lc3_env_pkg
+# -- Importing package imem_pkg
+# -- Importing package imem_pkg_hdl
+# -- Importing package dmem_pkg
+# -- Importing package dmem_pkg_hdl
+# -- Importing package decode_env_pkg
+# -- Importing package decode_in_pkg
+# -- Importing package decode_in_pkg_hdl
+# -- Importing package decode_out_pkg
+# -- Importing package decode_out_pkg_hdl
+# -- Importing package lc3_prediction_pkg
+# -- Importing package writeback_env_pkg
+# -- Importing package writeback_in_pkg
+# -- Importing package writeback_in_pkg_hdl
+# -- Importing package writeback_out_pkg
+# -- Importing package writeback_out_pkg_hdl
+# -- Importing package memaccess_env_pkg
+# -- Importing package memaccess_in_pkg
+# -- Importing package memaccess_in_pkg_hdl
+# -- Importing package memaccess_out_pkg
+# -- Importing package memaccess_out_pkg_hdl
+# -- Importing package control_env_pkg
+# -- Importing package control_in_pkg
+# -- Importing package control_in_pkg_hdl
+# -- Importing package control_out_pkg
+# -- Importing package control_out_pkg_hdl
+# -- Importing package lc3_sequences_pkg
+# -- Loading module hdl_top
+# -- Loading package mtiUvm.questa_uvm_pkg
+# -- Loading interface decode_in_if
+# -- Loading interface decode_out_if
+# -- Loading interface writeback_in_if
+# -- Loading interface writeback_out_if
+# -- Loading interface memaccess_in_if
+# -- Loading interface memaccess_out_if
+# -- Loading interface control_in_if
+# -- Loading interface control_out_if
+# -- Loading interface imem_if
+# -- Loading interface dmem_if
+# -- Loading interface decode_in_monitor_bfm
+# -- Loading interface decode_in_driver_bfm
+# -- Loading interface decode_out_monitor_bfm
+# -- Loading interface decode_out_driver_bfm
+# -- Loading interface writeback_in_monitor_bfm
+# -- Loading interface writeback_in_driver_bfm
+# -- Loading interface writeback_out_monitor_bfm
+# -- Loading interface writeback_out_driver_bfm
+# -- Loading interface memaccess_in_monitor_bfm
+# -- Loading interface memaccess_in_driver_bfm
+# -- Loading interface memaccess_out_monitor_bfm
+# -- Loading interface memaccess_out_driver_bfm
+# -- Loading interface control_in_monitor_bfm
+# -- Loading interface control_in_driver_bfm
+# -- Loading interface control_out_monitor_bfm
+# -- Loading interface control_out_driver_bfm
+# -- Loading interface imem_monitor_bfm
+# -- Loading interface imem_driver_bfm
+# -- Loading interface dmem_monitor_bfm
+# -- Loading interface dmem_driver_bfm
+# ** Error: /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench/hdl_top.sv(312): Module 'LC3' is not defined.
+#  For instance 'dut' at path 'hdl_top'
+# Optimization failed
+# End time: 10:40:41 on Nov 12,2026, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/linux_x86_64/vopt failed.
+# Error in macro ./compile.do line 80
+# Return status = 2
+#     (procedure "compile" line 7)
+#     invoked from within
+# "compile NoFilter vopt hvl_top hdl_top -o optimized_batch_top_tb"
+#     ("eval" body line 1)
+#     invoked from within
+# "eval compile NoFilter vopt $flow $args"
+#     (procedure "vopt" line 24)
+#     invoked from within
+# "vopt          hvl_top hdl_top   -o optimized_batch_top_tb"
+#  quit -f
+QuestaSim-64 vopt 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 10:40:42 on Nov 12,2026
+vopt "+cover=bcesft" hvl_top hdl_top -o optimized_cov_top_tb 
+** Note: (vopt-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+
+Top level modules:
+	hvl_top
+	hdl_top
+
+Analyzing design...
+-- Loading module hvl_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package lc3_tests_pkg
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+-- Loading module hdl_top
+-- Loading package mtiUvm.questa_uvm_pkg
+-- Loading interface decode_in_if
+-- Loading interface decode_out_if
+-- Loading interface writeback_in_if
+-- Loading interface writeback_out_if
+-- Loading interface memaccess_in_if
+-- Loading interface memaccess_out_if
+-- Loading interface control_in_if
+-- Loading interface control_out_if
+-- Loading interface imem_if
+-- Loading interface dmem_if
+-- Loading interface decode_in_monitor_bfm
+-- Loading interface decode_in_driver_bfm
+-- Loading interface decode_out_monitor_bfm
+-- Loading interface decode_out_driver_bfm
+-- Loading interface writeback_in_monitor_bfm
+-- Loading interface writeback_in_driver_bfm
+-- Loading interface writeback_out_monitor_bfm
+-- Loading interface writeback_out_driver_bfm
+-- Loading interface memaccess_in_monitor_bfm
+-- Loading interface memaccess_in_driver_bfm
+-- Loading interface memaccess_out_monitor_bfm
+-- Loading interface memaccess_out_driver_bfm
+-- Loading interface control_in_monitor_bfm
+-- Loading interface control_in_driver_bfm
+-- Loading interface control_out_monitor_bfm
+-- Loading interface control_out_driver_bfm
+-- Loading interface imem_monitor_bfm
+-- Loading interface imem_driver_bfm
+-- Loading interface dmem_monitor_bfm
+-- Loading interface dmem_driver_bfm
+** Error: /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench/hdl_top.sv(312): Module 'LC3' is not defined.
+ For instance 'dut' at path 'hdl_top'
+Optimization failed
+End time: 10:40:43 on Nov 12,2026, Elapsed time: 0:00:01
+Errors: 1, Warnings: 0

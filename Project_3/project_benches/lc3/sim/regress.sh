@@ -3,7 +3,7 @@
 make clean
 make p3_build
 make p3_cli_run_test TEST_NAME=test_top
-make p3_cli_run_test TEST_NAME=experiment_test_top
+# make p3_cli_run_test TEST_NAME=experiment_test_top
 # make merge_coverage
 # make view_coverage
 # make report_coverage
@@ -70,12 +70,16 @@ make p3_cli_run_test TEST_NAME=experiment_test_top
 # # run can emit a non-empty UCDB.
 # # ------------------------------------------------------------------
 # echo "[build  ] vsim -c -do compile.do"
+# make clean
+# make comp_lc3_prediction_pkg
 # vsim -c -do "do compile.do; quit -f" 2>&1 | tee regress_logs/build.log
+
 
 # echo "[vopt   ] re-optimizing with +cover instrumentation"
 # # -fcover: covergroup coverage
 # # +cover=bcesft: block/branch/condition/expression/statement/fsm/toggle code coverage
-# vopt +cover=bcesft -fcover hvl_top hdl_top -o optimized_cov_top_tb 2>&1 | tee -a regress_logs/build.log
+# vopt +cover=bcesft hvl_top hdl_top -o optimized_cov_top_tb 2>&1 | tee -a regress_logs/build.log
+# # make p3_build
 
 # # ------------------------------------------------------------------
 # # Run each test, writing a per-test UCDB.

@@ -46,6 +46,8 @@ vlog -sv -timescale 1ps/1ps -suppress 2223 -suppress 2286 +incdir+$env(UVMF_HOME
 ###################################################################
 ## UVMF INTERFACE COMPILATION
 ###################################################################
+vlog $env(UVMF_VIP_LIBRARY_HOME)/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv
+do $env(UVMF_VIP_LIBRARY_HOME)/interface_packages/decode_in_pkg/compile.do
 do $env(UVMF_VIP_LIBRARY_HOME)/interface_packages/decode_in_pkg/compile.do
 do $env(UVMF_VIP_LIBRARY_HOME)/interface_packages/decode_out_pkg/compile.do
 do $env(UVMF_VIP_LIBRARY_HOME)/interface_packages/writeback_in_pkg/compile.do

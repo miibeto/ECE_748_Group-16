@@ -131,8 +131,8 @@ class lc3_bench_sequence_base extends uvmf_sequence_base #(uvm_sequence_item);
     imem_agent_responder_seq  = imem_agent_responder_seq_t::type_id::create("imem_agent_responder_seq");
     dmem_agent_responder_seq  = dmem_agent_responder_seq_t::type_id::create("dmem_agent_responder_seq");
     fork
-      // decode_env_decode_in_agent_config.wait_for_reset();
-      // decode_env_decode_out_agent_config.wait_for_reset();
+      decode_env_decode_in_agent_config.wait_for_reset();
+      decode_env_decode_out_agent_config.wait_for_reset();
       // writeback_env_writeback_in_agent_config.wait_for_reset();
       // writeback_env_writeback_out_agent_config.wait_for_reset();
       memaccess_env_memaccess_in_agent_config.wait_for_reset();

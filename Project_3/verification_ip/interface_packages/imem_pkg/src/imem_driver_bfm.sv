@@ -75,6 +75,7 @@ interface imem_driver_bfm
   // ****************************************************************************
 // pragma uvmf custom reset_condition_and_response begin
   // LC3 reset is active-high; drive outputs to idle on posedge of reset.
+  bit first_transfer = 1;
   always @( posedge reset_i )
      begin
        // RESPONDER mode output signals (DUT drives these; BFM only in RESPONDER mode)
@@ -85,6 +86,7 @@ interface imem_driver_bfm
        Instr_dout_o <= 'b0;
        complete_instr_o <= 'b0;
        // Bi-directional signals
+       first_transfer <= 1'b1;
 
      end
 // pragma uvmf custom reset_condition_and_response end
@@ -164,6 +166,7 @@ interface imem_driver_bfm
     // Drive the response data onto the bus.
     Instr_dout_o     <= imem_responder_struct.Instr_dout;
     complete_instr_o <= 1'b1;
+    //complete_instr_o <= imem_responder_struct.complete_instr;
     @(posedge clock_i);
     // Deassert complete_instr one cycle later so each fetch is a one-cycle pulse.
     complete_instr_o <= 1'b0;
