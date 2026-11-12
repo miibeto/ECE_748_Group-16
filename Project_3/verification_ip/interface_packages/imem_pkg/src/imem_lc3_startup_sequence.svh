@@ -30,13 +30,27 @@ class imem_lc3_startup_sequence extends imem_responder_sequence;
     imem_rom[16'h3007] = 16'h5FE0;
     imem_rom[16'h3008] = 16'h1266;
     imem_rom[16'h3009] = 16'h320B;
-    // imem_rom[16'h300A] = 16'h240A;
-    imem_rom[16'h300A] = 16'h3268;
-    imem_rom[16'h300B] = 16'h5842;
+    imem_rom[16'h300A] = 16'h326D;
+    imem_rom[16'h300B] = 16'h2409;
     imem_rom[16'h300C] = 16'h56E0;
     imem_rom[16'h300D] = 16'h1D6A;
     imem_rom[16'h300E] = 16'h17B1;
-    imem_rom[16'h300F] = 16'hF025;
+    imem_rom[16'h300f] = 16'hE000;
+    imem_rom[16'h3010] = 16'h56E0;
+    imem_rom[16'h3011] = 16'h7600;
+    imem_rom[16'h3012] = 16'h96FF;
+    imem_rom[16'h3013] = 16'h6800;
+    imem_rom[16'h3014] = 16'h3BF5;
+    imem_rom[16'h3015] = 16'hADF4;
+    imem_rom[16'h3016] = 16'h5920;
+    imem_rom[16'h3017] = 16'hBFF1;
+    imem_rom[16'h3018] = 16'h1360;
+    imem_rom[16'h3019] = 16'h09E7;
+    imem_rom[16'h302a] = 16'h16E1;
+    imem_rom[16'h302b] = 16'h4FD6;
+    imem_rom[16'h302c] = 16'hF025;
+    imem_rom[16'h302d] = 16'h14A1;
+    imem_rom[16'h302e] = 16'hC1C0;
     // Phase 1: Dual Load Constraint
     // imem_rom[16'h3001] = 16'h3A0B; // ST  R5, 0x3016   (Store R5=-16 to STORE_TARGET)
     // imem_rom[16'h3002] = 16'h2613; // LD  R1, 0x3016 (Loads DATA_VAL1 = 0x0005)

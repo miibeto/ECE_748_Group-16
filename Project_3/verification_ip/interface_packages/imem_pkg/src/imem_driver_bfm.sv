@@ -77,7 +77,7 @@ interface imem_driver_bfm
   // -------------------------------------------------------------------
   bit first_transfer = 1;
 
-  always @(negedge reset_i) begin
+  always @(posedge reset_i) begin
     PC_o             <= 'b0;
     instrmem_rd_o    <= 'b0;
     I_macc_o         <= 'b0;
@@ -142,7 +142,7 @@ interface imem_driver_bfm
     // while (reset_i === 1'b1) @(posedge clock_i);
     //@(posedge clock_i);
     // Step A: Complete current fetch transfer if not the first call
-    if (!first_transfer) begin
+    if (!first_transfer) begin      
       // Drive requested instruction word and complete_instr handshake to DUT
       Instr_dout_o     <= imem_responder_struct.Instr_dout;
       complete_instr_o <= imem_responder_struct.complete_instr;
@@ -151,16 +151,11 @@ interface imem_driver_bfm
 
       // Reset handshake pulse after 1 clock cycle
       complete_instr_o <= 1'b0;
-      //Instr_dout_o     <= 16'h0000;
-
     end
 
     // Step B: Wait for DUT Fetch Unit to assert instrmem_rd = 1
-    // while (reset_i === 1'b1 || instrmem_rd_i !== 1'b1) begin
-    //   @(posedge clock_i);
-    // end
     while (I_macc_i !== 1'b1) @(posedge clock_i);
-
+    
     #1
 
     // Step C: Sample PC address and control signals driven by DUT
