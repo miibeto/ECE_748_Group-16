@@ -151,19 +151,19 @@ end
 
   // ****************************************************************************
 // pragma uvmf custom reset_condition_and_response begin
-  // Always block used to return signals to reset value upon assertion of reset
-  always @( negedge reset_i )
+  // LC3 reset is active-high; drive outputs to idle on posedge of reset.
+  always @( posedge reset_i )
      begin
-       // RESPONDER mode output signals
+       // RESPONDER mode output signals (DUT drives these; BFM only in RESPONDER mode)
        PC_o <= 'b0;
        instrmem_rd_o <= 'b0;
        I_macc_o <= 'b0;
-       // INITIATOR mode output signals
+       // INITIATOR mode output signals (BFM drives these back to the DUT)
        Instr_dout_o <= 'b0;
        complete_instr_o <= 'b0;
        // Bi-directional signals
- 
-     end    
+
+     end
 // pragma uvmf custom reset_condition_and_response end
 
   // pragma uvmf custom interface_item_additional begin
@@ -291,19 +291,23 @@ bit first_transfer=1;
        //      I_macc_o <= imem_responder_struct.xyz;  //     
        //    Responder inout signals
     
-  @(posedge clock_i);
+  // Complete the currently-pending transfer (except on the very first call,
+  // where there is no outstanding request yet).
   if (!first_transfer) begin
-    // Perform transfer response here.   
-    // Reply using data recieved in the imem_responder_struct.
+    // Drive the response data onto the bus.
+    Instr_dout_o     <= imem_responder_struct.Instr_dout;
+    complete_instr_o <= 1'b1;
     @(posedge clock_i);
-    // Reply using data recieved in the transaction handle.
-    @(posedge clock_i);
+    // Deassert complete_instr one cycle later so each fetch is a one-cycle pulse.
+    complete_instr_o <= 1'b0;
   end
-    // Wait for next transfer then gather info from intiator about the transfer.
-    // Place the data into the imem_initiator_struct.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    first_transfer = 0;
+  // Wait for the DUT to request the next fetch.
+  while (bus.instrmem_rd !== 1'b1) @(posedge clock_i);
+  // Capture request info for the responder sequence.
+  imem_initiator_struct.PC          = bus.PC;
+  imem_initiator_struct.instrmem_rd = bus.instrmem_rd;
+  imem_initiator_struct.I_macc      = bus.I_macc;
+  first_transfer = 0;
   endtask
 // pragma uvmf custom respond_and_wait_for_next_transfer end
 

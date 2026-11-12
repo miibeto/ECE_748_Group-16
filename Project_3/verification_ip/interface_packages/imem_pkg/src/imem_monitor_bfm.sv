@@ -96,12 +96,13 @@ end
   endtask                                                                                   
 
   // ****************************************************************************              
-  task do_wait_for_reset(); 
+  task do_wait_for_reset();
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
-    @(posedge clock_i) ;                                                                    
-  // pragma uvmf custom reset_condition end                                                                
-  endtask    
+    // LC3 reset is active-high. Wait for reset to deassert before monitoring.
+    wait ( reset_i === 1'b0 ) ;
+    @(posedge clock_i) ;
+  // pragma uvmf custom reset_condition end
+  endtask
 
   //******************************************************************                         
  
@@ -168,17 +169,16 @@ end
     //      imem_monitor_struct.xyz = Instr_dout_i;  //    [15:0] 
     //      imem_monitor_struct.xyz = complete_instr_i;  //     
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    // Wait for a fetch request: instrmem_rd asserted by the DUT.
+    while (instrmem_rd_i !== 1'b1) @(posedge clock_i);
+    // Sample the request address on the cycle the read is asserted.
+    imem_monitor_struct.PC          = PC_i;
+    imem_monitor_struct.instrmem_rd = instrmem_rd_i;
+    imem_monitor_struct.I_macc      = I_macc_i;
+    // Wait for the responder to complete the transfer.
+    while (complete_instr_i !== 1'b1) @(posedge clock_i);
+    imem_monitor_struct.Instr_dout     = Instr_dout_i;
+    imem_monitor_struct.complete_instr = complete_instr_i;
     // pragma uvmf custom do_monitor end
   endtask         
   
