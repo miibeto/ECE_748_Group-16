@@ -72,22 +72,36 @@ interface imem_driver_bfm
   `imem_RESPONDER_STRUCT
     imem_responder_s responder_struct;
 
-  // -------------------------------------------------------------------
-  // Reset Condition Response
-  // -------------------------------------------------------------------
-  bit first_transfer = 1;
+  // ****************************************************************************
+// pragma uvmf custom reset_condition_and_response begin
+  // LC3 reset is active-high; drive outputs to idle on posedge of reset.
+  always @( posedge reset_i )
+     begin
+       // RESPONDER mode output signals (DUT drives these; BFM only in RESPONDER mode)
+       PC_o <= 'b0;
+       instrmem_rd_o <= 'b0;
+       I_macc_o <= 'b0;
+       // INITIATOR mode output signals (BFM drives these back to the DUT)
+       Instr_dout_o <= 'b0;
+       complete_instr_o <= 'b0;
+       // Bi-directional signals
 
-  always @(posedge reset_i) begin
-    PC_o             <= 'b0;
-    instrmem_rd_o    <= 'b0;
-    I_macc_o         <= 'b0;
-    Instr_dout_o     <= 'b0;
-    complete_instr_o <= 'b0;
-    first_transfer   <= 1'b1;
-  end
+     end
+// pragma uvmf custom reset_condition_and_response end
 
-  // Configuration task
-  function void configure(imem_configuration_s imem_configuration_arg);
+  // pragma uvmf custom interface_item_additional begin
+  // pragma uvmf custom interface_item_additional end
+
+  //******************************************************************
+  // The configure() function is used to pass agent configuration
+  // variables to the driver BFM.  It is called by the driver within
+  // the agent at the beginning of the simulation.  It may be called 
+  // during the simulation if agent configuration variables are updated
+  // and the driver BFM needs to be aware of the new configuration 
+  // variables.
+  //
+
+  function void configure(imem_configuration_s imem_configuration_arg); // pragma tbx xtf  
     initiator_responder = imem_configuration_arg.initiator_responder;
   endfunction
 
@@ -106,66 +120,61 @@ interface imem_driver_bfm
   // RESPONDER Task: Responds to DUT fetch requests and captures next PC
   // -------------------------------------------------------------------
   task respond_and_wait_for_next_transfer( 
-    output imem_initiator_s imem_initiator_struct, 
-    input  imem_responder_s imem_responder_struct 
-  );
-  // // Step A: Respond to previous request if not reset / first call
-  //   if (!first_transfer) begin
-  //     @(posedge clock_i);
-  //     // If DUT is actively requesting a read, drive instruction & keep complete_instr HIGH
-  //     if (reset_i === 1'b0 && instrmem_rd_i === 1'b1) begin
-  //       Instr_dout_o     <= imem_responder_struct.Instr_dout;
-  //       complete_instr_o <= 1'b1;
-  //     end else begin
-  //       // If instrmem_rd dropped (pipeline stalled downstream), drop complete_instr
-  //       complete_instr_o <= 1'b0;
-  //       // Instr_dout_o     <= 16'h0000;
-  //     end
-  //   end
-
-  //   // Step B: Wait for reset to drop AND for instrmem_rd to be active (1'b1)
-  //   while (reset_i === 1'b1 || instrmem_rd_i !== 1'b1) begin
-  //     complete_instr_o <= 1'b0; // Memory idle while fetch is disabled
-  //     // Instr_dout_o     <= 16'h0000;
-  //     @(posedge clock_i);
-  //   end
-
-
-  //   // Step C: Sample requested PC address driven by DUT
-  //   imem_initiator_struct.PC             = PC_i;
-  //   imem_initiator_struct.instrmem_rd    = instrmem_rd_i;
-  //   imem_initiator_struct.I_macc         = I_macc_i;
-  //   imem_initiator_struct.Instr_dout     = Instr_dout_i;
-  //   imem_initiator_struct.complete_instr = complete_instr_i;
-
-  //   first_transfer = 0;
-    // while (reset_i === 1'b1) @(posedge clock_i);
-    //@(posedge clock_i);
-    // Step A: Complete current fetch transfer if not the first call
-    if (!first_transfer) begin      
-      // Drive requested instruction word and complete_instr handshake to DUT
-      Instr_dout_o     <= imem_responder_struct.Instr_dout;
-      complete_instr_o <= imem_responder_struct.complete_instr;
-
-      @(posedge clock_i);
-
-      // Reset handshake pulse after 1 clock cycle
-      complete_instr_o <= 1'b0;
-    end
-
-    // Step B: Wait for DUT Fetch Unit to assert instrmem_rd = 1
-    while (I_macc_i !== 1'b1) @(posedge clock_i);
+       // This argument is used to send data received from the initiator
+       // back to the sequence item.  The sequence determines how to respond.
+       output imem_initiator_s imem_initiator_struct, 
+       // This argument passes transaction variables used by a responder
+       // to complete a protocol transfer.  The values come from a sequence item.       
+       input imem_responder_s imem_responder_struct 
+       );// pragma tbx xtf   
+  // Variables within the imem_initiator_struct:
+  //   bit [15:0] PC ;
+  //   bit instrmem_rd ;
+  //   bit I_macc ;
+  //   bit [15:0] Instr_dout ;
+  //   bit complete_instr ;
+  // Variables within the imem_responder_struct:
+  //   bit [15:0] PC ;
+  //   bit instrmem_rd ;
+  //   bit I_macc ;
+  //   bit [15:0] Instr_dout ;
+  //   bit complete_instr ;
+       // Reference code;
+       //    How to wait for signal value
+       //      while (control_signal == 1'b1) @(posedge clock_i);
+       //    
+       //    How to assign a initiator struct member, named xyz, from a signal.   
+       //    All available responder input and inout signals listed.
+       //    Responder input signals
+       //      imem_initiator_struct.xyz = Instr_dout_i;  //    [15:0] 
+       //      imem_initiator_struct.xyz = complete_instr_i;  //     
+       //    Responder inout signals
+       //    How to assign a signal, named xyz, from an responder struct member.   
+       //    All available responder output and inout signals listed.
+       //    Notice the _o.  Those are storage variables that allow for procedural assignment.
+       //    Responder output signals
+       //      PC_o <= imem_responder_struct.xyz;  //    [15:0] 
+       //      instrmem_rd_o <= imem_responder_struct.xyz;  //     
+       //      I_macc_o <= imem_responder_struct.xyz;  //     
+       //    Responder inout signals
     
-    #1
-
-    // Step C: Sample PC address and control signals driven by DUT
-    imem_initiator_struct.PC             = PC_i;
-    imem_initiator_struct.instrmem_rd    = instrmem_rd_i;
-    imem_initiator_struct.I_macc         = I_macc_i;
-    imem_initiator_struct.Instr_dout     = Instr_dout_i;
-    imem_initiator_struct.complete_instr = complete_instr_i;
-
-    first_transfer = 0;
+  // Complete the currently-pending transfer (except on the very first call,
+  // where there is no outstanding request yet).
+  if (!first_transfer) begin
+    // Drive the response data onto the bus.
+    Instr_dout_o     <= imem_responder_struct.Instr_dout;
+    complete_instr_o <= 1'b1;
+    @(posedge clock_i);
+    // Deassert complete_instr one cycle later so each fetch is a one-cycle pulse.
+    complete_instr_o <= 1'b0;
+  end
+  // Wait for the DUT to request the next fetch.
+  while (bus.instrmem_rd !== 1'b1) @(posedge clock_i);
+  // Capture request info for the responder sequence.
+  imem_initiator_struct.PC          = bus.PC;
+  imem_initiator_struct.instrmem_rd = bus.instrmem_rd;
+  imem_initiator_struct.I_macc      = bus.I_macc;
+  first_transfer = 0;
   endtask
 
 endinterface

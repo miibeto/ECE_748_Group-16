@@ -48,9 +48,13 @@ end
     do_wait_for_reset();
   endtask
 
-  task do_wait_for_reset(); 
-    wait ( reset_i === 0 );
-    @(posedge clock_i);
+  // ****************************************************************************              
+  task do_wait_for_reset();
+  // pragma uvmf custom reset_condition begin
+    // LC3 reset is active-high. Wait for reset to deassert before monitoring.
+    wait ( reset_i === 1'b0 ) ;
+    @(posedge clock_i) ;
+  // pragma uvmf custom reset_condition end
   endtask
 
   task wait_for_num_clocks(input int unsigned count);
@@ -78,17 +82,38 @@ end
 
   // Synchronize on valid instruction fetch completion
   task do_monitor(output imem_monitor_s imem_monitor_struct);
-    // Always advance at least 1 clock cycle before checking completion status
-    do begin
-      @(posedge clock_i);
-    end while (reset_i === 1'b1 || complete_instr_i === 1'b0 || (instrmem_rd_i === 1'b0 && I_macc_i === 1'b0));
-
-    // Sample valid instruction fetch bus values
-    imem_monitor_struct.PC             = PC_i;
-    imem_monitor_struct.instrmem_rd    = instrmem_rd_i;
-    imem_monitor_struct.I_macc         = I_macc_i;
+    //
+    // Available struct members:
+    //     //    imem_monitor_struct.PC
+    //     //    imem_monitor_struct.instrmem_rd
+    //     //    imem_monitor_struct.I_macc
+    //     //    imem_monitor_struct.Instr_dout
+    //     //    imem_monitor_struct.complete_instr
+    //     //
+    // Reference code;
+    //    How to wait for signal value
+    //      while (control_signal === 1'b1) @(posedge clock_i);
+    //    
+    //    How to assign a struct member, named xyz, from a signal.   
+    //    All available input signals listed.
+    //      imem_monitor_struct.xyz = PC_i;  //    [15:0] 
+    //      imem_monitor_struct.xyz = instrmem_rd_i;  //     
+    //      imem_monitor_struct.xyz = I_macc_i;  //     
+    //      imem_monitor_struct.xyz = Instr_dout_i;  //    [15:0] 
+    //      imem_monitor_struct.xyz = complete_instr_i;  //     
+    // pragma uvmf custom do_monitor begin
+    // Wait for a fetch request: instrmem_rd asserted by the DUT.
+    while (instrmem_rd_i !== 1'b1) @(posedge clock_i);
+    // Sample the request address on the cycle the read is asserted.
+    imem_monitor_struct.PC          = PC_i;
+    imem_monitor_struct.instrmem_rd = instrmem_rd_i;
+    imem_monitor_struct.I_macc      = I_macc_i;
+    // Wait for the responder to complete the transfer.
+    while (complete_instr_i !== 1'b1) @(posedge clock_i);
     imem_monitor_struct.Instr_dout     = Instr_dout_i;
     imem_monitor_struct.complete_instr = complete_instr_i;
-  endtask
-
+    // pragma uvmf custom do_monitor end
+  endtask         
+  
+ 
 endinterface

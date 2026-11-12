@@ -31,6 +31,7 @@ package decode_env_pkg;
   `uvm_analysis_imp_decl(_decode_in_agent_ae)
 
   // pragma uvmf custom package_imports_additional begin
+  import lc3_prediction_pkg::*;
   // pragma uvmf custom package_imports_additional end
 
   // Parameters defined as HVL parameters
