@@ -69,6 +69,7 @@ package imem_pkg;
    //    compiled as part of the interface package.  Be sure to place
    //    the new sequence after any base sequences of the new sequence.
    `include "src/imem_lc3_startup_sequence.svh"
+   `include "src/imem_experiment_sequence.svh"
    // pragma uvmf custom package_item_additional end
 
 endpackage

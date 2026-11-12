@@ -152,6 +152,9 @@ interface dmem_driver_bfm
     end
     // now wait for the DUT to actually make a new request and grab it
     while (D_macc_i !== 1'b1) @(posedge clock_i);
+
+    #1
+    
     dmem_initiator_struct.Data_addr = Data_addr_i;
     dmem_initiator_struct.Data_din  = Data_din_i;
     dmem_initiator_struct.Data_rd   = Data_rd_i;

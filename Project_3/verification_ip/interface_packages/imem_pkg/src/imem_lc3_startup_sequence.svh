@@ -30,12 +30,13 @@ class imem_lc3_startup_sequence extends imem_responder_sequence;
     imem_rom[16'h3007] = 16'h5FE0;
     imem_rom[16'h3008] = 16'h1266;
     imem_rom[16'h3009] = 16'h320B;
-    imem_rom[16'h300A] = 16'h240A;
+    // imem_rom[16'h300A] = 16'h240A;
+    imem_rom[16'h300A] = 16'h3268;
     imem_rom[16'h300B] = 16'h5842;
     imem_rom[16'h300C] = 16'h56E0;
     imem_rom[16'h300D] = 16'h1D6A;
     imem_rom[16'h300E] = 16'h17B1;
-    imem_rom[16'h300f] = 16'hA7FA;
+    imem_rom[16'h300F] = 16'hF025;
     // Phase 1: Dual Load Constraint
     // imem_rom[16'h3001] = 16'h3A0B; // ST  R5, 0x3016   (Store R5=-16 to STORE_TARGET)
     // imem_rom[16'h3002] = 16'h2613; // LD  R1, 0x3016 (Loads DATA_VAL1 = 0x0005)

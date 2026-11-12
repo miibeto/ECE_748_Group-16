@@ -161,7 +161,7 @@ interface imem_driver_bfm
     // end
     while (I_macc_i !== 1'b1) @(posedge clock_i);
 
-    //#1
+    #1
 
     // Step C: Sample PC address and control signals driven by DUT
     imem_initiator_struct.PC             = PC_i;
