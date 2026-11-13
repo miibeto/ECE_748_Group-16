@@ -133,11 +133,16 @@ class dmem_transaction  extends uvmf_transaction_base;
     if (!$cast(RHS,rhs)) return 0;
     // pragma uvmf custom do_compare begin
     // UVMF_CHANGE_ME : Eliminate comparison of variables not to be used for compare
+    // return (super.do_compare(rhs,comparer)
+    //         &&(this.Data_addr == RHS.Data_addr)
+    //         &&(this.Data_din == RHS.Data_din)
+    //         &&(this.Data_rd == RHS.Data_rd)
+    //         &&(this.Data_dout == RHS.Data_dout)
+    //         &&(this.complete_data == RHS.complete_data)
+    //         );
     return (super.do_compare(rhs,comparer)
             &&(this.Data_addr == RHS.Data_addr)
-            &&(this.Data_din == RHS.Data_din)
             &&(this.Data_rd == RHS.Data_rd)
-            &&(this.Data_dout == RHS.Data_dout)
             &&(this.complete_data == RHS.complete_data)
             );
     // pragma uvmf custom do_compare end

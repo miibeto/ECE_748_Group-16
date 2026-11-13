@@ -75,7 +75,7 @@ class imem_experiment_sequence extends imem_responder_sequence;
     imem_rom[16'h3018] = 16'h2218;
     imem_rom[16'h3019] = 16'h1020;
     imem_rom[16'h301a] = 16'h2615;
-    imem_rom[16'h301b] = 16'hF025;
+    imem_rom[16'h301b] = 16'h1020;
   endfunction
 
   virtual task body();

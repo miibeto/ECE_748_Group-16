@@ -162,22 +162,46 @@ interface imem_driver_bfm
     
   // Complete the currently-pending transfer (except on the very first call,
   // where there is no outstanding request yet).
-  if (!first_transfer) begin
-    // Drive the response data onto the bus.
-    Instr_dout_o     <= imem_responder_struct.Instr_dout;
-    complete_instr_o <= 1'b1;
-    //complete_instr_o <= imem_responder_struct.complete_instr;
-    @(posedge clock_i);
-    // Deassert complete_instr one cycle later so each fetch is a one-cycle pulse.
-    complete_instr_o <= 1'b0;
-  end
-  // Wait for the DUT to request the next fetch.
-  while (bus.instrmem_rd !== 1'b1) @(posedge clock_i);
-  // Capture request info for the responder sequence.
-  imem_initiator_struct.PC          = bus.PC;
-  imem_initiator_struct.instrmem_rd = bus.instrmem_rd;
-  imem_initiator_struct.I_macc      = bus.I_macc;
-  first_transfer = 0;
+  // if (!first_transfer) begin
+  //   // Drive the response data onto the bus.
+  //   Instr_dout_o     <= imem_responder_struct.Instr_dout;
+  //   complete_instr_o <= 1'b1;
+  //   //complete_instr_o <= imem_responder_struct.complete_instr;
+  //   @(posedge clock_i);
+  //   // Deassert complete_instr one cycle later so each fetch is a one-cycle pulse.
+  //   complete_instr_o <= 1'b0;
+  // end
+  // // Wait for the DUT to request the next fetch.
+  // while (bus.instrmem_rd !== 1'b1) @(posedge clock_i);
+  // // Capture request info for the responder sequence.
+  // imem_initiator_struct.PC          = bus.PC;
+  // imem_initiator_struct.instrmem_rd = bus.instrmem_rd;
+  // imem_initiator_struct.I_macc      = bus.I_macc;
+  // first_transfer = 0;
+  if (!first_transfer) begin      
+      // Drive requested instruction word and complete_instr handshake to DUT
+      Instr_dout_o     <= imem_responder_struct.Instr_dout;
+      complete_instr_o <= imem_responder_struct.complete_instr;
+
+      @(posedge clock_i);
+
+      // Reset handshake pulse after 1 clock cycle
+      complete_instr_o <= 1'b0;
+    end
+
+    // Step B: Wait for DUT Fetch Unit to assert instrmem_rd = 1
+    while (I_macc_i !== 1'b1) @(posedge clock_i);
+    
+    #1
+
+    // Step C: Sample PC address and control signals driven by DUT
+    imem_initiator_struct.PC             = PC_i;
+    imem_initiator_struct.instrmem_rd    = instrmem_rd_i;
+    imem_initiator_struct.I_macc         = I_macc_i;
+    imem_initiator_struct.Instr_dout     = Instr_dout_i;
+    imem_initiator_struct.complete_instr = complete_instr_i;
+
+    first_transfer = 0;
   endtask
 
 endinterface

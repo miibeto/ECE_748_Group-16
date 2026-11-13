@@ -124,7 +124,7 @@ end
   initial begin                                                                             
     @go;                                                                                   
     forever begin                                                                        
-      @(posedge clock_i);  
+      //@(posedge clock_i);  
       do_monitor( decode_out_monitor_struct );
                                                                  
  
@@ -175,12 +175,26 @@ end
     // Decode-output monitor: wait for enable_decode, then sample the decoded
     // instruction register and the control signals the decode stage drives to
     // the downstream pipeline on the same cycle.
-    while (enable_decode_i !== 1'b1) @(posedge clock_i);
+    // 1. Wait for reset to clear
+    while (reset_i) @(posedge clock_i);
+
+    // 2. Wait for enable signal (do-while guarantees at least 1 clock wait per call)
+    do @(posedge clock_i);
+    while (!enable_decode_i);
+
+    // 3. Sample outputs on negedge (after DUT combinational logic/registers settle)
+    @(negedge clock_i);
     decode_out_monitor_struct.w_control   = w_control_i;
     decode_out_monitor_struct.mem_control = mem_control_i;
     decode_out_monitor_struct.e_control   = e_control_i;
     decode_out_monitor_struct.ir          = ir_i;
     decode_out_monitor_struct.npc_out     = npc_out_i;
+    // while (enable_decode_i !== 1'b1) @(posedge clock_i);
+    // decode_out_monitor_struct.w_control   = w_control_i;
+    // decode_out_monitor_struct.mem_control = mem_control_i;
+    // decode_out_monitor_struct.e_control   = e_control_i;
+    // decode_out_monitor_struct.ir          = ir_i;
+    // decode_out_monitor_struct.npc_out     = npc_out_i;
     // pragma uvmf custom do_monitor end
   endtask         
   

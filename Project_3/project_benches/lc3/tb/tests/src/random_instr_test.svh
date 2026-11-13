@@ -16,8 +16,7 @@ class random_instr_test extends test_top;
   endfunction
 
   virtual function void build_phase(uvm_phase phase);
-    imem_transaction::type_id::set_type_override(
-        imem_constrained_transaction::get_type());
+    lc3_bench_sequence_base::type_id::set_type_override(lc3_bench_sequence_random::get_type());
     super.build_phase(phase);
   endfunction
 

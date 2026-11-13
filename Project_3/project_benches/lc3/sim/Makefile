@@ -50,10 +50,12 @@ endif
 
 # Set test case specific Variables
 TEST_NAME            ?= test_top
+VERBOSITY			 ?= UVM_MEDIUM
 
 TEST_SEED            ?= random
 PSS_SEED             ?= $(shell shuf -i 1-18446744073709551615 -n 1)
 UVM_CLI_ARGS         = 
+
 
 # Usage of Veloce, etc. to be input by the user (subject to defaults)
 USE_VELOCE          ?= 0
@@ -252,22 +254,26 @@ p3_build: # Compile Project 3 on GUI
 	$(MAKE) optimize
 
 p3_cli_run_test: # Run test on CLI (without .wlf generation)
-	TEST_NAME=$(TEST_NAME) $(MAKE) cli_run SIM_ARGS="-c -do \"run -all; quit -f\""
+	TEST_NAME=$(TEST_NAME) TEST_SEED=$(TEST_SEED) $(MAKE) cli_run SIM_ARGS="-c -coverage +UVM_VERBOSITY=$(VERBOSITY) -do \"run -all; quit -f\"" 
 
 # p3_run_test: # Run test on CLI, save signals to .wlf
 # 	TEST_NAME=$(TEST_NAME) $(MAKE) cli_run SIM_ARGS="-c -wlf $(WLF_NAME) -do \"log -r /*; run -all; quit -f\""
 
 # Merge all individual .ucdb coverage files into one database (merged_tests.ucdb)
+UCDB_DIR    ?= .
+MERGED_UCDB ?= merged_coverage.ucdb
+
 merge_coverage:
 	@echo "Merging coverage files from $(UCDB_DIR)..."
-	vcover merge -stats=none -strip 0 -totals merged_coverage.ucdb *.ucdb 
+	rm -f $(MERGED_UCDB)
+	vcover merge -stats=none -strip 0 -totals $(MERGED_UCDB) \
+		$(filter-out $(MERGED_UCDB), $(wildcard $(UCDB_DIR)/*.ucdb))
 
 view_coverage:
-	vsim -gui -cvgdb merged_coverage.ucdb \
-	     -do "view coverage; coverage open merged_coverage.ucdb;"
+	vsim -viewcov $(MERGED_UCDB)
 
 report_coverage:
-	vcover report -details -codeAll -cvg -option coverage_report.txt merged_coverage.ucdb
+	vcover report -details -codeAll -cvg -output coverage_report.txt $(MERGED_UCDB)
 
 regress: 
 	./regress.sh

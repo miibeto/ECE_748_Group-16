@@ -2,11 +2,13 @@
 
 make clean
 make p3_build
-make p3_cli_run_test TEST_NAME=test_top
+make p3_cli_run_test TEST_NAME=experiment_test_top VERBOSITY=UVM_LOW
+make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=3685502995 VERBOSITY=UVM_LOW
+make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=2924250918 VERBOSITY=UVM_LOW
 # make p3_cli_run_test TEST_NAME=experiment_test_top
-# make merge_coverage
-# make view_coverage
-# make report_coverage
+make merge_coverage
+make view_coverage
+make report_coverage
 
 #----------------------------------------------------------------------
 # regress.sh - LC3 Project 3 regression driver

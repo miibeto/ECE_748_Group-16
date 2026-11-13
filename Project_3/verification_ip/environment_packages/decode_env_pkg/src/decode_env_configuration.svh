@@ -123,10 +123,10 @@ extends uvmf_environment_configuration_base;
   // Interface initialization for local agents
      decode_in_agent_config.initialize( interface_activity[0], {environment_path,".decode_in_agent"}, interface_names[0]);
      decode_in_agent_config.initiator_responder = INITIATOR;
-     // decode_in_agent_config.has_coverage = 1;
+     decode_in_agent_config.has_coverage = 1;
      decode_out_agent_config.initialize( interface_activity[1], {environment_path,".decode_out_agent"}, interface_names[1]);
      decode_out_agent_config.initiator_responder = RESPONDER;
-     // decode_out_agent_config.has_coverage = 1;
+     decode_out_agent_config.has_coverage = 1;
 
 
 
