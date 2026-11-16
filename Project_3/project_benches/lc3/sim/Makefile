@@ -229,7 +229,21 @@ build: $(BUILD_TGT)
 emu_build: libs build link optimize
 
 # pragma uvmf custom additional_targets begin
-.PHONY: p3_debug p3_debug_cli p3_run merge_cov view_cov cov_debug
+TEST_NAME   ?= test_top
+TEST_SEED   ?= 1
+NUM_SEEDS   ?= 50
+VERBOSITY   ?= UVM_MEDIUM
+LOG_DIR     ?= logs
+UCDB_DIR    ?= .
+MERGED_UCDB ?= merged_coverage.ucdb
+
+.PHONY: p3_clean
+p3_clean:
+	rm -rf $(LOG_DIR)
+	@echo "Removed $(LOG_DIR) folder"
+	$(MAKE) clean
+
+.PHONY: p3_debug 
 p3_debug: # Compile and prepare test on GUI (requires manually "run -all")
 	$(MAKE) libs
 	$(MAKE) comp_lc3_prediction_pkg
@@ -237,6 +251,46 @@ p3_debug: # Compile and prepare test on GUI (requires manually "run -all")
 	$(MAKE) link
 	$(MAKE) optimize
 	TEST_NAME=$(TEST_NAME) $(MAKE) gui_run
+
+p3_build: # Compile Project 3 on GUI
+	$(MAKE) libs
+	$(MAKE) comp_lc3_prediction_pkg
+	$(MAKE) build
+	$(MAKE) link
+	$(MAKE) optimize
+
+p3_cli_run_test: # Run single test on CLI, saving UCDB and transcript log separately
+	@mkdir -p $(LOG_DIR)
+	$(MAKE) cli_run \
+		TEST_NAME=$(TEST_NAME) \
+		TEST_SEED=$(TEST_SEED) \
+		SIM_ARGS="-c -coverage +UVM_TESTNAME=$(TEST_NAME) -sv_seed $(TEST_SEED) +UVM_VERBOSITY=$(VERBOSITY) -do \"coverage save -onexit $(UCDB_DIR)/$(TEST_NAME)_$(TEST_SEED).ucdb; run -all; quit -f\"" \
+		EXTRA_VSIM_ARGS="-l $(LOG_DIR)/$(TEST_NAME)_$(TEST_SEED).log"
+
+regress_random: # Sweep seeds 1..NUM_SEEDS for TEST_NAME
+	@mkdir -p $(LOG_DIR)
+	@for s in $$(seq 1 $(NUM_SEEDS)); do \
+		echo "=== Running $(TEST_NAME) with SEED=$$s ==="; \
+		$(MAKE) p3_cli_run_test TEST_NAME=$(TEST_NAME) TEST_SEED=$$s VERBOSITY=UVM_NONE; \
+	done
+
+merge_coverage: # Merge all per-test UCDB files from UCDB_DIR
+	@echo "Merging coverage files from $(UCDB_DIR)..."
+	rm -f $(MERGED_UCDB)
+	vcover merge -stats=none -strip 0 -totals $(MERGED_UCDB) \
+		$(filter-out $(MERGED_UCDB), $(wildcard $(UCDB_DIR)/*.ucdb))
+
+rank_coverage: # Rank individual UCDBs by unique coverage contribution
+	vcover ranktest -rankfile ranked_tests.txt $(wildcard $(UCDB_DIR)/*.ucdb)
+
+view_coverage: # Open merged coverage database in Questa GUI
+	vsim -viewcov $(MERGED_UCDB)
+
+report_coverage: # Generate detailed text coverage report
+	vcover report -details -codeAll -cvg -output coverage_report.txt $(MERGED_UCDB)
+
+regress: 
+	./regress.sh
 
 # p3_debug_cli: # Compile and prepar test on GUI (requires manually "run -all")
 # 	$(MAKE) libs
@@ -246,35 +300,37 @@ p3_debug: # Compile and prepare test on GUI (requires manually "run -all")
 # 	$(MAKE) optimize
 # 	TEST_NAME=$(TEST_NAME) $(MAKE) cli_run
 
-p3_build: # Compile Project 3 on GUI
-	$(MAKE) libs
-	$(MAKE) comp_lc3_prediction_pkg
-	$(MAKE) build
-	$(MAKE) link
-	$(MAKE) optimize
+# p3_cli_run_test: # Run test on CLI (without .wlf generation)
+# 	@mkdir -p logs
+# 	TEST_NAME=$(TEST_NAME) TEST_SEED=$(TEST_SEED) $(MAKE) cli_run SIM_ARGS="-c -coverage -l logs/$(TEST_NAME)_$(TEST_SEED).log +UVM_VERBOSITY=$(VERBOSITY) -do \"run -all; quit -f\"" 
 
-p3_cli_run_test: # Run test on CLI (without .wlf generation)
-	TEST_NAME=$(TEST_NAME) TEST_SEED=$(TEST_SEED) $(MAKE) cli_run SIM_ARGS="-c -coverage +UVM_VERBOSITY=$(VERBOSITY) -do \"run -all; quit -f\"" 
+# LOG_DIR   ?= logs
+# UCDB_DIR    ?= .
 
-# p3_run_test: # Run test on CLI, save signals to .wlf
-# 	TEST_NAME=$(TEST_NAME) $(MAKE) cli_run SIM_ARGS="-c -wlf $(WLF_NAME) -do \"log -r /*; run -all; quit -f\""
+# p3_cli_run_test: # Run test on CLI (without .wlf generation)
+# 	@mkdir -p $(LOG_DIR)
+# 	TEST_NAME=$(TEST_NAME) \
+# 	TEST_SEED=$(TEST_SEED) \
+# 	$(MAKE) cli_run \
+# 	SIM_ARGS="-c -coverage +UVM_VERBOSITY=$(VERBOSITY) -do \"run -all; quit -f\""
+# 	EXTRA_VSIM_ARGS="-l $(LOG_DIR)/$(TEST_NAME)_$(TEST_SEED).log"
+# # SIM_ARGS="-c -coverage -l logs/$(TEST_NAME)_$(TEST_SEED).log +UVM_VERBOSITY=$(VERBOSITY) -do \"run -all; quit -f\"" 
+# # p3_run_test: # Run test on CLI, save signals to .wlf
+# # 	TEST_NAME=$(TEST_NAME) $(MAKE) cli_run SIM_ARGS="-c -wlf $(WLF_NAME) -do \"log -r /*; run -all; quit -f\""
 
-# Merge all individual .ucdb coverage files into one database (merged_tests.ucdb)
-UCDB_DIR    ?= .
-MERGED_UCDB ?= merged_coverage.ucdb
+# # Merge all individual .ucdb coverage files into one database (merged_tests.ucdb)
+# MERGED_UCDB ?= merged_coverage.ucdb
 
-merge_coverage:
-	@echo "Merging coverage files from $(UCDB_DIR)..."
-	rm -f $(MERGED_UCDB)
-	vcover merge -stats=none -strip 0 -totals $(MERGED_UCDB) \
-		$(filter-out $(MERGED_UCDB), $(wildcard $(UCDB_DIR)/*.ucdb))
+# merge_coverage:
+# 	@echo "Merging coverage files from $(UCDB_DIR)..."
+# 	rm -f $(MERGED_UCDB)
+# 	vcover merge -stats=none -strip 0 -totals $(MERGED_UCDB) \
+# 		$(filter-out $(MERGED_UCDB), $(wildcard $(UCDB_DIR)/*.ucdb))
 
-view_coverage:
-	vsim -viewcov $(MERGED_UCDB)
+# view_coverage:
+# 	vsim -viewcov $(MERGED_UCDB)
 
-report_coverage:
-	vcover report -details -codeAll -cvg -output coverage_report.txt $(MERGED_UCDB)
+# report_coverage:
+# 	vcover report -details -codeAll -cvg -output coverage_report.txt $(MERGED_UCDB)
 
-regress: 
-	./regress.sh
 # pragma uvmf custom additional_targets end

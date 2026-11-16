@@ -1,10 +1,11 @@
 #!/bin/bash
 
-make clean
+make p3_clean
 make p3_build
 make p3_cli_run_test TEST_NAME=experiment_test_top VERBOSITY=UVM_LOW
 make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=3685502995 VERBOSITY=UVM_LOW
 make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=2924250918 VERBOSITY=UVM_LOW
+make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=1 VERBOSITY=UVM_LOW
 make merge_coverage
 make view_coverage
 make report_coverage
