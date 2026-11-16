@@ -97,6 +97,7 @@ class lc3_environment  extends uvmf_environment_base #(
     configuration.set_vsqr(vsqr);
 
     // pragma uvmf custom build_phase begin
+    lc3_sb.wait_for_scoreboard_empty = 1'b1;
     // pragma uvmf custom build_phase end
   endfunction
 

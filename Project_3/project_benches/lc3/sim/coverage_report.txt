@@ -6,45 +6,45 @@ Coverage Report by instance with details
 =================================================================================
 
 Covergroup Coverage:
-    Covergroups                      1        na        na    39.37%
+    Covergroups                      1        na        na    39.17%
         Coverpoints/Crosses          5        na        na        na
-            Covergroup Bins       2118       109      2009     5.14%
+            Covergroup Bins       2118        99      2019     4.67%
 ----------------------------------------------------------------------------------------------------------
 Covergroup                                             Metric       Goal       Bins    Status               
                                                                                                          
 ----------------------------------------------------------------------------------------------------------
  TYPE /decode_out_pkg/decode_out_transaction_coverage/decode_out_transaction_cg 
-                                                       39.37%        100          -    Uncovered            
-    covered/total bins:                                   109       2118          -                      
-    missing/total bins:                                  2009       2118          -                      
-    % Hit:                                              5.14%        100          -                      
+                                                       39.17%        100          -    Uncovered            
+    covered/total bins:                                    99       2118          -                      
+    missing/total bins:                                  2019       2118          -                      
+    % Hit:                                              4.67%        100          -                      
     Coverpoint w_control                               75.00%        100          -    Uncovered            
         covered/total bins:                                 3          4          -                      
         missing/total bins:                                 1          4          -                      
         % Hit:                                         75.00%        100          -                      
-        bin auto[0]                                       351          1          -    Covered              
+        bin auto[0]                                        96          1          -    Covered              
         bin auto[1]                                        11          1          -    Covered              
-        bin auto[2]                                        13          1          -    Covered              
+        bin auto[2]                                        11          1          -    Covered              
         bin auto[3]                                         0          1          -    ZERO                 
     Coverpoint mem_control                            100.00%        100          -    Covered              
         covered/total bins:                                 2          2          -                      
         missing/total bins:                                 0          2          -                      
         % Hit:                                        100.00%        100          -                      
-        bin auto[0]                                       371          1          -    Covered              
+        bin auto[0]                                       114          1          -    Covered              
         bin auto[1]                                         4          1          -    Covered              
     Coverpoint e_control                               12.50%        100          -    Uncovered            
         covered/total bins:                                 8         64          -                      
         missing/total bins:                                56         64          -                      
         % Hit:                                         12.50%        100          -                      
         bin auto[0]                                        22          1          -    Covered              
-        bin auto[1]                                         9          1          -    Covered              
+        bin auto[1]                                         8          1          -    Covered              
         bin auto[2]                                         0          1          -    ZERO                 
         bin auto[3]                                         0          1          -    ZERO                 
         bin auto[4]                                         0          1          -    ZERO                 
         bin auto[5]                                         0          1          -    ZERO                 
-        bin auto[6]                                       288          1          -    Covered              
+        bin auto[6]                                        39          1          -    Covered              
         bin auto[7]                                         0          1          -    ZERO                 
-        bin auto[8]                                         8          1          -    Covered              
+        bin auto[8]                                         7          1          -    Covered              
         bin auto[9]                                         0          1          -    ZERO                 
         bin auto[10]                                        0          1          -    ZERO                 
         bin auto[11]                                        0          1          -    ZERO                 
@@ -52,8 +52,8 @@ Covergroup                                             Metric       Goal       B
         bin auto[13]                                        0          1          -    ZERO                 
         bin auto[14]                                        0          1          -    ZERO                 
         bin auto[15]                                        0          1          -    ZERO                 
-        bin auto[16]                                       25          1          -    Covered              
-        bin auto[17]                                       11          1          -    Covered              
+        bin auto[16]                                       24          1          -    Covered              
+        bin auto[17]                                       10          1          -    Covered              
         bin auto[18]                                        0          1          -    ZERO                 
         bin auto[19]                                        0          1          -    ZERO                 
         bin auto[20]                                        0          1          -    ZERO                 
@@ -68,7 +68,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[29]                                        0          1          -    ZERO                 
         bin auto[30]                                        0          1          -    ZERO                 
         bin auto[31]                                        0          1          -    ZERO                 
-        bin auto[32]                                       11          1          -    Covered              
+        bin auto[32]                                        7          1          -    Covered              
         bin auto[33]                                        0          1          -    ZERO                 
         bin auto[34]                                        0          1          -    ZERO                 
         bin auto[35]                                        0          1          -    ZERO                 
@@ -100,11 +100,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[61]                                        0          1          -    ZERO                 
         bin auto[62]                                        0          1          -    ZERO                 
         bin auto[63]                                        0          1          -    ZERO                 
-    Coverpoint ir                                       8.78%        100          -    Uncovered            
-        covered/total bins:                                90       1024          -                      
-        missing/total bins:                               934       1024          -                      
-        % Hit:                                          8.78%        100          -                      
-        bin auto[0:63]                                    246          1          -    Covered              
+    Coverpoint ir                                       8.20%        100          -    Uncovered            
+        covered/total bins:                                84       1024          -                      
+        missing/total bins:                               940       1024          -                      
+        % Hit:                                          8.20%        100          -                      
+        bin auto[0:63]                                      1          1          -    Covered              
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
         bin auto[192:255]                                   0          1          -    ZERO                 
@@ -136,7 +136,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[1856:1919]                                 0          1          -    ZERO                 
         bin auto[1920:1983]                                 0          1          -    ZERO                 
         bin auto[1984:2047]                                 0          1          -    ZERO                 
-        bin auto[2048:2111]                                 2          1          -    Covered              
+        bin auto[2048:2111]                                 1          1          -    Covered              
         bin auto[2112:2175]                                 0          1          -    ZERO                 
         bin auto[2176:2239]                                 0          1          -    ZERO                 
         bin auto[2240:2303]                                 0          1          -    ZERO                 
@@ -217,7 +217,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[7040:7103]                                 0          1          -    ZERO                 
         bin auto[7104:7167]                                 0          1          -    ZERO                 
         bin auto[7168:7231]                                 0          1          -    ZERO                 
-        bin auto[7232:7295]                                 1          1          -    Covered              
+        bin auto[7232:7295]                                 0          1          -    ZERO                 
         bin auto[7296:7359]                                 1          1          -    Covered              
         bin auto[7360:7423]                                 0          1          -    ZERO                 
         bin auto[7424:7487]                                 2          1          -    Covered              
@@ -345,7 +345,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[15232:15295]                               0          1          -    ZERO                 
         bin auto[15296:15359]                               0          1          -    ZERO                 
         bin auto[15360:15423]                               1          1          -    Covered              
-        bin auto[15424:15487]                               1          1          -    Covered              
+        bin auto[15424:15487]                               0          1          -    ZERO                 
         bin auto[15488:15551]                               0          1          -    ZERO                 
         bin auto[15552:15615]                               0          1          -    ZERO                 
         bin auto[15616:15679]                               0          1          -    ZERO                 
@@ -425,7 +425,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[20352:20415]                               0          1          -    ZERO                 
         bin auto[20416:20479]                               0          1          -    ZERO                 
         bin auto[20480:20543]                               0          1          -    ZERO                 
-        bin auto[20544:20607]                               2          1          -    Covered              
+        bin auto[20544:20607]                               1          1          -    Covered              
         bin auto[20608:20671]                               0          1          -    ZERO                 
         bin auto[20672:20735]                               0          1          -    ZERO                 
         bin auto[20736:20799]                               0          1          -    ZERO                 
@@ -459,7 +459,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[22528:22591]                               0          1          -    ZERO                 
         bin auto[22592:22655]                               0          1          -    ZERO                 
         bin auto[22656:22719]                               1          1          -    Covered              
-        bin auto[22720:22783]                               3          1          -    Covered              
+        bin auto[22720:22783]                               2          1          -    Covered              
         bin auto[22784:22847]                               3          1          -    Covered              
         bin auto[22848:22911]                               0          1          -    ZERO                 
         bin auto[22912:22975]                               0          1          -    ZERO                 
@@ -584,7 +584,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[30528:30591]                               0          1          -    ZERO                 
         bin auto[30592:30655]                               0          1          -    ZERO                 
         bin auto[30656:30719]                               0          1          -    ZERO                 
-        bin auto[30720:30783]                               1          1          -    Covered              
+        bin auto[30720:30783]                               0          1          -    ZERO                 
         bin auto[30784:30847]                               0          1          -    ZERO                 
         bin auto[30848:30911]                               0          1          -    ZERO                 
         bin auto[30912:30975]                               0          1          -    ZERO                 
@@ -692,18 +692,18 @@ Covergroup                                             Metric       Goal       B
         bin auto[37440:37503]                               1          1          -    Covered              
         bin auto[37504:37567]                               0          1          -    ZERO                 
         bin auto[37568:37631]                               0          1          -    ZERO                 
-        bin auto[37632:37695]                               1          1          -    Covered              
+        bin auto[37632:37695]                               0          1          -    ZERO                 
         bin auto[37696:37759]                               0          1          -    ZERO                 
         bin auto[37760:37823]                               0          1          -    ZERO                 
         bin auto[37824:37887]                               0          1          -    ZERO                 
         bin auto[37888:37951]                               0          1          -    ZERO                 
-        bin auto[37952:38015]                               1          1          -    Covered              
+        bin auto[37952:38015]                               0          1          -    ZERO                 
         bin auto[38016:38079]                               0          1          -    ZERO                 
         bin auto[38080:38143]                               0          1          -    ZERO                 
         bin auto[38144:38207]                               0          1          -    ZERO                 
         bin auto[38208:38271]                               0          1          -    ZERO                 
         bin auto[38272:38335]                               0          1          -    ZERO                 
-        bin auto[38336:38399]                               1          1          -    Covered              
+        bin auto[38336:38399]                               0          1          -    ZERO                 
         bin auto[38400:38463]                               0          1          -    ZERO                 
         bin auto[38464:38527]                               1          1          -    Covered              
         bin auto[38528:38591]                               0          1          -    ZERO                 
@@ -717,7 +717,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[39040:39103]                               0          1          -    ZERO                 
         bin auto[39104:39167]                               0          1          -    ZERO                 
         bin auto[39168:39231]                               0          1          -    ZERO                 
-        bin auto[39232:39295]                               2          1          -    Covered              
+        bin auto[39232:39295]                               1          1          -    Covered              
         bin auto[39296:39359]                               1          1          -    Covered              
         bin auto[39360:39423]                               0          1          -    ZERO                 
         bin auto[39424:39487]                               0          1          -    ZERO                 
@@ -1001,7 +1001,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[57216:57279]                               0          1          -    ZERO                 
         bin auto[57280:57343]                               0          1          -    ZERO                 
         bin auto[57344:57407]                               0          1          -    ZERO                 
-        bin auto[57408:57471]                               2          1          -    Covered              
+        bin auto[57408:57471]                               1          1          -    Covered              
         bin auto[57472:57535]                               0          1          -    ZERO                 
         bin auto[57536:57599]                               0          1          -    ZERO                 
         bin auto[57600:57663]                               0          1          -    ZERO                 
@@ -1025,7 +1025,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[58752:58815]                               0          1          -    ZERO                 
         bin auto[58816:58879]                               0          1          -    ZERO                 
         bin auto[58880:58943]                               0          1          -    ZERO                 
-        bin auto[58944:59007]                               2          1          -    Covered              
+        bin auto[58944:59007]                               1          1          -    Covered              
         bin auto[59008:59071]                               0          1          -    ZERO                 
         bin auto[59072:59135]                               0          1          -    ZERO                 
         bin auto[59136:59199]                               0          1          -    ZERO                 
@@ -1128,10 +1128,10 @@ Covergroup                                             Metric       Goal       B
         bin auto[65344:65407]                               0          1          -    ZERO                 
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
-    Coverpoint npc_out                                  0.58%        100          -    Uncovered            
-        covered/total bins:                                 6       1024          -                      
-        missing/total bins:                              1018       1024          -                      
-        % Hit:                                          0.58%        100          -                      
+    Coverpoint npc_out                                  0.19%        100          -    Uncovered            
+        covered/total bins:                                 2       1024          -                      
+        missing/total bins:                              1022       1024          -                      
+        % Hit:                                          0.19%        100          -                      
         bin auto[0:63]                                      0          1          -    ZERO                 
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
@@ -1325,11 +1325,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[12160:12223]                               0          1          -    ZERO                 
         bin auto[12224:12287]                               0          1          -    ZERO                 
         bin auto[12288:12351]                              92          1          -    Covered              
-        bin auto[12352:12415]                              68          1          -    Covered              
-        bin auto[12416:12479]                              64          1          -    Covered              
-        bin auto[12480:12543]                              64          1          -    Covered              
-        bin auto[12544:12607]                              64          1          -    Covered              
-        bin auto[12608:12671]                              23          1          -    Covered              
+        bin auto[12352:12415]                              26          1          -    Covered              
+        bin auto[12416:12479]                               0          1          -    ZERO                 
+        bin auto[12480:12543]                               0          1          -    ZERO                 
+        bin auto[12544:12607]                               0          1          -    ZERO                 
+        bin auto[12608:12671]                               0          1          -    ZERO                 
         bin auto[12672:12735]                               0          1          -    ZERO                 
         bin auto[12736:12799]                               0          1          -    ZERO                 
         bin auto[12800:12863]                               0          1          -    ZERO                 
@@ -2157,38 +2157,38 @@ Covergroup                                             Metric       Goal       B
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
  Covergroup instance decode_out_transaction_cg_uvm_test_top.environment.decode_env.decode_out_agent.decode_out_agent_coverage 
-                                                       39.37%        100          -    Uncovered            
+                                                       39.17%        100          -    Uncovered            
  File ../../../verification_ip/interface_packages/decode_out_pkg/src/decode_out_transaction_coverage.svh Line = 27
-    covered/total bins:                                   109       2118          -                      
-    missing/total bins:                                  2009       2118          -                      
-    % Hit:                                              5.14%        100          -                      
+    covered/total bins:                                    99       2118          -                      
+    missing/total bins:                                  2019       2118          -                      
+    % Hit:                                              4.67%        100          -                      
     Coverpoint w_control                               75.00%        100          -    Uncovered            
         covered/total bins:                                 3          4          -                      
         missing/total bins:                                 1          4          -                      
         % Hit:                                         75.00%        100          -                      
-        bin auto[0]                                       351          1          -    Covered              
+        bin auto[0]                                        96          1          -    Covered              
         bin auto[1]                                        11          1          -    Covered              
-        bin auto[2]                                        13          1          -    Covered              
+        bin auto[2]                                        11          1          -    Covered              
         bin auto[3]                                         0          1          -    ZERO                 
     Coverpoint mem_control                            100.00%        100          -    Covered              
         covered/total bins:                                 2          2          -                      
         missing/total bins:                                 0          2          -                      
         % Hit:                                        100.00%        100          -                      
-        bin auto[0]                                       371          1          -    Covered              
+        bin auto[0]                                       114          1          -    Covered              
         bin auto[1]                                         4          1          -    Covered              
     Coverpoint e_control                               12.50%        100          -    Uncovered            
         covered/total bins:                                 8         64          -                      
         missing/total bins:                                56         64          -                      
         % Hit:                                         12.50%        100          -                      
         bin auto[0]                                        22          1          -    Covered              
-        bin auto[1]                                         9          1          -    Covered              
+        bin auto[1]                                         8          1          -    Covered              
         bin auto[2]                                         0          1          -    ZERO                 
         bin auto[3]                                         0          1          -    ZERO                 
         bin auto[4]                                         0          1          -    ZERO                 
         bin auto[5]                                         0          1          -    ZERO                 
-        bin auto[6]                                       288          1          -    Covered              
+        bin auto[6]                                        39          1          -    Covered              
         bin auto[7]                                         0          1          -    ZERO                 
-        bin auto[8]                                         8          1          -    Covered              
+        bin auto[8]                                         7          1          -    Covered              
         bin auto[9]                                         0          1          -    ZERO                 
         bin auto[10]                                        0          1          -    ZERO                 
         bin auto[11]                                        0          1          -    ZERO                 
@@ -2196,8 +2196,8 @@ Covergroup                                             Metric       Goal       B
         bin auto[13]                                        0          1          -    ZERO                 
         bin auto[14]                                        0          1          -    ZERO                 
         bin auto[15]                                        0          1          -    ZERO                 
-        bin auto[16]                                       25          1          -    Covered              
-        bin auto[17]                                       11          1          -    Covered              
+        bin auto[16]                                       24          1          -    Covered              
+        bin auto[17]                                       10          1          -    Covered              
         bin auto[18]                                        0          1          -    ZERO                 
         bin auto[19]                                        0          1          -    ZERO                 
         bin auto[20]                                        0          1          -    ZERO                 
@@ -2212,7 +2212,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[29]                                        0          1          -    ZERO                 
         bin auto[30]                                        0          1          -    ZERO                 
         bin auto[31]                                        0          1          -    ZERO                 
-        bin auto[32]                                       11          1          -    Covered              
+        bin auto[32]                                        7          1          -    Covered              
         bin auto[33]                                        0          1          -    ZERO                 
         bin auto[34]                                        0          1          -    ZERO                 
         bin auto[35]                                        0          1          -    ZERO                 
@@ -2244,11 +2244,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[61]                                        0          1          -    ZERO                 
         bin auto[62]                                        0          1          -    ZERO                 
         bin auto[63]                                        0          1          -    ZERO                 
-    Coverpoint ir                                       8.78%        100          -    Uncovered            
-        covered/total bins:                                90       1024          -                      
-        missing/total bins:                               934       1024          -                      
-        % Hit:                                          8.78%        100          -                      
-        bin auto[0:63]                                    246          1          -    Covered              
+    Coverpoint ir                                       8.20%        100          -    Uncovered            
+        covered/total bins:                                84       1024          -                      
+        missing/total bins:                               940       1024          -                      
+        % Hit:                                          8.20%        100          -                      
+        bin auto[0:63]                                      1          1          -    Covered              
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
         bin auto[192:255]                                   0          1          -    ZERO                 
@@ -2280,7 +2280,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[1856:1919]                                 0          1          -    ZERO                 
         bin auto[1920:1983]                                 0          1          -    ZERO                 
         bin auto[1984:2047]                                 0          1          -    ZERO                 
-        bin auto[2048:2111]                                 2          1          -    Covered              
+        bin auto[2048:2111]                                 1          1          -    Covered              
         bin auto[2112:2175]                                 0          1          -    ZERO                 
         bin auto[2176:2239]                                 0          1          -    ZERO                 
         bin auto[2240:2303]                                 0          1          -    ZERO                 
@@ -2361,7 +2361,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[7040:7103]                                 0          1          -    ZERO                 
         bin auto[7104:7167]                                 0          1          -    ZERO                 
         bin auto[7168:7231]                                 0          1          -    ZERO                 
-        bin auto[7232:7295]                                 1          1          -    Covered              
+        bin auto[7232:7295]                                 0          1          -    ZERO                 
         bin auto[7296:7359]                                 1          1          -    Covered              
         bin auto[7360:7423]                                 0          1          -    ZERO                 
         bin auto[7424:7487]                                 2          1          -    Covered              
@@ -2489,7 +2489,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[15232:15295]                               0          1          -    ZERO                 
         bin auto[15296:15359]                               0          1          -    ZERO                 
         bin auto[15360:15423]                               1          1          -    Covered              
-        bin auto[15424:15487]                               1          1          -    Covered              
+        bin auto[15424:15487]                               0          1          -    ZERO                 
         bin auto[15488:15551]                               0          1          -    ZERO                 
         bin auto[15552:15615]                               0          1          -    ZERO                 
         bin auto[15616:15679]                               0          1          -    ZERO                 
@@ -2569,7 +2569,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[20352:20415]                               0          1          -    ZERO                 
         bin auto[20416:20479]                               0          1          -    ZERO                 
         bin auto[20480:20543]                               0          1          -    ZERO                 
-        bin auto[20544:20607]                               2          1          -    Covered              
+        bin auto[20544:20607]                               1          1          -    Covered              
         bin auto[20608:20671]                               0          1          -    ZERO                 
         bin auto[20672:20735]                               0          1          -    ZERO                 
         bin auto[20736:20799]                               0          1          -    ZERO                 
@@ -2603,7 +2603,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[22528:22591]                               0          1          -    ZERO                 
         bin auto[22592:22655]                               0          1          -    ZERO                 
         bin auto[22656:22719]                               1          1          -    Covered              
-        bin auto[22720:22783]                               3          1          -    Covered              
+        bin auto[22720:22783]                               2          1          -    Covered              
         bin auto[22784:22847]                               3          1          -    Covered              
         bin auto[22848:22911]                               0          1          -    ZERO                 
         bin auto[22912:22975]                               0          1          -    ZERO                 
@@ -2728,7 +2728,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[30528:30591]                               0          1          -    ZERO                 
         bin auto[30592:30655]                               0          1          -    ZERO                 
         bin auto[30656:30719]                               0          1          -    ZERO                 
-        bin auto[30720:30783]                               1          1          -    Covered              
+        bin auto[30720:30783]                               0          1          -    ZERO                 
         bin auto[30784:30847]                               0          1          -    ZERO                 
         bin auto[30848:30911]                               0          1          -    ZERO                 
         bin auto[30912:30975]                               0          1          -    ZERO                 
@@ -2836,18 +2836,18 @@ Covergroup                                             Metric       Goal       B
         bin auto[37440:37503]                               1          1          -    Covered              
         bin auto[37504:37567]                               0          1          -    ZERO                 
         bin auto[37568:37631]                               0          1          -    ZERO                 
-        bin auto[37632:37695]                               1          1          -    Covered              
+        bin auto[37632:37695]                               0          1          -    ZERO                 
         bin auto[37696:37759]                               0          1          -    ZERO                 
         bin auto[37760:37823]                               0          1          -    ZERO                 
         bin auto[37824:37887]                               0          1          -    ZERO                 
         bin auto[37888:37951]                               0          1          -    ZERO                 
-        bin auto[37952:38015]                               1          1          -    Covered              
+        bin auto[37952:38015]                               0          1          -    ZERO                 
         bin auto[38016:38079]                               0          1          -    ZERO                 
         bin auto[38080:38143]                               0          1          -    ZERO                 
         bin auto[38144:38207]                               0          1          -    ZERO                 
         bin auto[38208:38271]                               0          1          -    ZERO                 
         bin auto[38272:38335]                               0          1          -    ZERO                 
-        bin auto[38336:38399]                               1          1          -    Covered              
+        bin auto[38336:38399]                               0          1          -    ZERO                 
         bin auto[38400:38463]                               0          1          -    ZERO                 
         bin auto[38464:38527]                               1          1          -    Covered              
         bin auto[38528:38591]                               0          1          -    ZERO                 
@@ -2861,7 +2861,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[39040:39103]                               0          1          -    ZERO                 
         bin auto[39104:39167]                               0          1          -    ZERO                 
         bin auto[39168:39231]                               0          1          -    ZERO                 
-        bin auto[39232:39295]                               2          1          -    Covered              
+        bin auto[39232:39295]                               1          1          -    Covered              
         bin auto[39296:39359]                               1          1          -    Covered              
         bin auto[39360:39423]                               0          1          -    ZERO                 
         bin auto[39424:39487]                               0          1          -    ZERO                 
@@ -3145,7 +3145,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[57216:57279]                               0          1          -    ZERO                 
         bin auto[57280:57343]                               0          1          -    ZERO                 
         bin auto[57344:57407]                               0          1          -    ZERO                 
-        bin auto[57408:57471]                               2          1          -    Covered              
+        bin auto[57408:57471]                               1          1          -    Covered              
         bin auto[57472:57535]                               0          1          -    ZERO                 
         bin auto[57536:57599]                               0          1          -    ZERO                 
         bin auto[57600:57663]                               0          1          -    ZERO                 
@@ -3169,7 +3169,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[58752:58815]                               0          1          -    ZERO                 
         bin auto[58816:58879]                               0          1          -    ZERO                 
         bin auto[58880:58943]                               0          1          -    ZERO                 
-        bin auto[58944:59007]                               2          1          -    Covered              
+        bin auto[58944:59007]                               1          1          -    Covered              
         bin auto[59008:59071]                               0          1          -    ZERO                 
         bin auto[59072:59135]                               0          1          -    ZERO                 
         bin auto[59136:59199]                               0          1          -    ZERO                 
@@ -3272,10 +3272,10 @@ Covergroup                                             Metric       Goal       B
         bin auto[65344:65407]                               0          1          -    ZERO                 
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
-    Coverpoint npc_out                                  0.58%        100          -    Uncovered            
-        covered/total bins:                                 6       1024          -                      
-        missing/total bins:                              1018       1024          -                      
-        % Hit:                                          0.58%        100          -                      
+    Coverpoint npc_out                                  0.19%        100          -    Uncovered            
+        covered/total bins:                                 2       1024          -                      
+        missing/total bins:                              1022       1024          -                      
+        % Hit:                                          0.19%        100          -                      
         bin auto[0:63]                                      0          1          -    ZERO                 
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
@@ -3469,11 +3469,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[12160:12223]                               0          1          -    ZERO                 
         bin auto[12224:12287]                               0          1          -    ZERO                 
         bin auto[12288:12351]                              92          1          -    Covered              
-        bin auto[12352:12415]                              68          1          -    Covered              
-        bin auto[12416:12479]                              64          1          -    Covered              
-        bin auto[12480:12543]                              64          1          -    Covered              
-        bin auto[12544:12607]                              64          1          -    Covered              
-        bin auto[12608:12671]                              23          1          -    Covered              
+        bin auto[12352:12415]                              26          1          -    Covered              
+        bin auto[12416:12479]                               0          1          -    ZERO                 
+        bin auto[12480:12543]                               0          1          -    ZERO                 
+        bin auto[12544:12607]                               0          1          -    ZERO                 
+        bin auto[12608:12671]                               0          1          -    ZERO                 
         bin auto[12672:12735]                               0          1          -    ZERO                 
         bin auto[12736:12799]                               0          1          -    ZERO                 
         bin auto[12800:12863]                               0          1          -    ZERO                 
@@ -4307,29 +4307,29 @@ Covergroup                                             Metric       Goal       B
 =================================================================================
 
 Covergroup Coverage:
-    Covergroups                      1        na        na    19.79%
+    Covergroups                      1        na        na    19.46%
         Coverpoints/Crosses          3        na        na        na
-            Covergroup Bins       2050        97      1953     4.73%
+            Covergroup Bins       2050        87      1963     4.24%
 ----------------------------------------------------------------------------------------------------------
 Covergroup                                             Metric       Goal       Bins    Status               
                                                                                                          
 ----------------------------------------------------------------------------------------------------------
  TYPE /decode_in_pkg/decode_in_transaction_coverage/decode_in_transaction_cg 
-                                                       19.79%        100          -    Uncovered            
-    covered/total bins:                                    97       2050          -                      
-    missing/total bins:                                  1953       2050          -                      
-    % Hit:                                              4.73%        100          -                      
+                                                       19.46%        100          -    Uncovered            
+    covered/total bins:                                    87       2050          -                      
+    missing/total bins:                                  1963       2050          -                      
+    % Hit:                                              4.24%        100          -                      
     Coverpoint enable_decode                           50.00%        100          -    Uncovered            
         covered/total bins:                                 1          2          -                      
         missing/total bins:                                 1          2          -                      
         % Hit:                                         50.00%        100          -                      
         bin auto[0]                                         0          1          -    ZERO                 
-        bin auto[1]                                       376          1          -    Covered              
-    Coverpoint dout                                     8.78%        100          -    Uncovered            
-        covered/total bins:                                90       1024          -                      
-        missing/total bins:                               934       1024          -                      
-        % Hit:                                          8.78%        100          -                      
-        bin auto[0:63]                                    247          1          -    Covered              
+        bin auto[1]                                       118          1          -    Covered              
+    Coverpoint dout                                     8.20%        100          -    Uncovered            
+        covered/total bins:                                84       1024          -                      
+        missing/total bins:                               940       1024          -                      
+        % Hit:                                          8.20%        100          -                      
+        bin auto[0:63]                                      1          1          -    Covered              
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
         bin auto[192:255]                                   0          1          -    ZERO                 
@@ -4361,7 +4361,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[1856:1919]                                 0          1          -    ZERO                 
         bin auto[1920:1983]                                 0          1          -    ZERO                 
         bin auto[1984:2047]                                 0          1          -    ZERO                 
-        bin auto[2048:2111]                                 2          1          -    Covered              
+        bin auto[2048:2111]                                 1          1          -    Covered              
         bin auto[2112:2175]                                 0          1          -    ZERO                 
         bin auto[2176:2239]                                 0          1          -    ZERO                 
         bin auto[2240:2303]                                 0          1          -    ZERO                 
@@ -4442,7 +4442,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[7040:7103]                                 0          1          -    ZERO                 
         bin auto[7104:7167]                                 0          1          -    ZERO                 
         bin auto[7168:7231]                                 0          1          -    ZERO                 
-        bin auto[7232:7295]                                 1          1          -    Covered              
+        bin auto[7232:7295]                                 0          1          -    ZERO                 
         bin auto[7296:7359]                                 1          1          -    Covered              
         bin auto[7360:7423]                                 0          1          -    ZERO                 
         bin auto[7424:7487]                                 2          1          -    Covered              
@@ -4570,7 +4570,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[15232:15295]                               0          1          -    ZERO                 
         bin auto[15296:15359]                               0          1          -    ZERO                 
         bin auto[15360:15423]                               1          1          -    Covered              
-        bin auto[15424:15487]                               1          1          -    Covered              
+        bin auto[15424:15487]                               0          1          -    ZERO                 
         bin auto[15488:15551]                               0          1          -    ZERO                 
         bin auto[15552:15615]                               0          1          -    ZERO                 
         bin auto[15616:15679]                               0          1          -    ZERO                 
@@ -4650,7 +4650,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[20352:20415]                               0          1          -    ZERO                 
         bin auto[20416:20479]                               0          1          -    ZERO                 
         bin auto[20480:20543]                               0          1          -    ZERO                 
-        bin auto[20544:20607]                               2          1          -    Covered              
+        bin auto[20544:20607]                               1          1          -    Covered              
         bin auto[20608:20671]                               0          1          -    ZERO                 
         bin auto[20672:20735]                               0          1          -    ZERO                 
         bin auto[20736:20799]                               0          1          -    ZERO                 
@@ -4684,7 +4684,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[22528:22591]                               0          1          -    ZERO                 
         bin auto[22592:22655]                               0          1          -    ZERO                 
         bin auto[22656:22719]                               1          1          -    Covered              
-        bin auto[22720:22783]                               3          1          -    Covered              
+        bin auto[22720:22783]                               2          1          -    Covered              
         bin auto[22784:22847]                               3          1          -    Covered              
         bin auto[22848:22911]                               0          1          -    ZERO                 
         bin auto[22912:22975]                               0          1          -    ZERO                 
@@ -4809,7 +4809,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[30528:30591]                               0          1          -    ZERO                 
         bin auto[30592:30655]                               0          1          -    ZERO                 
         bin auto[30656:30719]                               0          1          -    ZERO                 
-        bin auto[30720:30783]                               1          1          -    Covered              
+        bin auto[30720:30783]                               0          1          -    ZERO                 
         bin auto[30784:30847]                               0          1          -    ZERO                 
         bin auto[30848:30911]                               0          1          -    ZERO                 
         bin auto[30912:30975]                               0          1          -    ZERO                 
@@ -4917,18 +4917,18 @@ Covergroup                                             Metric       Goal       B
         bin auto[37440:37503]                               1          1          -    Covered              
         bin auto[37504:37567]                               0          1          -    ZERO                 
         bin auto[37568:37631]                               0          1          -    ZERO                 
-        bin auto[37632:37695]                               1          1          -    Covered              
+        bin auto[37632:37695]                               0          1          -    ZERO                 
         bin auto[37696:37759]                               0          1          -    ZERO                 
         bin auto[37760:37823]                               0          1          -    ZERO                 
         bin auto[37824:37887]                               0          1          -    ZERO                 
         bin auto[37888:37951]                               0          1          -    ZERO                 
-        bin auto[37952:38015]                               1          1          -    Covered              
+        bin auto[37952:38015]                               0          1          -    ZERO                 
         bin auto[38016:38079]                               0          1          -    ZERO                 
         bin auto[38080:38143]                               0          1          -    ZERO                 
         bin auto[38144:38207]                               0          1          -    ZERO                 
         bin auto[38208:38271]                               0          1          -    ZERO                 
         bin auto[38272:38335]                               0          1          -    ZERO                 
-        bin auto[38336:38399]                               1          1          -    Covered              
+        bin auto[38336:38399]                               0          1          -    ZERO                 
         bin auto[38400:38463]                               0          1          -    ZERO                 
         bin auto[38464:38527]                               1          1          -    Covered              
         bin auto[38528:38591]                               0          1          -    ZERO                 
@@ -4942,7 +4942,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[39040:39103]                               0          1          -    ZERO                 
         bin auto[39104:39167]                               0          1          -    ZERO                 
         bin auto[39168:39231]                               0          1          -    ZERO                 
-        bin auto[39232:39295]                               2          1          -    Covered              
+        bin auto[39232:39295]                               1          1          -    Covered              
         bin auto[39296:39359]                               1          1          -    Covered              
         bin auto[39360:39423]                               0          1          -    ZERO                 
         bin auto[39424:39487]                               0          1          -    ZERO                 
@@ -5226,7 +5226,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[57216:57279]                               0          1          -    ZERO                 
         bin auto[57280:57343]                               0          1          -    ZERO                 
         bin auto[57344:57407]                               0          1          -    ZERO                 
-        bin auto[57408:57471]                               2          1          -    Covered              
+        bin auto[57408:57471]                               1          1          -    Covered              
         bin auto[57472:57535]                               0          1          -    ZERO                 
         bin auto[57536:57599]                               0          1          -    ZERO                 
         bin auto[57600:57663]                               0          1          -    ZERO                 
@@ -5250,7 +5250,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[58752:58815]                               0          1          -    ZERO                 
         bin auto[58816:58879]                               0          1          -    ZERO                 
         bin auto[58880:58943]                               0          1          -    ZERO                 
-        bin auto[58944:59007]                               2          1          -    Covered              
+        bin auto[58944:59007]                               1          1          -    Covered              
         bin auto[59008:59071]                               0          1          -    ZERO                 
         bin auto[59072:59135]                               0          1          -    ZERO                 
         bin auto[59136:59199]                               0          1          -    ZERO                 
@@ -5353,10 +5353,10 @@ Covergroup                                             Metric       Goal       B
         bin auto[65344:65407]                               0          1          -    ZERO                 
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
-    Coverpoint npc_in                                   0.58%        100          -    Uncovered            
-        covered/total bins:                                 6       1024          -                      
-        missing/total bins:                              1018       1024          -                      
-        % Hit:                                          0.58%        100          -                      
+    Coverpoint npc_in                                   0.19%        100          -    Uncovered            
+        covered/total bins:                                 2       1024          -                      
+        missing/total bins:                              1022       1024          -                      
+        % Hit:                                          0.19%        100          -                      
         bin auto[0:63]                                      0          1          -    ZERO                 
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
@@ -5550,11 +5550,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[12160:12223]                               0          1          -    ZERO                 
         bin auto[12224:12287]                               0          1          -    ZERO                 
         bin auto[12288:12351]                              92          1          -    Covered              
-        bin auto[12352:12415]                              68          1          -    Covered              
-        bin auto[12416:12479]                              64          1          -    Covered              
-        bin auto[12480:12543]                              64          1          -    Covered              
-        bin auto[12544:12607]                              64          1          -    Covered              
-        bin auto[12608:12671]                              24          1          -    Covered              
+        bin auto[12352:12415]                              26          1          -    Covered              
+        bin auto[12416:12479]                               0          1          -    ZERO                 
+        bin auto[12480:12543]                               0          1          -    ZERO                 
+        bin auto[12544:12607]                               0          1          -    ZERO                 
+        bin auto[12608:12671]                               0          1          -    ZERO                 
         bin auto[12672:12735]                               0          1          -    ZERO                 
         bin auto[12736:12799]                               0          1          -    ZERO                 
         bin auto[12800:12863]                               0          1          -    ZERO                 
@@ -6382,22 +6382,22 @@ Covergroup                                             Metric       Goal       B
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
  Covergroup instance decode_in_transaction_cg_uvm_test_top.environment.decode_env.decode_in_agent.decode_in_agent_coverage 
-                                                       19.79%        100          -    Uncovered            
+                                                       19.46%        100          -    Uncovered            
  File ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_transaction_coverage.svh Line = 27
-    covered/total bins:                                    97       2050          -                      
-    missing/total bins:                                  1953       2050          -                      
-    % Hit:                                              4.73%        100          -                      
+    covered/total bins:                                    87       2050          -                      
+    missing/total bins:                                  1963       2050          -                      
+    % Hit:                                              4.24%        100          -                      
     Coverpoint enable_decode                           50.00%        100          -    Uncovered            
         covered/total bins:                                 1          2          -                      
         missing/total bins:                                 1          2          -                      
         % Hit:                                         50.00%        100          -                      
         bin auto[0]                                         0          1          -    ZERO                 
-        bin auto[1]                                       376          1          -    Covered              
-    Coverpoint dout                                     8.78%        100          -    Uncovered            
-        covered/total bins:                                90       1024          -                      
-        missing/total bins:                               934       1024          -                      
-        % Hit:                                          8.78%        100          -                      
-        bin auto[0:63]                                    247          1          -    Covered              
+        bin auto[1]                                       118          1          -    Covered              
+    Coverpoint dout                                     8.20%        100          -    Uncovered            
+        covered/total bins:                                84       1024          -                      
+        missing/total bins:                               940       1024          -                      
+        % Hit:                                          8.20%        100          -                      
+        bin auto[0:63]                                      1          1          -    Covered              
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
         bin auto[192:255]                                   0          1          -    ZERO                 
@@ -6429,7 +6429,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[1856:1919]                                 0          1          -    ZERO                 
         bin auto[1920:1983]                                 0          1          -    ZERO                 
         bin auto[1984:2047]                                 0          1          -    ZERO                 
-        bin auto[2048:2111]                                 2          1          -    Covered              
+        bin auto[2048:2111]                                 1          1          -    Covered              
         bin auto[2112:2175]                                 0          1          -    ZERO                 
         bin auto[2176:2239]                                 0          1          -    ZERO                 
         bin auto[2240:2303]                                 0          1          -    ZERO                 
@@ -6510,7 +6510,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[7040:7103]                                 0          1          -    ZERO                 
         bin auto[7104:7167]                                 0          1          -    ZERO                 
         bin auto[7168:7231]                                 0          1          -    ZERO                 
-        bin auto[7232:7295]                                 1          1          -    Covered              
+        bin auto[7232:7295]                                 0          1          -    ZERO                 
         bin auto[7296:7359]                                 1          1          -    Covered              
         bin auto[7360:7423]                                 0          1          -    ZERO                 
         bin auto[7424:7487]                                 2          1          -    Covered              
@@ -6638,7 +6638,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[15232:15295]                               0          1          -    ZERO                 
         bin auto[15296:15359]                               0          1          -    ZERO                 
         bin auto[15360:15423]                               1          1          -    Covered              
-        bin auto[15424:15487]                               1          1          -    Covered              
+        bin auto[15424:15487]                               0          1          -    ZERO                 
         bin auto[15488:15551]                               0          1          -    ZERO                 
         bin auto[15552:15615]                               0          1          -    ZERO                 
         bin auto[15616:15679]                               0          1          -    ZERO                 
@@ -6718,7 +6718,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[20352:20415]                               0          1          -    ZERO                 
         bin auto[20416:20479]                               0          1          -    ZERO                 
         bin auto[20480:20543]                               0          1          -    ZERO                 
-        bin auto[20544:20607]                               2          1          -    Covered              
+        bin auto[20544:20607]                               1          1          -    Covered              
         bin auto[20608:20671]                               0          1          -    ZERO                 
         bin auto[20672:20735]                               0          1          -    ZERO                 
         bin auto[20736:20799]                               0          1          -    ZERO                 
@@ -6752,7 +6752,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[22528:22591]                               0          1          -    ZERO                 
         bin auto[22592:22655]                               0          1          -    ZERO                 
         bin auto[22656:22719]                               1          1          -    Covered              
-        bin auto[22720:22783]                               3          1          -    Covered              
+        bin auto[22720:22783]                               2          1          -    Covered              
         bin auto[22784:22847]                               3          1          -    Covered              
         bin auto[22848:22911]                               0          1          -    ZERO                 
         bin auto[22912:22975]                               0          1          -    ZERO                 
@@ -6877,7 +6877,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[30528:30591]                               0          1          -    ZERO                 
         bin auto[30592:30655]                               0          1          -    ZERO                 
         bin auto[30656:30719]                               0          1          -    ZERO                 
-        bin auto[30720:30783]                               1          1          -    Covered              
+        bin auto[30720:30783]                               0          1          -    ZERO                 
         bin auto[30784:30847]                               0          1          -    ZERO                 
         bin auto[30848:30911]                               0          1          -    ZERO                 
         bin auto[30912:30975]                               0          1          -    ZERO                 
@@ -6985,18 +6985,18 @@ Covergroup                                             Metric       Goal       B
         bin auto[37440:37503]                               1          1          -    Covered              
         bin auto[37504:37567]                               0          1          -    ZERO                 
         bin auto[37568:37631]                               0          1          -    ZERO                 
-        bin auto[37632:37695]                               1          1          -    Covered              
+        bin auto[37632:37695]                               0          1          -    ZERO                 
         bin auto[37696:37759]                               0          1          -    ZERO                 
         bin auto[37760:37823]                               0          1          -    ZERO                 
         bin auto[37824:37887]                               0          1          -    ZERO                 
         bin auto[37888:37951]                               0          1          -    ZERO                 
-        bin auto[37952:38015]                               1          1          -    Covered              
+        bin auto[37952:38015]                               0          1          -    ZERO                 
         bin auto[38016:38079]                               0          1          -    ZERO                 
         bin auto[38080:38143]                               0          1          -    ZERO                 
         bin auto[38144:38207]                               0          1          -    ZERO                 
         bin auto[38208:38271]                               0          1          -    ZERO                 
         bin auto[38272:38335]                               0          1          -    ZERO                 
-        bin auto[38336:38399]                               1          1          -    Covered              
+        bin auto[38336:38399]                               0          1          -    ZERO                 
         bin auto[38400:38463]                               0          1          -    ZERO                 
         bin auto[38464:38527]                               1          1          -    Covered              
         bin auto[38528:38591]                               0          1          -    ZERO                 
@@ -7010,7 +7010,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[39040:39103]                               0          1          -    ZERO                 
         bin auto[39104:39167]                               0          1          -    ZERO                 
         bin auto[39168:39231]                               0          1          -    ZERO                 
-        bin auto[39232:39295]                               2          1          -    Covered              
+        bin auto[39232:39295]                               1          1          -    Covered              
         bin auto[39296:39359]                               1          1          -    Covered              
         bin auto[39360:39423]                               0          1          -    ZERO                 
         bin auto[39424:39487]                               0          1          -    ZERO                 
@@ -7294,7 +7294,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[57216:57279]                               0          1          -    ZERO                 
         bin auto[57280:57343]                               0          1          -    ZERO                 
         bin auto[57344:57407]                               0          1          -    ZERO                 
-        bin auto[57408:57471]                               2          1          -    Covered              
+        bin auto[57408:57471]                               1          1          -    Covered              
         bin auto[57472:57535]                               0          1          -    ZERO                 
         bin auto[57536:57599]                               0          1          -    ZERO                 
         bin auto[57600:57663]                               0          1          -    ZERO                 
@@ -7318,7 +7318,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[58752:58815]                               0          1          -    ZERO                 
         bin auto[58816:58879]                               0          1          -    ZERO                 
         bin auto[58880:58943]                               0          1          -    ZERO                 
-        bin auto[58944:59007]                               2          1          -    Covered              
+        bin auto[58944:59007]                               1          1          -    Covered              
         bin auto[59008:59071]                               0          1          -    ZERO                 
         bin auto[59072:59135]                               0          1          -    ZERO                 
         bin auto[59136:59199]                               0          1          -    ZERO                 
@@ -7421,10 +7421,10 @@ Covergroup                                             Metric       Goal       B
         bin auto[65344:65407]                               0          1          -    ZERO                 
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
-    Coverpoint npc_in                                   0.58%        100          -    Uncovered            
-        covered/total bins:                                 6       1024          -                      
-        missing/total bins:                              1018       1024          -                      
-        % Hit:                                          0.58%        100          -                      
+    Coverpoint npc_in                                   0.19%        100          -    Uncovered            
+        covered/total bins:                                 2       1024          -                      
+        missing/total bins:                              1022       1024          -                      
+        % Hit:                                          0.19%        100          -                      
         bin auto[0:63]                                      0          1          -    ZERO                 
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
@@ -7618,11 +7618,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[12160:12223]                               0          1          -    ZERO                 
         bin auto[12224:12287]                               0          1          -    ZERO                 
         bin auto[12288:12351]                              92          1          -    Covered              
-        bin auto[12352:12415]                              68          1          -    Covered              
-        bin auto[12416:12479]                              64          1          -    Covered              
-        bin auto[12480:12543]                              64          1          -    Covered              
-        bin auto[12544:12607]                              64          1          -    Covered              
-        bin auto[12608:12671]                              24          1          -    Covered              
+        bin auto[12352:12415]                              26          1          -    Covered              
+        bin auto[12416:12479]                               0          1          -    ZERO                 
+        bin auto[12480:12543]                               0          1          -    ZERO                 
+        bin auto[12544:12607]                               0          1          -    ZERO                 
+        bin auto[12608:12671]                               0          1          -    ZERO                 
         bin auto[12672:12735]                               0          1          -    ZERO                 
         bin auto[12736:12799]                               0          1          -    ZERO                 
         bin auto[12800:12863]                               0          1          -    ZERO                 
@@ -8456,37 +8456,37 @@ Covergroup                                             Metric       Goal       B
                                                                                                          
 ----------------------------------------------------------------------------------------------------------
  TYPE /decode_out_pkg/decode_out_transaction_coverage/decode_out_transaction_cg 
-                                                       39.37%        100          -    Uncovered            
-    covered/total bins:                                   109       2118          -                      
-    missing/total bins:                                  2009       2118          -                      
-    % Hit:                                              5.14%        100          -                      
+                                                       39.17%        100          -    Uncovered            
+    covered/total bins:                                    99       2118          -                      
+    missing/total bins:                                  2019       2118          -                      
+    % Hit:                                              4.67%        100          -                      
     Coverpoint w_control                               75.00%        100          -    Uncovered            
         covered/total bins:                                 3          4          -                      
         missing/total bins:                                 1          4          -                      
         % Hit:                                         75.00%        100          -                      
-        bin auto[0]                                       351          1          -    Covered              
+        bin auto[0]                                        96          1          -    Covered              
         bin auto[1]                                        11          1          -    Covered              
-        bin auto[2]                                        13          1          -    Covered              
+        bin auto[2]                                        11          1          -    Covered              
         bin auto[3]                                         0          1          -    ZERO                 
     Coverpoint mem_control                            100.00%        100          -    Covered              
         covered/total bins:                                 2          2          -                      
         missing/total bins:                                 0          2          -                      
         % Hit:                                        100.00%        100          -                      
-        bin auto[0]                                       371          1          -    Covered              
+        bin auto[0]                                       114          1          -    Covered              
         bin auto[1]                                         4          1          -    Covered              
     Coverpoint e_control                               12.50%        100          -    Uncovered            
         covered/total bins:                                 8         64          -                      
         missing/total bins:                                56         64          -                      
         % Hit:                                         12.50%        100          -                      
         bin auto[0]                                        22          1          -    Covered              
-        bin auto[1]                                         9          1          -    Covered              
+        bin auto[1]                                         8          1          -    Covered              
         bin auto[2]                                         0          1          -    ZERO                 
         bin auto[3]                                         0          1          -    ZERO                 
         bin auto[4]                                         0          1          -    ZERO                 
         bin auto[5]                                         0          1          -    ZERO                 
-        bin auto[6]                                       288          1          -    Covered              
+        bin auto[6]                                        39          1          -    Covered              
         bin auto[7]                                         0          1          -    ZERO                 
-        bin auto[8]                                         8          1          -    Covered              
+        bin auto[8]                                         7          1          -    Covered              
         bin auto[9]                                         0          1          -    ZERO                 
         bin auto[10]                                        0          1          -    ZERO                 
         bin auto[11]                                        0          1          -    ZERO                 
@@ -8494,8 +8494,8 @@ Covergroup                                             Metric       Goal       B
         bin auto[13]                                        0          1          -    ZERO                 
         bin auto[14]                                        0          1          -    ZERO                 
         bin auto[15]                                        0          1          -    ZERO                 
-        bin auto[16]                                       25          1          -    Covered              
-        bin auto[17]                                       11          1          -    Covered              
+        bin auto[16]                                       24          1          -    Covered              
+        bin auto[17]                                       10          1          -    Covered              
         bin auto[18]                                        0          1          -    ZERO                 
         bin auto[19]                                        0          1          -    ZERO                 
         bin auto[20]                                        0          1          -    ZERO                 
@@ -8510,7 +8510,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[29]                                        0          1          -    ZERO                 
         bin auto[30]                                        0          1          -    ZERO                 
         bin auto[31]                                        0          1          -    ZERO                 
-        bin auto[32]                                       11          1          -    Covered              
+        bin auto[32]                                        7          1          -    Covered              
         bin auto[33]                                        0          1          -    ZERO                 
         bin auto[34]                                        0          1          -    ZERO                 
         bin auto[35]                                        0          1          -    ZERO                 
@@ -8542,11 +8542,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[61]                                        0          1          -    ZERO                 
         bin auto[62]                                        0          1          -    ZERO                 
         bin auto[63]                                        0          1          -    ZERO                 
-    Coverpoint ir                                       8.78%        100          -    Uncovered            
-        covered/total bins:                                90       1024          -                      
-        missing/total bins:                               934       1024          -                      
-        % Hit:                                          8.78%        100          -                      
-        bin auto[0:63]                                    246          1          -    Covered              
+    Coverpoint ir                                       8.20%        100          -    Uncovered            
+        covered/total bins:                                84       1024          -                      
+        missing/total bins:                               940       1024          -                      
+        % Hit:                                          8.20%        100          -                      
+        bin auto[0:63]                                      1          1          -    Covered              
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
         bin auto[192:255]                                   0          1          -    ZERO                 
@@ -8578,7 +8578,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[1856:1919]                                 0          1          -    ZERO                 
         bin auto[1920:1983]                                 0          1          -    ZERO                 
         bin auto[1984:2047]                                 0          1          -    ZERO                 
-        bin auto[2048:2111]                                 2          1          -    Covered              
+        bin auto[2048:2111]                                 1          1          -    Covered              
         bin auto[2112:2175]                                 0          1          -    ZERO                 
         bin auto[2176:2239]                                 0          1          -    ZERO                 
         bin auto[2240:2303]                                 0          1          -    ZERO                 
@@ -8659,7 +8659,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[7040:7103]                                 0          1          -    ZERO                 
         bin auto[7104:7167]                                 0          1          -    ZERO                 
         bin auto[7168:7231]                                 0          1          -    ZERO                 
-        bin auto[7232:7295]                                 1          1          -    Covered              
+        bin auto[7232:7295]                                 0          1          -    ZERO                 
         bin auto[7296:7359]                                 1          1          -    Covered              
         bin auto[7360:7423]                                 0          1          -    ZERO                 
         bin auto[7424:7487]                                 2          1          -    Covered              
@@ -8787,7 +8787,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[15232:15295]                               0          1          -    ZERO                 
         bin auto[15296:15359]                               0          1          -    ZERO                 
         bin auto[15360:15423]                               1          1          -    Covered              
-        bin auto[15424:15487]                               1          1          -    Covered              
+        bin auto[15424:15487]                               0          1          -    ZERO                 
         bin auto[15488:15551]                               0          1          -    ZERO                 
         bin auto[15552:15615]                               0          1          -    ZERO                 
         bin auto[15616:15679]                               0          1          -    ZERO                 
@@ -8867,7 +8867,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[20352:20415]                               0          1          -    ZERO                 
         bin auto[20416:20479]                               0          1          -    ZERO                 
         bin auto[20480:20543]                               0          1          -    ZERO                 
-        bin auto[20544:20607]                               2          1          -    Covered              
+        bin auto[20544:20607]                               1          1          -    Covered              
         bin auto[20608:20671]                               0          1          -    ZERO                 
         bin auto[20672:20735]                               0          1          -    ZERO                 
         bin auto[20736:20799]                               0          1          -    ZERO                 
@@ -8901,7 +8901,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[22528:22591]                               0          1          -    ZERO                 
         bin auto[22592:22655]                               0          1          -    ZERO                 
         bin auto[22656:22719]                               1          1          -    Covered              
-        bin auto[22720:22783]                               3          1          -    Covered              
+        bin auto[22720:22783]                               2          1          -    Covered              
         bin auto[22784:22847]                               3          1          -    Covered              
         bin auto[22848:22911]                               0          1          -    ZERO                 
         bin auto[22912:22975]                               0          1          -    ZERO                 
@@ -9026,7 +9026,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[30528:30591]                               0          1          -    ZERO                 
         bin auto[30592:30655]                               0          1          -    ZERO                 
         bin auto[30656:30719]                               0          1          -    ZERO                 
-        bin auto[30720:30783]                               1          1          -    Covered              
+        bin auto[30720:30783]                               0          1          -    ZERO                 
         bin auto[30784:30847]                               0          1          -    ZERO                 
         bin auto[30848:30911]                               0          1          -    ZERO                 
         bin auto[30912:30975]                               0          1          -    ZERO                 
@@ -9134,18 +9134,18 @@ Covergroup                                             Metric       Goal       B
         bin auto[37440:37503]                               1          1          -    Covered              
         bin auto[37504:37567]                               0          1          -    ZERO                 
         bin auto[37568:37631]                               0          1          -    ZERO                 
-        bin auto[37632:37695]                               1          1          -    Covered              
+        bin auto[37632:37695]                               0          1          -    ZERO                 
         bin auto[37696:37759]                               0          1          -    ZERO                 
         bin auto[37760:37823]                               0          1          -    ZERO                 
         bin auto[37824:37887]                               0          1          -    ZERO                 
         bin auto[37888:37951]                               0          1          -    ZERO                 
-        bin auto[37952:38015]                               1          1          -    Covered              
+        bin auto[37952:38015]                               0          1          -    ZERO                 
         bin auto[38016:38079]                               0          1          -    ZERO                 
         bin auto[38080:38143]                               0          1          -    ZERO                 
         bin auto[38144:38207]                               0          1          -    ZERO                 
         bin auto[38208:38271]                               0          1          -    ZERO                 
         bin auto[38272:38335]                               0          1          -    ZERO                 
-        bin auto[38336:38399]                               1          1          -    Covered              
+        bin auto[38336:38399]                               0          1          -    ZERO                 
         bin auto[38400:38463]                               0          1          -    ZERO                 
         bin auto[38464:38527]                               1          1          -    Covered              
         bin auto[38528:38591]                               0          1          -    ZERO                 
@@ -9159,7 +9159,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[39040:39103]                               0          1          -    ZERO                 
         bin auto[39104:39167]                               0          1          -    ZERO                 
         bin auto[39168:39231]                               0          1          -    ZERO                 
-        bin auto[39232:39295]                               2          1          -    Covered              
+        bin auto[39232:39295]                               1          1          -    Covered              
         bin auto[39296:39359]                               1          1          -    Covered              
         bin auto[39360:39423]                               0          1          -    ZERO                 
         bin auto[39424:39487]                               0          1          -    ZERO                 
@@ -9443,7 +9443,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[57216:57279]                               0          1          -    ZERO                 
         bin auto[57280:57343]                               0          1          -    ZERO                 
         bin auto[57344:57407]                               0          1          -    ZERO                 
-        bin auto[57408:57471]                               2          1          -    Covered              
+        bin auto[57408:57471]                               1          1          -    Covered              
         bin auto[57472:57535]                               0          1          -    ZERO                 
         bin auto[57536:57599]                               0          1          -    ZERO                 
         bin auto[57600:57663]                               0          1          -    ZERO                 
@@ -9467,7 +9467,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[58752:58815]                               0          1          -    ZERO                 
         bin auto[58816:58879]                               0          1          -    ZERO                 
         bin auto[58880:58943]                               0          1          -    ZERO                 
-        bin auto[58944:59007]                               2          1          -    Covered              
+        bin auto[58944:59007]                               1          1          -    Covered              
         bin auto[59008:59071]                               0          1          -    ZERO                 
         bin auto[59072:59135]                               0          1          -    ZERO                 
         bin auto[59136:59199]                               0          1          -    ZERO                 
@@ -9570,10 +9570,10 @@ Covergroup                                             Metric       Goal       B
         bin auto[65344:65407]                               0          1          -    ZERO                 
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
-    Coverpoint npc_out                                  0.58%        100          -    Uncovered            
-        covered/total bins:                                 6       1024          -                      
-        missing/total bins:                              1018       1024          -                      
-        % Hit:                                          0.58%        100          -                      
+    Coverpoint npc_out                                  0.19%        100          -    Uncovered            
+        covered/total bins:                                 2       1024          -                      
+        missing/total bins:                              1022       1024          -                      
+        % Hit:                                          0.19%        100          -                      
         bin auto[0:63]                                      0          1          -    ZERO                 
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
@@ -9767,11 +9767,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[12160:12223]                               0          1          -    ZERO                 
         bin auto[12224:12287]                               0          1          -    ZERO                 
         bin auto[12288:12351]                              92          1          -    Covered              
-        bin auto[12352:12415]                              68          1          -    Covered              
-        bin auto[12416:12479]                              64          1          -    Covered              
-        bin auto[12480:12543]                              64          1          -    Covered              
-        bin auto[12544:12607]                              64          1          -    Covered              
-        bin auto[12608:12671]                              23          1          -    Covered              
+        bin auto[12352:12415]                              26          1          -    Covered              
+        bin auto[12416:12479]                               0          1          -    ZERO                 
+        bin auto[12480:12543]                               0          1          -    ZERO                 
+        bin auto[12544:12607]                               0          1          -    ZERO                 
+        bin auto[12608:12671]                               0          1          -    ZERO                 
         bin auto[12672:12735]                               0          1          -    ZERO                 
         bin auto[12736:12799]                               0          1          -    ZERO                 
         bin auto[12800:12863]                               0          1          -    ZERO                 
@@ -10599,38 +10599,38 @@ Covergroup                                             Metric       Goal       B
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
  Covergroup instance decode_out_transaction_cg_uvm_test_top.environment.decode_env.decode_out_agent.decode_out_agent_coverage 
-                                                       39.37%        100          -    Uncovered            
+                                                       39.17%        100          -    Uncovered            
  File ../../../verification_ip/interface_packages/decode_out_pkg/src/decode_out_transaction_coverage.svh Line = 27
-    covered/total bins:                                   109       2118          -                      
-    missing/total bins:                                  2009       2118          -                      
-    % Hit:                                              5.14%        100          -                      
+    covered/total bins:                                    99       2118          -                      
+    missing/total bins:                                  2019       2118          -                      
+    % Hit:                                              4.67%        100          -                      
     Coverpoint w_control                               75.00%        100          -    Uncovered            
         covered/total bins:                                 3          4          -                      
         missing/total bins:                                 1          4          -                      
         % Hit:                                         75.00%        100          -                      
-        bin auto[0]                                       351          1          -    Covered              
+        bin auto[0]                                        96          1          -    Covered              
         bin auto[1]                                        11          1          -    Covered              
-        bin auto[2]                                        13          1          -    Covered              
+        bin auto[2]                                        11          1          -    Covered              
         bin auto[3]                                         0          1          -    ZERO                 
     Coverpoint mem_control                            100.00%        100          -    Covered              
         covered/total bins:                                 2          2          -                      
         missing/total bins:                                 0          2          -                      
         % Hit:                                        100.00%        100          -                      
-        bin auto[0]                                       371          1          -    Covered              
+        bin auto[0]                                       114          1          -    Covered              
         bin auto[1]                                         4          1          -    Covered              
     Coverpoint e_control                               12.50%        100          -    Uncovered            
         covered/total bins:                                 8         64          -                      
         missing/total bins:                                56         64          -                      
         % Hit:                                         12.50%        100          -                      
         bin auto[0]                                        22          1          -    Covered              
-        bin auto[1]                                         9          1          -    Covered              
+        bin auto[1]                                         8          1          -    Covered              
         bin auto[2]                                         0          1          -    ZERO                 
         bin auto[3]                                         0          1          -    ZERO                 
         bin auto[4]                                         0          1          -    ZERO                 
         bin auto[5]                                         0          1          -    ZERO                 
-        bin auto[6]                                       288          1          -    Covered              
+        bin auto[6]                                        39          1          -    Covered              
         bin auto[7]                                         0          1          -    ZERO                 
-        bin auto[8]                                         8          1          -    Covered              
+        bin auto[8]                                         7          1          -    Covered              
         bin auto[9]                                         0          1          -    ZERO                 
         bin auto[10]                                        0          1          -    ZERO                 
         bin auto[11]                                        0          1          -    ZERO                 
@@ -10638,8 +10638,8 @@ Covergroup                                             Metric       Goal       B
         bin auto[13]                                        0          1          -    ZERO                 
         bin auto[14]                                        0          1          -    ZERO                 
         bin auto[15]                                        0          1          -    ZERO                 
-        bin auto[16]                                       25          1          -    Covered              
-        bin auto[17]                                       11          1          -    Covered              
+        bin auto[16]                                       24          1          -    Covered              
+        bin auto[17]                                       10          1          -    Covered              
         bin auto[18]                                        0          1          -    ZERO                 
         bin auto[19]                                        0          1          -    ZERO                 
         bin auto[20]                                        0          1          -    ZERO                 
@@ -10654,7 +10654,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[29]                                        0          1          -    ZERO                 
         bin auto[30]                                        0          1          -    ZERO                 
         bin auto[31]                                        0          1          -    ZERO                 
-        bin auto[32]                                       11          1          -    Covered              
+        bin auto[32]                                        7          1          -    Covered              
         bin auto[33]                                        0          1          -    ZERO                 
         bin auto[34]                                        0          1          -    ZERO                 
         bin auto[35]                                        0          1          -    ZERO                 
@@ -10686,11 +10686,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[61]                                        0          1          -    ZERO                 
         bin auto[62]                                        0          1          -    ZERO                 
         bin auto[63]                                        0          1          -    ZERO                 
-    Coverpoint ir                                       8.78%        100          -    Uncovered            
-        covered/total bins:                                90       1024          -                      
-        missing/total bins:                               934       1024          -                      
-        % Hit:                                          8.78%        100          -                      
-        bin auto[0:63]                                    246          1          -    Covered              
+    Coverpoint ir                                       8.20%        100          -    Uncovered            
+        covered/total bins:                                84       1024          -                      
+        missing/total bins:                               940       1024          -                      
+        % Hit:                                          8.20%        100          -                      
+        bin auto[0:63]                                      1          1          -    Covered              
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
         bin auto[192:255]                                   0          1          -    ZERO                 
@@ -10722,7 +10722,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[1856:1919]                                 0          1          -    ZERO                 
         bin auto[1920:1983]                                 0          1          -    ZERO                 
         bin auto[1984:2047]                                 0          1          -    ZERO                 
-        bin auto[2048:2111]                                 2          1          -    Covered              
+        bin auto[2048:2111]                                 1          1          -    Covered              
         bin auto[2112:2175]                                 0          1          -    ZERO                 
         bin auto[2176:2239]                                 0          1          -    ZERO                 
         bin auto[2240:2303]                                 0          1          -    ZERO                 
@@ -10803,7 +10803,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[7040:7103]                                 0          1          -    ZERO                 
         bin auto[7104:7167]                                 0          1          -    ZERO                 
         bin auto[7168:7231]                                 0          1          -    ZERO                 
-        bin auto[7232:7295]                                 1          1          -    Covered              
+        bin auto[7232:7295]                                 0          1          -    ZERO                 
         bin auto[7296:7359]                                 1          1          -    Covered              
         bin auto[7360:7423]                                 0          1          -    ZERO                 
         bin auto[7424:7487]                                 2          1          -    Covered              
@@ -10931,7 +10931,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[15232:15295]                               0          1          -    ZERO                 
         bin auto[15296:15359]                               0          1          -    ZERO                 
         bin auto[15360:15423]                               1          1          -    Covered              
-        bin auto[15424:15487]                               1          1          -    Covered              
+        bin auto[15424:15487]                               0          1          -    ZERO                 
         bin auto[15488:15551]                               0          1          -    ZERO                 
         bin auto[15552:15615]                               0          1          -    ZERO                 
         bin auto[15616:15679]                               0          1          -    ZERO                 
@@ -11011,7 +11011,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[20352:20415]                               0          1          -    ZERO                 
         bin auto[20416:20479]                               0          1          -    ZERO                 
         bin auto[20480:20543]                               0          1          -    ZERO                 
-        bin auto[20544:20607]                               2          1          -    Covered              
+        bin auto[20544:20607]                               1          1          -    Covered              
         bin auto[20608:20671]                               0          1          -    ZERO                 
         bin auto[20672:20735]                               0          1          -    ZERO                 
         bin auto[20736:20799]                               0          1          -    ZERO                 
@@ -11045,7 +11045,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[22528:22591]                               0          1          -    ZERO                 
         bin auto[22592:22655]                               0          1          -    ZERO                 
         bin auto[22656:22719]                               1          1          -    Covered              
-        bin auto[22720:22783]                               3          1          -    Covered              
+        bin auto[22720:22783]                               2          1          -    Covered              
         bin auto[22784:22847]                               3          1          -    Covered              
         bin auto[22848:22911]                               0          1          -    ZERO                 
         bin auto[22912:22975]                               0          1          -    ZERO                 
@@ -11170,7 +11170,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[30528:30591]                               0          1          -    ZERO                 
         bin auto[30592:30655]                               0          1          -    ZERO                 
         bin auto[30656:30719]                               0          1          -    ZERO                 
-        bin auto[30720:30783]                               1          1          -    Covered              
+        bin auto[30720:30783]                               0          1          -    ZERO                 
         bin auto[30784:30847]                               0          1          -    ZERO                 
         bin auto[30848:30911]                               0          1          -    ZERO                 
         bin auto[30912:30975]                               0          1          -    ZERO                 
@@ -11278,18 +11278,18 @@ Covergroup                                             Metric       Goal       B
         bin auto[37440:37503]                               1          1          -    Covered              
         bin auto[37504:37567]                               0          1          -    ZERO                 
         bin auto[37568:37631]                               0          1          -    ZERO                 
-        bin auto[37632:37695]                               1          1          -    Covered              
+        bin auto[37632:37695]                               0          1          -    ZERO                 
         bin auto[37696:37759]                               0          1          -    ZERO                 
         bin auto[37760:37823]                               0          1          -    ZERO                 
         bin auto[37824:37887]                               0          1          -    ZERO                 
         bin auto[37888:37951]                               0          1          -    ZERO                 
-        bin auto[37952:38015]                               1          1          -    Covered              
+        bin auto[37952:38015]                               0          1          -    ZERO                 
         bin auto[38016:38079]                               0          1          -    ZERO                 
         bin auto[38080:38143]                               0          1          -    ZERO                 
         bin auto[38144:38207]                               0          1          -    ZERO                 
         bin auto[38208:38271]                               0          1          -    ZERO                 
         bin auto[38272:38335]                               0          1          -    ZERO                 
-        bin auto[38336:38399]                               1          1          -    Covered              
+        bin auto[38336:38399]                               0          1          -    ZERO                 
         bin auto[38400:38463]                               0          1          -    ZERO                 
         bin auto[38464:38527]                               1          1          -    Covered              
         bin auto[38528:38591]                               0          1          -    ZERO                 
@@ -11303,7 +11303,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[39040:39103]                               0          1          -    ZERO                 
         bin auto[39104:39167]                               0          1          -    ZERO                 
         bin auto[39168:39231]                               0          1          -    ZERO                 
-        bin auto[39232:39295]                               2          1          -    Covered              
+        bin auto[39232:39295]                               1          1          -    Covered              
         bin auto[39296:39359]                               1          1          -    Covered              
         bin auto[39360:39423]                               0          1          -    ZERO                 
         bin auto[39424:39487]                               0          1          -    ZERO                 
@@ -11587,7 +11587,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[57216:57279]                               0          1          -    ZERO                 
         bin auto[57280:57343]                               0          1          -    ZERO                 
         bin auto[57344:57407]                               0          1          -    ZERO                 
-        bin auto[57408:57471]                               2          1          -    Covered              
+        bin auto[57408:57471]                               1          1          -    Covered              
         bin auto[57472:57535]                               0          1          -    ZERO                 
         bin auto[57536:57599]                               0          1          -    ZERO                 
         bin auto[57600:57663]                               0          1          -    ZERO                 
@@ -11611,7 +11611,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[58752:58815]                               0          1          -    ZERO                 
         bin auto[58816:58879]                               0          1          -    ZERO                 
         bin auto[58880:58943]                               0          1          -    ZERO                 
-        bin auto[58944:59007]                               2          1          -    Covered              
+        bin auto[58944:59007]                               1          1          -    Covered              
         bin auto[59008:59071]                               0          1          -    ZERO                 
         bin auto[59072:59135]                               0          1          -    ZERO                 
         bin auto[59136:59199]                               0          1          -    ZERO                 
@@ -11714,10 +11714,10 @@ Covergroup                                             Metric       Goal       B
         bin auto[65344:65407]                               0          1          -    ZERO                 
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
-    Coverpoint npc_out                                  0.58%        100          -    Uncovered            
-        covered/total bins:                                 6       1024          -                      
-        missing/total bins:                              1018       1024          -                      
-        % Hit:                                          0.58%        100          -                      
+    Coverpoint npc_out                                  0.19%        100          -    Uncovered            
+        covered/total bins:                                 2       1024          -                      
+        missing/total bins:                              1022       1024          -                      
+        % Hit:                                          0.19%        100          -                      
         bin auto[0:63]                                      0          1          -    ZERO                 
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
@@ -11911,11 +11911,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[12160:12223]                               0          1          -    ZERO                 
         bin auto[12224:12287]                               0          1          -    ZERO                 
         bin auto[12288:12351]                              92          1          -    Covered              
-        bin auto[12352:12415]                              68          1          -    Covered              
-        bin auto[12416:12479]                              64          1          -    Covered              
-        bin auto[12480:12543]                              64          1          -    Covered              
-        bin auto[12544:12607]                              64          1          -    Covered              
-        bin auto[12608:12671]                              23          1          -    Covered              
+        bin auto[12352:12415]                              26          1          -    Covered              
+        bin auto[12416:12479]                               0          1          -    ZERO                 
+        bin auto[12480:12543]                               0          1          -    ZERO                 
+        bin auto[12544:12607]                               0          1          -    ZERO                 
+        bin auto[12608:12671]                               0          1          -    ZERO                 
         bin auto[12672:12735]                               0          1          -    ZERO                 
         bin auto[12736:12799]                               0          1          -    ZERO                 
         bin auto[12800:12863]                               0          1          -    ZERO                 
@@ -12743,21 +12743,21 @@ Covergroup                                             Metric       Goal       B
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
  TYPE /decode_in_pkg/decode_in_transaction_coverage/decode_in_transaction_cg 
-                                                       19.79%        100          -    Uncovered            
-    covered/total bins:                                    97       2050          -                      
-    missing/total bins:                                  1953       2050          -                      
-    % Hit:                                              4.73%        100          -                      
+                                                       19.46%        100          -    Uncovered            
+    covered/total bins:                                    87       2050          -                      
+    missing/total bins:                                  1963       2050          -                      
+    % Hit:                                              4.24%        100          -                      
     Coverpoint enable_decode                           50.00%        100          -    Uncovered            
         covered/total bins:                                 1          2          -                      
         missing/total bins:                                 1          2          -                      
         % Hit:                                         50.00%        100          -                      
         bin auto[0]                                         0          1          -    ZERO                 
-        bin auto[1]                                       376          1          -    Covered              
-    Coverpoint dout                                     8.78%        100          -    Uncovered            
-        covered/total bins:                                90       1024          -                      
-        missing/total bins:                               934       1024          -                      
-        % Hit:                                          8.78%        100          -                      
-        bin auto[0:63]                                    247          1          -    Covered              
+        bin auto[1]                                       118          1          -    Covered              
+    Coverpoint dout                                     8.20%        100          -    Uncovered            
+        covered/total bins:                                84       1024          -                      
+        missing/total bins:                               940       1024          -                      
+        % Hit:                                          8.20%        100          -                      
+        bin auto[0:63]                                      1          1          -    Covered              
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
         bin auto[192:255]                                   0          1          -    ZERO                 
@@ -12789,7 +12789,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[1856:1919]                                 0          1          -    ZERO                 
         bin auto[1920:1983]                                 0          1          -    ZERO                 
         bin auto[1984:2047]                                 0          1          -    ZERO                 
-        bin auto[2048:2111]                                 2          1          -    Covered              
+        bin auto[2048:2111]                                 1          1          -    Covered              
         bin auto[2112:2175]                                 0          1          -    ZERO                 
         bin auto[2176:2239]                                 0          1          -    ZERO                 
         bin auto[2240:2303]                                 0          1          -    ZERO                 
@@ -12870,7 +12870,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[7040:7103]                                 0          1          -    ZERO                 
         bin auto[7104:7167]                                 0          1          -    ZERO                 
         bin auto[7168:7231]                                 0          1          -    ZERO                 
-        bin auto[7232:7295]                                 1          1          -    Covered              
+        bin auto[7232:7295]                                 0          1          -    ZERO                 
         bin auto[7296:7359]                                 1          1          -    Covered              
         bin auto[7360:7423]                                 0          1          -    ZERO                 
         bin auto[7424:7487]                                 2          1          -    Covered              
@@ -12998,7 +12998,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[15232:15295]                               0          1          -    ZERO                 
         bin auto[15296:15359]                               0          1          -    ZERO                 
         bin auto[15360:15423]                               1          1          -    Covered              
-        bin auto[15424:15487]                               1          1          -    Covered              
+        bin auto[15424:15487]                               0          1          -    ZERO                 
         bin auto[15488:15551]                               0          1          -    ZERO                 
         bin auto[15552:15615]                               0          1          -    ZERO                 
         bin auto[15616:15679]                               0          1          -    ZERO                 
@@ -13078,7 +13078,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[20352:20415]                               0          1          -    ZERO                 
         bin auto[20416:20479]                               0          1          -    ZERO                 
         bin auto[20480:20543]                               0          1          -    ZERO                 
-        bin auto[20544:20607]                               2          1          -    Covered              
+        bin auto[20544:20607]                               1          1          -    Covered              
         bin auto[20608:20671]                               0          1          -    ZERO                 
         bin auto[20672:20735]                               0          1          -    ZERO                 
         bin auto[20736:20799]                               0          1          -    ZERO                 
@@ -13112,7 +13112,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[22528:22591]                               0          1          -    ZERO                 
         bin auto[22592:22655]                               0          1          -    ZERO                 
         bin auto[22656:22719]                               1          1          -    Covered              
-        bin auto[22720:22783]                               3          1          -    Covered              
+        bin auto[22720:22783]                               2          1          -    Covered              
         bin auto[22784:22847]                               3          1          -    Covered              
         bin auto[22848:22911]                               0          1          -    ZERO                 
         bin auto[22912:22975]                               0          1          -    ZERO                 
@@ -13237,7 +13237,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[30528:30591]                               0          1          -    ZERO                 
         bin auto[30592:30655]                               0          1          -    ZERO                 
         bin auto[30656:30719]                               0          1          -    ZERO                 
-        bin auto[30720:30783]                               1          1          -    Covered              
+        bin auto[30720:30783]                               0          1          -    ZERO                 
         bin auto[30784:30847]                               0          1          -    ZERO                 
         bin auto[30848:30911]                               0          1          -    ZERO                 
         bin auto[30912:30975]                               0          1          -    ZERO                 
@@ -13345,18 +13345,18 @@ Covergroup                                             Metric       Goal       B
         bin auto[37440:37503]                               1          1          -    Covered              
         bin auto[37504:37567]                               0          1          -    ZERO                 
         bin auto[37568:37631]                               0          1          -    ZERO                 
-        bin auto[37632:37695]                               1          1          -    Covered              
+        bin auto[37632:37695]                               0          1          -    ZERO                 
         bin auto[37696:37759]                               0          1          -    ZERO                 
         bin auto[37760:37823]                               0          1          -    ZERO                 
         bin auto[37824:37887]                               0          1          -    ZERO                 
         bin auto[37888:37951]                               0          1          -    ZERO                 
-        bin auto[37952:38015]                               1          1          -    Covered              
+        bin auto[37952:38015]                               0          1          -    ZERO                 
         bin auto[38016:38079]                               0          1          -    ZERO                 
         bin auto[38080:38143]                               0          1          -    ZERO                 
         bin auto[38144:38207]                               0          1          -    ZERO                 
         bin auto[38208:38271]                               0          1          -    ZERO                 
         bin auto[38272:38335]                               0          1          -    ZERO                 
-        bin auto[38336:38399]                               1          1          -    Covered              
+        bin auto[38336:38399]                               0          1          -    ZERO                 
         bin auto[38400:38463]                               0          1          -    ZERO                 
         bin auto[38464:38527]                               1          1          -    Covered              
         bin auto[38528:38591]                               0          1          -    ZERO                 
@@ -13370,7 +13370,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[39040:39103]                               0          1          -    ZERO                 
         bin auto[39104:39167]                               0          1          -    ZERO                 
         bin auto[39168:39231]                               0          1          -    ZERO                 
-        bin auto[39232:39295]                               2          1          -    Covered              
+        bin auto[39232:39295]                               1          1          -    Covered              
         bin auto[39296:39359]                               1          1          -    Covered              
         bin auto[39360:39423]                               0          1          -    ZERO                 
         bin auto[39424:39487]                               0          1          -    ZERO                 
@@ -13654,7 +13654,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[57216:57279]                               0          1          -    ZERO                 
         bin auto[57280:57343]                               0          1          -    ZERO                 
         bin auto[57344:57407]                               0          1          -    ZERO                 
-        bin auto[57408:57471]                               2          1          -    Covered              
+        bin auto[57408:57471]                               1          1          -    Covered              
         bin auto[57472:57535]                               0          1          -    ZERO                 
         bin auto[57536:57599]                               0          1          -    ZERO                 
         bin auto[57600:57663]                               0          1          -    ZERO                 
@@ -13678,7 +13678,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[58752:58815]                               0          1          -    ZERO                 
         bin auto[58816:58879]                               0          1          -    ZERO                 
         bin auto[58880:58943]                               0          1          -    ZERO                 
-        bin auto[58944:59007]                               2          1          -    Covered              
+        bin auto[58944:59007]                               1          1          -    Covered              
         bin auto[59008:59071]                               0          1          -    ZERO                 
         bin auto[59072:59135]                               0          1          -    ZERO                 
         bin auto[59136:59199]                               0          1          -    ZERO                 
@@ -13781,10 +13781,10 @@ Covergroup                                             Metric       Goal       B
         bin auto[65344:65407]                               0          1          -    ZERO                 
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
-    Coverpoint npc_in                                   0.58%        100          -    Uncovered            
-        covered/total bins:                                 6       1024          -                      
-        missing/total bins:                              1018       1024          -                      
-        % Hit:                                          0.58%        100          -                      
+    Coverpoint npc_in                                   0.19%        100          -    Uncovered            
+        covered/total bins:                                 2       1024          -                      
+        missing/total bins:                              1022       1024          -                      
+        % Hit:                                          0.19%        100          -                      
         bin auto[0:63]                                      0          1          -    ZERO                 
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
@@ -13978,11 +13978,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[12160:12223]                               0          1          -    ZERO                 
         bin auto[12224:12287]                               0          1          -    ZERO                 
         bin auto[12288:12351]                              92          1          -    Covered              
-        bin auto[12352:12415]                              68          1          -    Covered              
-        bin auto[12416:12479]                              64          1          -    Covered              
-        bin auto[12480:12543]                              64          1          -    Covered              
-        bin auto[12544:12607]                              64          1          -    Covered              
-        bin auto[12608:12671]                              24          1          -    Covered              
+        bin auto[12352:12415]                              26          1          -    Covered              
+        bin auto[12416:12479]                               0          1          -    ZERO                 
+        bin auto[12480:12543]                               0          1          -    ZERO                 
+        bin auto[12544:12607]                               0          1          -    ZERO                 
+        bin auto[12608:12671]                               0          1          -    ZERO                 
         bin auto[12672:12735]                               0          1          -    ZERO                 
         bin auto[12736:12799]                               0          1          -    ZERO                 
         bin auto[12800:12863]                               0          1          -    ZERO                 
@@ -14810,22 +14810,22 @@ Covergroup                                             Metric       Goal       B
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
  Covergroup instance decode_in_transaction_cg_uvm_test_top.environment.decode_env.decode_in_agent.decode_in_agent_coverage 
-                                                       19.79%        100          -    Uncovered            
+                                                       19.46%        100          -    Uncovered            
  File ../../../verification_ip/interface_packages/decode_in_pkg/src/decode_in_transaction_coverage.svh Line = 27
-    covered/total bins:                                    97       2050          -                      
-    missing/total bins:                                  1953       2050          -                      
-    % Hit:                                              4.73%        100          -                      
+    covered/total bins:                                    87       2050          -                      
+    missing/total bins:                                  1963       2050          -                      
+    % Hit:                                              4.24%        100          -                      
     Coverpoint enable_decode                           50.00%        100          -    Uncovered            
         covered/total bins:                                 1          2          -                      
         missing/total bins:                                 1          2          -                      
         % Hit:                                         50.00%        100          -                      
         bin auto[0]                                         0          1          -    ZERO                 
-        bin auto[1]                                       376          1          -    Covered              
-    Coverpoint dout                                     8.78%        100          -    Uncovered            
-        covered/total bins:                                90       1024          -                      
-        missing/total bins:                               934       1024          -                      
-        % Hit:                                          8.78%        100          -                      
-        bin auto[0:63]                                    247          1          -    Covered              
+        bin auto[1]                                       118          1          -    Covered              
+    Coverpoint dout                                     8.20%        100          -    Uncovered            
+        covered/total bins:                                84       1024          -                      
+        missing/total bins:                               940       1024          -                      
+        % Hit:                                          8.20%        100          -                      
+        bin auto[0:63]                                      1          1          -    Covered              
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
         bin auto[192:255]                                   0          1          -    ZERO                 
@@ -14857,7 +14857,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[1856:1919]                                 0          1          -    ZERO                 
         bin auto[1920:1983]                                 0          1          -    ZERO                 
         bin auto[1984:2047]                                 0          1          -    ZERO                 
-        bin auto[2048:2111]                                 2          1          -    Covered              
+        bin auto[2048:2111]                                 1          1          -    Covered              
         bin auto[2112:2175]                                 0          1          -    ZERO                 
         bin auto[2176:2239]                                 0          1          -    ZERO                 
         bin auto[2240:2303]                                 0          1          -    ZERO                 
@@ -14938,7 +14938,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[7040:7103]                                 0          1          -    ZERO                 
         bin auto[7104:7167]                                 0          1          -    ZERO                 
         bin auto[7168:7231]                                 0          1          -    ZERO                 
-        bin auto[7232:7295]                                 1          1          -    Covered              
+        bin auto[7232:7295]                                 0          1          -    ZERO                 
         bin auto[7296:7359]                                 1          1          -    Covered              
         bin auto[7360:7423]                                 0          1          -    ZERO                 
         bin auto[7424:7487]                                 2          1          -    Covered              
@@ -15066,7 +15066,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[15232:15295]                               0          1          -    ZERO                 
         bin auto[15296:15359]                               0          1          -    ZERO                 
         bin auto[15360:15423]                               1          1          -    Covered              
-        bin auto[15424:15487]                               1          1          -    Covered              
+        bin auto[15424:15487]                               0          1          -    ZERO                 
         bin auto[15488:15551]                               0          1          -    ZERO                 
         bin auto[15552:15615]                               0          1          -    ZERO                 
         bin auto[15616:15679]                               0          1          -    ZERO                 
@@ -15146,7 +15146,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[20352:20415]                               0          1          -    ZERO                 
         bin auto[20416:20479]                               0          1          -    ZERO                 
         bin auto[20480:20543]                               0          1          -    ZERO                 
-        bin auto[20544:20607]                               2          1          -    Covered              
+        bin auto[20544:20607]                               1          1          -    Covered              
         bin auto[20608:20671]                               0          1          -    ZERO                 
         bin auto[20672:20735]                               0          1          -    ZERO                 
         bin auto[20736:20799]                               0          1          -    ZERO                 
@@ -15180,7 +15180,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[22528:22591]                               0          1          -    ZERO                 
         bin auto[22592:22655]                               0          1          -    ZERO                 
         bin auto[22656:22719]                               1          1          -    Covered              
-        bin auto[22720:22783]                               3          1          -    Covered              
+        bin auto[22720:22783]                               2          1          -    Covered              
         bin auto[22784:22847]                               3          1          -    Covered              
         bin auto[22848:22911]                               0          1          -    ZERO                 
         bin auto[22912:22975]                               0          1          -    ZERO                 
@@ -15305,7 +15305,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[30528:30591]                               0          1          -    ZERO                 
         bin auto[30592:30655]                               0          1          -    ZERO                 
         bin auto[30656:30719]                               0          1          -    ZERO                 
-        bin auto[30720:30783]                               1          1          -    Covered              
+        bin auto[30720:30783]                               0          1          -    ZERO                 
         bin auto[30784:30847]                               0          1          -    ZERO                 
         bin auto[30848:30911]                               0          1          -    ZERO                 
         bin auto[30912:30975]                               0          1          -    ZERO                 
@@ -15413,18 +15413,18 @@ Covergroup                                             Metric       Goal       B
         bin auto[37440:37503]                               1          1          -    Covered              
         bin auto[37504:37567]                               0          1          -    ZERO                 
         bin auto[37568:37631]                               0          1          -    ZERO                 
-        bin auto[37632:37695]                               1          1          -    Covered              
+        bin auto[37632:37695]                               0          1          -    ZERO                 
         bin auto[37696:37759]                               0          1          -    ZERO                 
         bin auto[37760:37823]                               0          1          -    ZERO                 
         bin auto[37824:37887]                               0          1          -    ZERO                 
         bin auto[37888:37951]                               0          1          -    ZERO                 
-        bin auto[37952:38015]                               1          1          -    Covered              
+        bin auto[37952:38015]                               0          1          -    ZERO                 
         bin auto[38016:38079]                               0          1          -    ZERO                 
         bin auto[38080:38143]                               0          1          -    ZERO                 
         bin auto[38144:38207]                               0          1          -    ZERO                 
         bin auto[38208:38271]                               0          1          -    ZERO                 
         bin auto[38272:38335]                               0          1          -    ZERO                 
-        bin auto[38336:38399]                               1          1          -    Covered              
+        bin auto[38336:38399]                               0          1          -    ZERO                 
         bin auto[38400:38463]                               0          1          -    ZERO                 
         bin auto[38464:38527]                               1          1          -    Covered              
         bin auto[38528:38591]                               0          1          -    ZERO                 
@@ -15438,7 +15438,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[39040:39103]                               0          1          -    ZERO                 
         bin auto[39104:39167]                               0          1          -    ZERO                 
         bin auto[39168:39231]                               0          1          -    ZERO                 
-        bin auto[39232:39295]                               2          1          -    Covered              
+        bin auto[39232:39295]                               1          1          -    Covered              
         bin auto[39296:39359]                               1          1          -    Covered              
         bin auto[39360:39423]                               0          1          -    ZERO                 
         bin auto[39424:39487]                               0          1          -    ZERO                 
@@ -15722,7 +15722,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[57216:57279]                               0          1          -    ZERO                 
         bin auto[57280:57343]                               0          1          -    ZERO                 
         bin auto[57344:57407]                               0          1          -    ZERO                 
-        bin auto[57408:57471]                               2          1          -    Covered              
+        bin auto[57408:57471]                               1          1          -    Covered              
         bin auto[57472:57535]                               0          1          -    ZERO                 
         bin auto[57536:57599]                               0          1          -    ZERO                 
         bin auto[57600:57663]                               0          1          -    ZERO                 
@@ -15746,7 +15746,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[58752:58815]                               0          1          -    ZERO                 
         bin auto[58816:58879]                               0          1          -    ZERO                 
         bin auto[58880:58943]                               0          1          -    ZERO                 
-        bin auto[58944:59007]                               2          1          -    Covered              
+        bin auto[58944:59007]                               1          1          -    Covered              
         bin auto[59008:59071]                               0          1          -    ZERO                 
         bin auto[59072:59135]                               0          1          -    ZERO                 
         bin auto[59136:59199]                               0          1          -    ZERO                 
@@ -15849,10 +15849,10 @@ Covergroup                                             Metric       Goal       B
         bin auto[65344:65407]                               0          1          -    ZERO                 
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
-    Coverpoint npc_in                                   0.58%        100          -    Uncovered            
-        covered/total bins:                                 6       1024          -                      
-        missing/total bins:                              1018       1024          -                      
-        % Hit:                                          0.58%        100          -                      
+    Coverpoint npc_in                                   0.19%        100          -    Uncovered            
+        covered/total bins:                                 2       1024          -                      
+        missing/total bins:                              1022       1024          -                      
+        % Hit:                                          0.19%        100          -                      
         bin auto[0:63]                                      0          1          -    ZERO                 
         bin auto[64:127]                                    0          1          -    ZERO                 
         bin auto[128:191]                                   0          1          -    ZERO                 
@@ -16046,11 +16046,11 @@ Covergroup                                             Metric       Goal       B
         bin auto[12160:12223]                               0          1          -    ZERO                 
         bin auto[12224:12287]                               0          1          -    ZERO                 
         bin auto[12288:12351]                              92          1          -    Covered              
-        bin auto[12352:12415]                              68          1          -    Covered              
-        bin auto[12416:12479]                              64          1          -    Covered              
-        bin auto[12480:12543]                              64          1          -    Covered              
-        bin auto[12544:12607]                              64          1          -    Covered              
-        bin auto[12608:12671]                              24          1          -    Covered              
+        bin auto[12352:12415]                              26          1          -    Covered              
+        bin auto[12416:12479]                               0          1          -    ZERO                 
+        bin auto[12480:12543]                               0          1          -    ZERO                 
+        bin auto[12544:12607]                               0          1          -    ZERO                 
+        bin auto[12608:12671]                               0          1          -    ZERO                 
         bin auto[12672:12735]                               0          1          -    ZERO                 
         bin auto[12736:12799]                               0          1          -    ZERO                 
         bin auto[12800:12863]                               0          1          -    ZERO                 
@@ -16878,7 +16878,7 @@ Covergroup                                             Metric       Goal       B
         bin auto[65408:65471]                               0          1          -    ZERO                 
         bin auto[65472:65535]                               0          1          -    ZERO                 
 
-TOTAL COVERGROUP COVERAGE: 29.58%  COVERGROUP TYPES: 2
+TOTAL COVERGROUP COVERAGE: 29.32%  COVERGROUP TYPES: 2
 
-Total Coverage By Instance (filtered view): 29.58%
+Total Coverage By Instance (filtered view): 29.32%
 

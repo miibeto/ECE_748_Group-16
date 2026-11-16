@@ -65,7 +65,7 @@ function bit imem_dmem_model
       Data_rd   = 1'b1; // First memory cycle is always a READ to fetch the pointer
       valid_op  = 1'b1;
     end
-
+    
     // -----------------------------------------------------------------
     // Non-Memory Operations (ADD, AND, NOT, BR, JMP, LEA, TRAP, etc.)
     // -----------------------------------------------------------------

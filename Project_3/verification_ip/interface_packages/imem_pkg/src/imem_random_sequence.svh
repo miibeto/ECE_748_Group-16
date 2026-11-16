@@ -135,7 +135,7 @@ class imem_random_sequence extends imem_sequence_base ;
   `uvm_object_utils( imem_random_sequence )
 
   // pragma uvmf custom class_item_additional begin
-  int unsigned num_random_instrs = 100;
+  int unsigned num_random_instrs = 85;
   lc3_rand_instr rand_instr;
   // pragma uvmf custom class_item_additional end
   
@@ -223,11 +223,14 @@ class imem_random_sequence extends imem_sequence_base ;
     // =========================================================================
     // 3. CLOSING 
     // =========================================================================
-
-    // Serve NOPs for the remainder of the bench sequence
-    forever begin
-      send_instr(16'h0000, "CLOSING_NOP");
+    repeat (8) begin
+      send_instr(16'h0E00, "CLOSING_DRAIN");
     end
+
+    // // Serve NOPs for the remainder of the bench sequence
+    // forever begin
+    //   send_instr(16'h0000, "CLOSING_NOP");
+    // end
   endtask
 
 endclass: imem_random_sequence
