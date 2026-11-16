@@ -26,7 +26,6 @@ class dmem_transaction_coverage  extends uvm_subscriber #(.T(dmem_transaction ))
   // ****************************************************************************
   covergroup dmem_transaction_cg;
     // pragma uvmf custom covergroup begin
-    // UVMF_CHANGE_ME : Add coverage bins, crosses, exclusions, etc. according to coverage needs.
     option.auto_bin_max=1024;
     option.per_instance=1;
     // didn't bother adding a coverpoint for D_macc/complete_data since the

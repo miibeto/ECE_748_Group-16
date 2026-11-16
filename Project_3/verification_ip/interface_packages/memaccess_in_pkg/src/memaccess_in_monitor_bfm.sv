@@ -87,6 +87,11 @@ end
   // pragma tbx oneway proxy.notify_transaction                 
 
   // pragma uvmf custom interface_item_additional begin
+  bit mem_access_prev = 0;
+  bit [1:0] mem_state_prev;
+  bit M_Control_prev;
+  bit [15:0] M_addr_prev;
+  bit [15:0] M_Data_prev;
   // pragma uvmf custom interface_item_additional end
   
   //******************************************************************                         
@@ -169,17 +174,37 @@ end
     //      memaccess_in_monitor_struct.xyz = M_addr_i;  //    [15:0] 
     //      memaccess_in_monitor_struct.xyz = DMem_dout_i;  //    [15:0] 
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
+    // new access = non-idle AND (nothing captured yet, OR any of the
+    // access fields actually changed since the last cycle we looked at).
+    // catches both a fresh access after idle and back-to-back accesses
+    // that never go through idle in between.
+    while (!( (mem_state_i !== 2'b11) &&
+              ( !mem_access_prev        ||
+                mem_state_i !== mem_state_prev ||
+                M_Control_i !== M_Control_prev ||
+                M_addr_i    !== M_addr_prev    ||
+                M_Data_i    !== M_Data_prev ) )) begin
+      mem_access_prev = (mem_state_i !== 2'b11);
+      mem_state_prev   = mem_state_i;
+      M_Control_prev   = M_Control_i;
+      M_addr_prev      = M_addr_i;
+      M_Data_prev      = M_Data_i;
+      @(posedge clock_i);
+    end
+    mem_access_prev = 1;
+    mem_state_prev   = mem_state_i;
+    M_Control_prev   = M_Control_i;
+    M_addr_prev      = M_addr_i;
+    M_Data_prev       = M_Data_i;
+
+    memaccess_in_monitor_struct.mem_state  = mem_state_i;
+    memaccess_in_monitor_struct.M_Control  = M_Control_i;
+    memaccess_in_monitor_struct.M_Data     = M_Data_i;
+    memaccess_in_monitor_struct.M_addr     = M_addr_i;
+
+    // DMem_dout comes back from the dmem side, same timing the dmem monitor uses
     @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    memaccess_in_monitor_struct.DMem_dout = DMem_dout_i;
     // pragma uvmf custom do_monitor end
   endtask         
   
