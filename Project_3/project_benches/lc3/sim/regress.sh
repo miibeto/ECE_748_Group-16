@@ -41,6 +41,11 @@ DEFAULT_TESTS=(
   jsr_test and_test  ldr_test  str_test
   not_test ldi_test  sti_test  jmp_test
   lea_test trap_test
+  # Mode / cross-bin directed tests (close opcode x mode crosses).
+  add_imm_mode_test  add_reg_mode_test
+  and_imm_mode_test  and_reg_mode_test
+  br_all_nzp_test
+  jsr_mode_test      jsrr_mode_test
 )
 
 if [[ $# -gt 0 ]]; then

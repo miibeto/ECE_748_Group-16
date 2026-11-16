@@ -59,8 +59,10 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
     }
 
     // BR condition code bits (bits 11:9 = N, Z, P).
+    // Per Sheet 5, NZP == 000 is illegal (no-op branch) and must not be hit;
+    // it is flagged as an illegal bin so the covergroup errors if it appears.
     br_nzp: coverpoint coverage_trans.Instr_dout[11:9] iff (coverage_trans.Instr_dout[15:12] == 4'b0000) {
-      bins nop     = {3'b000};
+      illegal_bins none = {3'b000};
       bins n_only  = {3'b100};
       bins z_only  = {3'b010};
       bins p_only  = {3'b001};
@@ -76,7 +78,47 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
       bins jsr  = {1'b1};
     }
 
-    // Crosses that give meaningful per-opcode coverage of the mode bit.
+    // ADD/AND imm5 signed field (bits [4:0]) per Sheet 5: signed -16..+15.
+    // Three bins cover the sign space (negative / zero / positive).
+    add_and_imm5: coverpoint $signed(coverage_trans.Instr_dout[4:0])
+      iff ( (coverage_trans.Instr_dout[15:12] inside {4'b0001, 4'b0101})
+             && coverage_trans.Instr_dout[5] == 1'b1 ) {
+      bins neg  = {[-16:-1]};
+      bins zero = {0};
+      bins pos  = {[1:15]};
+    }
+
+    // PC-relative 9-bit signed offset used by LD/LDI/LEA/ST/STI (Sheet 5).
+    pc_offset9: coverpoint $signed(coverage_trans.Instr_dout[8:0])
+      iff ( coverage_trans.Instr_dout[15:12] inside {4'b0010,  // LD
+                                                      4'b0011,  // ST
+                                                      4'b1010,  // LDI
+                                                      4'b1011,  // STI
+                                                      4'b1110   // LEA
+                                                    } ) {
+      bins neg  = {[-256:-1]};
+      bins zero = {0};
+      bins pos  = {[1:255]};
+    }
+
+    // LDR/STR 6-bit signed base offset (Sheet 5).
+    offset6: coverpoint $signed(coverage_trans.Instr_dout[5:0])
+      iff ( coverage_trans.Instr_dout[15:12] inside {4'b0110, 4'b0111} ) {
+      bins neg  = {[-32:-1]};
+      bins zero = {0};
+      bins pos  = {[1:31]};
+    }
+
+    // Destination register (bits [11:9]) exercised across all 8 values.
+    dr: coverpoint coverage_trans.Instr_dout[11:9]
+      iff ( coverage_trans.Instr_dout[15:12] inside {4'b0001, 4'b0101, 4'b1001,
+                                                     4'b0010, 4'b1010, 4'b1110,
+                                                     4'b0011, 4'b1011,
+                                                     4'b0110, 4'b0111} ) {
+      bins r[8] = {[0:7]};
+    }
+
+    // Crosses: opcode x imm mode (only meaningful for ADD and AND).
     add_x_mode: cross opcode, add_and_imm_mode {
       ignore_bins non_add_and = binsof(opcode) intersect {4'b0000, 4'b0010, 4'b0011, 4'b0100,
                                                           4'b0110, 4'b0111, 4'b1000, 4'b1001,
