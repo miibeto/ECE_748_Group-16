@@ -41,7 +41,6 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
       bins ADD  = {4'b0001};
       bins LD   = {4'b0010};
       bins ST   = {4'b0011};
-      bins JSR  = {4'b0100};
       bins AND  = {4'b0101};
       bins LDR  = {4'b0110};
       bins STR  = {4'b0111};
@@ -54,6 +53,7 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
       ignore_bins RTI      = {4'b1000};
       ignore_bins RESERVED = {4'b1101};
       ignore_bins TRAP     = {4'b1111};
+      ignore_bins JSR      = {4'b0100};
     }
 
     // ADD/AND register vs immediate mode, crossed with opcode below.
