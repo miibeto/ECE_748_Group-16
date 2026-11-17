@@ -228,7 +228,7 @@ build: $(BUILD_TGT)
 emu_build: libs build link optimize
 
 # pragma uvmf custom additional_targets begin
-.PHONY: p3_debug p3_debug_cli p3_run merge_cov view_cov cov_debug
+.PHONY: p3_debug p3_debug_cli p3_run merge_cov view_cov cov_debug regress
 p3_debug: # Compile and prepare test on GUI (requires manually "run -all")
 	$(MAKE) libs
 	$(MAKE) comp_lc3_prediction_pkg
@@ -260,7 +260,7 @@ p3_cli_run_test: # Run test on CLI (without .wlf generation)
 
 # Merge all individual .ucdb coverage files into one database (merged_tests.ucdb)
 UCDB_DIR    ?= .
-MERGED_UCDB ?= merged_coverage.ucdb
+MERGED_UCDB ?= merged.ucdb
 
 merge_coverage:
 	@echo "Merging coverage files from $(UCDB_DIR)..."

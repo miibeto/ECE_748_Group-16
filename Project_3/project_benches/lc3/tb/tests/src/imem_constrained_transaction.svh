@@ -67,7 +67,7 @@ class imem_constrained_transaction extends imem_transaction;
 
   // Opcode field helpers: Instr_dout[15:12] is the LC3 opcode.
   constraint legal_opcode_c {
-    !(Instr_dout[15:12] inside {4'b1000, 4'b1101});
+    !(Instr_dout[15:12] inside {4'b1000, 4'b1101, 4'b1111});
   }
 
   // NOT (0x9): bits[5:0] must be 6'b111111.

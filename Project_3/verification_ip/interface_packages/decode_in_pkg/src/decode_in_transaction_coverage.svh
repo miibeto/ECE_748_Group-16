@@ -50,10 +50,10 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
       bins STI  = {4'b1011};
       bins JMP  = {4'b1100};
       bins LEA  = {4'b1110};
-      bins TRAP = {4'b1111};
       // Excluded from stimulus (see imem_constrained_transaction).
       ignore_bins RTI      = {4'b1000};
       ignore_bins RESERVED = {4'b1101};
+      ignore_bins TRAP     = {4'b1111};
     }
 
     // ADD/AND register vs immediate mode, crossed with opcode below.

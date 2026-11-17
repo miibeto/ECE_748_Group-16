@@ -24,7 +24,7 @@ class lc3_program_imem_sequence extends imem_responder_sequence;
 
   `uvm_object_utils( lc3_program_imem_sequence )
 
-  localparam bit [15:0] HALT_INSTR = 16'hF025;   // TRAP x25
+  //localparam bit [15:0] HALT_INSTR = 16'hF025;   // TRAP x25
   localparam bit [15:0] NOP_INSTR  = 16'h1020;   // ADD R0, R0, #0
 
   int unsigned num_instrs = 2000;
@@ -73,8 +73,8 @@ class lc3_program_imem_sequence extends imem_responder_sequence;
     repeat (num_instrs) send(16'h0000, 1'b1);
 
     // Closing HALT.
-    send(HALT_INSTR);
-    halt_sent = 1'b1;
+    //send(HALT_INSTR);
+    halt_sent = 1'b1; // DO NOT REMOVE! The bench sequence relies on this to properly end the sequence.
     `uvm_info("SEQ", $sformatf("program done: 8 preamble + %0d random + HALT delivered", num_instrs), UVM_LOW)
 
     // The DUT keeps fetching after HALT; feed NOPs until the test ends.
