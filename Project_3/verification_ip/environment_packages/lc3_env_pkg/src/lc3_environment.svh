@@ -88,9 +88,9 @@ class lc3_environment  extends uvmf_environment_base #(
     imem_agent.set_config(configuration.imem_agent_config);
     dmem_agent = dmem_agent_t::type_id::create("dmem_agent",this);
     dmem_agent.set_config(configuration.dmem_agent_config);
-    lc3_pred = lc3_pred_t::type_id::create("lc3_pred",this);
-    lc3_pred.configuration = configuration;
-    lc3_sb = lc3_sb_t::type_id::create("lc3_sb",this);
+    // lc3_pred = lc3_pred_t::type_id::create("lc3_pred",this);
+    // lc3_pred.configuration = configuration;
+    // lc3_sb = lc3_sb_t::type_id::create("lc3_sb",this);
 
     vsqr = lc3_vsqr_t::type_id::create("vsqr", this);
     vsqr.set_config(configuration);
@@ -110,10 +110,10 @@ class lc3_environment  extends uvmf_environment_base #(
 // pragma uvmf custom connect_phase_pre_super begin
 // pragma uvmf custom connect_phase_pre_super end
     super.connect_phase(phase);
-    imem_agent.monitored_ap.connect(lc3_pred.imem_agent_ae);
-    dmem_agent.monitored_ap.connect(lc3_pred.dmem_agent_ae);
-    lc3_pred.lc3_sb_ap.connect(lc3_sb.expected_analysis_export);
-    dmem_agent.monitored_ap.connect(lc3_sb.actual_analysis_export);
+    // imem_agent.monitored_ap.connect(lc3_pred.imem_agent_ae);
+    // dmem_agent.monitored_ap.connect(lc3_pred.dmem_agent_ae);
+    // lc3_pred.lc3_sb_ap.connect(lc3_sb.expected_analysis_export);
+    // dmem_agent.monitored_ap.connect(lc3_sb.actual_analysis_export);
     // pragma uvmf custom reg_model_connect_phase begin
     // pragma uvmf custom reg_model_connect_phase end
   endfunction
@@ -130,7 +130,7 @@ class lc3_environment  extends uvmf_environment_base #(
 // responsible for sampling the covergroup in the configuration if required.
 //
   virtual function void start_of_simulation_phase(uvm_phase phase);
-     configuration.lc3_configuration_cg.sample();
+    //  configuration.lc3_configuration_cg.sample();
   endfunction
 
 endclass

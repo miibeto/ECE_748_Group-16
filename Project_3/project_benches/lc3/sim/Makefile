@@ -236,6 +236,7 @@ p3_debug: # Compile and prepare test on GUI (requires manually "run -all")
 	$(MAKE) link
 	$(MAKE) optimize
 	TEST_NAME=$(TEST_NAME) $(MAKE) gui_run
+	TEST_SEED=$(TEST_SEED) 
 
 # p3_debug_cli: # Compile and prepar test on GUI (requires manually "run -all")
 # 	$(MAKE) libs

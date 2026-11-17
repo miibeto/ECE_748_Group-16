@@ -98,9 +98,9 @@ class lc3_predictor #(
   // This function performs prediction of DUT output values based on DUT input, configuration and state
   virtual function void write_imem_agent_ae(imem_transaction t);
     // pragma uvmf custom imem_agent_ae_predictor begin
-    imem_agent_ae_debug = t;
-    `uvm_info("PRED", "Transaction Received through imem_agent_ae", UVM_MEDIUM)
-    `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
+    // imem_agent_ae_debug = t;
+    // `uvm_info("PRED", "Transaction Received through imem_agent_ae", UVM_MEDIUM)
+    // `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
     // lc3_sb is an in-order scoreboard of DMEM transactions whose actual side
     // is the dmem monitor. An instruction fetch produces no dmem transaction,
     // so publishing an (empty) expected item here would add a phantom entry
@@ -114,22 +114,22 @@ class lc3_predictor #(
   // This function performs prediction of DUT output values based on DUT input, configuration and state
   virtual function void write_dmem_agent_ae(dmem_transaction t);
     // pragma uvmf custom dmem_agent_ae_predictor begin
-    dmem_agent_ae_debug = t;
-    `uvm_info("PRED", "Transaction Received through dmem_agent_ae", UVM_MEDIUM)
-    `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
+    // dmem_agent_ae_debug = t;
+    // `uvm_info("PRED", "Transaction Received through dmem_agent_ae", UVM_MEDIUM)
+    // `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
     // Construct one of each output transaction type.
-    lc3_sb_ap_output_transaction = lc3_sb_ap_output_transaction_t::type_id::create("lc3_sb_ap_output_transaction");
+   // lc3_sb_ap_output_transaction = lc3_sb_ap_output_transaction_t::type_id::create("lc3_sb_ap_output_transaction");
     //  UVMF_CHANGE_ME: Implement predictor model here.  
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The lc3_predictor::write_dmem_agent_ae function needs to be completed with DUT prediction model",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
+    // `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
+    // `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The lc3_predictor::write_dmem_agent_ae function needs to be completed with DUT prediction model",UVM_NONE)
+    // `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
  
     // Code for sending output transaction out through lc3_sb_ap
     // Please note that each broadcasted transaction should be a different object than previously 
     // broadcasted transactions.  Creation of a different object is done by constructing the transaction 
     // using either new() or create().  Broadcasting a transaction object more than once to either the 
     // same subscriber or multiple subscribers will result in unexpected and incorrect behavior.
-    lc3_sb_ap.write(lc3_sb_ap_output_transaction);
+  //  lc3_sb_ap.write(lc3_sb_ap_output_transaction);
     // pragma uvmf custom dmem_agent_ae_predictor end
   endfunction
 

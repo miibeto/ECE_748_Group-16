@@ -106,6 +106,14 @@ class lc3_program_bench_sequence extends lc3_bench_sequence_base;
       `uvm_fatal("SEQ", "lc3_program_bench_sequence needs imem_responder_sequence overridden by lc3_program_imem_sequence")
 
     fork
+      decode_env_decode_in_agent_config.wait_for_reset();
+      decode_env_decode_out_agent_config.wait_for_reset();
+      writeback_env_writeback_in_agent_config.wait_for_reset();
+      writeback_env_writeback_out_agent_config.wait_for_reset();
+      memaccess_env_memaccess_in_agent_config.wait_for_reset();
+      memaccess_env_memaccess_out_agent_config.wait_for_reset();
+      control_env_control_in_agent_config.wait_for_reset();
+      control_env_control_out_agent_config.wait_for_reset();
       imem_agent_config.wait_for_reset();
       dmem_agent_config.wait_for_reset();
     join

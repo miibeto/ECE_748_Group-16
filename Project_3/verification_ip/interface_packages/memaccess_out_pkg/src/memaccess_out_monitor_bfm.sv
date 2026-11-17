@@ -169,8 +169,9 @@ end
     //      memaccess_out_monitor_struct.xyz = memout_i;  //    [15:0] 
     // pragma uvmf custom do_monitor begin
     // wait for any of the request fields to actually change
-    while (DMem_addr_i === DMem_addr_prev && DMem_rd_i === DMem_rd_prev
-           && DMem_din_i === DMem_din_prev) @(posedge clock_i);
+    // while (DMem_addr_i === DMem_addr_prev && DMem_rd_i === DMem_rd_prev
+    //        && DMem_din_i === DMem_din_prev) @(posedge clock_i);
+    while (DMem_rd_i === 1'bz || DMem_rd_i === 1'bx) @(posedge clock_i);
     DMem_addr_prev = DMem_addr_i;
     DMem_rd_prev   = DMem_rd_i;
     DMem_din_prev  = DMem_din_i;

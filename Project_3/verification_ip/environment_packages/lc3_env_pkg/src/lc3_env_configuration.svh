@@ -81,8 +81,8 @@ rand control_env_config_t control_env_config;
     dmem_agent_config = dmem_agent_config_t::type_id::create("dmem_agent_config");
 
 
-    lc3_configuration_cg=new;
-    `uvm_warning("COVERAGE_MODEL_REVIEW", "A covergroup has been constructed which may need review because of either generation or re-generation with merging.  Please note that configuration variables added as a result of re-generation and merging are not automatically added to the covergroup.  Remove this warning after the covergroup has been reviewed.")
+    // lc3_configuration_cg=new;
+    // `uvm_warning("COVERAGE_MODEL_REVIEW", "A covergroup has been constructed which may need review because of either generation or re-generation with merging.  Please note that configuration variables added as a result of re-generation and merging are not automatically added to the covergroup.  Remove this warning after the covergroup has been reviewed.")
 
   // pragma uvmf custom new begin
   // pragma uvmf custom new end
@@ -171,7 +171,7 @@ rand control_env_config_t control_env_config;
   // Interface initialization for local agents
      imem_agent_config.initialize( interface_activity[8], {environment_path,".imem_agent"}, interface_names[8]);
      imem_agent_config.initiator_responder = RESPONDER;
-     imem_agent_config.has_coverage = 1;
+     //imem_agent_config.has_coverage = 1;
      dmem_agent_config.initialize( interface_activity[9], {environment_path,".dmem_agent"}, interface_names[9]);
      dmem_agent_config.initiator_responder = RESPONDER;
      // dmem_agent_config.has_coverage = 1;
