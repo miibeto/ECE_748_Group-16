@@ -41,12 +41,15 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
       bins AND      = {4'b0101};
       bins LDR      = {4'b0110};
       bins STR      = {4'b0111};
-      bins RTI      = {4'b1000};
+      // RTI / RESERVED are excluded from stimulus (imem_constrained_transaction
+      // legal_opcode_c; RESERVED asserts in the reference model), so they are
+      // not counted toward coverage.
+      ignore_bins RTI      = {4'b1000};
       bins NOT      = {4'b1001};
       bins LDI      = {4'b1010};
       bins STI      = {4'b1011};
       bins JMP      = {4'b1100};
-      bins RESERVED = {4'b1101};
+      ignore_bins RESERVED = {4'b1101};
       bins LEA      = {4'b1110};
       bins TRAP     = {4'b1111};
     }
@@ -153,7 +156,6 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
   // to local variables used to collect functional coverage.  
   //
   virtual function void write (T t);
-    `uvm_info("COV","Received transaction",UVM_HIGH);
     coverage_trans = t;
     imem_transaction_cg.sample();
   endfunction

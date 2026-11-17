@@ -83,6 +83,28 @@ end
   // pragma tbx oneway proxy.notify_transaction                 
 
   // pragma uvmf custom interface_item_additional begin
+  // ------------------------------------------------------------------
+  // Decode stall check. After reset the Decode stage must accept an
+  // instruction (enable_decode==1) at least once every DECODE_MAX_STALL
+  // clocks. Longest legitimate stall is an LDI/STI double memory access
+  // (a handful of clocks), so 32 only fires on a hung pipeline (e.g. the
+  // back-to-back memory-op stall noted on the team spec, Sheet 3).
+  // ------------------------------------------------------------------
+  localparam int DECODE_MAX_STALL = 32;
+
+  property p_decode_no_stall;
+    @(posedge clock_i) disable iff (reset_i !== 1'b0)
+      not ( (enable_decode_i !== 1'b1) [*DECODE_MAX_STALL] );
+  endproperty
+
+  a_decode_no_stall: assert property (p_decode_no_stall)
+    else begin
+`ifndef XRTL
+      `uvm_error("DECODE_STALL", $sformatf("enable_decode has been low for %0d consecutive clocks", DECODE_MAX_STALL))
+`else
+      $error("DECODE_STALL: enable_decode low for %0d consecutive clocks", DECODE_MAX_STALL);
+`endif
+    end
   // pragma uvmf custom interface_item_additional end
   
   //******************************************************************                         

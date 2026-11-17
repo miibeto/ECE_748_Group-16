@@ -30,6 +30,9 @@ class dmem_responder_sequence
     req=dmem_transaction::type_id::create("req");
     forever begin
       start_item(req);
+      // Randomize so loads return varied data instead of always 0x0000.
+      if (!req.randomize())
+        `uvm_fatal("SEQ", "dmem_responder_sequence: dmem_transaction randomization failed")
       finish_item(req);
       // pragma uvmf custom body begin
       // UVMF_CHANGE_ME : Do something here with the resulting req item.  The

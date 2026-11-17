@@ -87,6 +87,40 @@ end
   // pragma tbx oneway proxy.notify_transaction                 
 
   // pragma uvmf custom interface_item_additional begin
+  // Pending fetch request state for the pipelined do_monitor().
+  bit        pend_valid = 1'b0;
+  bit [15:0] pend_pc    = '0;
+  bit        pend_macc  = 1'b0;
+
+  // ------------------------------------------------------------------
+  // Instruction-memory protocol assertions (checked after reset only).
+  //  - DUT side: instrmem_rd must always be known, and a fetch request
+  //    must carry a known PC.
+  //  - Responder side (self-check of our driver BFM): whenever
+  //    complete_instr is high the instruction word must be known.
+  // ------------------------------------------------------------------
+`ifndef XRTL
+  `define IMEM_ASSERT_FAIL(ID, MSG) `uvm_error(ID, MSG)
+`else
+  `define IMEM_ASSERT_FAIL(ID, MSG) $error("%s: %s", ID, MSG);
+`endif
+
+  a_imem_rd_known: assert property (
+    @(posedge clock_i) disable iff (reset_i !== 1'b0)
+      !$isunknown(instrmem_rd_i) )
+    else `IMEM_ASSERT_FAIL("IMEM_PROTO", $sformatf("instrmem_rd is X/Z (%b)", instrmem_rd_i))
+
+  a_imem_pc_known: assert property (
+    @(posedge clock_i) disable iff (reset_i !== 1'b0)
+      (instrmem_rd_i === 1'b1) |-> !$isunknown(PC_i) )
+    else `IMEM_ASSERT_FAIL("IMEM_PROTO", $sformatf("fetch request with unknown PC (%h)", PC_i))
+
+  a_imem_dout_known: assert property (
+    @(posedge clock_i) disable iff (reset_i !== 1'b0)
+      (complete_instr_i === 1'b1) |-> !$isunknown(Instr_dout_i) )
+    else `IMEM_ASSERT_FAIL("IMEM_PROTO", $sformatf("complete_instr=1 with unknown Instr_dout (%h)", Instr_dout_i))
+
+  `undef IMEM_ASSERT_FAIL
   // pragma uvmf custom interface_item_additional end
   
   //******************************************************************                         
@@ -169,16 +203,28 @@ end
     //      imem_monitor_struct.xyz = Instr_dout_i;  //    [15:0] 
     //      imem_monitor_struct.xyz = complete_instr_i;  //     
     // pragma uvmf custom do_monitor begin
-    // Wait for a fetch request: instrmem_rd asserted by the DUT.
-    while (instrmem_rd_i !== 1'b1) @(posedge clock_i);
-    // Sample the request address on the cycle the read is asserted.
-    imem_monitor_struct.PC          = PC_i;
-    imem_monitor_struct.instrmem_rd = instrmem_rd_i;
-    imem_monitor_struct.I_macc      = I_macc_i;
-    // Wait for the responder to complete the transfer.
-    while (complete_instr_i !== 1'b1) @(posedge clock_i);
-    imem_monitor_struct.Instr_dout     = Instr_dout_i;
-    imem_monitor_struct.complete_instr = complete_instr_i;
+    // Pipelined one-cycle-latency fetch monitor. Called once per posedge.
+    //   edge t   : instrmem_rd==1 -> remember PC as a pending request
+    //   edge t+1 : complete_instr==1 -> Instr_dout is the data for that PC
+    // A new request can be captured on the same edge that completes the
+    // previous one, so back-to-back fetches (every cycle) are not missed.
+    forever begin
+      if (pend_valid && complete_instr_i === 1'b1) begin
+        imem_monitor_struct.PC             = pend_pc;
+        imem_monitor_struct.instrmem_rd    = 1'b1;
+        imem_monitor_struct.I_macc         = pend_macc;
+        imem_monitor_struct.Instr_dout     = Instr_dout_i;
+        imem_monitor_struct.complete_instr = 1'b1;
+        pend_valid = (instrmem_rd_i === 1'b1);
+        pend_pc    = PC_i;
+        pend_macc  = I_macc_i;
+        return;
+      end
+      pend_valid = (instrmem_rd_i === 1'b1);
+      pend_pc    = PC_i;
+      pend_macc  = I_macc_i;
+      @(posedge clock_i);
+    end
     // pragma uvmf custom do_monitor end
   endtask         
   

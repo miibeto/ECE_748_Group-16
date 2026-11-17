@@ -172,10 +172,16 @@ end
     //      decode_out_monitor_struct.xyz = ir_i;  //    [15:0] 
     //      decode_out_monitor_struct.xyz = npc_out_i;  //    [15:0] 
     // pragma uvmf custom do_monitor begin
-    // Decode-output monitor: wait for enable_decode, then sample the decoded
-    // instruction register and the control signals the decode stage drives to
-    // the downstream pipeline on the same cycle.
+    // Decode outputs are REGISTERED: when enable_decode==1 at posedge t, the
+    // decode stage loads IR/E_Control/W_Control/... at t. Sampling at posedge
+    // t itself returns the PREVIOUS instruction's outputs (off-by-one).
+    // So detect enable_decode at posedge t and sample on the following
+    // NEGEDGE (t + half period), when the new register values are stable.
+    // The caller's loop then waits for posedge t+1, so back-to-back enables
+    // are not missed, and decode_in (reports at t) always precedes us.
+    // Timescale-independent (no #delays). See test_top drain time.
     while (enable_decode_i !== 1'b1) @(posedge clock_i);
+    @(negedge clock_i);
     decode_out_monitor_struct.w_control   = w_control_i;
     decode_out_monitor_struct.mem_control = mem_control_i;
     decode_out_monitor_struct.e_control   = e_control_i;

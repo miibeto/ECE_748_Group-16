@@ -11,8 +11,9 @@
 #   - $UVMF_HOME exported to the uvmf_2026.1 release root
 #
 # Usage:
-#   ./regress.sh                 # full regression
-#   ./regress.sh add_test ld_test  # only the listed tests
+#   ./regress.sh                      # default suite (random_instr_test)
+#   ./regress.sh add_test ld_test     # only the listed tests
+#   SEED=2 NUM_INSTRS=4000 ./regress.sh   # other seed / program length
 #
 # Output artifacts (in the sim/ directory):
 #   merged.ucdb       - merged coverage database (submit on Moodle)
@@ -32,20 +33,23 @@ fi
 
 mkdir -p regress_logs regress_ucdb
 
-# Default test suite: random stimulus + one directed test per LC3 opcode.
-# random_instr_test alone will close most bins over enough cycles; the
-# directed tests guarantee hard-to-hit opcodes (TRAP, JSR, etc.) land.
+# Fixed seed by default so coverage is reproducible by the TA.
+# Override for exploration:  SEED=12345 ./regress.sh
+SEED="${SEED:-1}"
+# Random-program length for random_instr_test (+NUM_INSTRS plusarg).
+NUM_INSTRS="${NUM_INSTRS:-2000}"
+# UVM_LOW keeps per-transaction MATCH chatter out of the transcript (faster);
+# errors/mismatches always print. Use VERBOSITY=UVM_MEDIUM when debugging.
+VERBOSITY="${VERBOSITY:-UVM_LOW}"
+START_TIME=$SECONDS
+
+# Default test suite: random_instr_test alone closes instruction coverage
+# (preamble + NUM_INSTRS weighted random instructions + HALT), so the
+# regression is one build + one run (simulation efficiency is graded).
+# The directed per-opcode / per-mode tests are still compiled and can be
+# run by name, e.g.  ./regress.sh trap_test jsrr_mode_test
 DEFAULT_TESTS=(
   random_instr_test
-  br_test  add_test  ld_test   st_test
-  jsr_test and_test  ldr_test  str_test
-  not_test ldi_test  sti_test  jmp_test
-  lea_test trap_test
-  # Mode / cross-bin directed tests (close opcode x mode crosses).
-  add_imm_mode_test  add_reg_mode_test
-  and_imm_mode_test  and_reg_mode_test
-  br_all_nzp_test
-  jsr_mode_test      jsrr_mode_test
 )
 
 if [[ $# -gt 0 ]]; then
@@ -58,6 +62,7 @@ echo "=========================================="
 echo "LC3 Project 3 regression"
 echo "  sim dir : $SIM_DIR"
 echo "  tests   : ${#TESTS[@]} (${TESTS[*]})"
+echo "  seed    : $SEED   NUM_INSTRS: $NUM_INSTRS"
 echo "=========================================="
 
 # ------------------------------------------------------------------
@@ -65,13 +70,16 @@ echo "=========================================="
 # then re-optimize with coverage instrumentation enabled so each vsim
 # run can emit a non-empty UCDB.
 # ------------------------------------------------------------------
-echo "[build  ] vsim -c -do compile.do"
-vsim -c -do "do compile.do; quit -f" 2>&1 | tee regress_logs/build.log
+
+echo "[build  ] make p3_build (includes lc3_prediction_pkg)"
+make p3_build 2>&1 | tee regress_logs/build.log
+
 
 echo "[vopt   ] re-optimizing with +cover instrumentation"
 # -fcover: covergroup coverage
 # +cover=bcesft: block/branch/condition/expression/statement/fsm/toggle code coverage
-vopt +cover=bcesft -fcover hvl_top hdl_top -o optimized_cov_top_tb 2>&1 | tee -a regress_logs/build.log
+vopt +cover=bcesftc hvl_top hdl_top -o optimized_cov_top_tb 2>&1 | tee -a regress_logs/build.log
+
 
 # ------------------------------------------------------------------
 # Run each test, writing a per-test UCDB.
@@ -85,17 +93,19 @@ for t in "${TESTS[@]}"; do
   rm -f "$UCDB"
 
   vsim -c \
-       -coverage \
-       -sv_seed random \
+       -coverage -cvgperinstance \
+       -sv_seed "$SEED" \
        +UVM_TESTNAME="$t" \
-       +UVM_VERBOSITY=UVM_MEDIUM \
+       +NUM_INSTRS="$NUM_INSTRS" \
+       +UVM_VERBOSITY="$VERBOSITY" \
        -permit_unmatched_virtual_intf \
        +notimingchecks \
        -suppress 8887 \
        -do "coverage save -onexit $UCDB; run -all; quit -f" \
        optimized_cov_top_tb 2>&1 | tee "$LOG"
 
-  if grep -q "UVM_FATAL :  *[1-9]" "$LOG" || ! [[ -f "$UCDB" ]]; then
+  # A test fails on any UVM_ERROR (e.g. scoreboard MISMATCH) or UVM_FATAL.
+  if grep -q "UVM_FATAL :  *[1-9]" "$LOG" || grep -q "UVM_ERROR :  *[1-9]" "$LOG" || ! [[ -f "$UCDB" ]]; then
     echo "  FAIL $t"
     FAIL=$((FAIL+1))
   else
@@ -109,13 +119,18 @@ done
 # ------------------------------------------------------------------
 echo "[merge  ] vcover merge -> merged.ucdb"
 rm -f merged.ucdb
-vcover merge merged.ucdb regress_ucdb/*.ucdb
+# Merge ONLY the UCDBs produced by this run (not stale files from older runs).
+RUN_UCDBS=()
+for t in "${TESTS[@]}"; do
+  if [[ -f "regress_ucdb/${t}.ucdb" ]]; then RUN_UCDBS+=("regress_ucdb/${t}.ucdb"); fi
+done
+vcover merge merged.ucdb "${RUN_UCDBS[@]}"
 
 echo "[report ] vcover report -> coverage.txt"
 vcover report -details -output coverage.txt merged.ucdb
 
 echo "=========================================="
-echo "Regression complete: $PASS passed, $FAIL failed"
+echo "Regression complete: $PASS passed, $FAIL failed  (seed=$SEED, NUM_INSTRS=$NUM_INSTRS, wall time $((SECONDS-START_TIME))s)"
 echo "  Merged UCDB    : $SIM_DIR/merged.ucdb"
 echo "  Coverage report: $SIM_DIR/coverage.txt"
 echo "=========================================="

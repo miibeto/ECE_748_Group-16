@@ -13,7 +13,7 @@
 //----------------------------------------------------------------------
 
 `define LC3_DIRECTED_OPCODE_TEST(TEST_NAME, OPCODE_VAL) \
-class TEST_NAME extends test_top; \
+class TEST_NAME extends lc3_checked_test; \
   `uvm_component_utils( TEST_NAME ) \
   typedef imem_single_opcode_transaction #( OPCODE_VAL ) tx_t; \
   function new(string name = "", uvm_component parent = null); \
@@ -102,7 +102,7 @@ class imem_tx_jsrr_mode extends imem_single_opcode_transaction #(4'b0100);
 endclass
 
 `define LC3_DIRECTED_MODE_TEST(TEST_NAME, TX_T) \
-class TEST_NAME extends test_top; \
+class TEST_NAME extends lc3_checked_test; \
   `uvm_component_utils( TEST_NAME ) \
   function new(string name = "", uvm_component parent = null); \
     super.new(name, parent); \

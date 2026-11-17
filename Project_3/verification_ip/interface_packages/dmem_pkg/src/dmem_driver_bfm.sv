@@ -111,23 +111,23 @@ end
   assign clock_i = bus.clock;
   assign reset_i = bus.reset;
 
-  // These are signals marked as 'input' by the config file, but the signals will be
-  // driven by this BFM if put into RESPONDER mode (flipping all signal directions around)
+  // This agent is the data MEMORY and runs as a RESPONDER (P3 spec).
+  // Data_addr / Data_din / Data_rd are LC3 DUT outputs: never drive them.
+  // (D_macc is not an LC3 port; leave it undriven.)
   assign Data_addr_i = bus.Data_addr;
-  assign bus.Data_addr = (initiator_responder == RESPONDER) ? Data_addr_o : 'bz;
+  assign bus.Data_addr = 'bz;
   assign Data_din_i = bus.Data_din;
-  assign bus.Data_din = (initiator_responder == RESPONDER) ? Data_din_o : 'bz;
+  assign bus.Data_din = 'bz;
   assign Data_rd_i = bus.Data_rd;
-  assign bus.Data_rd = (initiator_responder == RESPONDER) ? Data_rd_o : 'bz;
+  assign bus.Data_rd = 'bz;
   assign D_macc_i = bus.D_macc;
-  assign bus.D_macc = (initiator_responder == RESPONDER) ? D_macc_o : 'bz;
+  assign bus.D_macc = 'bz;
 
 
-  // These are signals marked as 'output' by the config file, but the outputs will
-  // not be driven by this BFM unless placed in INITIATOR mode.
-  assign bus.Data_dout = (initiator_responder == INITIATOR) ? Data_dout_o : 'bz;
+  // Data_dout / complete_data are LC3 DUT inputs: the memory (RESPONDER) drives them.
+  assign bus.Data_dout = (initiator_responder == RESPONDER) ? Data_dout_o : 'bz;
   assign Data_dout_i = bus.Data_dout;
-  assign bus.complete_data = (initiator_responder == INITIATOR) ? complete_data_o : 'bz;
+  assign bus.complete_data = (initiator_responder == RESPONDER) ? complete_data_o : 'bz;
   assign complete_data_i = bus.complete_data;
 
   // Proxy handle to UVM driver
@@ -302,19 +302,32 @@ bit first_transfer=1;
        //      D_macc_o <= dmem_responder_struct.xyz;  //     
        //    Responder inout signals
     
-  @(posedge clock_i);
+  // LC3 data-memory protocol (see lc3_prediction_pkg controller_model.svh and
+  // mem_access_model.svh):
+  //   - While idle (mem_state==3) the DUT drives Data_rd/Data_addr/Data_din = z.
+  //   - During an access Data_rd is 1 (read) or 0 (write) and the controller
+  //     holds mem_state until it samples complete_data==1.
+  //   - LDI/STI use the held Data_dout as the next address, so Data_dout
+  //     must stay stable after the response (we never clear it).
+  //
+  // Timing: request seen at posedge t (complete_data low, DUT holds the state)
+  //         -> Data_dout + complete_data=1 driven for cycle t..t+1
+  //         -> DUT advances mem_state at t+1, we drop complete_data
+  //         -> skip edge t+1 (its pre-edge values are still the OLD request)
+  //         -> look for the next request from edge t+2 on.
   if (!first_transfer) begin
-    // Perform transfer response here.   
-    // Reply using data recieved in the dmem_responder_struct.
+    Data_dout_o     <= dmem_responder_struct.Data_dout;
+    complete_data_o <= 1'b1;
     @(posedge clock_i);
-    // Reply using data recieved in the transaction handle.
-    @(posedge clock_i);
+    complete_data_o <= 1'b0;
   end
-    // Wait for next transfer then gather info from intiator about the transfer.
-    // Place the data into the dmem_initiator_struct.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    first_transfer = 0;
+  @(posedge clock_i);
+  while (!(Data_rd_i === 1'b1 || Data_rd_i === 1'b0)) @(posedge clock_i);
+  dmem_initiator_struct.Data_addr = Data_addr_i;
+  dmem_initiator_struct.Data_din  = Data_din_i;
+  dmem_initiator_struct.Data_rd   = Data_rd_i;
+  dmem_initiator_struct.D_macc    = 1'b1;
+  first_transfer = 0;
   endtask
 // pragma uvmf custom respond_and_wait_for_next_transfer end
 

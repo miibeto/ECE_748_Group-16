@@ -109,21 +109,21 @@ end
   assign clock_i = bus.clock;
   assign reset_i = bus.reset;
 
-  // These are signals marked as 'input' by the config file, but the signals will be
-  // driven by this BFM if put into RESPONDER mode (flipping all signal directions around)
+  // This agent is the instruction MEMORY and runs as a RESPONDER (P3 spec).
+  // PC / instrmem_rd are LC3 DUT outputs: the BFM must never drive them,
+  // otherwise it fights the DUT and instrmem_rd resolves to X.
   assign PC_i = bus.PC;
-  assign bus.PC = (initiator_responder == RESPONDER) ? PC_o : 'bz;
+  assign bus.PC = 'bz;
   assign instrmem_rd_i = bus.instrmem_rd;
-  assign bus.instrmem_rd = (initiator_responder == RESPONDER) ? instrmem_rd_o : 'bz;
+  assign bus.instrmem_rd = 'bz;
   assign I_macc_i = bus.I_macc;
-  assign bus.I_macc = (initiator_responder == RESPONDER) ? I_macc_o : 'bz;
+  assign bus.I_macc = 'bz;
 
 
-  // These are signals marked as 'output' by the config file, but the outputs will
-  // not be driven by this BFM unless placed in INITIATOR mode.
-  assign bus.Instr_dout = (initiator_responder == INITIATOR) ? Instr_dout_o : 'bz;
+  // Instr_dout / complete_instr are LC3 DUT inputs: the memory (RESPONDER) drives them.
+  assign bus.Instr_dout = (initiator_responder == RESPONDER) ? Instr_dout_o : 'bz;
   assign Instr_dout_i = bus.Instr_dout;
-  assign bus.complete_instr = (initiator_responder == INITIATOR) ? complete_instr_o : 'bz;
+  assign bus.complete_instr = (initiator_responder == RESPONDER) ? complete_instr_o : 'bz;
   assign complete_instr_i = bus.complete_instr;
 
   // Proxy handle to UVM driver
@@ -291,22 +291,29 @@ bit first_transfer=1;
        //      I_macc_o <= imem_responder_struct.xyz;  //     
        //    Responder inout signals
     
-  // Complete the currently-pending transfer (except on the very first call,
-  // where there is no outstanding request yet).
+  // One-cycle-latency instruction memory (see controller_model.svh:
+  // fe2_out_valid = fe2_out_valid & complete_instr). complete_instr is a
+  // per-cycle "data valid" level, NOT a handshake: if it is low the fetched
+  // instruction is dropped as a bubble while the PC keeps advancing.
+  // So hold complete_instr high and answer every fetch.
+  //
+  // Timing: PC sampled at posedge t (request presented in cycle t-1..t)
+  //         -> Instr_dout driven for cycle t..t+1 -> DUT latches at t+1.
   if (!first_transfer) begin
-    // Drive the response data onto the bus.
-    Instr_dout_o     <= imem_responder_struct.Instr_dout;
-    complete_instr_o <= 1'b1;
-    @(posedge clock_i);
-    // Deassert complete_instr one cycle later so each fetch is a one-cycle pulse.
-    complete_instr_o <= 1'b0;
+    Instr_dout_o <= imem_responder_struct.Instr_dout;
   end
-  // Wait for the DUT to request the next fetch.
-  while (bus.instrmem_rd !== 1'b1) @(posedge clock_i);
+  complete_instr_o <= 1'b1;
+  // The DUT already asserts instrmem_rd (PC=3000) during reset. On the FIRST
+  // call (right after reset release) accept that outstanding request
+  // immediately, so the first random instruction is on the bus before the
+  // DUT's first post-reset sample (otherwise it executes the idle 0x0000).
+  // On later calls, advance one clock before looking for the next request.
+  if (!first_transfer) @(posedge clock_i);
+  while (instrmem_rd_i !== 1'b1) @(posedge clock_i);
   // Capture request info for the responder sequence.
-  imem_initiator_struct.PC          = bus.PC;
-  imem_initiator_struct.instrmem_rd = bus.instrmem_rd;
-  imem_initiator_struct.I_macc      = bus.I_macc;
+  imem_initiator_struct.PC          = PC_i;
+  imem_initiator_struct.instrmem_rd = instrmem_rd_i;
+  imem_initiator_struct.I_macc      = I_macc_i;
   first_transfer = 0;
   endtask
 // pragma uvmf custom respond_and_wait_for_next_transfer end

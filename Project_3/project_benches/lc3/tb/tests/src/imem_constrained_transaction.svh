@@ -15,6 +15,56 @@ class imem_constrained_transaction extends imem_transaction;
 
   `uvm_object_utils( imem_constrained_transaction )
 
+  // Pick the opcode FIRST, uniformly. Without this the solver is uniform
+  // over all legal 16-bit encodings, so opcodes with few legal encodings
+  // (JMP: 8, NOT: 64, TRAP: 256 vs ADD/AND: thousands) almost never appear.
+  rand bit [3:0] opcode;
+  constraint opcode_link_c {
+    Instr_dout[15:12] == opcode;
+    solve opcode before Instr_dout;
+  }
+
+  // Corner-value weighting for PCoffset9 (LD/ST/LDI/STI/LEA). Uniform random
+  // hits offset 0 only 1/512 of the time; weight 0, -1, +255, -256 so the
+  // zero bin and the range extremes are reached in a single short test.
+  constraint pc9_corner_c {
+    (opcode inside {4'b0010, 4'b0011, 4'b1010, 4'b1011, 4'b1110}) ->
+      Instr_dout[8:0] dist { 9'h000 := 8,              // 0
+                             9'h1FF := 4,              // -1
+                             9'h0FF := 4,              // +255
+                             9'h100 := 4,              // -256
+                             [9'h001:9'h0FE] :/ 40,    // +1..+254
+                             [9'h101:9'h1FE] :/ 40 };  // -255..-2
+  }
+
+  // JSR vs JSRR 50/50. JSR (bit11=1) has 2048 legal encodings but JSRR only
+  // 8, so without this JSRR is practically never generated.
+  constraint jsr_mode_split_c {
+    (opcode == 4'b0100) -> Instr_dout[11] dist { 1'b0 := 1, 1'b1 := 1 };
+  }
+
+  // Corner-value weighting for offset6 (LDR/STR): 0, -1, +31, -32.
+  constraint off6_corner_c {
+    (opcode inside {4'b0110, 4'b0111}) ->
+      Instr_dout[5:0] dist { 6'h00 := 8,              // 0
+                             6'h3F := 4,              // -1
+                             6'h1F := 4,              // +31
+                             6'h20 := 4,              // -32
+                             [6'h01:6'h1E] :/ 40,     // +1..+30
+                             [6'h21:6'h3E] :/ 40 };   // -31..-2
+  }
+
+  // Corner-value weighting for imm5 (ADD/AND immediate mode): 0, -1, +15, -16.
+  constraint imm5_corner_c {
+    ((opcode inside {4'b0001, 4'b0101}) && Instr_dout[5] == 1'b1) ->
+      Instr_dout[4:0] dist { 5'h00 := 8,              // 0
+                             5'h1F := 4,              // -1
+                             5'h0F := 4,              // +15
+                             5'h10 := 4,              // -16
+                             [5'h01:5'h0E] :/ 40,     // +1..+14
+                             [5'h11:5'h1E] :/ 40 };   // -15..-2
+  }
+
   // Opcode field helpers: Instr_dout[15:12] is the LC3 opcode.
   constraint legal_opcode_c {
     !(Instr_dout[15:12] inside {4'b1000, 4'b1101});
