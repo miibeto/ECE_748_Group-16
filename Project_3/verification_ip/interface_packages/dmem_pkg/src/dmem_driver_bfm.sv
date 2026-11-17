@@ -260,14 +260,14 @@ bit first_transfer=1;
 // UVMF_CHANGE_ME
 // This task is used by a responder.  The task first completes the current 
 // transfer in progress then waits for the initiator to start the next transfer.
-  task respond_and_wait_for_next_transfer( 
+  task respond_and_wait_for_next_transfer(
        // This argument is used to send data received from the initiator
        // back to the sequence item.  The sequence determines how to respond.
-       output dmem_initiator_s dmem_initiator_struct, 
+       output dmem_initiator_s dmem_initiator_struct,
        // This argument passes transaction variables used by a responder
-       // to complete a protocol transfer.  The values come from a sequence item.       
-       input dmem_responder_s dmem_responder_struct 
-       );// pragma tbx xtf   
+       // to complete a protocol transfer.  The values come from a sequence item.
+       input dmem_responder_s dmem_responder_struct
+       );// pragma tbx xtf
   // Variables within the dmem_initiator_struct:
   //   bit [15:0] Data_addr ;
   //   bit [15:0] Data_din ;
@@ -321,7 +321,6 @@ bit first_transfer=1;
     @(posedge clock_i);
     complete_data_o <= 1'b0;
   end
-  @(posedge clock_i);
   while (!(Data_rd_i === 1'b1 || Data_rd_i === 1'b0)) @(posedge clock_i);
   dmem_initiator_struct.Data_addr = Data_addr_i;
   dmem_initiator_struct.Data_din  = Data_din_i;

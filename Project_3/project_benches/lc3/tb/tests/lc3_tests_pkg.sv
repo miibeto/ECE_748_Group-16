@@ -55,6 +55,7 @@ package lc3_tests_pkg;
    `include "src/test_top.svh"
    `include "src/register_test.svh"
    `include "src/example_derived_test.svh"
+   `include "src/memaccess_directed_tests.svh"
 
   // pragma uvmf custom package_item_additional begin
    // Instruction-coverage stimulus: constrained imem transactions + per-opcode tests.

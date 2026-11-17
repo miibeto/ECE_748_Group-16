@@ -29,11 +29,22 @@ class memaccess_in_transaction_coverage  extends uvm_subscriber #(.T(memaccess_i
     // UVMF_CHANGE_ME : Add coverage bins, crosses, exclusions, etc. according to coverage needs.
     option.auto_bin_max=1024;
     option.per_instance=1;
+    // mem_state and M_Control only have a few possible values so the default
+    // auto bins are already fine for them by themselves. what we actually
+    // care about is crossing them, since that's basically LDR vs LDI vs
+    // STR vs STI vs idle from mem_access_model - want to see all of those
     mem_state: coverpoint coverage_trans.mem_state;
     M_Control: coverpoint coverage_trans.M_Control;
-    M_Data: coverpoint coverage_trans.M_Data;
-    M_addr: coverpoint coverage_trans.M_addr;
-    DMem_dout: coverpoint coverage_trans.DMem_dout;
+    cross_state_control: cross mem_state, M_Control;
+    // same address-range binning trick as dmem - M_addr is 16 bits so
+    // leaving it on default auto bins would never close
+    cp_addr: coverpoint coverage_trans.M_addr {
+      bins min_addr = {16'h0000};
+      bins low      = {[16'h0001:16'h3FFF]};
+      bins mid      = {[16'h4000:16'hBFFF]};
+      bins high     = {[16'hC000:16'hFFFE]};
+      bins max_addr = {16'hFFFF};
+    }
     // pragma uvmf custom covergroup end
   endgroup
 
@@ -44,7 +55,6 @@ class memaccess_in_transaction_coverage  extends uvm_subscriber #(.T(memaccess_i
   function new(string name="", uvm_component parent=null);
     super.new(name,parent);
     memaccess_in_transaction_cg=new;
-    `uvm_warning("COVERAGE_MODEL_REVIEW", "A covergroup has been constructed which may need review because of either generation or re-generation with merging.  Please note that transaction variables added as a result of re-generation and merging are not automatically added to the covergroup.  Remove this warning after the covergroup has been reviewed.")
   endfunction
 
   // ****************************************************************************

@@ -85,6 +85,9 @@ end
   // pragma tbx oneway proxy.notify_transaction                 
 
   // pragma uvmf custom interface_item_additional begin
+  bit [15:0] DMem_addr_prev = 16'h0000;
+  bit DMem_rd_prev = 1'b0;
+  bit [15:0] DMem_din_prev = 16'h0000;
   // pragma uvmf custom interface_item_additional end
   
   //******************************************************************                         
@@ -96,8 +99,9 @@ end
   // ****************************************************************************              
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
-    @(posedge clock_i) ;                                                                    
+    // reset is active high, so wait for it to go back to 0 before we start
+    wait ( reset_i === 1'b0 ) ;
+    @(posedge clock_i) ;
   // pragma uvmf custom reset_condition end                                                                
   endtask    
 
@@ -164,17 +168,21 @@ end
     //      memaccess_out_monitor_struct.xyz = DMem_din_i;  //    [15:0] 
     //      memaccess_out_monitor_struct.xyz = memout_i;  //    [15:0] 
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
+    // wait for any of the request fields to actually change
+    while (DMem_addr_i === DMem_addr_prev && DMem_rd_i === DMem_rd_prev
+           && DMem_din_i === DMem_din_prev) @(posedge clock_i);
+    DMem_addr_prev = DMem_addr_i;
+    DMem_rd_prev   = DMem_rd_i;
+    DMem_din_prev  = DMem_din_i;
+
+    memaccess_out_monitor_struct.DMem_addr = DMem_addr_i;
+    memaccess_out_monitor_struct.DMem_rd   = DMem_rd_i;
+    memaccess_out_monitor_struct.DMem_din  = DMem_din_i;
+
+    // memout is the stage result, comes out a cycle later same as the other
+    // response signals in this env
     @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    memaccess_out_monitor_struct.memout = memout_i;
     // pragma uvmf custom do_monitor end
   endtask         
   
