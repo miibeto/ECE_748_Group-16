@@ -6,6 +6,12 @@ make p3_cli_run_test TEST_NAME=experiment_test_top VERBOSITY=UVM_LOW
 make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=3685502995 VERBOSITY=UVM_LOW
 make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=2924250918 VERBOSITY=UVM_LOW
 make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=1 VERBOSITY=UVM_LOW
+make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=2 VERBOSITY=UVM_LOW
+make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=3 VERBOSITY=UVM_LOW
+make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=4 VERBOSITY=UVM_LOW
+make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=6 VERBOSITY=UVM_LOW
+make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=7 VERBOSITY=UVM_LOW
+make p3_cli_run_test TEST_NAME=random_instr_test TEST_SEED=10 VERBOSITY=UVM_LOW
 make merge_coverage
 make view_coverage
 make report_coverage
