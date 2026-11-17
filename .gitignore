@@ -1,0 +1,26 @@
+# Questa / ModelSim simulation artifacts
+**/sim/work/
+**/sim/transcript
+**/sim/*.wlf
+**/sim/*.ucdb
+**/sim/*.log
+**/sim/certe_dump.xml
+**/sim/coverage.txt
+**/sim/cvg_only.txt
+**/sim/covhtmlreport/
+**/sim/regress_logs/
+**/sim/regress_ucdb/
+**/sim/testplan_report.txt
+
+# Stray transcripts anywhere in the tree
+transcript
+**/transcript
+tcl_stacktrace.txt
+
+# Logs at repo root
+*.log
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
