@@ -1,0 +1,1498 @@
+make[1]: Entering directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: overriding recipe for target 'comp_lc3_prediction_pkg'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: ignoring old recipe for target 'comp_lc3_prediction_pkg'
+make libs
+make[2]: Entering directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: overriding recipe for target 'comp_lc3_prediction_pkg'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: ignoring old recipe for target 'comp_lc3_prediction_pkg'
+test -e work || vlib work 
+make[2]: Leaving directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+make comp_lc3_prediction_pkg
+make[2]: Entering directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: overriding recipe for target 'comp_lc3_prediction_pkg'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: ignoring old recipe for target 'comp_lc3_prediction_pkg'
+vlog /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:28 on Nov 18,2026
+vlog /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_prediction_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+
+Top level modules:
+	--none--
+End time: 08:45:29 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+make[2]: Leaving directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+make build
+make[2]: Entering directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: overriding recipe for target 'comp_lc3_prediction_pkg'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: ignoring old recipe for target 'comp_lc3_prediction_pkg'
+echo "Compile your verilog DUT here"
+Compile your verilog DUT here
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/data_defs.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Fetch.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Decode_Pipelined.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Execute.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Mem_Access.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/WriteBack.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Controller_Pipeline.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/TopLevelLC3.v
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:29 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/data_defs.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Fetch.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Decode_Pipelined.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Execute.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Mem_Access.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/WriteBack.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/Controller_Pipeline.v /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/rtl/verilog/TopLevelLC3.v 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling module Fetch
+-- Compiling module Decode
+-- Compiling module Execute
+-- Compiling module extension
+-- Compiling module ALU
+-- Compiling module MemAccess
+-- Compiling module Writeback
+-- Compiling module RegFile
+-- Compiling module Controller_Pipeline
+-- Compiling module LC3
+
+Top level modules:
+	LC3
+End time: 08:45:30 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE   +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hdl.f
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:30 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg" -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:30 on Nov 18,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE   +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hvl.f
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:30 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg" -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package uvmf_base_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:31 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:31 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_in_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:32 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:32 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_in_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package decode_in_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:33 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:33 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_in_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package decode_in_pkg_hdl
+-- Compiling interface decode_in_if
+-- Compiling package decode_in_monitor_bfm_sv_unit
+-- Compiling interface decode_in_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package decode_in_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package decode_in_driver_bfm_sv_unit
+-- Compiling interface decode_in_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:34 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:34 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_out_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:34 on Nov 18,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:35 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_out_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package decode_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:36 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:36 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_out_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package decode_out_pkg_hdl
+-- Compiling interface decode_out_if
+-- Compiling package decode_out_monitor_bfm_sv_unit
+-- Compiling interface decode_out_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package decode_out_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package decode_out_driver_bfm_sv_unit
+-- Compiling interface decode_out_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:37 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:37 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_in_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:37 on Nov 18,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:37 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_in_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package writeback_in_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:38 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:38 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_in_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package writeback_in_pkg_hdl
+-- Compiling interface writeback_in_if
+-- Compiling package writeback_in_monitor_bfm_sv_unit
+-- Compiling interface writeback_in_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package writeback_in_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package writeback_in_driver_bfm_sv_unit
+-- Compiling interface writeback_in_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:40 on Nov 18,2026, Elapsed time: 0:00:02
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:40 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_out_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:40 on Nov 18,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:40 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_out_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package writeback_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:41 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:41 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_out_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package writeback_out_pkg_hdl
+-- Compiling interface writeback_out_if
+-- Compiling package writeback_out_monitor_bfm_sv_unit
+-- Compiling interface writeback_out_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package writeback_out_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package writeback_out_driver_bfm_sv_unit
+-- Compiling interface writeback_out_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:42 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:42 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_in_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:43 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:43 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_in_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package memaccess_in_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:44 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:44 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_in_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package memaccess_in_pkg_hdl
+-- Compiling interface memaccess_in_if
+-- Compiling package memaccess_in_monitor_bfm_sv_unit
+-- Compiling interface memaccess_in_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package memaccess_in_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package memaccess_in_driver_bfm_sv_unit
+-- Compiling interface memaccess_in_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:45 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:45 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_out_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:46 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:46 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_out_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package memaccess_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:47 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:47 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_out_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package memaccess_out_pkg_hdl
+-- Compiling interface memaccess_out_if
+-- Compiling package memaccess_out_monitor_bfm_sv_unit
+-- Compiling interface memaccess_out_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package memaccess_out_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package memaccess_out_driver_bfm_sv_unit
+-- Compiling interface memaccess_out_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:48 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:48 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_in_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:48 on Nov 18,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:48 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_in_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package control_in_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:50 on Nov 18,2026, Elapsed time: 0:00:02
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:50 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_in_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package control_in_pkg_hdl
+-- Compiling interface control_in_if
+-- Compiling package control_in_monitor_bfm_sv_unit
+-- Compiling interface control_in_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package control_in_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package control_in_driver_bfm_sv_unit
+-- Compiling interface control_in_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:51 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:51 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_out_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:51 on Nov 18,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:51 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_out_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package control_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:52 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:52 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_out_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package control_out_pkg_hdl
+-- Compiling interface control_out_if
+-- Compiling package control_out_monitor_bfm_sv_unit
+-- Compiling interface control_out_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package control_out_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package control_out_driver_bfm_sv_unit
+-- Compiling interface control_out_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:53 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:53 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package imem_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:54 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:54 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package imem_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package imem_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:55 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:55 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package imem_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package imem_pkg_hdl
+-- Compiling interface imem_if
+-- Compiling package imem_monitor_bfm_sv_unit
+-- Compiling interface imem_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package imem_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package imem_driver_bfm_sv_unit
+-- Compiling interface imem_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:56 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:56 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package dmem_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:56 on Nov 18,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:57 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package dmem_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package dmem_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:45:58 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:58 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package dmem_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package dmem_pkg_hdl
+-- Compiling interface dmem_if
+-- Compiling package dmem_monitor_bfm_sv_unit
+-- Compiling interface dmem_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package dmem_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package dmem_driver_bfm_sv_unit
+-- Compiling interface dmem_driver_bfm
+
+Top level modules:
+	--none--
+End time: 08:45:59 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/decode_env_pkg /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/decode_env_pkg/decode_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:45:59 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/decode_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/decode_env_pkg/decode_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+
+Top level modules:
+	--none--
+End time: 08:46:00 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/writeback_env_pkg /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/writeback_env_pkg/writeback_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:00 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/writeback_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/writeback_env_pkg/writeback_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:46:01 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:01 on Nov 18,2026
+vlog /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_prediction_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+
+Top level modules:
+	--none--
+End time: 08:46:01 on Nov 18,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/memaccess_env_pkg /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/memaccess_env_pkg/memaccess_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:01 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/memaccess_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/memaccess_env_pkg/memaccess_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+
+Top level modules:
+	--none--
+End time: 08:46:02 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/control_env_pkg /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/control_env_pkg/control_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:02 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/control_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/control_env_pkg/control_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:46:03 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_env_pkg /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_env_pkg/lc3_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:03 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_env_pkg" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_env_pkg/lc3_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:46:04 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/parameters /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/parameters/lc3_parameters_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:04 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/parameters" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/parameters/lc3_parameters_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_parameters_pkg
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 08:46:05 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/sequences /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/sequences/lc3_sequences_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:05 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/sequences" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/sequences/lc3_sequences_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_sequences_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package decode_env_pkg
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package memaccess_env_pkg
+-- Importing package control_env_pkg
+
+Top level modules:
+	--none--
+End time: 08:46:06 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/tests /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/tests/lc3_tests_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:06 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/tests" /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/tests/lc3_tests_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_tests_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+
+Top level modules:
+	--none--
+End time: 08:46:07 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/questa_mvc_src/sv +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench/top_filelist_hvl.f
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:07 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/questa_mvc_src/sv" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench/top_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling module hvl_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package lc3_tests_pkg
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+
+Top level modules:
+	hvl_top
+End time: 08:46:08 on Nov 18,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench/top_filelist_hdl.f
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:08 on Nov 18,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench" -F /mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/tb/testbench/top_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling module hdl_top
+-- Importing package lc3_parameters_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+
+Top level modules:
+	hdl_top
+End time: 08:46:08 on Nov 18,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+make[2]: Leaving directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+make link
+make[2]: Entering directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: overriding recipe for target 'comp_lc3_prediction_pkg'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: ignoring old recipe for target 'comp_lc3_prediction_pkg'
+make[2]: Nothing to be done for 'link'.
+make[2]: Leaving directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+make optimize
+make[2]: Entering directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: overriding recipe for target 'comp_lc3_prediction_pkg'
+/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/Makefile:2: warning: ignoring old recipe for target 'comp_lc3_prediction_pkg'
+vopt      hvl_top hdl_top    -o optimized_batch_top_tb
+QuestaSim-64 vopt 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:09 on Nov 18,2026
+vopt hvl_top hdl_top -o optimized_batch_top_tb 
+** Note: (vopt-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+
+Top level modules:
+	hvl_top
+	hdl_top
+
+Analyzing design...
+-- Loading module hvl_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package lc3_tests_pkg
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+-- Loading module hdl_top
+-- Loading package mtiUvm.questa_uvm_pkg
+-- Loading interface decode_in_if
+-- Loading interface decode_out_if
+-- Loading interface writeback_in_if
+-- Loading interface writeback_out_if
+-- Loading interface memaccess_in_if
+-- Loading interface memaccess_out_if
+-- Loading interface control_in_if
+-- Loading interface control_out_if
+-- Loading interface imem_if
+-- Loading interface dmem_if
+-- Loading interface decode_in_monitor_bfm
+-- Loading interface decode_in_driver_bfm
+-- Loading interface decode_out_monitor_bfm
+-- Loading interface decode_out_driver_bfm
+-- Loading interface writeback_in_monitor_bfm
+-- Loading interface writeback_in_driver_bfm
+-- Loading interface writeback_out_monitor_bfm
+-- Loading interface writeback_out_driver_bfm
+-- Loading interface memaccess_in_monitor_bfm
+-- Loading interface memaccess_in_driver_bfm
+-- Loading interface memaccess_out_monitor_bfm
+-- Loading interface memaccess_out_driver_bfm
+-- Loading interface control_in_monitor_bfm
+-- Loading interface control_in_driver_bfm
+-- Loading interface control_out_monitor_bfm
+-- Loading interface control_out_driver_bfm
+-- Loading interface imem_monitor_bfm
+-- Loading interface imem_driver_bfm
+-- Loading interface dmem_monitor_bfm
+-- Loading interface dmem_driver_bfm
+-- Loading module LC3
+-- Loading module Fetch
+-- Loading module Decode
+-- Loading module Execute
+-- Loading module ALU
+-- Loading module extension
+-- Loading module MemAccess
+-- Loading module Writeback
+-- Loading module RegFile
+-- Loading module Controller_Pipeline
+Optimizing 127 design-units (inlining 20/34 module instances):
+-- Optimizing interface memaccess_in_if(fast)
+-- Optimizing interface writeback_out_if(fast)
+-- Optimizing interface writeback_in_if(fast)
+-- Optimizing interface decode_out_if(fast)
+-- Optimizing interface decode_in_if(fast)
+-- Optimizing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)(fast)
+-- Optimizing package imem_pkg_hdl(fast)
+-- Optimizing package imem_if_sv_unit(fast)
+-- Optimizing package dmem_pkg_hdl(fast)
+-- Optimizing package dmem_if_sv_unit(fast)
+-- Optimizing package decode_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package decode_in_driver_bfm_sv_unit(fast)
+-- Optimizing package decode_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package decode_out_driver_bfm_sv_unit(fast)
+-- Optimizing package writeback_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package writeback_in_driver_bfm_sv_unit(fast)
+-- Optimizing package writeback_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package writeback_out_driver_bfm_sv_unit(fast)
+-- Optimizing package memaccess_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package memaccess_in_driver_bfm_sv_unit(fast)
+-- Optimizing package memaccess_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package memaccess_out_driver_bfm_sv_unit(fast)
+-- Optimizing package control_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package control_in_driver_bfm_sv_unit(fast)
+-- Optimizing package control_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package control_out_driver_bfm_sv_unit(fast)
+-- Optimizing package imem_monitor_bfm_sv_unit(fast)
+-- Optimizing package imem_driver_bfm_sv_unit(fast)
+-- Optimizing package dmem_monitor_bfm_sv_unit(fast)
+-- Optimizing package dmem_driver_bfm_sv_unit(fast)
+-- Optimizing interface dmem_monitor_bfm(fast)
+-- Optimizing interface dmem_driver_bfm(fast)
+-- Optimizing interface imem_monitor_bfm(fast)
+-- Optimizing interface imem_driver_bfm(fast)
+-- Optimizing interface control_out_monitor_bfm(fast)
+-- Optimizing interface control_out_driver_bfm(fast)
+-- Optimizing interface control_in_monitor_bfm(fast)
+-- Optimizing interface control_in_driver_bfm(fast)
+-- Optimizing interface memaccess_out_monitor_bfm(fast)
+-- Optimizing interface memaccess_out_driver_bfm(fast)
+-- Optimizing interface memaccess_in_monitor_bfm(fast)
+-- Optimizing interface memaccess_in_driver_bfm(fast)
+-- Optimizing interface writeback_out_monitor_bfm(fast)
+-- Optimizing interface writeback_out_driver_bfm(fast)
+-- Optimizing interface writeback_in_monitor_bfm(fast)
+-- Optimizing interface writeback_in_driver_bfm(fast)
+-- Optimizing interface decode_out_monitor_bfm(fast)
+-- Optimizing interface decode_out_driver_bfm(fast)
+-- Optimizing interface decode_in_monitor_bfm(fast)
+-- Optimizing interface decode_in_driver_bfm(fast)
+-- Optimizing interface dmem_if(fast)
+-- Optimizing interface imem_if(fast)
+-- Optimizing interface control_out_if(fast)
+-- Optimizing interface control_in_if(fast)
+-- Optimizing interface memaccess_out_if(fast)
+-- Optimizing package uvmf_base_pkg_hdl(fast)
+-- Optimizing package lc3_parameters_pkg(fast)
+-- Optimizing package decode_in_pkg_hdl(fast)
+-- Optimizing package decode_in_if_sv_unit(fast)
+-- Optimizing package decode_out_pkg_hdl(fast)
+-- Optimizing package decode_out_if_sv_unit(fast)
+-- Optimizing package writeback_in_pkg_hdl(fast)
+-- Optimizing package writeback_in_if_sv_unit(fast)
+-- Optimizing package writeback_out_pkg_hdl(fast)
+-- Optimizing package writeback_out_if_sv_unit(fast)
+-- Optimizing package memaccess_in_pkg_hdl(fast)
+-- Optimizing package memaccess_in_if_sv_unit(fast)
+-- Optimizing package memaccess_out_pkg_hdl(fast)
+-- Optimizing package memaccess_out_if_sv_unit(fast)
+-- Optimizing package control_in_pkg_hdl(fast)
+-- Optimizing package control_in_if_sv_unit(fast)
+-- Optimizing package control_out_pkg_hdl(fast)
+-- Optimizing package control_out_if_sv_unit(fast)
+-- Optimizing package writeback_out_pkg(fast)
+-- Optimizing package memaccess_out_pkg(fast)
+-- Optimizing package lc3_prediction_pkg(fast)
+-- Optimizing package decode_env_pkg(fast)
+-- Optimizing package writeback_env_pkg(fast)
+-- Optimizing package memaccess_env_pkg(fast)
+-- Optimizing package control_env_pkg(fast)
+-- Optimizing package lc3_env_pkg(fast)
+-- Optimizing package lc3_sequences_pkg(fast)
+-- Optimizing interface memaccess_in_monitor_bfm(fast__1)
+-- Optimizing interface dmem_driver_bfm(fast__1)
+-- Optimizing interface decode_in_monitor_bfm(fast__1)
+-- Optimizing interface imem_driver_bfm(fast__1)
+-- Optimizing interface dmem_monitor_bfm(fast__1)
+-- Optimizing interface control_out_monitor_bfm(fast__1)
+-- Optimizing interface memaccess_out_monitor_bfm(fast__1)
+-- Optimizing interface decode_out_monitor_bfm(fast__1)
+-- Optimizing interface writeback_in_monitor_bfm(fast__1)
+-- Optimizing interface control_in_monitor_bfm(fast__1)
+-- Optimizing interface writeback_out_monitor_bfm(fast__1)
+-- Optimizing module hvl_top(fast)
+-- Optimizing package mtiUvm.questa_uvm_pkg(fast)
+-- Optimizing package uvmf_base_pkg(fast)
+-- Optimizing package decode_in_pkg(fast)
+-- Optimizing package decode_out_pkg(fast)
+-- Optimizing package writeback_in_pkg(fast)
+-- Optimizing package memaccess_in_pkg(fast)
+-- Optimizing package control_in_pkg(fast)
+-- Optimizing package control_out_pkg(fast)
+-- Optimizing package imem_pkg(fast)
+-- Optimizing package dmem_pkg(fast)
+-- Optimizing package lc3_tests_pkg(fast)
+-- Inlining interface decode_in_if(fast__1)
+-- Inlining interface decode_out_if(fast__1)
+-- Inlining interface writeback_in_if(fast__1)
+-- Inlining interface writeback_out_if(fast__1)
+-- Inlining interface memaccess_in_if(fast__1)
+-- Inlining interface memaccess_out_if(fast__1)
+-- Inlining interface control_in_if(fast__1)
+-- Inlining interface control_out_if(fast__1)
+-- Inlining interface imem_if(fast__1)
+-- Inlining interface dmem_if(fast__1)
+-- Inlining module Fetch(fast)
+-- Inlining module Decode(fast)
+-- Inlining module ALU(fast)
+-- Inlining module extension(fast)
+-- Inlining module Execute(fast)
+-- Inlining module MemAccess(fast)
+-- Inlining module RegFile(fast)
+-- Inlining module Writeback(fast)
+-- Inlining module Controller_Pipeline(fast)
+-- Inlining module LC3(fast)
+-- Optimizing module hdl_top(fast)
+-- Optimizing interface imem_monitor_bfm(fast__1)
+Optimized design name is optimized_batch_top_tb
+End time: 08:46:14 on Nov 18,2026, Elapsed time: 0:00:05
+Errors: 0, Warnings: 0
+vopt    +acc   hvl_top hdl_top    -o optimized_debug_top_tb
+QuestaSim-64 vopt 2026.1 Compiler 2026.01 Jan 25 2026
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 08:46:15 on Nov 18,2026
+vopt "+acc" hvl_top hdl_top -o optimized_debug_top_tb 
+** Note: (vopt-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+
+Top level modules:
+	hvl_top
+	hdl_top
+
+Analyzing design...
+-- Loading module hvl_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package lc3_tests_pkg
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+-- Loading module hdl_top
+-- Loading package mtiUvm.questa_uvm_pkg
+-- Loading interface decode_in_if
+-- Loading interface decode_out_if
+-- Loading interface writeback_in_if
+-- Loading interface writeback_out_if
+-- Loading interface memaccess_in_if
+-- Loading interface memaccess_out_if
+-- Loading interface control_in_if
+-- Loading interface control_out_if
+-- Loading interface imem_if
+-- Loading interface dmem_if
+-- Loading interface decode_in_monitor_bfm
+-- Loading interface decode_in_driver_bfm
+-- Loading interface decode_out_monitor_bfm
+-- Loading interface decode_out_driver_bfm
+-- Loading interface writeback_in_monitor_bfm
+-- Loading interface writeback_in_driver_bfm
+-- Loading interface writeback_out_monitor_bfm
+-- Loading interface writeback_out_driver_bfm
+-- Loading interface memaccess_in_monitor_bfm
+-- Loading interface memaccess_in_driver_bfm
+-- Loading interface memaccess_out_monitor_bfm
+-- Loading interface memaccess_out_driver_bfm
+-- Loading interface control_in_monitor_bfm
+-- Loading interface control_in_driver_bfm
+-- Loading interface control_out_monitor_bfm
+-- Loading interface control_out_driver_bfm
+-- Loading interface imem_monitor_bfm
+-- Loading interface imem_driver_bfm
+-- Loading interface dmem_monitor_bfm
+-- Loading interface dmem_driver_bfm
+-- Loading module LC3
+-- Loading module Fetch
+-- Loading module Decode
+-- Loading module Execute
+-- Loading module ALU
+-- Loading module extension
+-- Loading module MemAccess
+-- Loading module Writeback
+-- Loading module RegFile
+-- Loading module Controller_Pipeline
+Optimizing 127 design-units (inlining 0/34 module instances):
+-- Optimizing package memaccess_out_driver_bfm_sv_unit(fast)
+-- Optimizing package control_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package control_in_driver_bfm_sv_unit(fast)
+-- Optimizing package control_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package control_out_driver_bfm_sv_unit(fast)
+-- Optimizing package imem_monitor_bfm_sv_unit(fast)
+-- Optimizing package imem_driver_bfm_sv_unit(fast)
+-- Optimizing package dmem_monitor_bfm_sv_unit(fast)
+-- Optimizing package dmem_driver_bfm_sv_unit(fast)
+-- Optimizing interface dmem_monitor_bfm(fast)
+-- Optimizing interface dmem_driver_bfm(fast)
+-- Optimizing interface imem_monitor_bfm(fast)
+-- Optimizing interface imem_driver_bfm(fast)
+-- Optimizing interface control_out_monitor_bfm(fast)
+-- Optimizing interface control_out_driver_bfm(fast)
+-- Optimizing interface control_in_monitor_bfm(fast)
+-- Optimizing interface control_in_driver_bfm(fast)
+-- Optimizing interface memaccess_out_monitor_bfm(fast)
+-- Optimizing interface memaccess_out_driver_bfm(fast)
+-- Optimizing interface memaccess_in_monitor_bfm(fast)
+-- Optimizing interface memaccess_in_driver_bfm(fast)
+-- Optimizing interface writeback_out_monitor_bfm(fast)
+-- Optimizing interface writeback_out_driver_bfm(fast)
+-- Optimizing interface writeback_in_monitor_bfm(fast)
+-- Optimizing interface writeback_in_driver_bfm(fast)
+-- Optimizing interface decode_out_monitor_bfm(fast)
+-- Optimizing interface decode_out_driver_bfm(fast)
+-- Optimizing interface decode_in_monitor_bfm(fast)
+-- Optimizing interface decode_in_driver_bfm(fast)
+-- Optimizing interface dmem_if(fast)
+-- Optimizing interface imem_if(fast)
+-- Optimizing interface control_out_if(fast)
+-- Optimizing interface control_in_if(fast)
+-- Optimizing interface memaccess_out_if(fast)
+-- Optimizing interface memaccess_in_if(fast)
+-- Optimizing interface writeback_out_if(fast)
+-- Optimizing interface writeback_in_if(fast)
+-- Optimizing interface decode_out_if(fast)
+-- Optimizing interface decode_in_if(fast)
+-- Optimizing package lc3_parameters_pkg(fast)
+-- Optimizing package decode_in_pkg_hdl(fast)
+-- Optimizing package decode_in_if_sv_unit(fast)
+-- Optimizing package decode_out_pkg_hdl(fast)
+-- Optimizing package decode_out_if_sv_unit(fast)
+-- Optimizing package writeback_in_pkg_hdl(fast)
+-- Optimizing package writeback_in_if_sv_unit(fast)
+-- Optimizing package writeback_out_pkg_hdl(fast)
+-- Optimizing package writeback_out_if_sv_unit(fast)
+-- Optimizing package memaccess_in_pkg_hdl(fast)
+-- Optimizing package memaccess_in_if_sv_unit(fast)
+-- Optimizing package memaccess_out_pkg_hdl(fast)
+-- Optimizing package memaccess_out_if_sv_unit(fast)
+-- Optimizing package control_in_pkg_hdl(fast)
+-- Optimizing package control_in_if_sv_unit(fast)
+-- Optimizing package control_out_pkg_hdl(fast)
+-- Optimizing package control_out_if_sv_unit(fast)
+-- Optimizing package imem_pkg_hdl(fast)
+-- Optimizing package imem_if_sv_unit(fast)
+-- Optimizing package dmem_pkg_hdl(fast)
+-- Optimizing package dmem_if_sv_unit(fast)
+-- Optimizing package decode_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package decode_in_driver_bfm_sv_unit(fast)
+-- Optimizing package decode_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package decode_out_driver_bfm_sv_unit(fast)
+-- Optimizing package writeback_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package writeback_in_driver_bfm_sv_unit(fast)
+-- Optimizing package writeback_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package writeback_out_driver_bfm_sv_unit(fast)
+-- Optimizing package memaccess_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package memaccess_in_driver_bfm_sv_unit(fast)
+-- Optimizing package memaccess_out_monitor_bfm_sv_unit(fast)
+-- Optimizing module extension(fast)
+-- Optimizing interface control_out_if(fast__1)
+-- Optimizing interface writeback_in_if(fast__1)
+-- Optimizing interface control_in_if(fast__1)
+-- Optimizing interface decode_out_if(fast__1)
+-- Optimizing interface dmem_if(fast__1)
+-- Optimizing interface memaccess_in_if(fast__1)
+-- Optimizing interface imem_if(fast__1)
+-- Optimizing interface memaccess_out_if(fast__1)
+-- Optimizing interface decode_in_if(fast__1)
+-- Optimizing interface writeback_out_if(fast__1)
+-- Optimizing module hvl_top(fast)
+-- Optimizing package uvmf_base_pkg_hdl(fast)
+-- Optimizing package decode_out_pkg(fast)
+-- Optimizing package writeback_out_pkg(fast)
+-- Optimizing package memaccess_out_pkg(fast)
+-- Optimizing package decode_env_pkg(fast)
+-- Optimizing package writeback_env_pkg(fast)
+-- Optimizing package memaccess_env_pkg(fast)
+-- Optimizing package control_env_pkg(fast)
+-- Optimizing package lc3_env_pkg(fast)
+-- Optimizing package lc3_sequences_pkg(fast)
+-- Optimizing module Controller_Pipeline(fast)
+-- Optimizing module hdl_top(fast)
+-- Optimizing interface imem_monitor_bfm(fast__1)
+-- Optimizing module Execute(fast)
+-- Optimizing module Decode(fast)
+-- Optimizing interface memaccess_in_monitor_bfm(fast__1)
+-- Optimizing interface dmem_driver_bfm(fast__1)
+-- Optimizing interface decode_in_monitor_bfm(fast__1)
+-- Optimizing interface imem_driver_bfm(fast__1)
+-- Optimizing interface dmem_monitor_bfm(fast__1)
+-- Optimizing interface control_out_monitor_bfm(fast__1)
+-- Optimizing interface memaccess_out_monitor_bfm(fast__1)
+-- Optimizing interface decode_out_monitor_bfm(fast__1)
+-- Optimizing interface writeback_in_monitor_bfm(fast__1)
+-- Optimizing interface control_in_monitor_bfm(fast__1)
+-- Optimizing module LC3(fast)
+-- Optimizing interface writeback_out_monitor_bfm(fast__1)
+-- Optimizing module RegFile(fast)
+-- Optimizing module Writeback(fast)
+-- Optimizing module MemAccess(fast)
+-- Optimizing module ALU(fast)
+-- Optimizing module Fetch(fast)
+-- Optimizing package mtiUvm.questa_uvm_pkg(fast)
+-- Optimizing package uvmf_base_pkg(fast)
+-- Optimizing package decode_in_pkg(fast)
+-- Optimizing package writeback_in_pkg(fast)
+-- Optimizing package memaccess_in_pkg(fast)
+-- Optimizing package control_in_pkg(fast)
+-- Optimizing package control_out_pkg(fast)
+-- Optimizing package imem_pkg(fast)
+-- Optimizing package dmem_pkg(fast)
+-- Optimizing package lc3_prediction_pkg(fast)
+-- Optimizing package lc3_tests_pkg(fast)
+-- Optimizing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)(fast)
+Optimized design name is optimized_debug_top_tb
+End time: 08:46:19 on Nov 18,2026, Elapsed time: 0:00:04
+Errors: 0, Warnings: 1
+make[2]: Leaving directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+make[1]: Leaving directory '/mnt/ncsudrive/m/madize/MyECE748/ECE_748_Group-16/Project_3/project_benches/lc3/sim'
+QuestaSim-64 vopt 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 08:46:20 on Nov 18,2026
+vopt "+cover=bcesftc" hvl_top hdl_top -o optimized_cov_top_tb 
+** Note: (vopt-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+
+Top level modules:
+	hvl_top
+	hdl_top
+
+Analyzing design...
+-- Loading module hvl_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package lc3_tests_pkg
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+-- Loading module hdl_top
+-- Loading package mtiUvm.questa_uvm_pkg
+-- Loading interface decode_in_if
+-- Loading interface decode_out_if
+-- Loading interface writeback_in_if
+-- Loading interface writeback_out_if
+-- Loading interface memaccess_in_if
+-- Loading interface memaccess_out_if
+-- Loading interface control_in_if
+-- Loading interface control_out_if
+-- Loading interface imem_if
+-- Loading interface dmem_if
+-- Loading interface decode_in_monitor_bfm
+-- Loading interface decode_in_driver_bfm
+-- Loading interface decode_out_monitor_bfm
+-- Loading interface decode_out_driver_bfm
+-- Loading interface writeback_in_monitor_bfm
+-- Loading interface writeback_in_driver_bfm
+-- Loading interface writeback_out_monitor_bfm
+-- Loading interface writeback_out_driver_bfm
+-- Loading interface memaccess_in_monitor_bfm
+-- Loading interface memaccess_in_driver_bfm
+-- Loading interface memaccess_out_monitor_bfm
+-- Loading interface memaccess_out_driver_bfm
+-- Loading interface control_in_monitor_bfm
+-- Loading interface control_in_driver_bfm
+-- Loading interface control_out_monitor_bfm
+-- Loading interface control_out_driver_bfm
+-- Loading interface imem_monitor_bfm
+-- Loading interface imem_driver_bfm
+-- Loading interface dmem_monitor_bfm
+-- Loading interface dmem_driver_bfm
+-- Loading module LC3
+-- Loading module Fetch
+-- Loading module Decode
+-- Loading module Execute
+-- Loading module ALU
+-- Loading module extension
+-- Loading module MemAccess
+-- Loading module Writeback
+-- Loading module RegFile
+-- Loading module Controller_Pipeline
+** Warning: (vopt-13408) Code coverage will be disabled for some DUs/packages/classes and source files.
+Optimizing 127 design-units (inlining 20/34 module instances):
+-- Optimizing interface memaccess_in_if(fast)
+-- Optimizing interface writeback_out_if(fast)
+-- Optimizing interface writeback_in_if(fast)
+-- Optimizing interface decode_out_if(fast)
+-- Optimizing interface decode_in_if(fast)
+-- Optimizing package imem_pkg_hdl(fast)
+-- Optimizing package imem_if_sv_unit(fast)
+-- Optimizing package dmem_pkg_hdl(fast)
+-- Optimizing package dmem_if_sv_unit(fast)
+-- Optimizing package decode_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package decode_in_driver_bfm_sv_unit(fast)
+-- Optimizing package decode_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package decode_out_driver_bfm_sv_unit(fast)
+-- Optimizing package writeback_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package writeback_in_driver_bfm_sv_unit(fast)
+-- Optimizing package writeback_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package writeback_out_driver_bfm_sv_unit(fast)
+-- Optimizing package memaccess_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package memaccess_in_driver_bfm_sv_unit(fast)
+-- Optimizing package memaccess_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package memaccess_out_driver_bfm_sv_unit(fast)
+-- Optimizing package control_in_monitor_bfm_sv_unit(fast)
+-- Optimizing package control_in_driver_bfm_sv_unit(fast)
+-- Optimizing package control_out_monitor_bfm_sv_unit(fast)
+-- Optimizing package control_out_driver_bfm_sv_unit(fast)
+-- Optimizing package imem_monitor_bfm_sv_unit(fast)
+-- Optimizing package imem_driver_bfm_sv_unit(fast)
+-- Optimizing package dmem_monitor_bfm_sv_unit(fast)
+-- Optimizing package dmem_driver_bfm_sv_unit(fast)
+-- Optimizing interface dmem_monitor_bfm(fast)
+-- Optimizing interface dmem_driver_bfm(fast)
+-- Optimizing interface imem_monitor_bfm(fast)
+-- Optimizing interface imem_driver_bfm(fast)
+-- Optimizing interface control_out_monitor_bfm(fast)
+-- Optimizing interface control_out_driver_bfm(fast)
+-- Optimizing interface control_in_monitor_bfm(fast)
+-- Optimizing interface control_in_driver_bfm(fast)
+-- Optimizing interface memaccess_out_monitor_bfm(fast)
+-- Optimizing interface memaccess_out_driver_bfm(fast)
+-- Optimizing interface memaccess_in_monitor_bfm(fast)
+-- Optimizing interface memaccess_in_driver_bfm(fast)
+-- Optimizing interface writeback_out_monitor_bfm(fast)
+-- Optimizing interface writeback_out_driver_bfm(fast)
+-- Optimizing interface writeback_in_monitor_bfm(fast)
+-- Optimizing interface writeback_in_driver_bfm(fast)
+-- Optimizing interface decode_out_monitor_bfm(fast)
+-- Optimizing interface decode_out_driver_bfm(fast)
+-- Optimizing interface decode_in_monitor_bfm(fast)
+-- Optimizing interface decode_in_driver_bfm(fast)
+-- Optimizing interface dmem_if(fast)
+-- Optimizing interface imem_if(fast)
+-- Optimizing interface control_out_if(fast)
+-- Optimizing interface control_in_if(fast)
+-- Optimizing interface memaccess_out_if(fast)
+-- Optimizing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)(fast)
+-- Optimizing package uvmf_base_pkg_hdl(fast)
+-- Optimizing package lc3_parameters_pkg(fast)
+-- Optimizing package decode_in_pkg_hdl(fast)
+-- Optimizing package decode_in_if_sv_unit(fast)
+-- Optimizing package decode_out_pkg_hdl(fast)
+-- Optimizing package decode_out_if_sv_unit(fast)
+-- Optimizing package writeback_in_pkg_hdl(fast)
+-- Optimizing package writeback_in_if_sv_unit(fast)
+-- Optimizing package writeback_out_pkg_hdl(fast)
+-- Optimizing package writeback_out_if_sv_unit(fast)
+-- Optimizing package memaccess_in_pkg_hdl(fast)
+-- Optimizing package memaccess_in_if_sv_unit(fast)
+-- Optimizing package memaccess_out_pkg_hdl(fast)
+-- Optimizing package memaccess_out_if_sv_unit(fast)
+-- Optimizing package control_in_pkg_hdl(fast)
+-- Optimizing package control_in_if_sv_unit(fast)
+-- Optimizing package control_out_pkg_hdl(fast)
+-- Optimizing package control_out_if_sv_unit(fast)
+-- Optimizing package writeback_out_pkg(fast)
+-- Optimizing package memaccess_out_pkg(fast)
+-- Optimizing package lc3_prediction_pkg(fast)
+-- Optimizing package decode_env_pkg(fast)
+-- Optimizing package writeback_env_pkg(fast)
+-- Optimizing package memaccess_env_pkg(fast)
+-- Optimizing package control_env_pkg(fast)
+-- Optimizing package lc3_env_pkg(fast)
+-- Optimizing package lc3_sequences_pkg(fast)
+-- Optimizing interface memaccess_in_monitor_bfm(fast__1)
+-- Optimizing interface dmem_driver_bfm(fast__1)
+-- Optimizing interface decode_in_monitor_bfm(fast__1)
+-- Optimizing interface imem_driver_bfm(fast__1)
+-- Optimizing interface dmem_monitor_bfm(fast__1)
+-- Optimizing interface control_out_monitor_bfm(fast__1)
+-- Optimizing interface memaccess_out_monitor_bfm(fast__1)
+-- Optimizing interface decode_out_monitor_bfm(fast__1)
+-- Optimizing interface writeback_in_monitor_bfm(fast__1)
+-- Optimizing interface control_in_monitor_bfm(fast__1)
+-- Optimizing interface writeback_out_monitor_bfm(fast__1)
+-- Optimizing module hvl_top(fast)
+-- Optimizing package mtiUvm.questa_uvm_pkg(fast)
+-- Optimizing package uvmf_base_pkg(fast)
+-- Optimizing package decode_in_pkg(fast)
+-- Optimizing package decode_out_pkg(fast)
+-- Optimizing package writeback_in_pkg(fast)
+-- Optimizing package memaccess_in_pkg(fast)
+-- Optimizing package control_in_pkg(fast)
+-- Optimizing package control_out_pkg(fast)
+-- Optimizing package imem_pkg(fast)
+-- Optimizing package dmem_pkg(fast)
+-- Optimizing package lc3_tests_pkg(fast)
+-- Inlining interface decode_in_if(fast__1)
+-- Inlining interface decode_out_if(fast__1)
+-- Inlining interface writeback_in_if(fast__1)
+-- Inlining interface writeback_out_if(fast__1)
+-- Inlining interface memaccess_in_if(fast__1)
+-- Inlining interface memaccess_out_if(fast__1)
+-- Inlining interface control_in_if(fast__1)
+-- Inlining interface control_out_if(fast__1)
+-- Inlining interface imem_if(fast__1)
+-- Inlining interface dmem_if(fast__1)
+-- Inlining module Fetch(fast)
+-- Inlining module Decode(fast)
+-- Inlining module ALU(fast)
+-- Inlining module extension(fast)
+-- Inlining module Execute(fast)
+-- Inlining module MemAccess(fast)
+-- Inlining module RegFile(fast)
+-- Inlining module Writeback(fast)
+-- Inlining module Controller_Pipeline(fast)
+-- Inlining module LC3(fast)
+-- Optimizing module hdl_top(fast)
+-- Optimizing interface imem_monitor_bfm(fast__1)
+Optimized design name is optimized_cov_top_tb
+End time: 08:46:25 on Nov 18,2026, Elapsed time: 0:00:05
+Errors: 0, Warnings: 1
