@@ -26,14 +26,29 @@ class decode_out_transaction_coverage  extends uvm_subscriber #(.T(decode_out_tr
   // ****************************************************************************
   covergroup decode_out_transaction_cg;
     // pragma uvmf custom covergroup begin
-    // UVMF_CHANGE_ME : Add coverage bins, crosses, exclusions, etc. according to coverage needs.
-    option.auto_bin_max=1024;
-    option.per_instance=1;
-    w_control: coverpoint coverage_trans.w_control;
-    mem_control: coverpoint coverage_trans.mem_control;
-    e_control: coverpoint coverage_trans.e_control;
-    ir: coverpoint coverage_trans.ir;
-    npc_out: coverpoint coverage_trans.npc_out;
+    // Every control value the reference decode_model can produce was seen
+    // at the decoder output (ir/npc_out are checked by decode_sb, not covered).
+    option.per_instance = 1;
+    w_control: coverpoint coverage_trans.w_control {
+      bins alu_or_none = {2'd0};   // ALU result / no writeback select
+      bins mem         = {2'd1};   // LD LDR LDI
+      bins pc          = {2'd2};   // LEA
+      illegal_bins bad = {2'd3};
+    }
+    mem_control: coverpoint coverage_trans.mem_control {
+      bins direct   = {1'b0};
+      bins indirect = {1'b1};      // LDI STI
+    }
+    e_control: coverpoint coverage_trans.e_control {
+      bins add_imm  = {6'b000000};
+      bins add_reg  = {6'b000001};
+      bins and_imm  = {6'b010000};
+      bins and_reg  = {6'b010001};
+      bins not_op   = {6'b100000};
+      bins pc_off9  = {6'b000110};  // BR LD LDI LEA ST STI
+      bins base_off = {6'b001000};  // LDR STR
+      bins jmp      = {6'b001100};
+    }
     // pragma uvmf custom covergroup end
   endgroup
 
@@ -44,7 +59,6 @@ class decode_out_transaction_coverage  extends uvm_subscriber #(.T(decode_out_tr
   function new(string name="", uvm_component parent=null);
     super.new(name,parent);
     decode_out_transaction_cg=new;
-    `uvm_warning("COVERAGE_MODEL_REVIEW", "A covergroup has been constructed which may need review because of either generation or re-generation with merging.  Please note that transaction variables added as a result of re-generation and merging are not automatically added to the covergroup.  Remove this warning after the covergroup has been reviewed.")
   endfunction
 
   // ****************************************************************************

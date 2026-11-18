@@ -64,6 +64,7 @@ import uvmf_base_pkg_hdl::*;
    tri [15:0] ir;
    tri [15:0] npc_out;
    // Writeback Stage
+   tri [1:0] wb_w_control;   // Execute's W_Control_out (differs from Decode's W_Control)
    tri enable_writeback;
    tri [15:0] aluout;
    tri [15:0] memout;
@@ -146,7 +147,7 @@ import uvmf_base_pkg_hdl::*;
       .aluout(aluout),
       .memout(memout),
       .pcout(pcout),
-      .w_control(w_control),
+      .w_control(wb_w_control),
       .dr(dr),
       .sr1(sr1),
       .sr2(sr2)
@@ -266,6 +267,59 @@ import uvmf_base_pkg_hdl::*;
       .Data_dout      (dmem_agent_bus.Data_dout),
       .Data_rd        (dmem_agent_bus.Data_rd)
    );
+
+   // ------------------------------------------------------------------
+   // Passive (monitor-only) stage interfaces: connect the bundle nets to
+   // the LC3 internal wires (names from rtl/verilog/TopLevelLC3.v).
+   // Without these the stage monitors only ever see floating 'z'.
+   // ------------------------------------------------------------------
+   // Decode
+   assign enable_decode    = dut.enable_decode;
+   assign dout             = dut.Instr_dout;
+   assign npc_in           = dut.npc_out_fetch;
+   assign w_control        = dut.W_Control;
+   assign mem_control      = dut.Mem_Control;
+   assign e_control        = dut.E_Control;
+   assign ir               = dut.IR;
+   assign npc_out          = dut.npc_out_dec;
+   // Writeback
+   assign enable_writeback = dut.enable_writeback;
+   assign aluout           = dut.aluout;
+   assign memout           = dut.memout;
+   assign pcout            = dut.pcout;
+   assign wb_w_control     = dut.W_Control_out;
+   assign dr               = dut.dr;
+   assign sr1              = dut.sr1;
+   assign sr2              = dut.sr2;
+   assign vsr1             = dut.VSR1;
+   assign vsr2             = dut.VSR2;
+   assign psr              = dut.psr;
+   // MemAccess
+   assign mem_state        = dut.mem_state;
+   assign M_Control        = dut.Mem_Control_out;
+   assign M_Data           = dut.M_Data;
+   assign M_addr           = dut.pcout;
+   assign DMem_dout        = dut.Data_dout;
+   assign DMem_addr        = dut.Data_addr;
+   assign DMem_rd          = dut.Data_rd;
+   assign DMem_din         = dut.Data_din;
+   // Control
+   // complete_data / complete_instr: NOT assigned here. These hdl_top nets
+   // are already the dmem/imem bus nets (see dmem_agent_bus / imem_agent_bus
+   // port connections), driven by the memory driver BFMs. Assigning them
+   // from dut.* would create a self-loop driver that resolves to X.
+   assign IR               = dut.IR;
+   assign IR_Exec          = dut.IR_Exec;
+   assign IMem_dout        = dut.Instr_dout;
+   assign NZP              = dut.NZP;
+   assign enable_updatePC  = dut.enable_updatePC;
+   assign enable_fetch     = dut.enable_fetch;
+   assign enable_execute   = dut.enable_execute;
+   assign br_taken         = dut.br_taken;
+   assign bypass_alu_1     = dut.bypass_alu_1;
+   assign bypass_alu_2     = dut.bypass_alu_2;
+   assign bypass_mem_1     = dut.bypass_mem_1;
+   assign bypass_mem_2     = dut.bypass_mem_2;
    // pragma uvmf custom dut_instantiation end
 
   initial begin      // tbx vif_binding_block 

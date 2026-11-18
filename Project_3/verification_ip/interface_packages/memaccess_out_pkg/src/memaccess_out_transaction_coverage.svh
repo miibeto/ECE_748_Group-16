@@ -29,10 +29,18 @@ class memaccess_out_transaction_coverage  extends uvm_subscriber #(.T(memaccess_
     // UVMF_CHANGE_ME : Add coverage bins, crosses, exclusions, etc. according to coverage needs.
     option.auto_bin_max=1024;
     option.per_instance=1;
-    DMem_addr: coverpoint coverage_trans.DMem_addr;
+    // just a 1 bit signal so default bins are fine here
     DMem_rd: coverpoint coverage_trans.DMem_rd;
-    DMem_din: coverpoint coverage_trans.DMem_din;
-    memout: coverpoint coverage_trans.memout;
+    // this is the address about to get sent to dmem, same deal as the other
+    // two coverage files - bin by range instead of 1024 individual values
+    cp_addr: coverpoint coverage_trans.DMem_addr {
+      bins min_addr = {16'h0000};
+      bins low      = {[16'h0001:16'h3FFF]};
+      bins mid      = {[16'h4000:16'hBFFF]};
+      bins high     = {[16'hC000:16'hFFFE]};
+      bins max_addr = {16'hFFFF};
+    }
+    cross_rd_addr: cross DMem_rd, cp_addr;
     // pragma uvmf custom covergroup end
   endgroup
 
@@ -43,7 +51,6 @@ class memaccess_out_transaction_coverage  extends uvm_subscriber #(.T(memaccess_
   function new(string name="", uvm_component parent=null);
     super.new(name,parent);
     memaccess_out_transaction_cg=new;
-    `uvm_warning("COVERAGE_MODEL_REVIEW", "A covergroup has been constructed which may need review because of either generation or re-generation with merging.  Please note that transaction variables added as a result of re-generation and merging are not automatically added to the covergroup.  Remove this warning after the covergroup has been reviewed.")
   endfunction
 
   // ****************************************************************************

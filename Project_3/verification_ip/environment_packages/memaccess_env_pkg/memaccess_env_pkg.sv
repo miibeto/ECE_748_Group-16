@@ -27,7 +27,8 @@ package memaccess_env_pkg;
   import memaccess_in_pkg_hdl::*;
   import memaccess_out_pkg::*;
   import memaccess_out_pkg_hdl::*;
- 
+  import lc3_prediction_pkg::*;
+
   `uvm_analysis_imp_decl(_memaccess_in_agent_ae)
 
   // pragma uvmf custom package_imports_additional begin

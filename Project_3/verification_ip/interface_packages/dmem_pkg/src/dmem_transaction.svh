@@ -105,7 +105,6 @@ class dmem_transaction  extends uvmf_transaction_base;
   //
   virtual function string convert2string();
     // pragma uvmf custom convert2string begin
-    // UVMF_CHANGE_ME : Customize format if desired.
     return $sformatf("Data_addr:0x%x Data_din:0x%x Data_rd:0x%x D_macc:0x%x Data_dout:0x%x complete_data:0x%x ",Data_addr,Data_din,Data_rd,D_macc,Data_dout,complete_data);
     // pragma uvmf custom convert2string end
   endfunction
@@ -117,8 +116,6 @@ class dmem_transaction  extends uvmf_transaction_base;
   //
   virtual function void do_print(uvm_printer printer);
     // pragma uvmf custom do_print begin
-    // UVMF_CHANGE_ME : Current contents of do_print allows for the use of UVM 1.1d, 1.2 or P1800.2.
-    // Update based on your own printing preference according to your preferred UVM version
     $display(convert2string());
     // pragma uvmf custom do_print end
   endfunction
@@ -132,7 +129,6 @@ class dmem_transaction  extends uvmf_transaction_base;
     dmem_transaction  RHS;
     if (!$cast(RHS,rhs)) return 0;
     // pragma uvmf custom do_compare begin
-    // UVMF_CHANGE_ME : Eliminate comparison of variables not to be used for compare
     return (super.do_compare(rhs,comparer)
             &&(this.Data_addr == RHS.Data_addr)
             &&(this.Data_din == RHS.Data_din)
@@ -178,12 +174,6 @@ class dmem_transaction  extends uvmf_transaction_base;
     end
     super.add_to_wave(transaction_view_h);
     // pragma uvmf custom add_to_wave begin
-    // UVMF_CHANGE_ME : Color can be applied to transaction entries based on content, example below
-    // case()
-    //   1 : $add_color(transaction_view_h,"red");
-    //   default : $add_color(transaction_view_h,"grey");
-    // endcase
-    // UVMF_CHANGE_ME : Eliminate transaction variables not wanted in transaction viewing in the waveform viewer
     $add_attribute(transaction_view_h,Data_addr,"Data_addr");
     $add_attribute(transaction_view_h,Data_din,"Data_din");
     $add_attribute(transaction_view_h,Data_rd,"Data_rd");

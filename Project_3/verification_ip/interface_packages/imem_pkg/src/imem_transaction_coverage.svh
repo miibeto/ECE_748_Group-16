@@ -26,14 +26,108 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
   // ****************************************************************************
   covergroup imem_transaction_cg;
     // pragma uvmf custom covergroup begin
-    // UVMF_CHANGE_ME : Add coverage bins, crosses, exclusions, etc. according to coverage needs.
-    option.auto_bin_max=1024;
-    option.per_instance=1;
-    PC: coverpoint coverage_trans.PC;
-    instrmem_rd: coverpoint coverage_trans.instrmem_rd;
-    I_macc: coverpoint coverage_trans.I_macc;
-    Instr_dout: coverpoint coverage_trans.Instr_dout;
-    complete_instr: coverpoint coverage_trans.complete_instr;
+    option.per_instance = 1;
+
+    // Primary instruction coverage: one bin per LC3 opcode (bits [15:12] of
+    // the instruction word delivered to Decode). Illegal/reserved opcodes
+    // (RTI=0x8, RESERVED=0xD) are binned separately so tests that exclude
+    // them can be verified. See lc3_prediction_pkg::opcode_t for the encoding.
+    opcode: coverpoint coverage_trans.Instr_dout[15:12] {
+      bins BR       = {4'b0000};
+      bins ADD      = {4'b0001};
+      bins LD       = {4'b0010};
+      bins ST       = {4'b0011};
+      bins JSR      = {4'b0100};
+      bins AND      = {4'b0101};
+      bins LDR      = {4'b0110};
+      bins STR      = {4'b0111};
+      // RTI / RESERVED are excluded from stimulus (imem_constrained_transaction
+      // legal_opcode_c; RESERVED asserts in the reference model), so they are
+      // not counted toward coverage.
+      ignore_bins RTI      = {4'b1000};
+      bins NOT      = {4'b1001};
+      bins LDI      = {4'b1010};
+      bins STI      = {4'b1011};
+      bins JMP      = {4'b1100};
+      ignore_bins RESERVED = {4'b1101};
+      bins LEA      = {4'b1110};
+      bins TRAP     = {4'b1111};
+    }
+
+    // ADD/AND immediate-mode bit (bit 5): 0 = register mode, 1 = immediate.
+    // Only meaningful for ADD and AND; crossed below.
+    add_and_imm_mode: coverpoint coverage_trans.Instr_dout[5] {
+      bins reg_mode = {1'b0};
+      bins imm_mode = {1'b1};
+    }
+
+    // BR condition code bits (bits 11:9 = N, Z, P).
+    // Per Sheet 5, NZP == 000 is illegal (no-op branch) and must not be hit;
+    // it is flagged as an illegal bin so the covergroup errors if it appears.
+    br_nzp: coverpoint coverage_trans.Instr_dout[11:9] iff (coverage_trans.Instr_dout[15:12] == 4'b0000) {
+      illegal_bins none = {3'b000};
+      bins n_only  = {3'b100};
+      bins z_only  = {3'b010};
+      bins p_only  = {3'b001};
+      bins nz      = {3'b110};
+      bins np      = {3'b101};
+      bins zp      = {3'b011};
+      bins nzp     = {3'b111};
+    }
+
+    // JSR vs JSRR distinguishing bit (bit 11).
+    jsr_mode: coverpoint coverage_trans.Instr_dout[11] iff (coverage_trans.Instr_dout[15:12] == 4'b0100) {
+      bins jsrr = {1'b0};
+      bins jsr  = {1'b1};
+    }
+
+    // ADD/AND imm5 signed field (bits [4:0]) per Sheet 5: signed -16..+15.
+    // Three bins cover the sign space (negative / zero / positive).
+    add_and_imm5: coverpoint $signed(coverage_trans.Instr_dout[4:0])
+      iff ( (coverage_trans.Instr_dout[15:12] inside {4'b0001, 4'b0101})
+             && coverage_trans.Instr_dout[5] == 1'b1 ) {
+      bins neg  = {[-16:-1]};
+      bins zero = {0};
+      bins pos  = {[1:15]};
+    }
+
+    // PC-relative 9-bit signed offset used by LD/LDI/LEA/ST/STI (Sheet 5).
+    pc_offset9: coverpoint $signed(coverage_trans.Instr_dout[8:0])
+      iff ( coverage_trans.Instr_dout[15:12] inside {4'b0010,  // LD
+                                                      4'b0011,  // ST
+                                                      4'b1010,  // LDI
+                                                      4'b1011,  // STI
+                                                      4'b1110   // LEA
+                                                    } ) {
+      bins neg  = {[-256:-1]};
+      bins zero = {0};
+      bins pos  = {[1:255]};
+    }
+
+    // LDR/STR 6-bit signed base offset (Sheet 5).
+    offset6: coverpoint $signed(coverage_trans.Instr_dout[5:0])
+      iff ( coverage_trans.Instr_dout[15:12] inside {4'b0110, 4'b0111} ) {
+      bins neg  = {[-32:-1]};
+      bins zero = {0};
+      bins pos  = {[1:31]};
+    }
+
+    // Destination register (bits [11:9]) exercised across all 8 values.
+    dr: coverpoint coverage_trans.Instr_dout[11:9]
+      iff ( coverage_trans.Instr_dout[15:12] inside {4'b0001, 4'b0101, 4'b1001,
+                                                     4'b0010, 4'b1010, 4'b1110,
+                                                     4'b0011, 4'b1011,
+                                                     4'b0110, 4'b0111} ) {
+      bins r[8] = {[0:7]};
+    }
+
+    // Crosses: opcode x imm mode (only meaningful for ADD and AND).
+    add_x_mode: cross opcode, add_and_imm_mode {
+      ignore_bins non_add_and = binsof(opcode) intersect {4'b0000, 4'b0010, 4'b0011, 4'b0100,
+                                                          4'b0110, 4'b0111, 4'b1000, 4'b1001,
+                                                          4'b1010, 4'b1011, 4'b1100, 4'b1101,
+                                                          4'b1110, 4'b1111};
+    }
     // pragma uvmf custom covergroup end
   endgroup
 
@@ -62,7 +156,6 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
   // to local variables used to collect functional coverage.  
   //
   virtual function void write (T t);
-    `uvm_info("COV","Received transaction",UVM_HIGH);
     coverage_trans = t;
     imem_transaction_cg.sample();
   endfunction

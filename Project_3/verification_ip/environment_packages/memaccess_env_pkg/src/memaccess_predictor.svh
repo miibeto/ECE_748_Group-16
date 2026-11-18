@@ -71,7 +71,6 @@ class memaccess_predictor #(
   // FUNCTION: new
   function new(string name, uvm_component parent);
      super.new(name,parent);
-    `uvm_warning("PREDICTOR_REVIEW", "This predictor has been created either through generation or re-generation with merging.  Remove this warning after the predictor has been reviewed.")
   // pragma uvmf custom new begin
   // pragma uvmf custom new end
   endfunction
@@ -90,20 +89,40 @@ class memaccess_predictor #(
   // This function performs prediction of DUT output values based on DUT input, configuration and state
   virtual function void write_memaccess_in_agent_ae(memaccess_in_transaction t);
     // pragma uvmf custom memaccess_in_agent_ae_predictor begin
+    bit [15:0] dmem_addr_pred;
+    bit [15:0] dmem_din_pred;
+    bit [15:0] memout_pred;
+    bit        dmem_rd_pred;
+    bit        model_status;
+
     memaccess_in_agent_ae_debug = t;
     `uvm_info("PRED", "Transaction Received through memaccess_in_agent_ae", UVM_MEDIUM)
     `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
     // Construct one of each output transaction type.
     memaccess_sb_ap_output_transaction = memaccess_sb_ap_output_transaction_t::type_id::create("memaccess_sb_ap_output_transaction");
-    //  UVMF_CHANGE_ME: Implement predictor model here.  
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The memaccess_predictor::write_memaccess_in_agent_ae function needs to be completed with DUT prediction model",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
- 
+
+    // call the mem_access_model function to get the expected outputs
+    model_status = mem_access_model(
+      .M_Data(t.M_Data),
+      .M_Addr(t.M_addr),
+      .M_Control(t.M_Control),
+      .mem_state(t.mem_state),
+      .DMem_dout(t.DMem_dout),
+      .DMem_addr(dmem_addr_pred),
+      .DMem_din(dmem_din_pred),
+      .memout(memout_pred),
+      .DMem_rd(dmem_rd_pred)
+      );
+
+    memaccess_sb_ap_output_transaction.DMem_addr = dmem_addr_pred;
+    memaccess_sb_ap_output_transaction.DMem_rd   = dmem_rd_pred;
+    memaccess_sb_ap_output_transaction.DMem_din  = dmem_din_pred;
+    memaccess_sb_ap_output_transaction.memout    = memout_pred;
+
     // Code for sending output transaction out through memaccess_sb_ap
-    // Please note that each broadcasted transaction should be a different object than previously 
-    // broadcasted transactions.  Creation of a different object is done by constructing the transaction 
-    // using either new() or create().  Broadcasting a transaction object more than once to either the 
+    // Please note that each broadcasted transaction should be a different object than previously
+    // broadcasted transactions.  Creation of a different object is done by constructing the transaction
+    // using either new() or create().  Broadcasting a transaction object more than once to either the
     // same subscriber or multiple subscribers will result in unexpected and incorrect behavior.
     memaccess_sb_ap.write(memaccess_sb_ap_output_transaction);
     // pragma uvmf custom memaccess_in_agent_ae_predictor end

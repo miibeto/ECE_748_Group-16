@@ -30,6 +30,12 @@ class imem_responder_sequence
     req=imem_transaction::type_id::create("req");
     forever begin
       start_item(req);
+      // Randomize every item so the factory-overridden transaction's
+      // constraints (imem_constrained_transaction / single-opcode tests)
+      // actually produce the next instruction. Without this, Instr_dout
+      // stays 0x0000 forever.
+      if (!req.randomize())
+        `uvm_fatal("SEQ", "imem_responder_sequence: imem_transaction randomization failed")
       finish_item(req);
       // pragma uvmf custom body begin
       // UVMF_CHANGE_ME : Do something here with the resulting req item.  The

@@ -100,8 +100,9 @@ end
   // ****************************************************************************              
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
-    @(posedge clock_i) ;                                                                    
+    // reset is active high, so wait for it to go back to 0 before we start
+    wait ( reset_i === 1'b0 ) ;
+    @(posedge clock_i) ;
   // pragma uvmf custom reset_condition end                                                                
   endtask    
 
@@ -172,17 +173,20 @@ end
     //      dmem_monitor_struct.xyz = Data_dout_i;  //    [15:0] 
     //      dmem_monitor_struct.xyz = complete_data_i;  //     
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
+    // wait until the DUT actually asserts a request, then grab the fields
+    while (D_macc_i !== 1'b1) @(posedge clock_i);
+    dmem_monitor_struct.Data_addr = Data_addr_i;
+    dmem_monitor_struct.Data_din  = Data_din_i;
+    dmem_monitor_struct.Data_rd   = Data_rd_i;
+    dmem_monitor_struct.D_macc    = D_macc_i;
+
+    // the driver bfm doesn't respond until one cycle later (that's just how
+    // we set up the memory model), so we need to wait a cycle and then grab
+    // the response so this shows up as one full request+response txn
     @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    while (complete_data_i !== 1'b1) @(posedge clock_i);
+    dmem_monitor_struct.Data_dout     = Data_dout_i;
+    dmem_monitor_struct.complete_data = complete_data_i;
     // pragma uvmf custom do_monitor end
   endtask         
   

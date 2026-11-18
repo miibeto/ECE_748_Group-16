@@ -1,4 +1,3 @@
-
 #
 #----------------------------------------------------------------------
 #                                          
@@ -50,10 +49,12 @@ endif
 
 # Set test case specific Variables
 TEST_NAME            ?= test_top
+VERBOSITY			 ?= UVM_MEDIUM
 
 TEST_SEED            ?= random
 PSS_SEED             ?= $(shell shuf -i 1-18446744073709551615 -n 1)
 UVM_CLI_ARGS         = 
+
 
 # Usage of Veloce, etc. to be input by the user (subject to defaults)
 USE_VELOCE          ?= 0
@@ -89,6 +90,8 @@ include $(UVMF_VIP_LIBRARY_HOME)/interface_packages/dmem_pkg/Makefile
 
 # Include all requisite environment package targets for this bench
 include $(UVMF_VIP_LIBRARY_HOME)/environment_packages/lc3_env_pkg/Makefile
+include $(UVMF_VIP_LIBRARY_HOME)/environment_packages/lc3_prediction_pkg/Makefile
+
 
 
 
@@ -225,5 +228,53 @@ build: $(BUILD_TGT)
 emu_build: libs build link optimize
 
 # pragma uvmf custom additional_targets begin
-# pragma uvmf custom additional_targets end
+.PHONY: p3_debug p3_debug_cli p3_run merge_cov view_cov cov_debug regress
+p3_debug: # Compile and prepare test on GUI (requires manually "run -all")
+	$(MAKE) libs
+	$(MAKE) comp_lc3_prediction_pkg
+	$(MAKE) build
+	$(MAKE) link
+	$(MAKE) optimize
+	TEST_NAME=$(TEST_NAME) $(MAKE) gui_run
+	TEST_SEED=$(TEST_SEED) 
 
+# p3_debug_cli: # Compile and prepar test on GUI (requires manually "run -all")
+# 	$(MAKE) libs
+# 	$(MAKE) comp_lc3_prediction_pkg
+# 	$(MAKE) build
+# 	$(MAKE) link
+# 	$(MAKE) optimize
+# 	TEST_NAME=$(TEST_NAME) $(MAKE) cli_run
+
+p3_build: # Compile Project 3 on GUI
+	$(MAKE) libs
+	$(MAKE) comp_lc3_prediction_pkg
+	$(MAKE) build
+	$(MAKE) link
+	$(MAKE) optimize
+
+p3_cli_run_test: # Run test on CLI (without .wlf generation)
+	TEST_NAME=$(TEST_NAME) TEST_SEED=$(TEST_SEED) $(MAKE) cli_run SIM_ARGS="-c -coverage +UVM_VERBOSITY=$(VERBOSITY) -do \"run -all; quit -f\"" 
+
+# p3_run_test: # Run test on CLI, save signals to .wlf
+# 	TEST_NAME=$(TEST_NAME) $(MAKE) cli_run SIM_ARGS="-c -wlf $(WLF_NAME) -do \"log -r /*; run -all; quit -f\""
+
+# Merge all individual .ucdb coverage files into one database (merged_tests.ucdb)
+UCDB_DIR    ?= .
+MERGED_UCDB ?= merged.ucdb
+
+merge_coverage:
+	@echo "Merging coverage files from $(UCDB_DIR)..."
+	rm -f $(MERGED_UCDB)
+	vcover merge -stats=none -strip 0 -totals $(MERGED_UCDB) \
+		$(filter-out $(MERGED_UCDB), $(wildcard $(UCDB_DIR)/*.ucdb))
+
+view_coverage:
+	vsim -viewcov $(MERGED_UCDB)
+
+report_coverage:
+	vcover report -details -codeAll -cvg -output coverage_report.txt $(MERGED_UCDB)
+
+regress: 
+	./regress.sh
+# pragma uvmf custom additional_targets end

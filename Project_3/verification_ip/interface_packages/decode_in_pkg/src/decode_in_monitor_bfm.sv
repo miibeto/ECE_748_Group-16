@@ -83,6 +83,28 @@ end
   // pragma tbx oneway proxy.notify_transaction                 
 
   // pragma uvmf custom interface_item_additional begin
+  // ------------------------------------------------------------------
+  // Decode stall check. After reset the Decode stage must accept an
+  // instruction (enable_decode==1) at least once every DECODE_MAX_STALL
+  // clocks. Longest legitimate stall is an LDI/STI double memory access
+  // (a handful of clocks), so 32 only fires on a hung pipeline (e.g. the
+  // back-to-back memory-op stall noted on the team spec, Sheet 3).
+  // ------------------------------------------------------------------
+  localparam int DECODE_MAX_STALL = 32;
+
+  property p_decode_no_stall;
+    @(posedge clock_i) disable iff (reset_i !== 1'b0)
+      not ( (enable_decode_i !== 1'b1) [*DECODE_MAX_STALL] );
+  endproperty
+
+  a_decode_no_stall: assert property (p_decode_no_stall)
+    else begin
+`ifndef XRTL
+      `uvm_error("DECODE_STALL", $sformatf("enable_decode has been low for %0d consecutive clocks", DECODE_MAX_STALL))
+`else
+      $error("DECODE_STALL: enable_decode low for %0d consecutive clocks", DECODE_MAX_STALL);
+`endif
+    end
   // pragma uvmf custom interface_item_additional end
   
   //******************************************************************                         
@@ -92,12 +114,13 @@ end
   endtask                                                                                   
 
   // ****************************************************************************              
-  task do_wait_for_reset(); 
+  task do_wait_for_reset();
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
-    @(posedge clock_i) ;                                                                    
-  // pragma uvmf custom reset_condition end                                                                
-  endtask    
+    // LC3 reset is active-high; wait for its de-assertion before monitoring.
+    wait ( reset_i === 1'b0 ) ;
+    @(posedge clock_i) ;
+  // pragma uvmf custom reset_condition end
+  endtask
 
   //******************************************************************                         
  
@@ -160,17 +183,13 @@ end
     //      decode_in_monitor_struct.xyz = dout_i;  //    [15:0] 
     //      decode_in_monitor_struct.xyz = npc_in_i;  //    [15:0] 
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    // Decode-input monitor: wait for the control-stage handshake asserting
+    // enable_decode, then sample the instruction word (dout = IMem_dout/IR
+    // input) and the incremented PC (npc_in) presented to the decode stage.
+    while (enable_decode_i !== 1'b1) @(posedge clock_i);
+    decode_in_monitor_struct.enable_decode = enable_decode_i;
+    decode_in_monitor_struct.dout          = dout_i;
+    decode_in_monitor_struct.npc_in        = npc_in_i;
     // pragma uvmf custom do_monitor end
   endtask         
   

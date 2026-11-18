@@ -54,6 +54,18 @@ uvmf_active_passive_t interface_activities[] = {
 
 
   // pragma uvmf custom class_item_additional begin
+  // Run-phase drain time. The decode_out monitor samples the registered
+  // decode outputs on the NEGEDGE after enable_decode (half a clock after
+  // decode_in reports). Without a drain, the run phase ends on a posedge and
+  // the last decoded instruction is never compared -> "SCOREBOARD NOT EMPTY".
+  // Must be > half a clock period (5ns) so the final negedge sample happens,
+  // and < a full period (10ns) so no new posedge/decode starts.
+  virtual function void start_of_simulation_phase(uvm_phase phase);
+    uvm_phase run_ph;
+    super.start_of_simulation_phase(phase);
+    run_ph = uvm_run_phase::get();
+    run_ph.phase_done.set_drain_time(this, 7ns);
+  endfunction
   // pragma uvmf custom class_item_additional end
 
   // ****************************************************************************
