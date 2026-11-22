@@ -69,12 +69,73 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
     sr1: coverpoint coverage_trans.dout[8:6]
       iff (coverage_trans.dout[15:12] inside {4'b0001, 4'b0101, 4'b1001,   // ADD AND NOT
                                               4'b0110, 4'b0111, 4'b1100}) { // LDR STR JMP
+      bins r[8] = {[0:7]};  // Creates eight automatically named bins (r[0], r[1], ... r[7])
+    }
+    // Source register SR2 / BaseR (bits [2:0]) for instructions that read it.
+    sr2: coverpoint coverage_trans.dout[2:0]
+      iff ( (coverage_trans.dout[15:12] inside {4'b0001, 4'b0101}) // ADD AND
+            && coverage_trans.dout[5] == 1'b0 ) { // Non-immediate mode
       bins r[8] = {[0:7]};
+    }
+    // Desintation register DR for instructions that write to it.
+    dr: coverpoint coverage_trans.dout[11:9]
+      iff (coverage_trans.dout[15:12] inside {
+        4'b0001, 4'b0101, 4'b1001, 4'b0010, // ADD AND NOT LD LDI LEA
+        4'b1010, 4'b1110
+      }) {
+      bins r[8] = {[0:7]};
+    }
+
+    store_sr: coverpoint coverage_trans.dout[11:9]
+      iff (coverage_trans.dout[15:12] inside {4'b0011, 4'b0111, 4'b1011}) { // ST STR STI
+      bins r[8] = {[0:7]};
+    }
+
+    // BR condition code bits (bits 11:9 = N, Z, P).
+    // NZP == 000 is illegal (no-op branch) and must not be hit;
+    // it is flagged as an illegal bin so the covergroup errors if it appears.
+    br_nzp: coverpoint coverage_trans.dout[11:9] iff (coverage_trans.dout[15:12] == 4'b0000) {
+      illegal_bins none = {3'b000};
+      bins n_only  = {3'b100};
+      bins z_only  = {3'b010};
+      bins p_only  = {3'b001};
+      bins nz      = {3'b110};
+      bins np      = {3'b101};
+      bins zp      = {3'b011};
+      bins nzp     = {3'b111};
+    }
+
+    // Source register is the same as the destination
+    source_is_destination: coverpoint
+      (coverage_trans.dout[8:6] == coverage_trans.dout[11:9])
+      iff (coverage_trans.dout[15:12] inside {4'b0001, 4'b0101, 4'b1001,
+                                             4'b0110, 4'b0111, 4'b1100}) {
+      bins same = {1'b1};
+      bins different = {1'b0};
+    }
+    // PC-relative 9-bit signed offset used by LD/LDI/LEA/ST/STI 
+    pc_offset9: coverpoint $signed(coverage_trans.dout[8:0])
+      iff ( coverage_trans.dout[15:12] inside {4'b0010,  // LD
+                                                      4'b0011,  // ST
+                                                      4'b1010,  // LDI
+                                                      4'b1011,  // STI
+                                                      4'b1110   // LEA
+                                                    } ) {
+      bins neg  = {[-256:-1]};
+      bins zero = {0};
+      bins pos  = {[1:255]};
+    }
+    // LDR/STR 6-bit signed base offset
+    offset6: coverpoint $signed(coverage_trans.dout[5:0])
+      iff ( coverage_trans.dout[15:12] inside {4'b0110, 4'b0111} ) {
+      bins neg  = {[-32:-1]};
+      bins zero = {0};
+      bins pos  = {[1:31]};
     }
 
     // Instruction class of this instruction and of the one decoded before it.
     // The 4x4 cross covers every back-to-back combination, including
-    // memory-op followed by memory-op (the case that stalled the DUT on Sheet 3).
+    // memory-op followed by memory-op 
     cur_class: coverpoint coverage_trans.dout[15:12] {
       bins alu   = {4'b0001, 4'b0101, 4'b1001, 4'b1110};  // ADD AND NOT LEA
       bins load  = {4'b0010, 4'b0110, 4'b1010};           // LD LDR LDI
