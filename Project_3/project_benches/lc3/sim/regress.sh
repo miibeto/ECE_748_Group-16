@@ -44,10 +44,10 @@ VERBOSITY="${VERBOSITY:-UVM_LOW}"
 START_TIME=$SECONDS
 
 # Default test suite: random_instr_test alone closes instruction coverage
-# (preamble + NUM_INSTRS weighted random instructions + HALT), so the
+# (preamble + NUM_INSTRS weighted random instructions), so the
 # regression is one build + one run (simulation efficiency is graded).
 # The directed per-opcode / per-mode tests are still compiled and can be
-# run by name, e.g.  ./regress.sh trap_test jsrr_mode_test
+# run by name, e.g.  ./regress.sh ldi_test br_all_nzp_test
 DEFAULT_TESTS=(
   random_instr_test
 )

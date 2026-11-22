@@ -41,7 +41,6 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
       bins ADD  = {4'b0001};
       bins LD   = {4'b0010};
       bins ST   = {4'b0011};
-      bins JSR  = {4'b0100};
       bins AND  = {4'b0101};
       bins LDR  = {4'b0110};
       bins STR  = {4'b0111};
@@ -50,10 +49,11 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
       bins STI  = {4'b1011};
       bins JMP  = {4'b1100};
       bins LEA  = {4'b1110};
-      bins TRAP = {4'b1111};
-      // Excluded from stimulus (see imem_constrained_transaction).
+      // Not valid opcodes; excluded from stimulus (see imem_constrained_transaction).
+      ignore_bins JSR      = {4'b0100};
       ignore_bins RTI      = {4'b1000};
       ignore_bins RESERVED = {4'b1101};
+      ignore_bins TRAP     = {4'b1111};
     }
 
     // ADD/AND register vs immediate mode, crossed with opcode below.
@@ -79,15 +79,15 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
       bins alu   = {4'b0001, 4'b0101, 4'b1001, 4'b1110};  // ADD AND NOT LEA
       bins load  = {4'b0010, 4'b0110, 4'b1010};           // LD LDR LDI
       bins store = {4'b0011, 4'b0111, 4'b1011};           // ST STR STI
-      bins ctrl  = {4'b0000, 4'b0100, 4'b1100, 4'b1111};  // BR JSR JMP TRAP
-      ignore_bins other = {4'b1000, 4'b1101};
+      bins ctrl  = {4'b0000, 4'b1100};                    // BR JMP
+      ignore_bins other = {4'b0100, 4'b1000, 4'b1101, 4'b1111};
     }
     prev_class: coverpoint prev_opcode iff (prev_valid) {
       bins alu   = {4'b0001, 4'b0101, 4'b1001, 4'b1110};
       bins load  = {4'b0010, 4'b0110, 4'b1010};
       bins store = {4'b0011, 4'b0111, 4'b1011};
-      bins ctrl  = {4'b0000, 4'b0100, 4'b1100, 4'b1111};
-      ignore_bins other = {4'b1000, 4'b1101};
+      bins ctrl  = {4'b0000, 4'b1100};
+      ignore_bins other = {4'b0100, 4'b1000, 4'b1101, 4'b1111};
     }
     back_to_back: cross prev_class, cur_class;
     // pragma uvmf custom covergroup end

@@ -2,10 +2,10 @@
 // imem_constrained_transaction
 //
 // Extends the UVMF-generated imem_transaction with a constraint that
-// forces Instr_dout to be a legal LC3 instruction. The base RTI and
-// RESERVED opcodes (0x8, 0xD) are excluded by default because the LC3
-// RTL treats them as illegal, and NOT (opcode 0x9) must have bits [5:0]
-// equal to 6'b111111.
+// forces Instr_dout to be one of the 12 valid LC3 instructions for this
+// project. JSR/JSRR (0x4), RTI (0x8), RESERVED (0xD) and TRAP (0xF) are
+// not valid opcodes (Prof. Oden, Moodle forum 2026-11-19), and NOT
+// (opcode 0x9) must have bits [5:0] equal to 6'b111111.
 //
 // Tests apply a UVM factory type_override to swap this class in for
 // imem_transaction so the responder sequence generates legal opcodes.
@@ -17,7 +17,7 @@ class imem_constrained_transaction extends imem_transaction;
 
   // Pick the opcode FIRST, uniformly. Without this the solver is uniform
   // over all legal 16-bit encodings, so opcodes with few legal encodings
-  // (JMP: 8, NOT: 64, TRAP: 256 vs ADD/AND: thousands) almost never appear.
+  // (JMP: 8, NOT: 64 vs ADD/AND: thousands) almost never appear.
   rand bit [3:0] opcode;
   constraint opcode_link_c {
     Instr_dout[15:12] == opcode;
@@ -35,12 +35,6 @@ class imem_constrained_transaction extends imem_transaction;
                              9'h100 := 4,              // -256
                              [9'h001:9'h0FE] :/ 40,    // +1..+254
                              [9'h101:9'h1FE] :/ 40 };  // -255..-2
-  }
-
-  // JSR vs JSRR 50/50. JSR (bit11=1) has 2048 legal encodings but JSRR only
-  // 8, so without this JSRR is practically never generated.
-  constraint jsr_mode_split_c {
-    (opcode == 4'b0100) -> Instr_dout[11] dist { 1'b0 := 1, 1'b1 := 1 };
   }
 
   // Corner-value weighting for offset6 (LDR/STR): 0, -1, +31, -32.
@@ -67,7 +61,7 @@ class imem_constrained_transaction extends imem_transaction;
 
   // Opcode field helpers: Instr_dout[15:12] is the LC3 opcode.
   constraint legal_opcode_c {
-    !(Instr_dout[15:12] inside {4'b1000, 4'b1101});
+    !(Instr_dout[15:12] inside {4'b0100, 4'b1000, 4'b1101, 4'b1111});
   }
 
   // NOT (0x9): bits[5:0] must be 6'b111111.
@@ -97,19 +91,6 @@ class imem_constrained_transaction extends imem_transaction;
   constraint jmp_fields_c {
     (Instr_dout[15:12] == 4'b1100) -> ( Instr_dout[11:9] == 3'b000
                                      && Instr_dout[5:0]  == 6'b000000 );
-  }
-
-  // JSR / JSRR (0x4): when bit[11]==0 (JSRR), bits[10:9] and bits[5:0]
-  // must be zeroed per Sheet 5. JSR (bit[11]==1) leaves [10:0] as offset.
-  constraint jsrr_fields_c {
-    ( (Instr_dout[15:12] == 4'b0100) && Instr_dout[11] == 1'b0 )
-      -> ( Instr_dout[10:9] == 2'b00 && Instr_dout[5:0] == 6'b000000 );
-  }
-
-  // TRAP (0xF): bits[11:8] must be 0; vector is chosen by test. Leave the
-  // vector unconstrained here so directed tests can override to x25 (HALT).
-  constraint trap_fields_c {
-    (Instr_dout[15:12] == 4'b1111) -> Instr_dout[11:8] == 4'b0000;
   }
 
   function new(string name = "imem_constrained_transaction");

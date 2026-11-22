@@ -28,30 +28,28 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
     // pragma uvmf custom covergroup begin
     option.per_instance = 1;
 
-    // Primary instruction coverage: one bin per LC3 opcode (bits [15:12] of
-    // the instruction word delivered to Decode). Illegal/reserved opcodes
-    // (RTI=0x8, RESERVED=0xD) are binned separately so tests that exclude
-    // them can be verified. See lc3_prediction_pkg::opcode_t for the encoding.
+    // Primary instruction coverage: one bin per valid LC3 opcode (bits [15:12]
+    // of the instruction word delivered to Decode). See
+    // lc3_prediction_pkg::opcode_t for the encoding.
     opcode: coverpoint coverage_trans.Instr_dout[15:12] {
       bins BR       = {4'b0000};
       bins ADD      = {4'b0001};
       bins LD       = {4'b0010};
       bins ST       = {4'b0011};
-      bins JSR      = {4'b0100};
       bins AND      = {4'b0101};
       bins LDR      = {4'b0110};
       bins STR      = {4'b0111};
-      // RTI / RESERVED are excluded from stimulus (imem_constrained_transaction
-      // legal_opcode_c; RESERVED asserts in the reference model), so they are
-      // not counted toward coverage.
-      ignore_bins RTI      = {4'b1000};
       bins NOT      = {4'b1001};
       bins LDI      = {4'b1010};
       bins STI      = {4'b1011};
       bins JMP      = {4'b1100};
-      ignore_bins RESERVED = {4'b1101};
       bins LEA      = {4'b1110};
-      bins TRAP     = {4'b1111};
+      // Not valid opcodes for this project; excluded from stimulus by
+      // imem_constrained_transaction::legal_opcode_c.
+      ignore_bins JSR      = {4'b0100};
+      ignore_bins RTI      = {4'b1000};
+      ignore_bins RESERVED = {4'b1101};
+      ignore_bins TRAP     = {4'b1111};
     }
 
     // ADD/AND immediate-mode bit (bit 5): 0 = register mode, 1 = immediate.
@@ -73,12 +71,6 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
       bins np      = {3'b101};
       bins zp      = {3'b011};
       bins nzp     = {3'b111};
-    }
-
-    // JSR vs JSRR distinguishing bit (bit 11).
-    jsr_mode: coverpoint coverage_trans.Instr_dout[11] iff (coverage_trans.Instr_dout[15:12] == 4'b0100) {
-      bins jsrr = {1'b0};
-      bins jsr  = {1'b1};
     }
 
     // ADD/AND imm5 signed field (bits [4:0]) per Sheet 5: signed -16..+15.
@@ -123,10 +115,7 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
 
     // Crosses: opcode x imm mode (only meaningful for ADD and AND).
     add_x_mode: cross opcode, add_and_imm_mode {
-      ignore_bins non_add_and = binsof(opcode) intersect {4'b0000, 4'b0010, 4'b0011, 4'b0100,
-                                                          4'b0110, 4'b0111, 4'b1000, 4'b1001,
-                                                          4'b1010, 4'b1011, 4'b1100, 4'b1101,
-                                                          4'b1110, 4'b1111};
+      ignore_bins non_add_and = !binsof(opcode) intersect {4'b0001, 4'b0101};
     }
     // pragma uvmf custom covergroup end
   endgroup
