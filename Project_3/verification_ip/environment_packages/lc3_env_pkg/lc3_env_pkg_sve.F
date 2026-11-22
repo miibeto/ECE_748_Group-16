@@ -6,6 +6,10 @@ ${UVM_HOME}/src/uvm_pkg.sv
 // Common UVMF files
 -f ${UVMF_HOME}/common/common_sve.f
 
+// Provided reference models
++incdir+${UVMF_VIP_LIBRARY_HOME}/environment_packages/lc3_prediction_pkg
+${UVMF_VIP_LIBRARY_HOME}/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv
+
 // Sub-Environments
 -F ${UVMF_VIP_LIBRARY_HOME}/environment_packages/decode_env_pkg/decode_env_pkg_sve.F
 -F ${UVMF_VIP_LIBRARY_HOME}/environment_packages/writeback_env_pkg/writeback_env_pkg_sve.F

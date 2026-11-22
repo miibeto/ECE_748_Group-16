@@ -1,6 +1,6 @@
-__design_bin_path=/mnt/ncsudrive/m/madize/MyECE748/uvmf_testing/uvmf_template_output/project_benches/lc3/sim
-__design_bin_name_path=/mnt/ncsudrive/m/madize/MyECE748/uvmf_testing/uvmf_template_output/project_benches/lc3/sim/design.bin
-incr_run_version=16386
-incr_partial_run_stats=2:2
-incr_no_change_stats=0:0
-opt_data_elab=/mnt/ncsudrive/m/madize/MyECE748/uvmf_testing/uvmf_template_output/project_benches/lc3/sim/work/optimized_debug_top_tb
+__design_bin_path=/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim
+__design_bin_name_path=/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/design.bin
+incr_run_version=16409
+incr_partial_run_stats=25:25
+incr_no_change_stats=19:6
+opt_data_elab=/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/work/optimized_debug_top_tb

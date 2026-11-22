@@ -168,17 +168,15 @@ end
     //      memaccess_in_monitor_struct.xyz = M_addr_i;  //    [15:0] 
     //      memaccess_in_monitor_struct.xyz = DMem_dout_i;  //    [15:0] 
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    //capture the settled combinational memory-stage inputs
+    wait (reset_i === 1'b0);
+    @(negedge clock_i);
+    #1ns;
+    memaccess_in_monitor_struct.mem_state = mem_state_i;
+    memaccess_in_monitor_struct.M_Control = M_Control_i;
+    memaccess_in_monitor_struct.M_Data = M_Data_i;
+    memaccess_in_monitor_struct.M_addr = M_addr_i;
+    memaccess_in_monitor_struct.DMem_dout = DMem_dout_i;
     // pragma uvmf custom do_monitor end
   endtask         
   

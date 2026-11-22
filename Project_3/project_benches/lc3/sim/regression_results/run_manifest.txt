@@ -1,0 +1,11 @@
+project=/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3
+programs=smoke alu branch jump indirect sti_only
+seeds=12345
+program=smoke seed=12345 make_exit=0 uvm_errors=389 uvm_fatals=0
+program=alu seed=12345 make_exit=0 uvm_errors=395 uvm_fatals=0
+program=branch seed=12345 make_exit=0 uvm_errors=294 uvm_fatals=0
+program=jump seed=12345 make_exit=0 uvm_errors=393 uvm_fatals=0
+observation: repeated instruction fetch at same pc (program=indirect seed=12345 pc=300d streak=60)
+program=indirect seed=12345 make_exit=0 uvm_errors=361 uvm_fatals=0
+observation: repeated instruction fetch at same pc (program=sti_only seed=12345 pc=300d streak=60)
+program=sti_only seed=12345 make_exit=0 uvm_errors=361 uvm_fatals=0

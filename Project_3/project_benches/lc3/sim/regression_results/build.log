@@ -1,0 +1,807 @@
+make: Warning: File 'Makefile' has modification time 16841 s in the future
+echo "Compile your verilog DUT here"
+Compile your verilog DUT here
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/data_defs.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Fetch.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Decode_Pipelined.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Execute.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Mem_Access.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/WriteBack.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Controller_Pipeline.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/TopLevelLC3.v
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:00 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/data_defs.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Fetch.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Decode_Pipelined.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Execute.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Mem_Access.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/WriteBack.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/Controller_Pipeline.v /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/rtl/verilog/TopLevelLC3.v 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling module Fetch
+-- Compiling module Decode
+-- Compiling module Execute
+-- Compiling module extension
+-- Compiling module ALU
+-- Compiling module MemAccess
+-- Compiling module Writeback
+-- Compiling module RegFile
+-- Compiling module Controller_Pipeline
+-- Compiling module LC3
+
+Top level modules:
+	LC3
+End time: 01:35:00 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE   +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hdl.f
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:00 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg" -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:01 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE   +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hvl.f
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:01 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg" -F /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/examples/UVM_Framework/UVMF_2026.1/uvmf_base_pkg/uvmf_base_pkg_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package uvmf_base_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:02 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:02 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_in_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:02 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:02 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_in_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package decode_in_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:03 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:03 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_in_pkg/decode_in_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_in_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package decode_in_pkg_hdl
+-- Compiling interface decode_in_if
+-- Compiling package decode_in_monitor_bfm_sv_unit
+-- Compiling interface decode_in_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package decode_in_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package decode_in_driver_bfm_sv_unit
+-- Compiling interface decode_in_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:04 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:04 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_out_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:04 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:04 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_out_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package decode_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:05 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:05 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/decode_out_pkg/decode_out_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_out_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package decode_out_pkg_hdl
+-- Compiling interface decode_out_if
+-- Compiling package decode_out_monitor_bfm_sv_unit
+-- Compiling interface decode_out_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package decode_out_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package decode_out_driver_bfm_sv_unit
+-- Compiling interface decode_out_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:06 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:06 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_in_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:06 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:06 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_in_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package writeback_in_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:07 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:07 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_in_pkg/writeback_in_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_in_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package writeback_in_pkg_hdl
+-- Compiling interface writeback_in_if
+-- Compiling package writeback_in_monitor_bfm_sv_unit
+-- Compiling interface writeback_in_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package writeback_in_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package writeback_in_driver_bfm_sv_unit
+-- Compiling interface writeback_in_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:08 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:08 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_out_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:08 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:08 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_out_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package writeback_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:09 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:09 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/writeback_out_pkg/writeback_out_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_out_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package writeback_out_pkg_hdl
+-- Compiling interface writeback_out_if
+-- Compiling package writeback_out_monitor_bfm_sv_unit
+-- Compiling interface writeback_out_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package writeback_out_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package writeback_out_driver_bfm_sv_unit
+-- Compiling interface writeback_out_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:10 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:10 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_in_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:10 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:10 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_in_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package memaccess_in_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:11 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:11 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_in_pkg/memaccess_in_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_in_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package memaccess_in_pkg_hdl
+-- Compiling interface memaccess_in_if
+-- Compiling package memaccess_in_monitor_bfm_sv_unit
+-- Compiling interface memaccess_in_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package memaccess_in_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package memaccess_in_driver_bfm_sv_unit
+-- Compiling interface memaccess_in_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:12 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:12 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_out_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:13 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:13 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_out_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package memaccess_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:13 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:14 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/memaccess_out_pkg/memaccess_out_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_out_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package memaccess_out_pkg_hdl
+-- Compiling interface memaccess_out_if
+-- Compiling package memaccess_out_monitor_bfm_sv_unit
+-- Compiling interface memaccess_out_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package memaccess_out_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package memaccess_out_driver_bfm_sv_unit
+-- Compiling interface memaccess_out_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:14 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:15 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_in_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:15 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:15 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_in_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package control_in_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:16 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:16 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_in_pkg/control_in_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_in_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package control_in_pkg_hdl
+-- Compiling interface control_in_if
+-- Compiling package control_in_monitor_bfm_sv_unit
+-- Compiling interface control_in_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package control_in_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package control_in_driver_bfm_sv_unit
+-- Compiling interface control_in_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:17 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:17 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_out_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:17 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:17 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_out_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package control_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:18 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:18 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/control_out_pkg/control_out_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_out_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package control_out_pkg_hdl
+-- Compiling interface control_out_if
+-- Compiling package control_out_monitor_bfm_sv_unit
+-- Compiling interface control_out_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package control_out_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package control_out_driver_bfm_sv_unit
+-- Compiling interface control_out_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:19 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:19 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package imem_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:19 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:19 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package imem_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package imem_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:20 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:20 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/imem_pkg/imem_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package imem_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package imem_pkg_hdl
+-- Compiling interface imem_if
+-- Compiling package imem_monitor_bfm_sv_unit
+-- Compiling interface imem_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package imem_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package imem_driver_bfm_sv_unit
+-- Compiling interface imem_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:21 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_hdl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:21 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package dmem_pkg_hdl
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:21 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_hvl.f 
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:22 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package dmem_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package uvmf_base_pkg
+-- Importing package dmem_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:22 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_xrtl.f  
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:22 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/interface_packages/dmem_pkg/dmem_filelist_xrtl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package dmem_if_sv_unit
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package dmem_pkg_hdl
+-- Compiling interface dmem_if
+-- Compiling package dmem_monitor_bfm_sv_unit
+-- Compiling interface dmem_monitor_bfm
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package dmem_pkg
+-- Importing package uvmf_base_pkg
+-- Compiling package dmem_driver_bfm_sv_unit
+-- Compiling interface dmem_driver_bfm
+
+Top level modules:
+	--none--
+End time: 01:35:23 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/decode_env_pkg /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/decode_env_pkg/decode_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:23 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/decode_env_pkg" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/decode_env_pkg/decode_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package decode_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+
+Top level modules:
+	--none--
+End time: 01:35:24 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:24 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_prediction_pkg/lc3_prediction_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_prediction_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+
+Top level modules:
+	--none--
+End time: 01:35:25 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/writeback_env_pkg /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/writeback_env_pkg/writeback_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:25 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/writeback_env_pkg" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/writeback_env_pkg/writeback_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package writeback_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:26 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/memaccess_env_pkg /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/memaccess_env_pkg/memaccess_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:26 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/memaccess_env_pkg" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/memaccess_env_pkg/memaccess_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package memaccess_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+
+Top level modules:
+	--none--
+End time: 01:35:26 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/control_env_pkg /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/control_env_pkg/control_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:26 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/control_env_pkg" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/control_env_pkg/control_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package control_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:27 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_env_pkg /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_env_pkg/lc3_env_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:27 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_env_pkg" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/../../../verification_ip/environment_packages/lc3_env_pkg/lc3_env_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_env_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:28 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/parameters /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/parameters/lc3_parameters_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:28 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/parameters" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/parameters/lc3_parameters_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_parameters_pkg
+-- Importing package uvmf_base_pkg_hdl
+
+Top level modules:
+	--none--
+End time: 01:35:28 on Nov 22,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/sequences /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/sequences/lc3_sequences_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:28 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/sequences" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/sequences/lc3_sequences_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_sequences_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package decode_env_pkg
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package memaccess_env_pkg
+-- Importing package control_env_pkg
+
+Top level modules:
+	--none--
+End time: 01:35:29 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/tests /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/tests/lc3_tests_pkg.sv
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:29 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/tests" /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/tests/lc3_tests_pkg.sv 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling package lc3_tests_pkg
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+
+Top level modules:
+	--none--
+End time: 01:35:30 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/questa_mvc_src/sv +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/testbench -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/testbench/top_filelist_hvl.f
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:30 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/questa_mvc_src/sv" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/testbench" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/testbench/top_filelist_hvl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling module hvl_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package lc3_tests_pkg
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+
+Top level modules:
+	hvl_top
+End time: 01:35:31 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv   +define+UVM_REPORT_DISABLE_FILE_LINE +define+UVM_REPORT_DISABLE_FILE_LINE  +incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/testbench -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/testbench/top_filelist_hdl.f
+QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 01:35:31 on Nov 22,2026
+vlog -sv -suppress 2223 -suppress 2286 -covermultiuserenv "+define+UVM_REPORT_DISABLE_FILE_LINE" "+define+UVM_REPORT_DISABLE_FILE_LINE" "+incdir+/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/testbench" -F /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/tb/testbench/top_filelist_hdl.f 
+** Note: (vlog-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+-- Compiling module hdl_top
+-- Importing package lc3_parameters_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+
+Top level modules:
+	hdl_top
+End time: 01:35:32 on Nov 22,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+make: warning:  Clock skew detected.  Your build may be incomplete.

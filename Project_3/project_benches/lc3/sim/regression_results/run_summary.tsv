@@ -1,0 +1,7 @@
+program	seed	make_exit	uvm_errors	uvm_fatals	fetches	unique_pc	last_pc	max_same_pc	ldi_fetches	sti_fetches	dmem_reads	dmem_writes	ucdb
+smoke	12345	0	389	0	130	130	3081	1	0	0	6	4	/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/regression_results/smoke_seed_12345.ucdb
+alu	12345	0	395	0	134	134	3085	1	0	0	0	0	/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/regression_results/alu_seed_12345.ucdb
+branch	12345	0	294	0	108	107	306a	2	0	0	0	0	/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/regression_results/branch_seed_12345.ucdb
+jump	12345	0	393	0	133	133	3086	1	0	0	0	0	/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/regression_results/jump_seed_12345.ucdb
+indirect	12345	0	361	0	73	14	300d	60	1	0	118	6	/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/regression_results/indirect_seed_12345.ucdb
+sti_only	12345	0	361	0	73	14	300d	60	0	1	59	65	/mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/regression_results/sti_only_seed_12345.ucdb

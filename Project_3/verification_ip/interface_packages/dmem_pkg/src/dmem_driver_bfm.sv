@@ -114,20 +114,20 @@ end
   // These are signals marked as 'input' by the config file, but the signals will be
   // driven by this BFM if put into RESPONDER mode (flipping all signal directions around)
   assign Data_addr_i = bus.Data_addr;
-  assign bus.Data_addr = (initiator_responder == RESPONDER) ? Data_addr_o : 'bz;
+  assign bus.Data_addr = (initiator_responder == INITIATOR) ? Data_addr_o : 'bz;
   assign Data_din_i = bus.Data_din;
-  assign bus.Data_din = (initiator_responder == RESPONDER) ? Data_din_o : 'bz;
+  assign bus.Data_din = (initiator_responder == INITIATOR) ? Data_din_o : 'bz;
   assign Data_rd_i = bus.Data_rd;
-  assign bus.Data_rd = (initiator_responder == RESPONDER) ? Data_rd_o : 'bz;
+  assign bus.Data_rd = (initiator_responder == INITIATOR) ? Data_rd_o : 'bz;
   assign D_macc_i = bus.D_macc;
-  assign bus.D_macc = (initiator_responder == RESPONDER) ? D_macc_o : 'bz;
+  assign bus.D_macc = (initiator_responder == INITIATOR) ? D_macc_o : 'bz;
 
 
   // These are signals marked as 'output' by the config file, but the outputs will
   // not be driven by this BFM unless placed in INITIATOR mode.
-  assign bus.Data_dout = (initiator_responder == INITIATOR) ? Data_dout_o : 'bz;
+  assign bus.Data_dout = (initiator_responder == RESPONDER) ? Data_dout_o : 'bz;
   assign Data_dout_i = bus.Data_dout;
-  assign bus.complete_data = (initiator_responder == INITIATOR) ? complete_data_o : 'bz;
+  assign bus.complete_data = (initiator_responder == RESPONDER) ? complete_data_o : 'bz;
   assign complete_data_i = bus.complete_data;
 
   // Proxy handle to UVM driver
@@ -156,7 +156,7 @@ end
   // ****************************************************************************
 // pragma uvmf custom reset_condition_and_response begin
   // Always block used to return signals to reset value upon assertion of reset
-  always @( negedge reset_i )
+  always @( posedge reset_i )
      begin
        // RESPONDER mode output signals
        Data_addr_o <= 'b0;
@@ -251,70 +251,72 @@ end
 // pragma uvmf custom initiate_and_get_response end
 
 // pragma uvmf custom respond_and_wait_for_next_transfer begin
-// ****************************************************************************
-// The first_transfer variable is used to prevent completing a transfer in the 
-// first call to this task.  For the first call to this task, there is not
-// current transfer to complete.
+//the responder owns data_dout and complete_data; the dut owns address/data/rd
 bit first_transfer=1;
+logic [15:0] last_request_addr=16'h0000;
+logic [15:0] last_request_data=16'h0000;
+logic last_request_rd=1'b0;
 
-// UVMF_CHANGE_ME
-// This task is used by a responder.  The task first completes the current 
-// transfer in progress then waits for the initiator to start the next transfer.
-  task respond_and_wait_for_next_transfer( 
-       // This argument is used to send data received from the initiator
-       // back to the sequence item.  The sequence determines how to respond.
-       output dmem_initiator_s dmem_initiator_struct, 
-       // This argument passes transaction variables used by a responder
-       // to complete a protocol transfer.  The values come from a sequence item.       
-       input dmem_responder_s dmem_responder_struct 
-       );// pragma tbx xtf   
-  // Variables within the dmem_initiator_struct:
-  //   bit [15:0] Data_addr ;
-  //   bit [15:0] Data_din ;
-  //   bit Data_rd ;
-  //   bit D_macc ;
-  //   bit [15:0] Data_dout ;
-  //   bit complete_data ;
-  // Variables within the dmem_responder_struct:
-  //   bit [15:0] Data_addr ;
-  //   bit [15:0] Data_din ;
-  //   bit Data_rd ;
-  //   bit D_macc ;
-  //   bit [15:0] Data_dout ;
-  //   bit complete_data ;
-       // Reference code;
-       //    How to wait for signal value
-       //      while (control_signal == 1'b1) @(posedge clock_i);
-       //    
-       //    How to assign a initiator struct member, named xyz, from a signal.   
-       //    All available responder input and inout signals listed.
-       //    Responder input signals
-       //      dmem_initiator_struct.xyz = Data_dout_i;  //    [15:0] 
-       //      dmem_initiator_struct.xyz = complete_data_i;  //     
-       //    Responder inout signals
-       //    How to assign a signal, named xyz, from an responder struct member.   
-       //    All available responder output and inout signals listed.
-       //    Notice the _o.  Those are storage variables that allow for procedural assignment.
-       //    Responder output signals
-       //      Data_addr_o <= dmem_responder_struct.xyz;  //    [15:0] 
-       //      Data_din_o <= dmem_responder_struct.xyz;  //    [15:0] 
-       //      Data_rd_o <= dmem_responder_struct.xyz;  //     
-       //      D_macc_o <= dmem_responder_struct.xyz;  //     
-       //    Responder inout signals
-    
-  @(posedge clock_i);
-  if (!first_transfer) begin
-    // Perform transfer response here.   
-    // Reply using data recieved in the dmem_responder_struct.
-    @(posedge clock_i);
-    // Reply using data recieved in the transaction handle.
-    @(posedge clock_i);
-  end
-    // Wait for next transfer then gather info from intiator about the transfer.
-    // Place the data into the dmem_initiator_struct.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    first_transfer = 0;
+  task respond_and_wait_for_next_transfer(
+    output dmem_initiator_s dmem_initiator_struct,
+    input dmem_responder_s dmem_responder_struct
+  );// pragma tbx xtf
+    dmem_initiator_struct='0;
+    wait (reset_i === 1'b0);
+
+    if (first_transfer) begin
+      first_transfer=0;
+      Data_dout_o=16'h0000;
+      complete_data_o=1'b0;
+    end else begin
+      //drive the response before a rising dut clock and hold across that edge
+      //capture a brief request-idle interval while the response is asserted
+      //the dut may deassert and reassert d_macc before this task re-arms
+      begin
+        bit request_went_idle;
+        request_went_idle=1'b0;
+        @(negedge clock_i);
+        Data_dout_o=dmem_responder_struct.Data_dout;
+        complete_data_o=dmem_responder_struct.complete_data;
+        @(posedge clock_i);
+        if (D_macc_i !== 1'b1)
+          request_went_idle=1'b1;
+        @(negedge clock_i);
+        if (D_macc_i !== 1'b1)
+          request_went_idle=1'b1;
+        complete_data_o=1'b0;
+
+        //do not mistake a returned-high request for an unbroken old request
+        if (!request_went_idle) begin
+          wait (D_macc_i !== 1'b1 ||
+                Data_addr_i !== last_request_addr ||
+                Data_rd_i !== last_request_rd ||
+                (last_request_rd === 1'b0 && Data_din_i !== last_request_data) ||
+                reset_i === 1'b1);
+        end
+      end
+      if (reset_i === 1'b1) begin
+        complete_data_o=1'b0;
+        Data_dout_o=16'h0000;
+        wait (reset_i === 1'b0);
+      end
+    end
+
+    //D_macc is a testbench-generated valid qualifier from mem_state
+    //Data_rd=1: read, Data_rd=0: write
+    wait (D_macc_i === 1'b1 &&
+          (Data_rd_i === 1'b0 || Data_rd_i === 1'b1) &&
+          (^Data_addr_i !== 1'bx));
+    @(negedge clock_i);
+    dmem_initiator_struct.Data_addr=Data_addr_i;
+    dmem_initiator_struct.Data_din=Data_din_i;
+    dmem_initiator_struct.Data_rd=Data_rd_i;
+    dmem_initiator_struct.D_macc=D_macc_i;
+    dmem_initiator_struct.Data_dout=Data_dout_i;
+    dmem_initiator_struct.complete_data=complete_data_i;
+    last_request_addr=Data_addr_i;
+    last_request_data=Data_din_i;
+    last_request_rd=Data_rd_i;
   endtask
 // pragma uvmf custom respond_and_wait_for_next_transfer end
 
