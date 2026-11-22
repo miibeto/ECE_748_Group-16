@@ -135,7 +135,7 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
 
     // Instruction class of this instruction and of the one decoded before it.
     // The 4x4 cross covers every back-to-back combination, including
-    // memory-op followed by memory-op 
+    // memory-op followed by memory-op (the case that stalled the DUT on Sheet 3).
     cur_class: coverpoint coverage_trans.dout[15:12] {
       bins alu   = {4'b0001, 4'b0101, 4'b1001, 4'b1110};  // ADD AND NOT LEA
       bins load  = {4'b0010, 4'b0110, 4'b1010};           // LD LDR LDI
@@ -151,6 +151,13 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
       ignore_bins other = {4'b1000, 4'b1101};
     }
     back_to_back: cross prev_class, cur_class;
+
+    // Sign of the imm5 field for ADD/AND immediate mode.
+    imm_sign: coverpoint coverage_trans.dout[4]
+      iff (coverage_trans.dout[15:12] inside {4'b0001, 4'b0101} && coverage_trans.dout[5] == 1'b1) {
+      bins negative     = {1'b1};
+      bins non_negative = {1'b0};
+    }
     // pragma uvmf custom covergroup end
   endgroup
 

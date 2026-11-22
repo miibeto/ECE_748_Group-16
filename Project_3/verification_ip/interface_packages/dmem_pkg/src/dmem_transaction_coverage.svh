@@ -46,6 +46,13 @@ class dmem_transaction_coverage  extends uvm_subscriber #(.T(dmem_transaction ))
       bins max_addr = {16'hFFFF};
     }
     cross_rd_addr: cross cp_rd, cp_addr;
+
+    // sign of the data actually being written on a store
+    cp_din: coverpoint $signed(coverage_trans.Data_din) iff (coverage_trans.Data_rd == 1'b0) {
+      bins neg  = {[-32768:-1]};
+      bins zero = {0};
+      bins pos  = {[1:32767]};
+    }
     // pragma uvmf custom covergroup end
   endgroup
 

@@ -121,6 +121,21 @@ class imem_transaction_coverage  extends uvm_subscriber #(.T(imem_transaction ))
       bins r[8] = {[0:7]};
     }
 
+    // SR1/BaseR (bits [8:6]) for instructions that read it.
+    sr1: coverpoint coverage_trans.Instr_dout[8:6]
+      iff ( coverage_trans.Instr_dout[15:12] inside {4'b0001, 4'b0101, 4'b1001,   // ADD AND NOT
+                                                      4'b0110, 4'b0111,           // LDR STR
+                                                      4'b1100} ) {                // JMP/JSRR
+      bins r[8] = {[0:7]};
+    }
+
+    // SR2 (bits [2:0]), only exists for ADD/AND register mode.
+    sr2: coverpoint coverage_trans.Instr_dout[2:0]
+      iff ( coverage_trans.Instr_dout[15:12] inside {4'b0001, 4'b0101}
+             && coverage_trans.Instr_dout[5] == 1'b0 ) {
+      bins r[8] = {[0:7]};
+    }
+
     // Crosses: opcode x imm mode (only meaningful for ADD and AND).
     add_x_mode: cross opcode, add_and_imm_mode {
       ignore_bins non_add_and = binsof(opcode) intersect {4'b0000, 4'b0010, 4'b0011, 4'b0100,

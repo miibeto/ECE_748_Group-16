@@ -21,8 +21,10 @@ class memaccess_out_transaction_coverage  extends uvm_subscriber #(.T(memaccess_
   T coverage_trans;
 
   // pragma uvmf custom class_item_additional begin
+  bit prev_rd;
+  bit prev_valid = 1'b0;
   // pragma uvmf custom class_item_additional end
-  
+
   // ****************************************************************************
   covergroup memaccess_out_transaction_cg;
     // pragma uvmf custom covergroup begin
@@ -41,6 +43,18 @@ class memaccess_out_transaction_coverage  extends uvm_subscriber #(.T(memaccess_
       bins max_addr = {16'hFFFF};
     }
     cross_rd_addr: cross DMem_rd, cp_addr;
+
+    // sign of the data being stored (only meaningful on a write)
+    cp_din: coverpoint $signed(coverage_trans.DMem_din) iff (coverage_trans.DMem_rd == 1'b0) {
+      bins neg  = {[-32768:-1]};
+      bins zero = {0};
+      bins pos  = {[1:32767]};
+    }
+
+    // read-then-write / write-then-read back to back, no idle in between
+    cur_rd:  coverpoint coverage_trans.DMem_rd;
+    prev_rd_cp: coverpoint prev_rd iff (prev_valid);
+    back_to_back_rw: cross prev_rd_cp, cur_rd;
     // pragma uvmf custom covergroup end
   endgroup
 
@@ -71,6 +85,8 @@ class memaccess_out_transaction_coverage  extends uvm_subscriber #(.T(memaccess_
     `uvm_info("COV","Received transaction",UVM_HIGH);
     coverage_trans = t;
     memaccess_out_transaction_cg.sample();
+    prev_rd    = t.DMem_rd;
+    prev_valid = 1'b1;
   endfunction
 
 endclass

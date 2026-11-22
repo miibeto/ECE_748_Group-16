@@ -21,8 +21,10 @@ class memaccess_in_transaction_coverage  extends uvm_subscriber #(.T(memaccess_i
   T coverage_trans;
 
   // pragma uvmf custom class_item_additional begin
+  bit [1:0] prev_mem_state;
+  bit       prev_valid = 1'b0;
   // pragma uvmf custom class_item_additional end
-  
+
   // ****************************************************************************
   covergroup memaccess_in_transaction_cg;
     // pragma uvmf custom covergroup begin
@@ -45,6 +47,18 @@ class memaccess_in_transaction_coverage  extends uvm_subscriber #(.T(memaccess_i
       bins high     = {[16'hC000:16'hFFFE]};
       bins max_addr = {16'hFFFF};
     }
+
+    // back-to-back mem_state, so we can see consecutive accesses with no
+    // idle in between (e.g. the pointer-fetch then the real access for LDI/STI)
+    cur_state: coverpoint coverage_trans.mem_state iff (coverage_trans.mem_state != 2'b11) {
+      bins direct_rw = {2'b00, 2'b10};
+      bins ptr_fetch = {2'b01};
+    }
+    prev_state: coverpoint prev_mem_state iff (prev_valid && prev_mem_state != 2'b11) {
+      bins direct_rw = {2'b00, 2'b10};
+      bins ptr_fetch = {2'b01};
+    }
+    back_to_back_state: cross prev_state, cur_state;
     // pragma uvmf custom covergroup end
   endgroup
 
@@ -75,6 +89,8 @@ class memaccess_in_transaction_coverage  extends uvm_subscriber #(.T(memaccess_i
     `uvm_info("COV","Received transaction",UVM_HIGH);
     coverage_trans = t;
     memaccess_in_transaction_cg.sample();
+    prev_mem_state = t.mem_state;
+    prev_valid     = 1'b1;
   endfunction
 
 endclass
