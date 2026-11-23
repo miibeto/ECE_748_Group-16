@@ -102,7 +102,7 @@ end
   // ****************************************************************************              
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
+    wait ( reset_i === 0 ) ;                                                              
     @(posedge clock_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
@@ -125,7 +125,7 @@ end
   initial begin                                                                             
     @go;                                                                                   
     forever begin                                                                        
-      @(posedge clock_i);  
+      //@(posedge clock_i);  
       do_monitor( control_in_monitor_struct );
                                                                  
  
@@ -176,17 +176,18 @@ end
     //      control_in_monitor_struct.xyz = IMem_dout_i;  //    [15:0] 
     //      control_in_monitor_struct.xyz = NZP_i;  //    [2:0] 
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    // wait (reset_i === 1'b0);
+    // @(negedge clock_i);
+    do begin
+      @(negedge clock_i);
+    end while (reset_i !== 1'b0);
+    control_in_monitor_struct.complete_data = complete_data_i;
+    control_in_monitor_struct.complete_instr = complete_instr_i;
+    control_in_monitor_struct.IR = IR_i;
+    control_in_monitor_struct.psr = psr_i;
+    control_in_monitor_struct.IR_Exec = IR_Exec_i;
+    control_in_monitor_struct.IMem_dout = IMem_dout_i;
+    control_in_monitor_struct.NZP = NZP_i;
     // pragma uvmf custom do_monitor end
   endtask         
   
@@ -195,4 +196,3 @@ endinterface
 
 // pragma uvmf custom external begin
 // pragma uvmf custom external end
-

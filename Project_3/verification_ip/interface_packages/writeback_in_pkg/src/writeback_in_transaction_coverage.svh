@@ -32,6 +32,7 @@ class writeback_in_transaction_coverage  extends uvm_subscriber #(.T(writeback_i
     aluout: coverpoint coverage_trans.aluout;
     memout: coverpoint coverage_trans.memout;
     pcout: coverpoint coverage_trans.pcout;
+    npc: coverpoint coverage_trans.npc;
     w_control: coverpoint coverage_trans.w_control;
     dr: coverpoint coverage_trans.dr;
     sr1: coverpoint coverage_trans.sr1;
@@ -47,7 +48,7 @@ class writeback_in_transaction_coverage  extends uvm_subscriber #(.T(writeback_i
   function new(string name="", uvm_component parent=null);
     super.new(name,parent);
     writeback_in_transaction_cg=new;
-    `uvm_warning("COVERAGE_MODEL_REVIEW", "A covergroup has been constructed which may need review because of either generation or re-generation with merging.  Please note that transaction variables added as a result of re-generation and merging are not automatically added to the covergroup.  Remove this warning after the covergroup has been reviewed.")
+    //`uvm_warning("COVERAGE_MODEL_REVIEW", "A covergroup has been constructed which may need review because of either generation or re-generation with merging.  Please note that transaction variables added as a result of re-generation and merging are not automatically added to the covergroup.  Remove this warning after the covergroup has been reviewed.")
   endfunction
 
   // ****************************************************************************

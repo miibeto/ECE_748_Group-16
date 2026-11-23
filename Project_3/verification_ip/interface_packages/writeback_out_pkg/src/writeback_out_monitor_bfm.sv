@@ -71,7 +71,7 @@ end
   tri reset_i;
   tri [15:0] vsr1_i;
   tri [15:0] vsr2_i;
-  tri [15:0] psr_i;
+  tri [2:0] psr_i;
   assign clock_i = bus.clock;
   assign reset_i = bus.reset;
   assign vsr1_i = bus.vsr1;
@@ -94,7 +94,7 @@ end
   // ****************************************************************************              
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
+    wait ( reset_i === 0 ) ;                                                              
     @(posedge clock_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
@@ -158,19 +158,16 @@ end
     //    All available input signals listed.
     //      writeback_out_monitor_struct.xyz = vsr1_i;  //    [15:0] 
     //      writeback_out_monitor_struct.xyz = vsr2_i;  //    [15:0] 
-    //      writeback_out_monitor_struct.xyz = psr_i;  //    [15:0] 
+    //      writeback_out_monitor_struct.xyz = psr_i;  //    [2:0] 
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    wait (reset_i === 1'b0);
+    @(negedge clock_i);
+    //sample after concurrent responder updates have settled
+    //this preserves pre-write values before the next rising edge
+    #1ns;
+    writeback_out_monitor_struct.vsr1 = vsr1_i;
+    writeback_out_monitor_struct.vsr2 = vsr2_i;
+    writeback_out_monitor_struct.psr = psr_i;
     // pragma uvmf custom do_monitor end
   endtask         
   

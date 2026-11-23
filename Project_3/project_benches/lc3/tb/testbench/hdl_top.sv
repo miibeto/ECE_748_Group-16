@@ -75,6 +75,7 @@ import uvmf_base_pkg_hdl::*;
    tri [15:0] vsr1;
    tri [15:0] vsr2;
    tri [2:0] psr;
+   tri [15:0] npc;
    // Memaccess Stage
    tri enable_memaccess;
    tri [1:0] mem_state;
@@ -150,7 +151,8 @@ import uvmf_base_pkg_hdl::*;
       .w_control(wb_w_control),
       .dr(dr),
       .sr1(sr1),
-      .sr2(sr2)
+      .sr2(sr2),
+      .npc(npc)
      // pragma uvmf custom writeback_env_writeback_in_agent_bus_connections end
      );
   writeback_out_if  writeback_env_writeback_out_agent_bus(

@@ -61,6 +61,11 @@ class decode_in_transaction_coverage  extends uvm_subscriber #(.T(decode_in_tran
       bins reg_mode = {1'b0};
       bins imm_mode = {1'b1};
     }
+    imm_sign: coverpoint coverage_trans.dout[4]
+      iff (coverage_trans.dout[15:12] inside {4'b0001, 4'b0101} && coverage_trans.dout[5] == 1'b1) {
+      bins negative     = {1'b1};
+      bins non_negative = {1'b0};
+    }
     add_and_x_mode: cross opcode, imm_mode {
       ignore_bins non_add_and = !binsof(opcode) intersect {4'b0001, 4'b0101};
     }

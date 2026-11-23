@@ -93,7 +93,7 @@ class lc3_imem_decode_checker extends uvm_component;
   virtual function void report_phase(uvm_phase phase);
     `uvm_info("IMEM2DEC", $sformatf(
       "fetched=%0d decoded=%0d matched=%0d fetched-not-decoded=%0d errors=%0d (left in fetch queue at end: %0d)",
-      n_fetched, n_decoded, n_matched, n_skipped, n_errors, fetched.size()), UVM_LOW)
+      n_fetched, n_decoded, n_matched, n_skipped, n_errors, fetched.size()), UVM_MEDIUM)
   endfunction
 
 endclass
