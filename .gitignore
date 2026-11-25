@@ -6,6 +6,7 @@
 **/sim/*.log
 **/sim/certe_dump.xml
 **/sim/coverage.txt
+**/sim/coverage_full.txt
 **/sim/cvg_only.txt
 **/sim/covhtmlreport/
 **/sim/regress_logs/

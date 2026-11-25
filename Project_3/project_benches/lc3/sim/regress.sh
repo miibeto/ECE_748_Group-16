@@ -47,7 +47,7 @@ START_TIME=$SECONDS
 # (preamble + NUM_INSTRS weighted random instructions + HALT), so the
 # regression is one build + one run (simulation efficiency is graded).
 # The directed per-opcode / per-mode tests are still compiled and can be
-# run by name, e.g.  ./regress.sh trap_test jsrr_mode_test
+# run by name, e.g.  ./regress.sh ldi_test br_all_nzp_test
 DEFAULT_TESTS=(
   random_instr_test
 )
@@ -127,7 +127,17 @@ done
 vcover merge merged.ucdb "${RUN_UCDBS[@]}"
 
 echo "[report ] vcover report -> coverage.txt"
-vcover report -details -output coverage.txt merged.ucdb
+# vcover report -details -output coverage.txt merged.ucdb
+vcover report -details -output coverage_full.txt merged.ucdb
+awk '
+  /^ TYPE \/decode_in_pkg\/decode_in_transaction_coverage\/decode_in_transaction_cg/ {
+    count++
+    if (count == 2) keep = 1
+  }
+  keep { print }
+  END { if (count < 2) exit 1 }
+' coverage_full.txt > coverage.txt
+# rm -f coverage_full.txt
 
 echo "=========================================="
 echo "Regression complete: $PASS passed, $FAIL failed  (seed=$SEED, NUM_INSTRS=$NUM_INSTRS, wall time $((SECONDS-START_TIME))s)"

@@ -5,9 +5,9 @@
 // default regression). Factory overrides:
 //   imem_transaction        -> imem_constrained_transaction (legal LC3 mix)
 //   imem_responder_sequence -> lc3_program_imem_sequence (preamble, random
-//                              body, closing HALT; see lc3_program_sequences)
-//   lc3_bench_sequence_base -> lc3_program_bench_sequence (ends after HALT)
-//
+//                              body; see lc3_program_sequences)
+//   lc3_bench_sequence_base -> lc3_program_bench_sequence (ends after the
+//                              last program instruction drains)
 // Program length: +NUM_INSTRS=<n> (default 2000).
 //----------------------------------------------------------------------
 

@@ -5,8 +5,10 @@
 //
 //   preamble : AND R0..R7, Rn, #0      (clear all registers -> known state)
 //   main     : NUM_INSTRS constrained-random instructions
-//   closing  : TRAP x25 (HALT)
 //   after    : ADD R0,R0,#0 fillers until the test ends
+
+// There is no closing TRAP x25 (HALT): TRAP is not a valid opcode for this
+// project, so the program simply ends after the last random instruction.
 //
 // lc3_program_imem_sequence replaces imem_responder_sequence (factory type
 // override), so lc3_bench_sequence_base needs no changes. Main-phase items
@@ -14,8 +16,8 @@
 // test (imem_constrained_transaction) still sets the instruction mix.
 //
 // lc3_program_bench_sequence replaces lc3_bench_sequence_base: instead of a
-// fixed 400 clocks, it ends the test DRAIN_CLOCKS after HALT is delivered
-// (with a timeout in case the DUT hangs).
+// fixed 400 clocks, it ends the test drain_clocks after the last program
+// instruction is delivered (with a timeout in case the DUT hangs).
 //
 // Length is set from the command line:  +NUM_INSTRS=<n>   (default 2000)
 //----------------------------------------------------------------------
@@ -24,11 +26,10 @@ class lc3_program_imem_sequence extends imem_responder_sequence;
 
   `uvm_object_utils( lc3_program_imem_sequence )
 
-  //localparam bit [15:0] HALT_INSTR = 16'hF025;   // TRAP x25
   localparam bit [15:0] NOP_INSTR  = 16'h1020;   // ADD R0, R0, #0
 
-  int unsigned num_instrs = 2000;
-  bit          halt_sent  = 1'b0;
+  int unsigned num_instrs   = 2000;
+  bit          program_done = 1'b0;
 
   function new(string name = "lc3_program_imem_sequence");
     super.new(name);
@@ -73,11 +74,10 @@ class lc3_program_imem_sequence extends imem_responder_sequence;
     repeat (num_instrs) send(16'h0000, 1'b1);
 
     // Closing HALT.
-    //send(HALT_INSTR);
-    halt_sent = 1'b1; // DO NOT REMOVE! The bench sequence relies on this to properly end the sequence.
-    `uvm_info("SEQ", $sformatf("program done: 8 preamble + %0d random + HALT delivered", num_instrs), UVM_LOW)
+    program_done = 1'b1;
+    `uvm_info("SEQ", $sformatf("program done: 8 preamble + %0d random delivered", num_instrs), UVM_LOW)
 
-    // The DUT keeps fetching after HALT; feed NOPs until the test ends.
+    // The DUT keeps fetching; feed NOPs until the test ends.
     forever send(NOP_INSTR);
   endtask
 
@@ -88,8 +88,8 @@ class lc3_program_bench_sequence extends lc3_bench_sequence_base;
 
   `uvm_object_utils( lc3_program_bench_sequence )
 
-  // Clocks to run after HALT so it (and the instructions ahead of it) drain
-  // through decode and the scoreboards.
+  // Clocks to run after the last program instruction so it drains through
+  // decode and the scoreboards.
   int unsigned drain_clocks = 20;
 
   function new(string name = "");
@@ -130,12 +130,12 @@ class lc3_program_bench_sequence extends lc3_bench_sequence_base;
     fork begin
       fork
         begin
-          wait (prog.halt_sent);
+          wait (prog.program_done);
           imem_agent_config.wait_for_num_clocks(drain_clocks);
         end
         begin
           imem_agent_config.wait_for_num_clocks(max_clocks);
-          `uvm_error("TIMEOUT", $sformatf("HALT not reached within %0d clocks (DUT hung?)", max_clocks))
+          `uvm_error("TIMEOUT", $sformatf("program not delivered within %0d clocks (DUT hung?)", max_clocks))
         end
       join_any
       disable fork;

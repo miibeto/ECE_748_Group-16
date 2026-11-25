@@ -137,15 +137,25 @@ $(UVMF_PROJECT_DIR)/tb/tests/lc3_tests_pkg.sv
 # UVMF_CHANGE_ME : Reference Verilog DUT source.
 # lc3_VERILOG_DUT ?=\
 # $(UVMF_PROJECT_DIR)/rtl/verilog/TopLevelLC3.v
+# lc3_VERILOG_DUT ?= \
+#     $(UVMF_PROJECT_DIR)/rtl/verilog/data_defs.v \
+#     $(UVMF_PROJECT_DIR)/rtl/verilog/Fetch.v \
+#     $(UVMF_PROJECT_DIR)/rtl/verilog/Decode_Pipelined.v \
+#     $(UVMF_PROJECT_DIR)/rtl/verilog/Execute.v \
+#     $(UVMF_PROJECT_DIR)/rtl/verilog/Mem_Access.v \
+#     $(UVMF_PROJECT_DIR)/rtl/verilog/WriteBack.v \
+#     $(UVMF_PROJECT_DIR)/rtl/verilog/Controller_Pipeline.v \
+#     $(UVMF_PROJECT_DIR)/rtl/verilog/TopLevelLC3.v
+
 lc3_VERILOG_DUT ?= \
-    $(UVMF_PROJECT_DIR)/rtl/verilog/data_defs.v \
-    $(UVMF_PROJECT_DIR)/rtl/verilog/Fetch.v \
-    $(UVMF_PROJECT_DIR)/rtl/verilog/Decode_Pipelined.v \
-    $(UVMF_PROJECT_DIR)/rtl/verilog/Execute.v \
-    $(UVMF_PROJECT_DIR)/rtl/verilog/Mem_Access.v \
-    $(UVMF_PROJECT_DIR)/rtl/verilog/WriteBack.v \
-    $(UVMF_PROJECT_DIR)/rtl/verilog/Controller_Pipeline.v \
-    $(UVMF_PROJECT_DIR)/rtl/verilog/TopLevelLC3.v
+    $(UVMF_PROJECT_DIR)/rtl/data_defs.v \
+    $(UVMF_PROJECT_DIR)/rtl/Fetch.v \
+    $(UVMF_PROJECT_DIR)/rtl/Decode_Pipelined.v \
+    $(UVMF_PROJECT_DIR)/rtl/Execute.v \
+    $(UVMF_PROJECT_DIR)/rtl/Mem_Access.v \
+    $(UVMF_PROJECT_DIR)/rtl/WriteBack.v \
+    $(UVMF_PROJECT_DIR)/rtl/Controller_Pipeline.v \
+    $(UVMF_PROJECT_DIR)/rtl/TopLevelLC3.v
 
 # UVMF_CHANGE_ME : Reference VHDL DUT source.
 lc3_VHDL_DUT ?=\

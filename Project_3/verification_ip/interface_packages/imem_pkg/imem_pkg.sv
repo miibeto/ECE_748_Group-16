@@ -64,10 +64,9 @@ package imem_pkg;
    `include "src/imem_agent.svh"
 
    // pragma uvmf custom package_item_additional begin
-   // UVMF_CHANGE_ME : When adding new interface sequences to the src directory
-   //    be sure to add the sequence file here so that it will be
-   //    compiled as part of the interface package.  Be sure to place
-   //    the new sequence after any base sequences of the new sequence.
+   // Instruction-coverage stimulus: constrained imem transactions + per-opcode tests.
+   `include "src/imem_constrained_transaction.svh"
+   `include "src/imem_single_opcode_transaction.svh"
    // pragma uvmf custom package_item_additional end
 
 endpackage

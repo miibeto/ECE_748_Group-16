@@ -1,7 +1,8 @@
 //----------------------------------------------------------------------
 // directed_opcode_tests
 //
-// One test per LC3 opcode. Each uses a factory type_override to force
+// One test per valid LC3 opcode (12; JSR/RTI/RESERVED/TRAP are not valid
+// for this project). Each uses a factory type_override to force
 // the imem responder sequence to emit transactions pinned to a single
 // opcode nibble. Running all of these in a regression guarantees every
 // opcode bin in imem_transaction_cg is hit, which closes the primary
@@ -29,7 +30,6 @@ endclass
 `LC3_DIRECTED_OPCODE_TEST(add_test , 4'b0001)
 `LC3_DIRECTED_OPCODE_TEST(ld_test  , 4'b0010)
 `LC3_DIRECTED_OPCODE_TEST(st_test  , 4'b0011)
-//`LC3_DIRECTED_OPCODE_TEST(jsr_test , 4'b0100)
 `LC3_DIRECTED_OPCODE_TEST(and_test , 4'b0101)
 `LC3_DIRECTED_OPCODE_TEST(ldr_test , 4'b0110)
 `LC3_DIRECTED_OPCODE_TEST(str_test , 4'b0111)
@@ -38,7 +38,6 @@ endclass
 `LC3_DIRECTED_OPCODE_TEST(sti_test , 4'b1011)
 `LC3_DIRECTED_OPCODE_TEST(jmp_test , 4'b1100)
 `LC3_DIRECTED_OPCODE_TEST(lea_test , 4'b1110)
-//`LC3_DIRECTED_OPCODE_TEST(trap_test, 4'b1111)
 
 //----------------------------------------------------------------------
 // Mode-change / cross-bin directed tests
@@ -85,22 +84,6 @@ class imem_tx_br_all_nzp extends imem_single_opcode_transaction #(4'b0000);
   function new(string name = "imem_tx_br_all_nzp"); super.new(name); endfunction
 endclass
 
-// JSR mode: opcode=JSR (0x4), Instr_dout[11]==1
-class imem_tx_jsr_mode extends imem_single_opcode_transaction #(4'b0100);
-  `uvm_object_utils(imem_tx_jsr_mode)
-  constraint jsr_c { Instr_dout[11] == 1'b1; }
-  function new(string name = "imem_tx_jsr_mode"); super.new(name); endfunction
-endclass
-
-// JSRR mode: opcode=JSR (0x4), Instr_dout[11]==0, bits[10:9]==0, bits[5:0]==0
-class imem_tx_jsrr_mode extends imem_single_opcode_transaction #(4'b0100);
-  `uvm_object_utils(imem_tx_jsrr_mode)
-  constraint jsrr_c { Instr_dout[11]  == 1'b0;
-                      Instr_dout[10:9] == 2'b00;
-                      Instr_dout[5:0]  == 6'b000000; }
-  function new(string name = "imem_tx_jsrr_mode"); super.new(name); endfunction
-endclass
-
 `define LC3_DIRECTED_MODE_TEST(TEST_NAME, TX_T) \
 class TEST_NAME extends lc3_checked_test; \
   `uvm_component_utils( TEST_NAME ) \
@@ -118,5 +101,3 @@ endclass
 `LC3_DIRECTED_MODE_TEST(and_imm_mode_test , imem_tx_and_imm)
 `LC3_DIRECTED_MODE_TEST(and_reg_mode_test , imem_tx_and_reg)
 `LC3_DIRECTED_MODE_TEST(br_all_nzp_test   , imem_tx_br_all_nzp)
-`LC3_DIRECTED_MODE_TEST(jsr_mode_test     , imem_tx_jsr_mode)
-`LC3_DIRECTED_MODE_TEST(jsrr_mode_test    , imem_tx_jsrr_mode)
