@@ -112,18 +112,18 @@ end
   // These are signals marked as 'input' by the config file, but the signals will be
   // driven by this BFM if put into RESPONDER mode (flipping all signal directions around)
   assign PC_i = bus.PC;
-  assign bus.PC = (initiator_responder == INITIATOR) ? PC_o : 'bz;
+  assign bus.PC = (initiator_responder == RESPONDER) ? PC_o : 'bz;
   assign instrmem_rd_i = bus.instrmem_rd;
-  assign bus.instrmem_rd = (initiator_responder == INITIATOR) ? instrmem_rd_o : 'bz;
+  assign bus.instrmem_rd = (initiator_responder == RESPONDER) ? instrmem_rd_o : 'bz;
   assign I_macc_i = bus.I_macc;
-  assign bus.I_macc = (initiator_responder == INITIATOR) ? I_macc_o : 'bz;
+  assign bus.I_macc = (initiator_responder == RESPONDER) ? I_macc_o : 'bz;
 
 
   // These are signals marked as 'output' by the config file, but the outputs will
   // not be driven by this BFM unless placed in INITIATOR mode.
-  assign bus.Instr_dout = (initiator_responder == RESPONDER) ? Instr_dout_o : 'bz;
+  assign bus.Instr_dout = (initiator_responder == INITIATOR) ? Instr_dout_o : 'bz;
   assign Instr_dout_i = bus.Instr_dout;
-  assign bus.complete_instr = (initiator_responder == RESPONDER) ? complete_instr_o : 'bz;
+  assign bus.complete_instr = (initiator_responder == INITIATOR) ? complete_instr_o : 'bz;
   assign complete_instr_i = bus.complete_instr;
 
   // Proxy handle to UVM driver
@@ -152,7 +152,7 @@ end
   // ****************************************************************************
 // pragma uvmf custom reset_condition_and_response begin
   // Always block used to return signals to reset value upon assertion of reset
-  always @( posedge reset_i )
+  always @( negedge reset_i )
      begin
        // RESPONDER mode output signals
        PC_o <= 'b0;
@@ -243,78 +243,67 @@ end
 // pragma uvmf custom initiate_and_get_response end
 
 // pragma uvmf custom respond_and_wait_for_next_transfer begin
-//the imem responder must capture a pending fetch before a data-memory stall
-//and must not complete that fetch until instrmem_rd is asserted again
-bit first_transfer = 1'b1;
-logic [15:0] last_request_pc = 16'h0000;
+// ****************************************************************************
+// The first_transfer variable is used to prevent completing a transfer in the 
+// first call to this task.  For the first call to this task, there is not
+// current transfer to complete.
+bit first_transfer=1;
 
-  task respond_and_wait_for_next_transfer(
-    output imem_initiator_s imem_initiator_struct,
-    input imem_responder_s imem_responder_struct
-  );// pragma tbx xtf
-    imem_initiator_struct = '0;
-    wait (reset_i === 1'b0);
-
-    if (first_transfer) begin
-      first_transfer = 1'b0;
-      Instr_dout_o = 16'h0000;
-      complete_instr_o = 1'b0;
-    end else begin
-      //maintain the existing two-falling-edge response latency
-      //the pending pc was captured on the preceding rising edge
-      @(negedge clock_i);
-      @(negedge clock_i);
-
-      //a data-memory access can temporarily disable instruction fetching
-      //keep the response pending until this pc can actually accept it
-      wait (reset_i === 1'b1 ||
-            (instrmem_rd_i === 1'b1 && PC_i === last_request_pc));
-
-      if (reset_i === 1'b1) begin
-        Instr_dout_o = 16'h0000;
-        complete_instr_o = 1'b0;
-        wait (reset_i === 1'b0);
-      end else begin
-        //drive before the next rising edge and hold for a complete cycle
-        Instr_dout_o = imem_responder_struct.Instr_dout;
-        complete_instr_o = imem_responder_struct.complete_instr;
-        @(posedge clock_i);
-        @(negedge clock_i);
-        complete_instr_o = 1'b0;
-      end
-
-      //the lc3 may keep instrmem_rd high across consecutive pc values
-      wait (reset_i === 1'b1 ||
-            instrmem_rd_i === 1'b0 ||
-            (instrmem_rd_i === 1'b1 &&
-             (^PC_i !== 1'bx) &&
-             PC_i !== last_request_pc));
-
-      if (reset_i === 1'b1) begin
-        Instr_dout_o = 16'h0000;
-        complete_instr_o = 1'b0;
-        wait (reset_i === 1'b0);
-      end
-    end
-
-    //capture at the first valid rising edge, not a later falling edge
-    //the falling-edge sampling in stage 8e missed pc=3005 as a store stalled
-    do begin
-      wait (reset_i === 1'b1 ||
-            (instrmem_rd_i === 1'b1 && (^PC_i !== 1'bx)));
-      if (reset_i === 1'b1)
-        wait (reset_i === 1'b0);
-      @(posedge clock_i);
-    end while (reset_i !== 1'b0 ||
-               instrmem_rd_i !== 1'b1 ||
-               (^PC_i === 1'bx));
-
-    imem_initiator_struct.PC = PC_i;
-    last_request_pc = PC_i;
-    imem_initiator_struct.instrmem_rd = instrmem_rd_i;
-    imem_initiator_struct.I_macc = I_macc_i;
-    imem_initiator_struct.Instr_dout = Instr_dout_i;
-    imem_initiator_struct.complete_instr = complete_instr_i;
+// UVMF_CHANGE_ME
+// This task is used by a responder.  The task first completes the current 
+// transfer in progress then waits for the initiator to start the next transfer.
+  task respond_and_wait_for_next_transfer( 
+       // This argument is used to send data received from the initiator
+       // back to the sequence item.  The sequence determines how to respond.
+       output imem_initiator_s imem_initiator_struct, 
+       // This argument passes transaction variables used by a responder
+       // to complete a protocol transfer.  The values come from a sequence item.       
+       input imem_responder_s imem_responder_struct 
+       );// pragma tbx xtf   
+  // Variables within the imem_initiator_struct:
+  //   bit [15:0] PC ;
+  //   bit instrmem_rd ;
+  //   bit I_macc ;
+  //   bit [15:0] Instr_dout ;
+  //   bit complete_instr ;
+  // Variables within the imem_responder_struct:
+  //   bit [15:0] PC ;
+  //   bit instrmem_rd ;
+  //   bit I_macc ;
+  //   bit [15:0] Instr_dout ;
+  //   bit complete_instr ;
+       // Reference code;
+       //    How to wait for signal value
+       //      while (control_signal == 1'b1) @(posedge clock_i);
+       //    
+       //    How to assign a initiator struct member, named xyz, from a signal.   
+       //    All available responder input and inout signals listed.
+       //    Responder input signals
+       //      imem_initiator_struct.xyz = Instr_dout_i;  //    [15:0] 
+       //      imem_initiator_struct.xyz = complete_instr_i;  //     
+       //    Responder inout signals
+       //    How to assign a signal, named xyz, from an responder struct member.   
+       //    All available responder output and inout signals listed.
+       //    Notice the _o.  Those are storage variables that allow for procedural assignment.
+       //    Responder output signals
+       //      PC_o <= imem_responder_struct.xyz;  //    [15:0] 
+       //      instrmem_rd_o <= imem_responder_struct.xyz;  //     
+       //      I_macc_o <= imem_responder_struct.xyz;  //     
+       //    Responder inout signals
+    
+  @(posedge clock_i);
+  if (!first_transfer) begin
+    // Perform transfer response here.   
+    // Reply using data recieved in the imem_responder_struct.
+    @(posedge clock_i);
+    // Reply using data recieved in the transaction handle.
+    @(posedge clock_i);
+  end
+    // Wait for next transfer then gather info from intiator about the transfer.
+    // Place the data into the imem_initiator_struct.
+    @(posedge clock_i);
+    @(posedge clock_i);
+    first_transfer = 0;
   endtask
 // pragma uvmf custom respond_and_wait_for_next_transfer end
 

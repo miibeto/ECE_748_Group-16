@@ -52,7 +52,6 @@ typedef struct packed  { \
   bit [15:0] aluout ; \
   bit [15:0] memout ; \
   bit [15:0] pcout ; \
-  bit [15:0] npc ; \
   bit [1:0] w_control ; \
   bit [2:0] dr ; \
   bit [2:0] sr1 ; \
@@ -67,7 +66,6 @@ typedef struct packed  { \
             this.aluout , \
             this.memout , \
             this.pcout , \
-            this.npc , \
             this.w_control , \
             this.dr , \
             this.sr1 , \
@@ -83,7 +81,6 @@ typedef struct packed  { \
             this.aluout , \
             this.memout , \
             this.pcout , \
-            this.npc , \
             this.w_control , \
             this.dr , \
             this.sr1 , \
@@ -101,7 +98,6 @@ typedef struct packed  { \
   bit [15:0] aluout ; \
   bit [15:0] memout ; \
   bit [15:0] pcout ; \
-  bit [15:0] npc ; \
   bit [1:0] w_control ; \
   bit [2:0] dr ; \
   bit [2:0] sr1 ; \
@@ -116,7 +112,6 @@ typedef struct packed  { \
            this.aluout , \
            this.memout , \
            this.pcout , \
-           this.npc , \
            this.w_control , \
            this.dr , \
            this.sr1 , \
@@ -132,7 +127,6 @@ typedef struct packed  { \
            this.aluout , \
            this.memout , \
            this.pcout , \
-           this.npc , \
            this.w_control , \
            this.dr , \
            this.sr1 , \
@@ -150,7 +144,6 @@ typedef struct packed  { \
   bit [15:0] aluout ; \
   bit [15:0] memout ; \
   bit [15:0] pcout ; \
-  bit [15:0] npc ; \
   bit [1:0] w_control ; \
   bit [2:0] dr ; \
   bit [2:0] sr1 ; \
@@ -165,7 +158,6 @@ typedef struct packed  { \
            this.aluout , \
            this.memout , \
            this.pcout , \
-           this.npc , \
            this.w_control , \
            this.dr , \
            this.sr1 , \
@@ -181,7 +173,6 @@ typedef struct packed  { \
            this.aluout , \
            this.memout , \
            this.pcout , \
-           this.npc , \
            this.w_control , \
            this.dr , \
            this.sr1 , \

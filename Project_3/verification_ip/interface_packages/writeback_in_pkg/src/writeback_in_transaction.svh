@@ -21,7 +21,6 @@ class writeback_in_transaction  extends uvmf_transaction_base;
   rand bit [15:0] aluout ;
   rand bit [15:0] memout ;
   rand bit [15:0] pcout ;
-  rand bit [15:0] npc ;
   rand bit [1:0] w_control ;
   rand bit [2:0] dr ;
   rand bit [2:0] sr1 ;
@@ -109,7 +108,7 @@ class writeback_in_transaction  extends uvmf_transaction_base;
   virtual function string convert2string();
     // pragma uvmf custom convert2string begin
     // UVMF_CHANGE_ME : Customize format if desired.
-    return $sformatf("aluout:0x%x memout:0x%x pcout:0x%x npc:0x%x w_control:0x%x dr:0x%x sr1:0x%x sr2:0x%x enable_writeback:0x%x ",aluout,memout,pcout,npc,w_control,dr,sr1,sr2,enable_writeback);
+    return $sformatf("aluout:0x%x memout:0x%x pcout:0x%x w_control:0x%x dr:0x%x sr1:0x%x sr2:0x%x enable_writeback:0x%x ",aluout,memout,pcout,w_control,dr,sr1,sr2,enable_writeback);
     // pragma uvmf custom convert2string end
   endfunction
 
@@ -140,7 +139,6 @@ class writeback_in_transaction  extends uvmf_transaction_base;
             &&(this.aluout == RHS.aluout)
             &&(this.memout == RHS.memout)
             &&(this.pcout == RHS.pcout)
-            &&(this.npc == RHS.npc)
             &&(this.w_control == RHS.w_control)
             &&(this.dr == RHS.dr)
             &&(this.sr1 == RHS.sr1)
@@ -165,7 +163,6 @@ class writeback_in_transaction  extends uvmf_transaction_base;
     this.aluout = RHS.aluout;
     this.memout = RHS.memout;
     this.pcout = RHS.pcout;
-    this.npc = RHS.npc;
     this.w_control = RHS.w_control;
     this.dr = RHS.dr;
     this.sr1 = RHS.sr1;
@@ -197,7 +194,6 @@ class writeback_in_transaction  extends uvmf_transaction_base;
     $add_attribute(transaction_view_h,aluout,"aluout");
     $add_attribute(transaction_view_h,memout,"memout");
     $add_attribute(transaction_view_h,pcout,"pcout");
-    $add_attribute(transaction_view_h,npc,"npc");
     $add_attribute(transaction_view_h,w_control,"w_control");
     $add_attribute(transaction_view_h,dr,"dr");
     $add_attribute(transaction_view_h,sr1,"sr1");

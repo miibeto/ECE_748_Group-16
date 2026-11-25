@@ -66,7 +66,6 @@ class memaccess_predictor #(
 
 
   // pragma uvmf custom class_item_additional begin
-  int unsigned memaccess_prediction_count = 0;
   // pragma uvmf custom class_item_additional end
 
   // FUNCTION: new
@@ -91,45 +90,21 @@ class memaccess_predictor #(
   // This function performs prediction of DUT output values based on DUT input, configuration and state
   virtual function void write_memaccess_in_agent_ae(memaccess_in_transaction t);
     // pragma uvmf custom memaccess_in_agent_ae_predictor begin
-    bit model_failed;
-    bit [15:0] expected_addr;
-    bit [15:0] expected_din;
-    bit [15:0] expected_memout;
-    bit expected_rd;
-
     memaccess_in_agent_ae_debug = t;
-    memaccess_sb_ap_output_transaction = memaccess_sb_ap_output_transaction_t::type_id::create(
-      "memaccess_sb_ap_output_transaction");
-
-    //the memory access unit is combinational; predict this sample directly
-    model_failed = lc3_prediction_pkg::mem_access_model(
-      t.M_Data,
-      t.M_addr,
-      t.M_Control,
-      t.mem_state,
-      t.DMem_dout,
-      expected_addr,
-      expected_din,
-      expected_memout,
-      expected_rd);
-
-    if (model_failed)
-      `uvm_error("MEMACCESS_MODEL", "mem_access_model returned failure")
-
-    memaccess_sb_ap_output_transaction.DMem_addr = expected_addr;
-    memaccess_sb_ap_output_transaction.DMem_din = expected_din;
-    memaccess_sb_ap_output_transaction.memout = expected_memout;
-    memaccess_sb_ap_output_transaction.DMem_rd = expected_rd;
-    memaccess_sb_ap_output_transaction.start_time = t.start_time;
-    memaccess_sb_ap_output_transaction.end_time = t.end_time;
-
-    if (memaccess_prediction_count < 80) begin
-      $display("MEM_REF_DIAG t=%0t n=%0d ms=%0h mc=%b md=%04h ma=%04h dout=%04h pred_addr=%04h pred_rd=%b pred_din=%04h pred_memout=%04h",
-        $time, memaccess_prediction_count, t.mem_state, t.M_Control,
-        t.M_Data, t.M_addr, t.DMem_dout, expected_addr, expected_rd,
-        expected_din, expected_memout);
-    end
-    memaccess_prediction_count++;
+    `uvm_info("PRED", "Transaction Received through memaccess_in_agent_ae", UVM_MEDIUM)
+    `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
+    // Construct one of each output transaction type.
+    memaccess_sb_ap_output_transaction = memaccess_sb_ap_output_transaction_t::type_id::create("memaccess_sb_ap_output_transaction");
+    //  UVMF_CHANGE_ME: Implement predictor model here.  
+    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
+    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The memaccess_predictor::write_memaccess_in_agent_ae function needs to be completed with DUT prediction model",UVM_NONE)
+    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
+ 
+    // Code for sending output transaction out through memaccess_sb_ap
+    // Please note that each broadcasted transaction should be a different object than previously 
+    // broadcasted transactions.  Creation of a different object is done by constructing the transaction 
+    // using either new() or create().  Broadcasting a transaction object more than once to either the 
+    // same subscriber or multiple subscribers will result in unexpected and incorrect behavior.
     memaccess_sb_ap.write(memaccess_sb_ap_output_transaction);
     // pragma uvmf custom memaccess_in_agent_ae_predictor end
   endfunction

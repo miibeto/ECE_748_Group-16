@@ -160,13 +160,17 @@ end
     //      decode_in_monitor_struct.xyz = dout_i;  //    [15:0] 
     //      decode_in_monitor_struct.xyz = npc_in_i;  //    [15:0] 
     // pragma uvmf custom do_monitor begin
-    //sample each valid post-reset cycle after signals settle
-    wait (reset_i === 1'b0);
-    @(negedge clock_i);
-    #1ns;
-    decode_in_monitor_struct.enable_decode = enable_decode_i;
-    decode_in_monitor_struct.dout = dout_i;
-    decode_in_monitor_struct.npc_in = npc_in_i;
+    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
+    // below are examples of how to capture signal values and assign them to 
+    // structure members.  All available input signals are listed.  The 'while' 
+    // code example shows how to wait for a synchronous flow control signal.  This
+    // task should return when a complete transfer has been observed.  Once this task is
+    // exited with captured values, it is then called again to wait for and observe 
+    // the next transfer. One clock cycle is consumed between calls to do_monitor.
+    @(posedge clock_i);
+    @(posedge clock_i);
+    @(posedge clock_i);
+    @(posedge clock_i);
     // pragma uvmf custom do_monitor end
   endtask         
   

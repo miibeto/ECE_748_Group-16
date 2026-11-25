@@ -51,7 +51,7 @@ typedef struct packed  { \
   `define writeback_out_MONITOR_STRUCT typedef struct packed  { \
   bit [15:0] vsr1 ; \
   bit [15:0] vsr2 ; \
-  bit [2:0] psr ; \
+  bit [15:0] psr ; \
      } writeback_out_monitor_s;
 
   `define writeback_out_TO_MONITOR_STRUCT_FUNCTION \
@@ -82,7 +82,7 @@ typedef struct packed  { \
   `define writeback_out_INITIATOR_STRUCT typedef struct packed  { \
   bit [15:0] vsr1 ; \
   bit [15:0] vsr2 ; \
-  bit [2:0] psr ; \
+  bit [15:0] psr ; \
      } writeback_out_initiator_s;
 
   `define writeback_out_TO_INITIATOR_STRUCT_FUNCTION \
@@ -113,7 +113,7 @@ typedef struct packed  { \
   `define writeback_out_RESPONDER_STRUCT typedef struct packed  { \
   bit [15:0] vsr1 ; \
   bit [15:0] vsr2 ; \
-  bit [2:0] psr ; \
+  bit [15:0] psr ; \
      } writeback_out_responder_s;
 
   `define writeback_out_TO_RESPONDER_STRUCT_FUNCTION \

@@ -55,22 +55,22 @@ modport initiator_port
   (
   input clock,
   input reset,
-  output PC,
-  output instrmem_rd,
-  output I_macc,
-  input Instr_dout,
-  input complete_instr
-  );
-
-modport responder_port 
-  (
-  input clock,
-  input reset,
   input PC,
   input instrmem_rd,
   input I_macc,
   output Instr_dout,
   output complete_instr
+  );
+
+modport responder_port 
+  (
+  input clock,
+  input reset,  
+  output PC,
+  output instrmem_rd,
+  output I_macc,
+  input Instr_dout,
+  input complete_instr
   );
   
 

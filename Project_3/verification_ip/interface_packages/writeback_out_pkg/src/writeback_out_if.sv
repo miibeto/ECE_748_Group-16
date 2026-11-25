@@ -33,7 +33,7 @@ interface  writeback_out_if
   input tri reset,
   inout tri [15:0] vsr1,
   inout tri [15:0] vsr2,
-  inout tri [2:0] psr
+  inout tri [15:0] psr
   );
 
 modport monitor_port 

@@ -57,7 +57,7 @@ uvmf:
         reset_value: '''b0'
         width: '2'
       reset: reset
-      reset_assertion_level: 'True'
+      reset_assertion_level: 'False'
       transaction_constraints: []
       transaction_vars:
       - comment: ''

@@ -23,7 +23,6 @@ package writeback_env_pkg;
   import uvm_pkg::*;
   `include "uvm_macros.svh"
   import uvmf_base_pkg::*;
-  import lc3_prediction_pkg::*;
   import writeback_in_pkg::*;
   import writeback_in_pkg_hdl::*;
   import writeback_out_pkg::*;

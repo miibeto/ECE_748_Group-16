@@ -100,7 +100,7 @@ end
   // ****************************************************************************              
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 0 ) ;                                                              
+    wait ( reset_i === 1 ) ;                                                              
     @(posedge clock_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
@@ -150,17 +150,40 @@ end
   // ****************************************************************************  
             
   task do_monitor(output dmem_monitor_s dmem_monitor_struct);
-    //report one transaction for each completed memory access
-    wait (reset_i === 1'b0);
-    @(negedge clock_i);
-    while (!(D_macc_i === 1'b1 && complete_data_i === 1'b1))
-      @(negedge clock_i);
-    dmem_monitor_struct.Data_addr=Data_addr_i;
-    dmem_monitor_struct.Data_din=Data_din_i;
-    dmem_monitor_struct.Data_rd=Data_rd_i;
-    dmem_monitor_struct.D_macc=D_macc_i;
-    dmem_monitor_struct.Data_dout=Data_dout_i;
-    dmem_monitor_struct.complete_data=complete_data_i;
+    //
+    // Available struct members:
+    //     //    dmem_monitor_struct.Data_addr
+    //     //    dmem_monitor_struct.Data_din
+    //     //    dmem_monitor_struct.Data_rd
+    //     //    dmem_monitor_struct.D_macc
+    //     //    dmem_monitor_struct.Data_dout
+    //     //    dmem_monitor_struct.complete_data
+    //     //
+    // Reference code;
+    //    How to wait for signal value
+    //      while (control_signal === 1'b1) @(posedge clock_i);
+    //    
+    //    How to assign a struct member, named xyz, from a signal.   
+    //    All available input signals listed.
+    //      dmem_monitor_struct.xyz = Data_addr_i;  //    [15:0] 
+    //      dmem_monitor_struct.xyz = Data_din_i;  //    [15:0] 
+    //      dmem_monitor_struct.xyz = Data_rd_i;  //     
+    //      dmem_monitor_struct.xyz = D_macc_i;  //     
+    //      dmem_monitor_struct.xyz = Data_dout_i;  //    [15:0] 
+    //      dmem_monitor_struct.xyz = complete_data_i;  //     
+    // pragma uvmf custom do_monitor begin
+    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
+    // below are examples of how to capture signal values and assign them to 
+    // structure members.  All available input signals are listed.  The 'while' 
+    // code example shows how to wait for a synchronous flow control signal.  This
+    // task should return when a complete transfer has been observed.  Once this task is
+    // exited with captured values, it is then called again to wait for and observe 
+    // the next transfer. One clock cycle is consumed between calls to do_monitor.
+    @(posedge clock_i);
+    @(posedge clock_i);
+    @(posedge clock_i);
+    @(posedge clock_i);
+    // pragma uvmf custom do_monitor end
   endtask         
   
  

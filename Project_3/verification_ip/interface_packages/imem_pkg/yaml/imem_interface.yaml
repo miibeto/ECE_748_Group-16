@@ -12,28 +12,28 @@ uvmf:
       hvl_typedefs: []
       parameters: []
       ports:
-      - dir: output
+      - dir: input
         name: PC
         reset_value: '''b0'
         width: '16'
-      - dir: output
+      - dir: input
         name: instrmem_rd
         reset_value: '''b0'
         width: '1'
-      - dir: output
+      - dir: input
         name: I_macc
         reset_value: '''b0'
         width: '1'
-      - dir: input
+      - dir: output
         name: Instr_dout
         reset_value: '''b0'
         width: '16'
-      - dir: input
+      - dir: output
         name: complete_instr
         reset_value: '''b0'
         width: '1'
       reset: reset
-      reset_assertion_level: 'True'
+      reset_assertion_level: 'False'
       transaction_constraints: []
       transaction_vars:
       - comment: ''

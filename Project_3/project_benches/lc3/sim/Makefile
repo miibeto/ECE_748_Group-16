@@ -115,12 +115,6 @@ DEBUG_VSIM_ARGS       +=
 EXTRA_VSIM_TOPS       += 
 
 # pragma uvmf custom additional_args begin
-IMEM_PROGRAM ?= smoke
-COMMON_VSIM_ARGS += +IMEM_PROGRAM=$(IMEM_PROGRAM)
-TRACE_INDIRECT ?= 0
-ifeq ($(TRACE_INDIRECT),1)
-COMMON_VSIM_ARGS += +TRACE_INDIRECT
-endif
 # pragma uvmf custom additional_args end
 
 

@@ -94,8 +94,8 @@ end
   reg [15:0] vsr1_o = 'b0;
   tri [15:0] vsr2_i;
   reg [15:0] vsr2_o = 'b0;
-  tri [2:0] psr_i;
-  reg [2:0] psr_o = 'b0;
+  tri [15:0] psr_i;
+  reg [15:0] psr_o = 'b0;
 
   // INITIATOR mode output signals
 
@@ -192,11 +192,11 @@ end
        // Members within the writeback_out_initiator_struct:
        //   bit [15:0] vsr1 ;
        //   bit [15:0] vsr2 ;
-       //   bit [2:0] psr ;
+       //   bit [15:0] psr ;
        // Members within the writeback_out_responder_struct:
        //   bit [15:0] vsr1 ;
        //   bit [15:0] vsr2 ;
-       //   bit [2:0] psr ;
+       //   bit [15:0] psr ;
        initiator_struct = writeback_out_initiator_struct;
        //
        // Reference code;
@@ -247,11 +247,11 @@ bit first_transfer=1;
   // Variables within the writeback_out_initiator_struct:
   //   bit [15:0] vsr1 ;
   //   bit [15:0] vsr2 ;
-  //   bit [2:0] psr ;
+  //   bit [15:0] psr ;
   // Variables within the writeback_out_responder_struct:
   //   bit [15:0] vsr1 ;
   //   bit [15:0] vsr2 ;
-  //   bit [2:0] psr ;
+  //   bit [15:0] psr ;
        // Reference code;
        //    How to wait for signal value
        //      while (control_signal == 1'b1) @(posedge clock_i);

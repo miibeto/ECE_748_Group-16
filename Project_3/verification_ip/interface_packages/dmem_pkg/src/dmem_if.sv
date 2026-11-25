@@ -54,19 +54,7 @@ modport monitor_port
   input complete_data
   );
 
-modport initiator_port
-  (
-  input clock,
-  input reset,
-  output Data_addr,
-  output Data_din,
-  output Data_rd,
-  output D_macc,
-  input Data_dout,
-  input complete_data
-  );
-
-modport responder_port
+modport initiator_port 
   (
   input clock,
   input reset,
@@ -77,6 +65,19 @@ modport responder_port
   output Data_dout,
   output complete_data
   );
+
+modport responder_port 
+  (
+  input clock,
+  input reset,  
+  output Data_addr,
+  output Data_din,
+  output Data_rd,
+  output D_macc,
+  input Data_dout,
+  input complete_data
+  );
+  
 
 // pragma uvmf custom interface_item_additional begin
 // pragma uvmf custom interface_item_additional end
