@@ -51,6 +51,9 @@ class lc3_environment  extends uvmf_environment_base #(
 
   typedef uvmf_in_order_scoreboard #(.T(dmem_transaction))  lc3_sb_t;
   lc3_sb_t lc3_sb;
+  //stage74:explicit memory-free program contract
+  bit stage74_no_dmem_expected;
+  string stage74_program;
 
 
 
@@ -58,6 +61,10 @@ class lc3_environment  extends uvmf_environment_base #(
   lc3_vsqr_t vsqr;
 
   // pragma uvmf custom class_item_additional begin
+  //allow a memoryless program to have zero predictions and zero observations.
+  //all expected/actual comparisons and non-empty checks remain enabled.
+  bit stage48_zero_memory_program = 0;
+  string stage48_imem_program = "smoke";
   // pragma uvmf custom class_item_additional end
  
 // ****************************************************************************
@@ -91,6 +98,22 @@ class lc3_environment  extends uvmf_environment_base #(
     lc3_pred = lc3_pred_t::type_id::create("lc3_pred",this);
     lc3_pred.configuration = configuration;
     lc3_sb = lc3_sb_t::type_id::create("lc3_sb",this);
+
+    //the uvmf activity check assumes every test must generate a memory transaction.
+    //alu/branch/jmp programs must instead prove zero predicted and observed memory ops.
+    void'($value$plusargs("IMEM_PROGRAM=%s", stage48_imem_program));
+    stage48_zero_memory_program =
+      (stage48_imem_program == "alu") ||
+      (stage48_imem_program == "branch") ||
+      (stage48_imem_program == "jump");
+    if (stage48_zero_memory_program)
+      lc3_sb.disable_end_of_test_activity_check();
+    `uvm_info("STAGE48_EMPTY_SCBD", $sformatf(
+      "program=%s zero_memory_expected=%0d activity_check_enabled=%0d comparison_enabled=%0d empty_check_enabled=%0d",
+      stage48_imem_program, stage48_zero_memory_program,
+      lc3_sb.end_of_test_activity_check,
+      !lc3_sb.disable_entry_compare,
+      lc3_sb.end_of_test_empty_check), UVM_NONE)
 
     vsqr = lc3_vsqr_t::type_id::create("vsqr", this);
     vsqr.set_config(configuration);
@@ -131,6 +154,46 @@ class lc3_environment  extends uvmf_environment_base #(
 //
   virtual function void start_of_simulation_phase(uvm_phase phase);
      configuration.lc3_configuration_cg.sample();
+     void'($value$plusargs("IMEM_PROGRAM=%s", stage74_program));
+     stage74_no_dmem_expected = (stage74_program == "cov72_alu" ||
+                                 stage74_program == "cov72_jump");
+     if (stage74_no_dmem_expected) begin
+       //zero transactions is the expected result, not missing verification
+       lc3_sb.disable_end_of_test_activity_check();
+     end
+  endfunction
+
+  //the empty-scoreboard activity check is inappropriate only for memoryless tests.
+  //check the explicit architectural counters instead of accepting nonzero traffic.
+  virtual function void check_phase(uvm_phase phase);
+    super.check_phase(phase);
+    if (stage48_zero_memory_program) begin
+      if (lc3_pred.predicted_mem_ops != 0 ||
+          lc3_pred.observed_mem_ops != 0 ||
+          lc3_sb.transaction_count != 0 ||
+          lc3_sb.nothing_to_compare_against_count != 0 ||
+          lc3_sb.mismatch_count != 0 ||
+          lc3_sb.match_count != 0) begin
+        `uvm_error("STAGE48_ZERO_MEM_FAIL", $sformatf(
+          "program=%s expected=%0d observed=%0d scoreboard_predictions=%0d no_expected=%0d matches=%0d mismatches=%0d",
+          stage48_imem_program, lc3_pred.predicted_mem_ops,
+          lc3_pred.observed_mem_ops, lc3_sb.transaction_count,
+          lc3_sb.nothing_to_compare_against_count,
+          lc3_sb.match_count, lc3_sb.mismatch_count))
+      end else begin
+        `uvm_info("STAGE48_ZERO_MEM_OK", $sformatf(
+          "program=%s expected=0 observed=0 scoreboard_predictions=0",
+          stage48_imem_program), UVM_NONE)
+      end
+    end
+    if (stage74_no_dmem_expected) begin
+      //preserve comparisons and pending-entry checks; reject any memory activity
+      if (lc3_sb.transaction_count != 0 || lc3_sb.match_count != 0 ||
+          lc3_sb.mismatch_count != 0 || lc3_sb.nothing_to_compare_against_count != 0)
+        `uvm_error("STAGE74_NO_DMEM", $sformatf("%s unexpected memory activity predicted=%0d matches=%0d mismatches=%0d unexpected_actual=%0d", stage74_program, lc3_sb.transaction_count, lc3_sb.match_count, lc3_sb.mismatch_count, lc3_sb.nothing_to_compare_against_count))
+      else
+        `uvm_info("STAGE74_NO_DMEM", $sformatf("%s PASS zero memory transactions", stage74_program), UVM_LOW)
+    end
   endfunction
 
 endclass

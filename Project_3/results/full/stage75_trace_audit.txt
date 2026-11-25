@@ -1,0 +1,63 @@
+STAGE71 TRACE AUDIT — opcode/field observations, NOT UCDB coverage or architectural retirement
+case | samples | ctrl mismatches | decode admissions | invalid ci | stage scoreboards (pred/match/mismatch)
+alu_contract.log | 400 | 0 | 397 | 0 | control_sb=400/400/0, decode_sb=400/400/0, lc3_sb=0/0/0, memaccess_sb=400/400/0, writeback_sb=400/400/0
+branch_contract.log | 400 | 90 | 331 | 0 | control_sb=400/310/90, decode_sb=400/400/0, lc3_sb=0/0/0, memaccess_sb=400/400/0, writeback_sb=400/400/0
+cov72_alu_contract.log | 400 | 0 | 397 | 0 | control_sb=400/400/0, decode_sb=400/400/0, lc3_sb=0/0/0, memaccess_sb=400/400/0, writeback_sb=400/400/0
+cov72_direct_contract.log | 400 | 0 | 365 | 0 | control_sb=400/400/0, decode_sb=400/400/0, lc3_sb=32/32/0, memaccess_sb=400/400/0, writeback_sb=400/400/0
+cov72_indirect_contract.log | 400 | 0 | 309 | 0 | control_sb=400/400/0, decode_sb=400/400/0, lc3_sb=56/56/0, memaccess_sb=400/400/0, writeback_sb=400/400/0
+cov72_jump_contract.log | 400 | 24 | 385 | 0 | control_sb=400/376/24, decode_sb=400/400/0, lc3_sb=0/0/0, memaccess_sb=400/400/0, writeback_sb=400/400/0
+indirect_contract.log | 400 | 0 | 382 | 0 | control_sb=400/400/0, decode_sb=400/400/0, lc3_sb=9/9/0, memaccess_sb=400/400/0, writeback_sb=400/400/0
+jump_contract.log | 400 | 0 | 394 | 0 | control_sb=400/400/0, decode_sb=400/400/0, lc3_sb=0/0/0, memaccess_sb=400/400/0, writeback_sb=400/400/0
+smoke_contract.log | 400 | 0 | 392 | 0 | control_sb=400/400/0, decode_sb=400/400/0, lc3_sb=5/5/0, memaccess_sb=400/400/0, writeback_sb=400/400/0
+
+Opcode observations (memory responses vs valid Decode admissions):
+BR   returned=   46 admitted=   46
+ADD  returned= 1665 admitted= 1655
+LD   returned=    9 admitted=    9
+ST   returned=    9 admitted=    9
+AND  returned= 1514 admitted= 1497
+LDR  returned=   10 admitted=   10
+STR  returned=   36 admitted=   36
+NOT  returned=   19 admitted=   19
+LDI  returned=   10 admitted=   10
+STI  returned=    9 admitted=    9
+JMP  returned=    9 admitted=    9
+LEA  returned=   43 admitted=   43
+Unsupported admitted opcodes: {}
+Missing decode opcodes: []
+Missing trace files: 0
+
+Per-instruction field gaps (diagnostic targets, not claimed grading bins):
+BR   mask            8/ 8 missing=[]
+BR   offset9 sign    3/ 3 missing=[]
+ADD  DR              8/ 8 missing=[]
+ADD  SR1/base        8/ 8 missing=[]
+ADD  form            2/ 2 missing=[]
+ADD  SR2             8/ 8 missing=[]
+ADD  imm5           32/32 missing=[]
+LD   DR              8/ 8 missing=[]
+LD   offset9 sign    3/ 3 missing=[]
+ST   store SR        8/ 8 missing=[]
+ST   offset9 sign    3/ 3 missing=[]
+AND  DR              8/ 8 missing=[]
+AND  SR1/base        8/ 8 missing=[]
+AND  form            2/ 2 missing=[]
+AND  SR2             8/ 8 missing=[]
+AND  imm5           32/32 missing=[]
+LDR  DR              8/ 8 missing=[]
+LDR  SR1/base        8/ 8 missing=[]
+LDR  offset6 sign    3/ 3 missing=[]
+STR  SR1/base        8/ 8 missing=[]
+STR  store SR        8/ 8 missing=[]
+STR  offset6 sign    3/ 3 missing=[]
+NOT  DR              8/ 8 missing=[]
+NOT  SR1/base        8/ 8 missing=[]
+LDI  DR              8/ 8 missing=[]
+LDI  offset9 sign    3/ 3 missing=[]
+STI  store SR        8/ 8 missing=[]
+STI  offset9 sign    3/ 3 missing=[]
+JMP  SR1/base        8/ 8 missing=[]
+LEA  DR              8/ 8 missing=[]
+LEA  offset9 sign    3/ 3 missing=[]
+
+Notes: field observations do not establish correct execution, branch outcomes, operand crosses, or UCDB closure. Decode admissions use the existing coherent Control trace convention. Retained invalid or duplicate words are not interpreted as unique architectural instructions.

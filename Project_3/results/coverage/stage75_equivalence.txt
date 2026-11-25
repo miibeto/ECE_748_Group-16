@@ -1,0 +1,17 @@
+STAGE75 TRACE EQUIVALENCE AND COVERAGE-ONLY SUBSET AUDIT
+branch IDENTICAL cycles= 400 errors= 90
+cov72_alu IDENTICAL cycles= 400 errors= 0
+cov72_direct IDENTICAL cycles= 400 errors= 0
+cov72_indirect IDENTICAL cycles= 400 errors= 0
+cov72_jump IDENTICAL cycles= 400 errors= 24
+branch individual Decode bins 27 / 272
+cov72_alu individual Decode bins 135 / 272
+cov72_direct individual Decode bins 110 / 272
+cov72_indirect individual Decode bins 80 / 272
+cov72_jump individual Decode bins 43 / 272
+Merged hit set: 272 / 272
+Minimum number of tests for these Decode bins: 5
+COVERAGE_ONLY_CANDIDATE=branch,cov72_alu,cov72_direct,cov72_indirect,cov72_jump
+Do not remove directed functional/defect regressions merely because their bins overlap.
+STAGE75_EQUIVALENCE=1
+STAGE75_VALIDATION=1

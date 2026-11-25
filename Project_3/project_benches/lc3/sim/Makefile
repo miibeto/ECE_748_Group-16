@@ -115,6 +115,52 @@ DEBUG_VSIM_ARGS       +=
 EXTRA_VSIM_TOPS       += 
 
 # pragma uvmf custom additional_args begin
+IMEM_PROGRAM ?= smoke
+COMMON_VSIM_ARGS += +IMEM_PROGRAM=$(IMEM_PROGRAM)
+TRACE_INDIRECT ?= 0
+ifeq ($(TRACE_INDIRECT),1)
+COMMON_VSIM_ARGS += +TRACE_INDIRECT
+endif
+#diagnostic-only instruction acknowledgement experiment, off by default
+GUARD_IMEM_ACK ?= 0
+ifeq ($(GUARD_IMEM_ACK),1)
+COMMON_VSIM_ARGS += +GUARD_IMEM_ACK
+endif
+TRACE_ACK_GUARD ?= 0
+ifeq ($(TRACE_ACK_GUARD),1)
+COMMON_VSIM_ARGS += +TRACE_ACK_GUARD
+endif
+#stage38 input monitor phase; 0=stage37, 1=ir preedge, 2=all preedge
+CTRL38_INPUT_PHASE ?= 0
+COMMON_VSIM_ARGS += +CTRL38_INPUT_PHASE=$(CTRL38_INPUT_PHASE)
+TRACE_CTRL38 ?= 0
+ifeq ($(TRACE_CTRL38),1)
+COMMON_VSIM_ARGS += +TRACE_CTRL38
+endif
+#stage39 passive memory handshake trace
+TRACE39_DMEM ?= 0
+ifeq ($(TRACE39_DMEM),1)
+COMMON_VSIM_ARGS += +TRACE39_DMEM
+endif
+#stage40 experiment: extend data completion pulse, default original 1 cycle
+DMEM_ACK_HOLD_CYCLES ?= 1
+COMMON_VSIM_ARGS += +DMEM_ACK_HOLD_CYCLES=$(DMEM_ACK_HOLD_CYCLES)
+#stage41 response-latency experiment; zero is original behavior
+DMEM_RESPONSE_DELAY_CYCLES ?= 0
+COMMON_VSIM_ARGS += +DMEM_RESPONSE_DELAY_CYCLES=$(DMEM_RESPONSE_DELAY_CYCLES)
+#stage43 optional same-half-cycle data response; 0 keeps stage41 behavior
+DMEM_ZERO_WAIT ?= 0
+COMMON_VSIM_ARGS += +DMEM_ZERO_WAIT=$(DMEM_ZERO_WAIT)
+#stage44 passive clock-edge and instruction-path diagnostic probes
+TRACE42_RETIRE ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(TRACE42_RETIRE)),+TRACE42_RETIRE,)
+TRACE44_PATH ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(TRACE44_PATH)),+TRACE44_PATH,)
+#stage45 compare public next-state qualifier to registered controller state
+DMEM_REQ_QUALIFIER ?= 0
+COMMON_VSIM_ARGS += +DMEM_REQ_QUALIFIER=$(DMEM_REQ_QUALIFIER)
+TRACE45_REQ ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(TRACE45_REQ)),+TRACE45_REQ,)
 # pragma uvmf custom additional_args end
 
 
@@ -227,3 +273,86 @@ emu_build: libs build link optimize
 # pragma uvmf custom additional_targets begin
 # pragma uvmf custom additional_targets end
 
+
+#stage27 optional edge-qualified instruction-memory acknowledgement
+ACCEPT_IMEM_ACK ?= 0
+ifeq ($(ACCEPT_IMEM_ACK),1)
+COMMON_VSIM_ARGS += +ACCEPT_IMEM_ACK
+endif
+TRACE_ACCEPT_IMEM ?= 0
+ifeq ($(TRACE_ACCEPT_IMEM),1)
+COMMON_VSIM_ARGS += +TRACE_ACCEPT_IMEM
+endif
+
+#stage29 optional control-flow readiness experiment; default is stage27 behavior
+MEMORY_ONLY_IMEM_READY ?= 0
+ifeq ($(MEMORY_ONLY_IMEM_READY),1)
+COMMON_VSIM_ARGS += +MEMORY_ONLY_IMEM_READY
+endif
+TRACE_JUMP_READY ?= 0
+ifeq ($(TRACE_JUMP_READY),1)
+COMMON_VSIM_ARGS += +TRACE_JUMP_READY
+endif
+
+#stage30 optional stale-response cancellation on control-flow redirect
+CANCEL_REDIRECTED_IMEM ?= 0
+ifeq ($(CANCEL_REDIRECTED_IMEM),1)
+COMMON_VSIM_ARGS += +CANCEL_REDIRECTED_IMEM
+endif
+
+#stage32 optional synchronous controller input completion sampling
+CTRL32_EDGE_INSTR ?= 0
+ifeq ($(CTRL32_EDGE_INSTR),1)
+COMMON_VSIM_ARGS += +CTRL32_EDGE_INSTR
+endif
+CTRL32_EDGE_DATA ?= 0
+ifeq ($(CTRL32_EDGE_DATA),1)
+COMMON_VSIM_ARGS += +CTRL32_EDGE_DATA
+endif
+TRACE_CTRL32 ?= 0
+ifeq ($(TRACE_CTRL32),1)
+COMMON_VSIM_ARGS += +TRACE_CTRL32
+endif
+
+#stage46 independent execution coverage; never replaces fetch coverage
+EXEC_COVERAGE ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(EXEC_COVERAGE)),+EXEC_COVERAGE,)
+TRACE46_EXEC ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(TRACE46_EXEC)),+TRACE46_EXEC,)
+
+#stage49 branch-never hazard experiment: leave 0 for original model
+CTRL49_BRNEVER_NOP ?= 0
+COMMON_VSIM_ARGS += +CTRL49_BRNEVER_NOP=$(CTRL49_BRNEVER_NOP)
+
+#stage50 passive branch-model diagnostic; zero keeps prior behavior
+TRACE50_BRANCH ?= 0
+COMMON_VSIM_ARGS += +TRACE50_BRANCH=$(TRACE50_BRANCH)
+
+CTRL52_LATCH_ACK ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(CTRL52_LATCH_ACK)),+CTRL52_LATCH_ACK,)
+
+#stage55:alternate public-interface-only instruction responder, default off
+CTRL55_CLEAN_IMEM ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(CTRL55_CLEAN_IMEM)),+CTRL55_CLEAN_IMEM,)
+
+#stage54:optional post-NBA capture of instruction request PC; default unchanged
+CTRL54_POSTEDGE_PC ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(CTRL54_POSTEDGE_PC)),+CTRL54_POSTEDGE_PC,)
+
+#stage57:control clean responder response pre-wait
+CTRL57_PRE_WAIT_NEGEDGES ?= 2
+COMMON_VSIM_ARGS += +CTRL57_PRE_WAIT_NEGEDGES=$(CTRL57_PRE_WAIT_NEGEDGES)
+
+#stage59 specification memory protocol (legacy behavior is opt-in for comparison)
+CTRL59_USE_LEGACY ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(CTRL59_USE_LEGACY)),+CTRL59_USE_LEGACY,)
+
+#stage61:opt-in single-outstanding imem handshake
+CTRL61_HANDSHAKE ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(CTRL61_HANDSHAKE)),+CTRL61_HANDSHAKE,)
+
+#stage63:registered public-port instruction memory
+CTRL63_SYNC_IMEM ?= 0
+CTRL64_HOLD_DURING_DMEM ?= 0
+COMMON_VSIM_ARGS += $(if $(filter 1,$(CTRL64_HOLD_DURING_DMEM)),+CTRL64_HOLD_DURING_DMEM,)
+COMMON_VSIM_ARGS += $(if $(filter 1,$(CTRL63_SYNC_IMEM)),+CTRL63_SYNC_IMEM,)

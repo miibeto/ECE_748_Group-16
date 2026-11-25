@@ -4,6 +4,21 @@ function void decode_lc3_insn
     output decoded_insn_t decode_insn
   );
 
+  //stage49:optional branch-never control-hazard experiment
+  //the default preserves the supplied reference model exactly
+  static bit stage49_mode_ready = 0;
+  static int stage49_brnever_nop = 0;
+  static int stage49_brnever_traces = 0;
+  if (!stage49_mode_ready) begin
+    void'($value$plusargs("CTRL49_BRNEVER_NOP=%d", stage49_brnever_nop));
+    if ((stage49_brnever_nop != 0) && (stage49_brnever_nop != 1)) begin
+      $error("STAGE49_BAD_MODE mode=%0d permitted=0,1", stage49_brnever_nop);
+      stage49_brnever_nop = 0;
+    end
+    stage49_mode_ready = 1;
+    $display("STAGE49_BR_MODE branch_never_as_noncontrol=%0d version=49.1", stage49_brnever_nop);
+  end
+
   decode_insn.opcode = opcode_t'(insn[15:12]);
 
   case (decode_insn.opcode)
@@ -37,9 +52,19 @@ function void decode_lc3_insn
     end
 
     BR: begin
-      decode_insn.optype = CONTROL;
+      //a mask of 000 is architecturally never taken
+      //mode 1 tests whether the rtl treats this case as a non-control operation
+      if ((stage49_brnever_nop == 1) && (insn[11:9] == 3'b000))
+        decode_insn.optype = ALU;
+      else
+        decode_insn.optype = CONTROL;
       decode_insn.mod_cf = 0;
-      decode_insn.use_cf = 1;
+      decode_insn.use_cf = (stage49_brnever_nop == 1 && insn[11:9] == 3'b000) ? 0 : 1;
+      if ((insn[11:9] == 3'b000) && (stage49_brnever_traces < 14)) begin
+        $display("STAGE49_BRNEVER_DECODE t=%0t insn=%04h noncontrol=%0d",
+          $time, insn, (stage49_brnever_nop == 1));
+        stage49_brnever_traces++;
+      end
       decode_insn.use_dr = 0;
       decode_insn.use_sr1 = 0;
       decode_insn.use_sr2 = 0;
@@ -228,12 +253,25 @@ function bit controller_model
   *
   */
   static bit has_been_reset = 0;
+  //stage65:the startup diagram shows pc advancement before decode admission
+  static bit stage65_first_pc_advance = 0;
   static bit fe1_out_valid = 0;
   static bit fe2_out_valid = 0;
   static bit dec_out_valid = 0;
   static bit exe_out_valid = 0;
   static mem_st_t mem_state_internal = MEM_STATE_INIT;
+//stage50:passive branch validity and control-path state trace
+static bit stage50_probe_ready = 0;
+static int stage50_probe_on = 0;
+static int unsigned stage50_probe_index = 0;
+bit stage50_pre_fe1;
+bit stage50_pre_fe2;
+bit stage50_pre_dec;
+bit stage50_pre_exe;
+bit stage50_pre_reset;
 
+  //stage62:qualify instruction availability without destroying saved fetch state
+  bit fetch_instruction_ready;
   bit next_fe1_out_valid;
   bit next_fe2_out_valid;
   bit next_dec_out_valid;
@@ -250,10 +288,20 @@ function bit controller_model
   decoded_insn_t insn_exe_out;
 
   //*********** Generate internal control signals ****************************//
-  // The validity of FE2 output is determined by the last cycle's fe1_out_valid
-  // and this cycle's complete_instr, so we must update it before any other
-  // internal logic using it
-  fe2_out_valid = fe2_out_valid & complete_instr;
+  //qualify current instruction data with complete_instr; retain the saved fetch slot
+  //during a data-memory stall, so a later response can still advance to decode
+if (!stage50_probe_ready) begin
+  void'($value$plusargs("TRACE50_BRANCH=%d",stage50_probe_on));
+  stage50_probe_ready=1;
+  if (stage50_probe_on != 0)
+    $display("STAGE50_MODEL_MODE trace=%0d version=50.1",stage50_probe_on);
+end
+stage50_pre_fe1=fe1_out_valid;
+stage50_pre_fe2=fe2_out_valid;
+stage50_pre_dec=dec_out_valid;
+stage50_pre_exe=exe_out_valid;
+stage50_pre_reset=has_been_reset;
+  fetch_instruction_ready = fe2_out_valid & complete_instr & stage65_first_pc_advance;
 
   // Decode the instruction in different stage
   decode_lc3_insn(IMem_dout, insn_fe2_out);
@@ -328,7 +376,7 @@ function bit controller_model
   // Is a control-type instruction get into the pipeline, the pipeline will
   // keep fetching bubbles until the branch target is resolved
   is_pipeline_has_branch = (
-                           (fe2_out_valid && insn_fe2_out.optype == CONTROL) ||
+                           (fetch_instruction_ready && insn_fe2_out.optype == CONTROL) ||
                            (dec_out_valid && insn_dec_out.optype == CONTROL) ||
                            (exe_out_valid && insn_exe_out.optype == CONTROL)
                          );
@@ -339,7 +387,7 @@ function bit controller_model
   // new instruction from the IMem immediately
   next_fe2_out_valid = is_pipeline_mem_stall ? fe2_out_valid :
                        (!is_pipeline_has_branch && fe1_out_valid);
-  next_dec_out_valid = is_pipeline_mem_stall ? dec_out_valid : fe2_out_valid;
+  next_dec_out_valid = is_pipeline_mem_stall ? dec_out_valid : fetch_instruction_ready;
   next_exe_out_valid = is_pipeline_mem_stall ? exe_out_valid : dec_out_valid;
 
 
@@ -379,7 +427,25 @@ function bit controller_model
   dec_out_valid = next_dec_out_valid;
   exe_out_valid = next_exe_out_valid;
 
-  has_been_reset = 1;
+//stage65:mark the first independently predicted, completed pc advancement
+if (enable_updatePC && complete_instr)
+  stage65_first_pc_advance = 1;
+has_been_reset = 1;
 
-  return (0);
+if (stage50_probe_on != 0) begin
+  stage50_probe_index++;
+  if (stage50_probe_index <= 400) begin
+    $display({"STAGE50_MODEL t=%0t n=%0d ci=%b cd=%b ir=%04h ie=%04h im=%04h psr=%03b nzp=%03b ",
+      "valid_pre=%b%b%b%b valid_post=%b%b%b%b reset_pre=%b hazard=%b resolved=%b taken=%b ",
+      "stall=%b pc=%b fetch=%b dec=%b exe=%b wb=%b br=%b mem=%b"},
+      $time,stage50_probe_index,complete_instr,complete_data,IR,IR_Exec,IMem_dout,psr,NZP,
+      stage50_pre_fe1,stage50_pre_fe2,stage50_pre_dec,stage50_pre_exe,
+      fe1_out_valid,fe2_out_valid,dec_out_valid,exe_out_valid,
+      stage50_pre_reset,is_pipeline_has_branch,is_branch_resolved,is_branch_taken,
+      is_pipeline_mem_stall,enable_updatePC,enable_fetch,enable_decode,enable_execute,
+      enable_writeback,br_taken,mem_state);
+  end
+end
+
+return (0);
 endfunction

@@ -1,0 +1,579 @@
+program	pc	word	assembly
+cov72_alu	3000	5020	and r0,r0,#0
+cov72_alu	3001	5260	and r1,r1,#0
+cov72_alu	3002	54a0	and r2,r2,#0
+cov72_alu	3003	56e0	and r3,r3,#0
+cov72_alu	3004	5920	and r4,r4,#0
+cov72_alu	3005	5b60	and r5,r5,#0
+cov72_alu	3006	5da0	and r6,r6,#0
+cov72_alu	3007	5fe0	and r7,r7,#0
+cov72_alu	3008	1fe0	add r7,r7,#0 (spacing)
+cov72_alu	3009	1fe0	add r7,r7,#0 (spacing)
+cov72_alu	300a	1020	add r0,r0,#0
+cov72_alu	300b	5020	and r0,r0,#0
+cov72_alu	300c	1261	add r1,r1,#1
+cov72_alu	300d	5261	and r1,r1,#1
+cov72_alu	300e	14a2	add r2,r2,#2
+cov72_alu	300f	54a2	and r2,r2,#2
+cov72_alu	3010	16e3	add r3,r3,#3
+cov72_alu	3011	56e3	and r3,r3,#3
+cov72_alu	3012	1924	add r4,r4,#4
+cov72_alu	3013	5924	and r4,r4,#4
+cov72_alu	3014	1b65	add r5,r5,#5
+cov72_alu	3015	5b65	and r5,r5,#5
+cov72_alu	3016	1da6	add r6,r6,#6
+cov72_alu	3017	5da6	and r6,r6,#6
+cov72_alu	3018	1fe7	add r7,r7,#7
+cov72_alu	3019	5fe7	and r7,r7,#7
+cov72_alu	301a	1028	add r0,r0,#8
+cov72_alu	301b	5028	and r0,r0,#8
+cov72_alu	301c	1269	add r1,r1,#9
+cov72_alu	301d	5269	and r1,r1,#9
+cov72_alu	301e	14aa	add r2,r2,#10
+cov72_alu	301f	54aa	and r2,r2,#10
+cov72_alu	3020	16eb	add r3,r3,#11
+cov72_alu	3021	56eb	and r3,r3,#11
+cov72_alu	3022	192c	add r4,r4,#12
+cov72_alu	3023	592c	and r4,r4,#12
+cov72_alu	3024	1b6d	add r5,r5,#13
+cov72_alu	3025	5b6d	and r5,r5,#13
+cov72_alu	3026	1dae	add r6,r6,#14
+cov72_alu	3027	5dae	and r6,r6,#14
+cov72_alu	3028	1fef	add r7,r7,#15
+cov72_alu	3029	5fef	and r7,r7,#15
+cov72_alu	302a	1030	add r0,r0,#-16
+cov72_alu	302b	5030	and r0,r0,#-16
+cov72_alu	302c	1271	add r1,r1,#-15
+cov72_alu	302d	5271	and r1,r1,#-15
+cov72_alu	302e	14b2	add r2,r2,#-14
+cov72_alu	302f	54b2	and r2,r2,#-14
+cov72_alu	3030	16f3	add r3,r3,#-13
+cov72_alu	3031	56f3	and r3,r3,#-13
+cov72_alu	3032	1934	add r4,r4,#-12
+cov72_alu	3033	5934	and r4,r4,#-12
+cov72_alu	3034	1b75	add r5,r5,#-11
+cov72_alu	3035	5b75	and r5,r5,#-11
+cov72_alu	3036	1db6	add r6,r6,#-10
+cov72_alu	3037	5db6	and r6,r6,#-10
+cov72_alu	3038	1ff7	add r7,r7,#-9
+cov72_alu	3039	5ff7	and r7,r7,#-9
+cov72_alu	303a	1038	add r0,r0,#-8
+cov72_alu	303b	5038	and r0,r0,#-8
+cov72_alu	303c	1279	add r1,r1,#-7
+cov72_alu	303d	5279	and r1,r1,#-7
+cov72_alu	303e	14ba	add r2,r2,#-6
+cov72_alu	303f	54ba	and r2,r2,#-6
+cov72_alu	3040	16fb	add r3,r3,#-5
+cov72_alu	3041	56fb	and r3,r3,#-5
+cov72_alu	3042	193c	add r4,r4,#-4
+cov72_alu	3043	593c	and r4,r4,#-4
+cov72_alu	3044	1b7d	add r5,r5,#-3
+cov72_alu	3045	5b7d	and r5,r5,#-3
+cov72_alu	3046	1dbe	add r6,r6,#-2
+cov72_alu	3047	5dbe	and r6,r6,#-2
+cov72_alu	3048	1fff	add r7,r7,#-1
+cov72_alu	3049	5fff	and r7,r7,#-1
+cov72_alu	304a	1001	add r0,r0,r1
+cov72_alu	304b	5001	and r0,r0,r1
+cov72_alu	304c	903f	not r0,r0
+cov72_alu	304d	1242	add r1,r1,r2
+cov72_alu	304e	5242	and r1,r1,r2
+cov72_alu	304f	927f	not r1,r1
+cov72_alu	3050	1483	add r2,r2,r3
+cov72_alu	3051	5483	and r2,r2,r3
+cov72_alu	3052	94bf	not r2,r2
+cov72_alu	3053	16c4	add r3,r3,r4
+cov72_alu	3054	56c4	and r3,r3,r4
+cov72_alu	3055	96ff	not r3,r3
+cov72_alu	3056	1905	add r4,r4,r5
+cov72_alu	3057	5905	and r4,r4,r5
+cov72_alu	3058	993f	not r4,r4
+cov72_alu	3059	1b46	add r5,r5,r6
+cov72_alu	305a	5b46	and r5,r5,r6
+cov72_alu	305b	9b7f	not r5,r5
+cov72_alu	305c	1d87	add r6,r6,r7
+cov72_alu	305d	5d87	and r6,r6,r7
+cov72_alu	305e	9dbf	not r6,r6
+cov72_alu	305f	1fc0	add r7,r7,r0
+cov72_alu	3060	5fc0	and r7,r7,r0
+cov72_alu	3061	9fff	not r7,r7
+cov72_direct	3000	5020	and r0,r0,#0
+cov72_direct	3001	5260	and r1,r1,#0
+cov72_direct	3002	54a0	and r2,r2,#0
+cov72_direct	3003	56e0	and r3,r3,#0
+cov72_direct	3004	5920	and r4,r4,#0
+cov72_direct	3005	5b60	and r5,r5,#0
+cov72_direct	3006	5da0	and r6,r6,#0
+cov72_direct	3007	5fe0	and r7,r7,#0
+cov72_direct	3008	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3009	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	300a	e100	lea r0,#-256
+cov72_direct	300b	e3ff	lea r1,#-1
+cov72_direct	300c	e400	lea r2,#0
+cov72_direct	300d	e601	lea r3,#1
+cov72_direct	300e	e8ff	lea r4,#255
+cov72_direct	300f	ebfe	lea r5,#-2
+cov72_direct	3010	ec02	lea r6,#2
+cov72_direct	3011	ee00	lea r7,#0
+cov72_direct	3012	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3013	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3014	3100	st r0,#-256
+cov72_direct	3015	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3016	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3017	2100	ld r0,#-256
+cov72_direct	3018	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3019	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	301a	33ff	st r1,#-1
+cov72_direct	301b	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	301c	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	301d	23ff	ld r1,#-1
+cov72_direct	301e	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	301f	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3020	3400	st r2,#0
+cov72_direct	3021	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3022	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3023	2400	ld r2,#0
+cov72_direct	3024	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3025	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3026	3601	st r3,#1
+cov72_direct	3027	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3028	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3029	2601	ld r3,#1
+cov72_direct	302a	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	302b	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	302c	38ff	st r4,#255
+cov72_direct	302d	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	302e	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	302f	28ff	ld r4,#255
+cov72_direct	3030	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3031	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3032	3bfe	st r5,#-2
+cov72_direct	3033	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3034	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3035	2bfe	ld r5,#-2
+cov72_direct	3036	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3037	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3038	3c02	st r6,#2
+cov72_direct	3039	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	303a	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	303b	2c02	ld r6,#2
+cov72_direct	303c	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	303d	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	303e	3e00	st r7,#0
+cov72_direct	303f	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3040	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3041	2e00	ld r7,#0
+cov72_direct	3042	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3043	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3044	e040	lea r0,#64
+cov72_direct	3045	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3046	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3047	7220	str r1,r0,#-32
+cov72_direct	3048	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3049	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	304a	6420	ldr r2,r0,#-32
+cov72_direct	304b	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	304c	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	304d	e240	lea r1,#64
+cov72_direct	304e	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	304f	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3050	747f	str r2,r1,#-1
+cov72_direct	3051	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3052	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3053	667f	ldr r3,r1,#-1
+cov72_direct	3054	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3055	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3056	e440	lea r2,#64
+cov72_direct	3057	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3058	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3059	7680	str r3,r2,#0
+cov72_direct	305a	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	305b	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	305c	6880	ldr r4,r2,#0
+cov72_direct	305d	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	305e	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	305f	e640	lea r3,#64
+cov72_direct	3060	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3061	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3062	78c1	str r4,r3,#1
+cov72_direct	3063	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3064	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3065	6ac1	ldr r5,r3,#1
+cov72_direct	3066	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3067	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3068	e840	lea r4,#64
+cov72_direct	3069	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	306a	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	306b	7b1f	str r5,r4,#31
+cov72_direct	306c	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	306d	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	306e	6d1f	ldr r6,r4,#31
+cov72_direct	306f	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3070	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3071	ea40	lea r5,#64
+cov72_direct	3072	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3073	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3074	7d7e	str r6,r5,#-2
+cov72_direct	3075	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3076	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3077	6f7e	ldr r7,r5,#-2
+cov72_direct	3078	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3079	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	307a	ec40	lea r6,#64
+cov72_direct	307b	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	307c	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	307d	7f82	str r7,r6,#2
+cov72_direct	307e	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	307f	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3080	6182	ldr r0,r6,#2
+cov72_direct	3081	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3082	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3083	ee40	lea r7,#64
+cov72_direct	3084	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3085	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3086	71c0	str r0,r7,#0
+cov72_direct	3087	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3088	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	3089	63c0	ldr r1,r7,#0
+cov72_direct	308a	1fe0	add r7,r7,#0 (spacing)
+cov72_direct	308b	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3000	5020	and r0,r0,#0
+cov72_indirect	3001	5260	and r1,r1,#0
+cov72_indirect	3002	54a0	and r2,r2,#0
+cov72_indirect	3003	56e0	and r3,r3,#0
+cov72_indirect	3004	5920	and r4,r4,#0
+cov72_indirect	3005	5b60	and r5,r5,#0
+cov72_indirect	3006	5da0	and r6,r6,#0
+cov72_indirect	3007	5fe0	and r7,r7,#0
+cov72_indirect	3008	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3009	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	300a	54a0	and r2,r2,#0
+cov72_indirect	300b	14a8	add r2,r2,#8 (known pointer value)
+cov72_indirect	300c	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	300d	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	300e	7480	str r2,r2,#0 (initialize target)
+cov72_indirect	300f	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3010	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3011	e307	lea r1,#-249 (pointer cell address)
+cov72_indirect	3012	1260	add r1,r1,#0
+cov72_indirect	3013	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3014	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3015	7440	str r2,r1,#0 (initialize pointer cell)
+cov72_indirect	3016	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3017	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3018	a100	ldi r0,#-256
+cov72_indirect	3019	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	301a	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	301b	54a0	and r2,r2,#0
+cov72_indirect	301c	14a9	add r2,r2,#9 (known pointer value)
+cov72_indirect	301d	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	301e	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	301f	7480	str r2,r2,#0 (initialize target)
+cov72_indirect	3020	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3021	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3022	e006	lea r0,#6 (pointer cell address)
+cov72_indirect	3023	1020	add r0,r0,#0
+cov72_indirect	3024	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3025	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3026	7400	str r2,r0,#0 (initialize pointer cell)
+cov72_indirect	3027	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3028	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3029	a3ff	ldi r1,#-1
+cov72_indirect	302a	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	302b	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	302c	5260	and r1,r1,#0
+cov72_indirect	302d	126a	add r1,r1,#10 (known pointer value)
+cov72_indirect	302e	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	302f	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3030	7240	str r1,r1,#0 (initialize target)
+cov72_indirect	3031	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3032	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3033	e007	lea r0,#7 (pointer cell address)
+cov72_indirect	3034	1020	add r0,r0,#0
+cov72_indirect	3035	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3036	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3037	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	3038	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3039	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	303a	a400	ldi r2,#0
+cov72_indirect	303b	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	303c	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	303d	5260	and r1,r1,#0
+cov72_indirect	303e	126b	add r1,r1,#11 (known pointer value)
+cov72_indirect	303f	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3040	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3041	7240	str r1,r1,#0 (initialize target)
+cov72_indirect	3042	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3043	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3044	e008	lea r0,#8 (pointer cell address)
+cov72_indirect	3045	1020	add r0,r0,#0
+cov72_indirect	3046	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3047	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3048	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	3049	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	304a	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	304b	a601	ldi r3,#1
+cov72_indirect	304c	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	304d	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	304e	5260	and r1,r1,#0
+cov72_indirect	304f	126c	add r1,r1,#12 (known pointer value)
+cov72_indirect	3050	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3051	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3052	7240	str r1,r1,#0 (initialize target)
+cov72_indirect	3053	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3054	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3055	e0ff	lea r0,#255 (pointer cell address)
+cov72_indirect	3056	1027	add r0,r0,#7
+cov72_indirect	3057	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3058	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3059	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	305a	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	305b	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	305c	a8ff	ldi r4,#255
+cov72_indirect	305d	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	305e	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	305f	5260	and r1,r1,#0
+cov72_indirect	3060	126d	add r1,r1,#13 (known pointer value)
+cov72_indirect	3061	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3062	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3063	7240	str r1,r1,#0 (initialize target)
+cov72_indirect	3064	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3065	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3066	e005	lea r0,#5 (pointer cell address)
+cov72_indirect	3067	1020	add r0,r0,#0
+cov72_indirect	3068	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3069	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	306a	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	306b	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	306c	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	306d	abfe	ldi r5,#-2
+cov72_indirect	306e	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	306f	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3070	5260	and r1,r1,#0
+cov72_indirect	3071	126e	add r1,r1,#14 (known pointer value)
+cov72_indirect	3072	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3073	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3074	7240	str r1,r1,#0 (initialize target)
+cov72_indirect	3075	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3076	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3077	e009	lea r0,#9 (pointer cell address)
+cov72_indirect	3078	1020	add r0,r0,#0
+cov72_indirect	3079	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	307a	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	307b	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	307c	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	307d	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	307e	ac02	ldi r6,#2
+cov72_indirect	307f	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3080	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3081	5260	and r1,r1,#0
+cov72_indirect	3082	126f	add r1,r1,#15 (known pointer value)
+cov72_indirect	3083	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3084	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3085	7240	str r1,r1,#0 (initialize target)
+cov72_indirect	3086	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3087	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3088	e007	lea r0,#7 (pointer cell address)
+cov72_indirect	3089	1020	add r0,r0,#0
+cov72_indirect	308a	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	308b	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	308c	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	308d	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	308e	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	308f	ae00	ldi r7,#0
+cov72_indirect	3090	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3091	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3092	54a0	and r2,r2,#0
+cov72_indirect	3093	14a8	add r2,r2,#8 (known pointer value)
+cov72_indirect	3094	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3095	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3096	e307	lea r1,#-249 (pointer cell address)
+cov72_indirect	3097	1260	add r1,r1,#0
+cov72_indirect	3098	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3099	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	309a	7440	str r2,r1,#0 (initialize pointer cell)
+cov72_indirect	309b	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	309c	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	309d	b100	sti r0,#-256
+cov72_indirect	309e	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	309f	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30a0	54a0	and r2,r2,#0
+cov72_indirect	30a1	14a9	add r2,r2,#9 (known pointer value)
+cov72_indirect	30a2	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30a3	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30a4	e006	lea r0,#6 (pointer cell address)
+cov72_indirect	30a5	1020	add r0,r0,#0
+cov72_indirect	30a6	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30a7	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30a8	7400	str r2,r0,#0 (initialize pointer cell)
+cov72_indirect	30a9	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30aa	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30ab	b3ff	sti r1,#-1
+cov72_indirect	30ac	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30ad	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30ae	5260	and r1,r1,#0
+cov72_indirect	30af	126a	add r1,r1,#10 (known pointer value)
+cov72_indirect	30b0	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30b1	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30b2	e007	lea r0,#7 (pointer cell address)
+cov72_indirect	30b3	1020	add r0,r0,#0
+cov72_indirect	30b4	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30b5	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30b6	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	30b7	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30b8	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30b9	b400	sti r2,#0
+cov72_indirect	30ba	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30bb	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30bc	5260	and r1,r1,#0
+cov72_indirect	30bd	126b	add r1,r1,#11 (known pointer value)
+cov72_indirect	30be	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30bf	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30c0	e008	lea r0,#8 (pointer cell address)
+cov72_indirect	30c1	1020	add r0,r0,#0
+cov72_indirect	30c2	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30c3	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30c4	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	30c5	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30c6	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30c7	b601	sti r3,#1
+cov72_indirect	30c8	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30c9	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30ca	5260	and r1,r1,#0
+cov72_indirect	30cb	126c	add r1,r1,#12 (known pointer value)
+cov72_indirect	30cc	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30cd	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30ce	e0ff	lea r0,#255 (pointer cell address)
+cov72_indirect	30cf	1027	add r0,r0,#7
+cov72_indirect	30d0	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30d1	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30d2	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	30d3	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30d4	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30d5	b8ff	sti r4,#255
+cov72_indirect	30d6	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30d7	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30d8	5260	and r1,r1,#0
+cov72_indirect	30d9	126d	add r1,r1,#13 (known pointer value)
+cov72_indirect	30da	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30db	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30dc	e005	lea r0,#5 (pointer cell address)
+cov72_indirect	30dd	1020	add r0,r0,#0
+cov72_indirect	30de	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30df	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30e0	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	30e1	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30e2	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30e3	bbfe	sti r5,#-2
+cov72_indirect	30e4	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30e5	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30e6	5260	and r1,r1,#0
+cov72_indirect	30e7	126e	add r1,r1,#14 (known pointer value)
+cov72_indirect	30e8	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30e9	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30ea	e009	lea r0,#9 (pointer cell address)
+cov72_indirect	30eb	1020	add r0,r0,#0
+cov72_indirect	30ec	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30ed	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30ee	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	30ef	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30f0	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30f1	bc02	sti r6,#2
+cov72_indirect	30f2	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30f3	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30f4	5260	and r1,r1,#0
+cov72_indirect	30f5	126f	add r1,r1,#15 (known pointer value)
+cov72_indirect	30f6	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30f7	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30f8	e007	lea r0,#7 (pointer cell address)
+cov72_indirect	30f9	1020	add r0,r0,#0
+cov72_indirect	30fa	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30fb	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30fc	7200	str r1,r0,#0 (initialize pointer cell)
+cov72_indirect	30fd	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30fe	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	30ff	be00	sti r7,#0
+cov72_indirect	3100	1fe0	add r7,r7,#0 (spacing)
+cov72_indirect	3101	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3000	5020	and r0,r0,#0
+cov72_jump	3001	5260	and r1,r1,#0
+cov72_jump	3002	54a0	and r2,r2,#0
+cov72_jump	3003	56e0	and r3,r3,#0
+cov72_jump	3004	5920	and r4,r4,#0
+cov72_jump	3005	5b60	and r5,r5,#0
+cov72_jump	3006	5da0	and r6,r6,#0
+cov72_jump	3007	5fe0	and r7,r7,#0
+cov72_jump	3008	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3009	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	300a	e005	lea r0,#5 (forward target)
+cov72_jump	300b	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	300c	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	300d	c000	jmp r0
+cov72_jump	300e	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	300f	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3010	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3011	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3012	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3013	e205	lea r1,#5 (forward target)
+cov72_jump	3014	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3015	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3016	c040	jmp r1
+cov72_jump	3017	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3018	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3019	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	301a	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	301b	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	301c	e405	lea r2,#5 (forward target)
+cov72_jump	301d	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	301e	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	301f	c080	jmp r2
+cov72_jump	3020	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3021	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3022	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3023	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3024	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3025	e605	lea r3,#5 (forward target)
+cov72_jump	3026	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3027	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3028	c0c0	jmp r3
+cov72_jump	3029	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	302a	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	302b	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	302c	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	302d	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	302e	e805	lea r4,#5 (forward target)
+cov72_jump	302f	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3030	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3031	c100	jmp r4
+cov72_jump	3032	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3033	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3034	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3035	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3036	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3037	ea05	lea r5,#5 (forward target)
+cov72_jump	3038	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3039	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	303a	c140	jmp r5
+cov72_jump	303b	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	303c	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	303d	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	303e	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	303f	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3040	ec05	lea r6,#5 (forward target)
+cov72_jump	3041	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3042	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3043	c180	jmp r6
+cov72_jump	3044	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3045	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3046	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3047	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3048	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3049	ee05	lea r7,#5 (forward target)
+cov72_jump	304a	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	304b	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	304c	c1c0	jmp r7
+cov72_jump	304d	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	304e	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	304f	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3050	1fe0	add r7,r7,#0 (spacing)
+cov72_jump	3051	1fe0	add r7,r7,#0 (spacing)

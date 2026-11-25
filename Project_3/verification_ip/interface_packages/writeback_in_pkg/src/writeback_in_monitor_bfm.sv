@@ -72,6 +72,7 @@ end
   tri [15:0] aluout_i;
   tri [15:0] memout_i;
   tri [15:0] pcout_i;
+  tri [15:0] npc_i;
   tri [1:0] w_control_i;
   tri [2:0] dr_i;
   tri [2:0] sr1_i;
@@ -82,6 +83,7 @@ end
   assign aluout_i = bus.aluout;
   assign memout_i = bus.memout;
   assign pcout_i = bus.pcout;
+  assign npc_i = bus.npc;
   assign w_control_i = bus.w_control;
   assign dr_i = bus.dr;
   assign sr1_i = bus.sr1;
@@ -104,7 +106,7 @@ end
   // ****************************************************************************              
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
+    wait ( reset_i === 0 ) ;                                                              
     @(posedge clock_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
@@ -159,6 +161,7 @@ end
     //     //    writeback_in_monitor_struct.aluout
     //     //    writeback_in_monitor_struct.memout
     //     //    writeback_in_monitor_struct.pcout
+    //     //    writeback_in_monitor_struct.npc
     //     //    writeback_in_monitor_struct.w_control
     //     //    writeback_in_monitor_struct.dr
     //     //    writeback_in_monitor_struct.sr1
@@ -174,23 +177,27 @@ end
     //      writeback_in_monitor_struct.xyz = aluout_i;  //    [15:0] 
     //      writeback_in_monitor_struct.xyz = memout_i;  //    [15:0] 
     //      writeback_in_monitor_struct.xyz = pcout_i;  //    [15:0] 
+    //      writeback_in_monitor_struct.xyz = npc_i;  //    [15:0]
     //      writeback_in_monitor_struct.xyz = w_control_i;  //    [1:0] 
     //      writeback_in_monitor_struct.xyz = dr_i;  //    [2:0] 
     //      writeback_in_monitor_struct.xyz = sr1_i;  //    [2:0] 
     //      writeback_in_monitor_struct.xyz = sr2_i;  //    [2:0] 
     //      writeback_in_monitor_struct.xyz = enable_writeback_i;  //     
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    wait (reset_i === 1'b0);
+    @(negedge clock_i);
+    //sample after concurrent responder updates have settled
+    //this preserves pre-write values before the next rising edge
+    #1ns;
+    writeback_in_monitor_struct.aluout = aluout_i;
+    writeback_in_monitor_struct.memout = memout_i;
+    writeback_in_monitor_struct.pcout = pcout_i;
+    writeback_in_monitor_struct.npc = npc_i;
+    writeback_in_monitor_struct.w_control = w_control_i;
+    writeback_in_monitor_struct.dr = dr_i;
+    writeback_in_monitor_struct.sr1 = sr1_i;
+    writeback_in_monitor_struct.sr2 = sr2_i;
+    writeback_in_monitor_struct.enable_writeback = enable_writeback_i;
     // pragma uvmf custom do_monitor end
   endtask         
   

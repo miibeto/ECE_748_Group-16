@@ -1,0 +1,181 @@
+vopt      hvl_top hdl_top    -o optimized_batch_top_tb
+QuestaSim-64 vopt 2026.1 Compiler 2026.01 Jan 25 2026
+Start time: 22:52:29 on Nov 23,2026
+vopt hvl_top hdl_top -o optimized_batch_top_tb 
+** Note: (vopt-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+
+Top level modules:
+	hvl_top
+	hdl_top
+
+Analyzing design...
+-- Loading module hvl_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package lc3_tests_pkg
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+-- Loading module hdl_top
+-- Loading package mtiUvm.questa_uvm_pkg
+-- Loading interface decode_in_if
+-- Loading interface decode_out_if
+-- Loading interface writeback_in_if
+-- Loading interface writeback_out_if
+-- Loading interface memaccess_in_if
+-- Loading interface memaccess_out_if
+-- Loading interface control_in_if
+-- Loading interface control_out_if
+-- Loading interface imem_if
+-- Loading interface dmem_if
+-- Loading interface decode_in_monitor_bfm
+-- Loading interface decode_in_driver_bfm
+-- Loading interface decode_out_monitor_bfm
+-- Loading interface decode_out_driver_bfm
+-- Loading interface writeback_in_monitor_bfm
+-- Loading interface writeback_in_driver_bfm
+-- Loading interface writeback_out_monitor_bfm
+-- Loading interface writeback_out_driver_bfm
+-- Loading interface memaccess_in_monitor_bfm
+-- Loading interface memaccess_in_driver_bfm
+-- Loading interface memaccess_out_monitor_bfm
+-- Loading interface memaccess_out_driver_bfm
+-- Loading interface control_in_monitor_bfm
+-- Loading interface control_in_driver_bfm
+-- Loading interface control_out_monitor_bfm
+-- Loading interface control_out_driver_bfm
+-- Loading interface imem_monitor_bfm
+-- Loading interface imem_driver_bfm
+-- Loading interface dmem_monitor_bfm
+-- Loading interface dmem_driver_bfm
+-- Loading module LC3
+-- Loading module Fetch
+-- Loading module Decode
+-- Loading module Execute
+-- Loading module ALU
+-- Loading module extension
+-- Loading module MemAccess
+-- Loading module Writeback
+-- Loading module RegFile
+-- Loading module Controller_Pipeline
+Incremental compilation check found no design-units have changed.
+Optimized design name is optimized_batch_top_tb
+End time: 22:52:40 on Nov 23,2026, Elapsed time: 0:00:11
+Errors: 0, Warnings: 0
+vopt    +acc   hvl_top hdl_top    -o optimized_debug_top_tb
+QuestaSim-64 vopt 2026.1 Compiler 2026.01 Jan 25 2026
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 22:52:41 on Nov 23,2026
+vopt "+acc" hvl_top hdl_top -o optimized_debug_top_tb 
+** Note: (vopt-220) '/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/modelsim.ini' is used as the ini file.
+
+Top level modules:
+	hvl_top
+	hdl_top
+
+Analyzing design...
+-- Loading module hvl_top
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Importing package lc3_tests_pkg
+-- Importing package uvmf_base_pkg
+-- Importing package uvmf_base_pkg_hdl
+-- Importing package lc3_parameters_pkg
+-- Importing package lc3_env_pkg
+-- Importing package imem_pkg
+-- Importing package imem_pkg_hdl
+-- Importing package dmem_pkg
+-- Importing package dmem_pkg_hdl
+-- Importing package decode_env_pkg
+-- Importing package decode_in_pkg
+-- Importing package decode_in_pkg_hdl
+-- Importing package decode_out_pkg
+-- Importing package decode_out_pkg_hdl
+-- Importing package lc3_prediction_pkg
+-- Importing package writeback_env_pkg
+-- Importing package writeback_in_pkg
+-- Importing package writeback_in_pkg_hdl
+-- Importing package writeback_out_pkg
+-- Importing package writeback_out_pkg_hdl
+-- Importing package memaccess_env_pkg
+-- Importing package memaccess_in_pkg
+-- Importing package memaccess_in_pkg_hdl
+-- Importing package memaccess_out_pkg
+-- Importing package memaccess_out_pkg_hdl
+-- Importing package control_env_pkg
+-- Importing package control_in_pkg
+-- Importing package control_in_pkg_hdl
+-- Importing package control_out_pkg
+-- Importing package control_out_pkg_hdl
+-- Importing package lc3_sequences_pkg
+-- Loading module hdl_top
+-- Loading package mtiUvm.questa_uvm_pkg
+-- Loading interface decode_in_if
+-- Loading interface decode_out_if
+-- Loading interface writeback_in_if
+-- Loading interface writeback_out_if
+-- Loading interface memaccess_in_if
+-- Loading interface memaccess_out_if
+-- Loading interface control_in_if
+-- Loading interface control_out_if
+-- Loading interface imem_if
+-- Loading interface dmem_if
+-- Loading interface decode_in_monitor_bfm
+-- Loading interface decode_in_driver_bfm
+-- Loading interface decode_out_monitor_bfm
+-- Loading interface decode_out_driver_bfm
+-- Loading interface writeback_in_monitor_bfm
+-- Loading interface writeback_in_driver_bfm
+-- Loading interface writeback_out_monitor_bfm
+-- Loading interface writeback_out_driver_bfm
+-- Loading interface memaccess_in_monitor_bfm
+-- Loading interface memaccess_in_driver_bfm
+-- Loading interface memaccess_out_monitor_bfm
+-- Loading interface memaccess_out_driver_bfm
+-- Loading interface control_in_monitor_bfm
+-- Loading interface control_in_driver_bfm
+-- Loading interface control_out_monitor_bfm
+-- Loading interface control_out_driver_bfm
+-- Loading interface imem_monitor_bfm
+-- Loading interface imem_driver_bfm
+-- Loading interface dmem_monitor_bfm
+-- Loading interface dmem_driver_bfm
+-- Loading module LC3
+-- Loading module Fetch
+-- Loading module Decode
+-- Loading module Execute
+-- Loading module ALU
+-- Loading module extension
+-- Loading module MemAccess
+-- Loading module Writeback
+-- Loading module RegFile
+-- Loading module Controller_Pipeline
+Incremental compilation check found no design-units have changed.
+Optimized design name is optimized_debug_top_tb
+End time: 22:52:55 on Nov 23,2026, Elapsed time: 0:00:14
+Errors: 0, Warnings: 1

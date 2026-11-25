@@ -66,6 +66,13 @@ class decode_predictor #(
 
 
   // pragma uvmf custom class_item_additional begin
+  //expected outputs represent the registered decode state at the current sample
+  bit [15:0] expected_ir = '0;
+  bit [15:0] expected_npc_out = '0;
+  bit [5:0] expected_e_control = '0;
+  bit [1:0] expected_w_control = '0;
+  bit expected_mem_control = 0;
+  int unsigned decode_prediction_count = 0;
   // pragma uvmf custom class_item_additional end
 
   // FUNCTION: new
@@ -90,22 +97,51 @@ class decode_predictor #(
   // This function performs prediction of DUT output values based on DUT input, configuration and state
   virtual function void write_decode_in_agent_ae(decode_in_transaction t);
     // pragma uvmf custom decode_in_agent_ae_predictor begin
+    bit decode_failed;
+    bit [15:0] next_ir;
+    bit [15:0] next_npc_out;
+    bit [5:0] next_e_control;
+    bit [1:0] next_w_control;
+    bit next_mem_control;
+
     decode_in_agent_ae_debug = t;
-    `uvm_info("PRED", "Transaction Received through decode_in_agent_ae", UVM_MEDIUM)
-    `uvm_info("PRED", {"            Data: ",t.convert2string()}, UVM_FULL)
-    // Construct one of each output transaction type.
-    decode_sb_ap_output_transaction = decode_sb_ap_output_transaction_t::type_id::create("decode_sb_ap_output_transaction");
-    //  UVMF_CHANGE_ME: Implement predictor model here.  
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "UVMF_CHANGE_ME: The decode_predictor::write_decode_in_agent_ae function needs to be completed with DUT prediction model",UVM_NONE)
-    `uvm_info("UNIMPLEMENTED_PREDICTOR_MODEL", "******************************************************************************************************",UVM_NONE)
- 
-    // Code for sending output transaction out through decode_sb_ap
-    // Please note that each broadcasted transaction should be a different object than previously 
-    // broadcasted transactions.  Creation of a different object is done by constructing the transaction 
-    // using either new() or create().  Broadcasting a transaction object more than once to either the 
-    // same subscriber or multiple subscribers will result in unexpected and incorrect behavior.
+    decode_sb_ap_output_transaction = decode_sb_ap_output_transaction_t::type_id::create(
+      "decode_sb_ap_output_transaction");
+
+    //compare the registered value from the preceding sampling interval
+    decode_sb_ap_output_transaction.ir = expected_ir;
+    decode_sb_ap_output_transaction.npc_out = expected_npc_out;
+    decode_sb_ap_output_transaction.e_control = expected_e_control;
+    decode_sb_ap_output_transaction.w_control = expected_w_control;
+    decode_sb_ap_output_transaction.mem_control = expected_mem_control;
+    decode_sb_ap_output_transaction.start_time = t.start_time;
+    decode_sb_ap_output_transaction.end_time = t.end_time;
+
+    if (decode_prediction_count < 32) begin
+      $display("DEC_REF_DIAG t=%0t n=%0d en=%b dout=%04h npc_in=%04h pred_ir=%04h pred_npc=%04h pred_e=%02h pred_w=%01h pred_m=%b",
+        $time, decode_prediction_count, t.enable_decode, t.dout, t.npc_in,
+        expected_ir, expected_npc_out, expected_e_control,
+        expected_w_control, expected_mem_control);
+    end
+    decode_prediction_count++;
     decode_sb_ap.write(decode_sb_ap_output_transaction);
+
+    //the decode outputs are clocked; update expected state for next sampled cycle
+    if (t.enable_decode) begin
+      decode_failed = lc3_prediction_pkg::decode_model(
+        t.dout, t.npc_in,
+        next_ir, next_npc_out, next_e_control,
+        next_w_control, next_mem_control);
+      if (decode_failed)
+        `uvm_error("DECODE_MODEL", "decode_model returned failure")
+      else begin
+        expected_ir = next_ir;
+        expected_npc_out = next_npc_out;
+        expected_e_control = next_e_control;
+        expected_w_control = next_w_control;
+        expected_mem_control = next_mem_control;
+      end
+    end
     // pragma uvmf custom decode_in_agent_ae_predictor end
   endfunction
 

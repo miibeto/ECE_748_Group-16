@@ -20,7 +20,7 @@ class writeback_out_transaction  extends uvmf_transaction_base;
 
   bit [15:0] vsr1 ;
   bit [15:0] vsr2 ;
-  bit [15:0] psr ;
+  bit [2:0] psr ;
 
   //Constraints for the transaction variables:
 

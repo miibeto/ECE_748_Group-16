@@ -25,6 +25,10 @@ uvmf:
         reset_value: '''b0'
         width: '16'
       - dir: inout
+        name: npc
+        reset_value: '''b0'
+        width: '16'
+      - dir: inout
         name: w_control
         reset_value: '''b0'
         width: '2'
@@ -45,7 +49,7 @@ uvmf:
         reset_value: '''b0'
         width: '1'
       reset: reset
-      reset_assertion_level: 'False'
+      reset_assertion_level: 'True'
       transaction_constraints: []
       transaction_vars:
       - comment: ''
@@ -64,6 +68,12 @@ uvmf:
         iscompare: 'True'
         isrand: 'True'
         name: pcout
+        type: bit [15:0]
+        unpacked_dimension: ''
+      - comment: ''
+        iscompare: 'True'
+        isrand: 'True'
+        name: npc
         type: bit [15:0]
         unpacked_dimension: ''
       - comment: ''

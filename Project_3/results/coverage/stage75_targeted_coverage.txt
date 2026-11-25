@@ -1,0 +1,11 @@
+ACTUAL MERGED DECODE BINS 272/272
+Missing: []
+cov72_alu ROM last PC 3061 returned= True wrong ROM word addresses= []
+  observed intended field bins: 135 / 135 unobserved: []
+cov72_direct ROM last PC 308b returned= True wrong ROM word addresses= []
+  observed intended field bins: 110 / 110 unobserved: []
+cov72_indirect ROM last PC 3101 returned= True wrong ROM word addresses= []
+  observed intended field bins: 80 / 80 unobserved: []
+cov72_jump ROM last PC 3051 returned= True wrong ROM word addresses= []
+  observed intended field bins: 43 / 43 unobserved: []
+TARGETED_COVERAGE_AND_ROM_PROGRESS_PASS=1

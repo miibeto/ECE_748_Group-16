@@ -32,6 +32,7 @@ class writeback_in_transaction_coverage  extends uvm_subscriber #(.T(writeback_i
     aluout: coverpoint coverage_trans.aluout;
     memout: coverpoint coverage_trans.memout;
     pcout: coverpoint coverage_trans.pcout;
+    npc: coverpoint coverage_trans.npc;
     w_control: coverpoint coverage_trans.w_control;
     dr: coverpoint coverage_trans.dr;
     sr1: coverpoint coverage_trans.sr1;

@@ -1,0 +1,374 @@
+{
+  "seed": "12345",
+  "cases": {
+    "alu": {
+      "cycles": 400,
+      "cycle_sha256": "b51336f9e375332369a46109ec12337bdcdb0b6f06f6e51f982afbec3df0cfcb",
+      "returns": 400,
+      "return_sha256": "2a89d3d5820a1ddc76fd5f41b6011b01d8df1e1cced484ea4e2910e0d60cbb08",
+      "scoreboards": [
+        [
+          "uvm_test_top.environment.control_env.control_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.decode_env.decode_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.lc3_sb",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.memaccess_env.memaccess_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.writeback_env.writeback_sb",
+          "400",
+          "400",
+          "0"
+        ]
+      ],
+      "errors": 0,
+      "error_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fatals": 0
+    },
+    "smoke": {
+      "cycles": 400,
+      "cycle_sha256": "835d5c218a9eb0223f0d480b9603ab5f839447c643b85204d303c05be538b589",
+      "returns": 395,
+      "return_sha256": "fb56ed965b35e44d5127bdc216b863770063a772db7ddfb5585d950c44024973",
+      "scoreboards": [
+        [
+          "uvm_test_top.environment.control_env.control_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.decode_env.decode_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.lc3_sb",
+          "5",
+          "5",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.memaccess_env.memaccess_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.writeback_env.writeback_sb",
+          "400",
+          "400",
+          "0"
+        ]
+      ],
+      "errors": 0,
+      "error_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fatals": 0
+    },
+    "indirect": {
+      "cycles": 400,
+      "cycle_sha256": "c77a342da5263583b8992e3e8359903e43dab674261223be159d41a0b399537e",
+      "returns": 385,
+      "return_sha256": "3edc754b39fd612a06285e3f1c29c0eaa93bd4cd1c5895a7ad47534fd9fc0741",
+      "scoreboards": [
+        [
+          "uvm_test_top.environment.control_env.control_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.decode_env.decode_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.lc3_sb",
+          "9",
+          "9",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.memaccess_env.memaccess_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.writeback_env.writeback_sb",
+          "400",
+          "400",
+          "0"
+        ]
+      ],
+      "errors": 0,
+      "error_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fatals": 0
+    },
+    "jump": {
+      "cycles": 400,
+      "cycle_sha256": "0710638794c2b17e48f58f4732dbcd4f547f98c209f5c48b1fcdc51afa546bfd",
+      "returns": 397,
+      "return_sha256": "1c3865ca496856a18c6f7ee1118f84cb38893ece9512adf4ca2ba325008d8f69",
+      "scoreboards": [
+        [
+          "uvm_test_top.environment.control_env.control_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.decode_env.decode_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.lc3_sb",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.memaccess_env.memaccess_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.writeback_env.writeback_sb",
+          "400",
+          "400",
+          "0"
+        ]
+      ],
+      "errors": 0,
+      "error_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fatals": 0
+    },
+    "branch": {
+      "cycles": 400,
+      "cycle_sha256": "f47f4007afae15116b47f90145cf83928e8f17c992e14e63ccb203ef8f934331",
+      "returns": 334,
+      "return_sha256": "6d8c4cd95d65ec1d856f3603c2fc281a8806d075235171996b9869fa8efac48d",
+      "scoreboards": [
+        [
+          "uvm_test_top.environment.control_env.control_sb",
+          "400",
+          "310",
+          "90"
+        ],
+        [
+          "uvm_test_top.environment.decode_env.decode_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.lc3_sb",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.memaccess_env.memaccess_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.writeback_env.writeback_sb",
+          "400",
+          "400",
+          "0"
+        ]
+      ],
+      "errors": 90,
+      "error_sha256": "7cdd5798d743118c7e12ffbc28aa00c1092713a6b0a7f41438d85f768f6a6a94",
+      "fatals": 0
+    },
+    "cov72_alu": {
+      "cycles": 400,
+      "cycle_sha256": "8a870f4fcd8462b85a848700a9fa06b17200acd4cfc0077891c64d84af290cb6",
+      "returns": 400,
+      "return_sha256": "6921b10d897054cf77c1ae2549a66208cbe6c3779aecdd3c273cf4dc8534e49a",
+      "scoreboards": [
+        [
+          "uvm_test_top.environment.control_env.control_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.decode_env.decode_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.lc3_sb",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.memaccess_env.memaccess_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.writeback_env.writeback_sb",
+          "400",
+          "400",
+          "0"
+        ]
+      ],
+      "errors": 0,
+      "error_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fatals": 0
+    },
+    "cov72_direct": {
+      "cycles": 400,
+      "cycle_sha256": "ce3470eff36a0778319b7cc7c1363dc0d760ba7d2ee3ab5525ea61caaa49fea1",
+      "returns": 368,
+      "return_sha256": "7ea6171f9d3f652a45a4525cb45b18c3139cf102ebca67cb4db16de491e53382",
+      "scoreboards": [
+        [
+          "uvm_test_top.environment.control_env.control_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.decode_env.decode_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.lc3_sb",
+          "32",
+          "32",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.memaccess_env.memaccess_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.writeback_env.writeback_sb",
+          "400",
+          "400",
+          "0"
+        ]
+      ],
+      "errors": 0,
+      "error_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fatals": 0
+    },
+    "cov72_indirect": {
+      "cycles": 400,
+      "cycle_sha256": "e96f65b659f9969dd979b31c11e41527b10d9480a4cc006c69d3d07b539e2e8d",
+      "returns": 312,
+      "return_sha256": "cae9c3ed936d4b228ec814231d82bdb95a2422a0ae0c0e16c2077ca1ad83a69d",
+      "scoreboards": [
+        [
+          "uvm_test_top.environment.control_env.control_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.decode_env.decode_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.lc3_sb",
+          "56",
+          "56",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.memaccess_env.memaccess_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.writeback_env.writeback_sb",
+          "400",
+          "400",
+          "0"
+        ]
+      ],
+      "errors": 0,
+      "error_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fatals": 0
+    },
+    "cov72_jump": {
+      "cycles": 400,
+      "cycle_sha256": "a50783fbc40193d17c804c7a4452c1d09371316890cfab3c69ba8b9ab496f851",
+      "returns": 388,
+      "return_sha256": "9daa8017bd1add90bcbacf290e2b8a64831fd4dd3464b9d2ee7344e92cb88627",
+      "scoreboards": [
+        [
+          "uvm_test_top.environment.control_env.control_sb",
+          "400",
+          "376",
+          "24"
+        ],
+        [
+          "uvm_test_top.environment.decode_env.decode_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.lc3_sb",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.memaccess_env.memaccess_sb",
+          "400",
+          "400",
+          "0"
+        ],
+        [
+          "uvm_test_top.environment.writeback_env.writeback_sb",
+          "400",
+          "400",
+          "0"
+        ]
+      ],
+      "errors": 24,
+      "error_sha256": "34eb8e0153bee019c2a8ec6b631e9c8f57d2709b49c5ec18d9ff5e262901bf0a",
+      "fatals": 0
+    }
+  }
+}

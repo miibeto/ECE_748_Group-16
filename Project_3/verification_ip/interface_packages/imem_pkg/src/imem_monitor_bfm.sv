@@ -98,7 +98,7 @@ end
   // ****************************************************************************              
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
+    wait ( reset_i === 0 ) ;                                                              
     @(posedge clock_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
@@ -148,38 +148,25 @@ end
   // ****************************************************************************  
             
   task do_monitor(output imem_monitor_s imem_monitor_struct);
-    //
-    // Available struct members:
-    //     //    imem_monitor_struct.PC
-    //     //    imem_monitor_struct.instrmem_rd
-    //     //    imem_monitor_struct.I_macc
-    //     //    imem_monitor_struct.Instr_dout
-    //     //    imem_monitor_struct.complete_instr
-    //     //
-    // Reference code;
-    //    How to wait for signal value
-    //      while (control_signal === 1'b1) @(posedge clock_i);
-    //    
-    //    How to assign a struct member, named xyz, from a signal.   
-    //    All available input signals listed.
-    //      imem_monitor_struct.xyz = PC_i;  //    [15:0] 
-    //      imem_monitor_struct.xyz = instrmem_rd_i;  //     
-    //      imem_monitor_struct.xyz = I_macc_i;  //     
-    //      imem_monitor_struct.xyz = Instr_dout_i;  //    [15:0] 
-    //      imem_monitor_struct.xyz = complete_instr_i;  //     
-    // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    // pragma uvmf custom do_monitor end
+    //only report actual completed instruction transfers
+    wait (reset_i === 1'b0);
+    while (!(instrmem_rd_i === 1'b1 && complete_instr_i === 1'b1)) begin
+      @(posedge clock_i);
+    end
+    //stage65:registered memory response belongs to the captured request, not the live pc
+    if (bus.stage65_response_pc_valid === 1'b1) begin
+      imem_monitor_struct.PC = bus.stage65_response_pc;
+      $display("STAGE65_MON_PAIR t=%0t response_pc=%04h live_pc=%04h data=%04h",
+               $time,bus.stage65_response_pc,PC_i,Instr_dout_i);
+    end else begin
+      imem_monitor_struct.PC = PC_i;
+    end
+    imem_monitor_struct.instrmem_rd = instrmem_rd_i;
+    imem_monitor_struct.I_macc = I_macc_i;
+    imem_monitor_struct.Instr_dout = Instr_dout_i;
+    imem_monitor_struct.complete_instr = complete_instr_i;
+    //avoid reporting the same completion twice
+    @(negedge clock_i);
   endtask         
   
  

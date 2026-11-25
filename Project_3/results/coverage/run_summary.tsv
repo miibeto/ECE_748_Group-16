@@ -1,0 +1,6 @@
+program	seed	make_exit	wall_seconds	control_samples	control_mismatches	uvm_errors	uvm_fatals	ucdb
+branch	12345	0	8	400	90	90	0	branch.ucdb
+cov72_alu	12345	0	8	400	0	0	0	cov72_alu.ucdb
+cov72_direct	12345	0	7	400	0	0	0	cov72_direct.ucdb
+cov72_indirect	12345	0	8	400	0	0	0	cov72_indirect.ucdb
+cov72_jump	12345	0	8	400	24	24	0	cov72_jump.ucdb

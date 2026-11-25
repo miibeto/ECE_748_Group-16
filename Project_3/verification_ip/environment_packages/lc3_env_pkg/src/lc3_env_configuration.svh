@@ -171,7 +171,7 @@ rand control_env_config_t control_env_config;
   // Interface initialization for local agents
      imem_agent_config.initialize( interface_activity[8], {environment_path,".imem_agent"}, interface_names[8]);
      imem_agent_config.initiator_responder = RESPONDER;
-     // imem_agent_config.has_coverage = 1;
+     imem_agent_config.has_coverage = 1;
      dmem_agent_config.initialize( interface_activity[9], {environment_path,".dmem_agent"}, interface_names[9]);
      dmem_agent_config.initiator_responder = RESPONDER;
      // dmem_agent_config.has_coverage = 1;

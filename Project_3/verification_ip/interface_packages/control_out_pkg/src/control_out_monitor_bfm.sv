@@ -99,6 +99,55 @@ end
   // pragma tbx oneway proxy.notify_transaction                 
 
   // pragma uvmf custom interface_item_additional begin
+  //stage35 captures the control outputs before the clock edge updates the pipeline
+  //the mode follows the stage32 input-edge selection so both sides use one cycle boundary
+  bit stage35_preedge_mode = 0;
+  bit stage35_snapshot_valid = 0;
+  integer stage35_ctrl32_arg = 0;
+  int unsigned stage35_sample_count = 0;
+  logic stage35_enable_updatePC;
+  logic stage35_enable_fetch;
+  logic stage35_enable_decode;
+  logic stage35_enable_execute;
+  logic stage35_enable_writeback;
+  logic stage35_br_taken;
+  logic stage35_bypass_alu_1;
+  logic stage35_bypass_alu_2;
+  logic stage35_bypass_mem_1;
+  logic stage35_bypass_mem_2;
+  logic [1:0] stage35_mem_state;
+
+  //stage37 recognizes +CTRL32_EDGE_INSTR and +CTRL32_EDGE_INSTR=1
+  //the numeric form has priority when an explicit zero is supplied
+  bit stage37_numeric_found;
+  bit stage37_flag_found;
+  initial begin : stage35_mode_selection
+    stage35_ctrl32_arg = 0;
+    stage37_numeric_found = $value$plusargs("CTRL32_EDGE_INSTR=%d", stage35_ctrl32_arg);
+    stage37_flag_found = $test$plusargs("CTRL32_EDGE_INSTR");
+    if (!stage37_numeric_found)
+      stage35_ctrl32_arg = stage37_flag_found ? 1 : 0;
+    stage35_preedge_mode = (stage35_ctrl32_arg == 1);
+    $display("STAGE37_OUT_BFM_COMPILED flag=%0d numeric=%0d mode=%0d version=37.1",
+      stage37_flag_found, stage37_numeric_found, stage35_preedge_mode);
+  end
+
+  //nonblocking captures evaluate rhs in the pre-nba clock region
+  //do_monitor reads the captured snapshot at the following negedge
+  always @(posedge clock_i) begin : stage35_capture_outputs
+    stage35_enable_updatePC <= enable_updatePC_i;
+    stage35_enable_fetch <= enable_fetch_i;
+    stage35_enable_decode <= enable_decode_i;
+    stage35_enable_execute <= enable_execute_i;
+    stage35_enable_writeback <= enable_writeback_i;
+    stage35_br_taken <= br_taken_i;
+    stage35_bypass_alu_1 <= bypass_alu_1_i;
+    stage35_bypass_alu_2 <= bypass_alu_2_i;
+    stage35_bypass_mem_1 <= bypass_mem_1_i;
+    stage35_bypass_mem_2 <= bypass_mem_2_i;
+    stage35_mem_state <= mem_state_i;
+    stage35_snapshot_valid <= 1'b1;
+  end
   // pragma uvmf custom interface_item_additional end
   
   //******************************************************************                         
@@ -110,7 +159,7 @@ end
   // ****************************************************************************              
   task do_wait_for_reset(); 
   // pragma uvmf custom reset_condition begin
-    wait ( reset_i === 1 ) ;                                                              
+    wait ( reset_i === 0 ) ;                                                              
     @(posedge clock_i) ;                                                                    
   // pragma uvmf custom reset_condition end                                                                
   endtask    
@@ -192,17 +241,42 @@ end
     //      control_out_monitor_struct.xyz = bypass_mem_2_i;  //     
     //      control_out_monitor_struct.xyz = mem_state_i;  //    [1:0] 
     // pragma uvmf custom do_monitor begin
-    // UVMF_CHANGE_ME : Implement protocol monitoring.  The commented reference code 
-    // below are examples of how to capture signal values and assign them to 
-    // structure members.  All available input signals are listed.  The 'while' 
-    // code example shows how to wait for a synchronous flow control signal.  This
-    // task should return when a complete transfer has been observed.  Once this task is
-    // exited with captured values, it is then called again to wait for and observe 
-    // the next transfer. One clock cycle is consumed between calls to do_monitor.
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
-    @(posedge clock_i);
+    wait (reset_i === 1'b0);
+    @(negedge clock_i);
+    if (stage35_preedge_mode && stage35_snapshot_valid) begin
+      control_out_monitor_struct.enable_updatePC = stage35_enable_updatePC;
+      control_out_monitor_struct.enable_fetch = stage35_enable_fetch;
+      control_out_monitor_struct.enable_decode = stage35_enable_decode;
+      control_out_monitor_struct.enable_execute = stage35_enable_execute;
+      control_out_monitor_struct.enable_writeback = stage35_enable_writeback;
+      control_out_monitor_struct.br_taken = stage35_br_taken;
+      control_out_monitor_struct.bypass_alu_1 = stage35_bypass_alu_1;
+      control_out_monitor_struct.bypass_alu_2 = stage35_bypass_alu_2;
+      control_out_monitor_struct.bypass_mem_1 = stage35_bypass_mem_1;
+      control_out_monitor_struct.bypass_mem_2 = stage35_bypass_mem_2;
+      control_out_monitor_struct.mem_state = stage35_mem_state;
+    end else begin
+      control_out_monitor_struct.enable_updatePC = enable_updatePC_i;
+      control_out_monitor_struct.enable_fetch = enable_fetch_i;
+      control_out_monitor_struct.enable_decode = enable_decode_i;
+      control_out_monitor_struct.enable_execute = enable_execute_i;
+      control_out_monitor_struct.enable_writeback = enable_writeback_i;
+      control_out_monitor_struct.br_taken = br_taken_i;
+      control_out_monitor_struct.bypass_alu_1 = bypass_alu_1_i;
+      control_out_monitor_struct.bypass_alu_2 = bypass_alu_2_i;
+      control_out_monitor_struct.bypass_mem_1 = bypass_mem_1_i;
+      control_out_monitor_struct.bypass_mem_2 = bypass_mem_2_i;
+      control_out_monitor_struct.mem_state = mem_state_i;
+    end
+    stage35_sample_count++;
+    if (stage35_sample_count <= 34 && stage35_preedge_mode) begin
+      $display("STAGE35_OUT_SAMPLE t=%0t n=%0d mode=%0d pre: pc=%b f=%b d=%b e=%b w=%b br=%b ms=%b | post: pc=%b f=%b d=%b e=%b w=%b br=%b ms=%b",
+        $time, stage35_sample_count, stage35_preedge_mode,
+        stage35_enable_updatePC, stage35_enable_fetch, stage35_enable_decode,
+        stage35_enable_execute, stage35_enable_writeback, stage35_br_taken, stage35_mem_state,
+        enable_updatePC_i, enable_fetch_i, enable_decode_i, enable_execute_i,
+        enable_writeback_i, br_taken_i, mem_state_i);
+    end
     // pragma uvmf custom do_monitor end
   endtask         
   

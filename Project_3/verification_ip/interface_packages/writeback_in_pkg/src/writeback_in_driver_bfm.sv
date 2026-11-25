@@ -100,6 +100,8 @@ end
   reg [15:0] memout_o = 'b0;
   tri [15:0] pcout_i;
   reg [15:0] pcout_o = 'b0;
+  tri [15:0] npc_i;
+  reg [15:0] npc_o = 'b0;
   tri [1:0] w_control_i;
   reg [1:0] w_control_o = 'b0;
   tri [2:0] dr_i;
@@ -121,6 +123,7 @@ end
   assign     aluout_i = bus.aluout;
   assign     memout_i = bus.memout;
   assign     pcout_i = bus.pcout;
+  assign     npc_i = bus.npc;
   assign     w_control_i = bus.w_control;
   assign     dr_i = bus.dr;
   assign     sr1_i = bus.sr1;
@@ -132,6 +135,7 @@ end
   assign bus.aluout = aluout_o;
   assign bus.memout = memout_o;
   assign bus.pcout = pcout_o;
+  assign bus.npc = npc_o;
   assign bus.w_control = w_control_o;
   assign bus.dr = dr_o;
   assign bus.sr1 = sr1_o;
@@ -172,6 +176,7 @@ end
        aluout_o <= 'b0;
        memout_o <= 'b0;
        pcout_o <= 'b0;
+       npc_o <= 'b0;
        w_control_o <= 'b0;
        dr_o <= 'b0;
        sr1_o <= 'b0;
@@ -218,6 +223,7 @@ end
        //   bit [15:0] aluout ;
        //   bit [15:0] memout ;
        //   bit [15:0] pcout ;
+       //   bit [15:0] npc ;
        //   bit [1:0] w_control ;
        //   bit [2:0] dr ;
        //   bit [2:0] sr1 ;
@@ -227,6 +233,7 @@ end
        //   bit [15:0] aluout ;
        //   bit [15:0] memout ;
        //   bit [15:0] pcout ;
+       //   bit [15:0] npc ;
        //   bit [1:0] w_control ;
        //   bit [2:0] dr ;
        //   bit [2:0] sr1 ;
@@ -245,6 +252,7 @@ end
        //      writeback_in_responder_struct.xyz = aluout_i;  //    [15:0] 
        //      writeback_in_responder_struct.xyz = memout_i;  //    [15:0] 
        //      writeback_in_responder_struct.xyz = pcout_i;  //    [15:0] 
+       //      writeback_in_responder_struct.xyz = npc_i;  //    [15:0] 
        //      writeback_in_responder_struct.xyz = w_control_i;  //    [1:0] 
        //      writeback_in_responder_struct.xyz = dr_i;  //    [2:0] 
        //      writeback_in_responder_struct.xyz = sr1_i;  //    [2:0] 
@@ -258,6 +266,7 @@ end
        //      aluout_o <= writeback_in_initiator_struct.xyz;  //    [15:0] 
        //      memout_o <= writeback_in_initiator_struct.xyz;  //    [15:0] 
        //      pcout_o <= writeback_in_initiator_struct.xyz;  //    [15:0] 
+       //      npc_o <= writeback_in_initiator_struct.xyz;  //    [15:0] 
        //      w_control_o <= writeback_in_initiator_struct.xyz;  //    [1:0] 
        //      dr_o <= writeback_in_initiator_struct.xyz;  //    [2:0] 
        //      sr1_o <= writeback_in_initiator_struct.xyz;  //    [2:0] 
@@ -296,6 +305,7 @@ bit first_transfer=1;
   //   bit [15:0] aluout ;
   //   bit [15:0] memout ;
   //   bit [15:0] pcout ;
+  //   bit [15:0] npc ;
   //   bit [1:0] w_control ;
   //   bit [2:0] dr ;
   //   bit [2:0] sr1 ;
@@ -305,6 +315,7 @@ bit first_transfer=1;
   //   bit [15:0] aluout ;
   //   bit [15:0] memout ;
   //   bit [15:0] pcout ;
+  //   bit [15:0] npc ;
   //   bit [1:0] w_control ;
   //   bit [2:0] dr ;
   //   bit [2:0] sr1 ;
@@ -321,6 +332,7 @@ bit first_transfer=1;
        //      writeback_in_initiator_struct.xyz = aluout_i;  //    [15:0] 
        //      writeback_in_initiator_struct.xyz = memout_i;  //    [15:0] 
        //      writeback_in_initiator_struct.xyz = pcout_i;  //    [15:0] 
+       //      writeback_in_initiator_struct.xyz = npc_i;  //    [15:0] 
        //      writeback_in_initiator_struct.xyz = w_control_i;  //    [1:0] 
        //      writeback_in_initiator_struct.xyz = dr_i;  //    [2:0] 
        //      writeback_in_initiator_struct.xyz = sr1_i;  //    [2:0] 
@@ -334,6 +346,7 @@ bit first_transfer=1;
        //      aluout_o <= writeback_in_responder_struct.xyz;  //    [15:0] 
        //      memout_o <= writeback_in_responder_struct.xyz;  //    [15:0] 
        //      pcout_o <= writeback_in_responder_struct.xyz;  //    [15:0] 
+       //      npc_o <= writeback_in_responder_struct.xyz;  //    [15:0] 
        //      w_control_o <= writeback_in_responder_struct.xyz;  //    [1:0] 
        //      dr_o <= writeback_in_responder_struct.xyz;  //    [2:0] 
        //      sr1_o <= writeback_in_responder_struct.xyz;  //    [2:0] 

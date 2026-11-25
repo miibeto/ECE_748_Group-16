@@ -1,0 +1,5 @@
+QuestaSim-64 vcover 2026.1 Coverage Utility 2026.01 Jan 25 2026
+Start time: 22:54:06 on Nov 23,2026
+vcover report -details -output /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/regression_results/stage75_full_20261123_225147_2036766/cov72_jump_coverage.txt /mnt/ncsudrive/a/amgiles2/fa26/ece748/amgiles2_p3/project_benches/lc3/sim/regression_results/stage75_full_20261123_225147_2036766/cov72_jump.ucdb 
+End time: 22:54:06 on Nov 23,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

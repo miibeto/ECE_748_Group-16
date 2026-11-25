@@ -33,6 +33,8 @@ interface  imem_if
   (
   input tri clock, 
   input tri reset,
+  input tri fetch_ready,
+  input tri data_mem_rd,
   inout tri [15:0] PC,
   inout tri  instrmem_rd,
   inout tri  I_macc,
@@ -55,26 +57,29 @@ modport initiator_port
   (
   input clock,
   input reset,
-  input PC,
-  input instrmem_rd,
-  input I_macc,
-  output Instr_dout,
-  output complete_instr
-  );
-
-modport responder_port 
-  (
-  input clock,
-  input reset,  
   output PC,
   output instrmem_rd,
   output I_macc,
   input Instr_dout,
   input complete_instr
   );
+
+modport responder_port 
+  (
+  input clock,
+  input reset,
+  input PC,
+  input instrmem_rd,
+  input I_macc,
+  output Instr_dout,
+  output complete_instr
+  );
   
 
 // pragma uvmf custom interface_item_additional begin
+//stage65:passive response metadata, not dut stimulus or a dut port
+tri [15:0] stage65_response_pc;
+tri stage65_response_pc_valid;
 // pragma uvmf custom interface_item_additional end
 
 endinterface
